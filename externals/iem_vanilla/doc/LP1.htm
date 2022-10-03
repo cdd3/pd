@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<HTML>
+  <HEAD>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	 <TITLE>LP1, IIR Filter Documentation</TITLE>
+    <meta http-equiv="Content-Type" content="text/html">
+	 <link rel="stylesheet" type="text/css" href="iirfilterdoc.css" media="screen">
+  </HEAD>
+
+
+<BODY>
+
+<H2>IIR Filter Documentation</H2>
+
+<P>
+This is the HTML documentation on IIR Filters in Pd.
+<H2>1st Order Lowpass</H2> 
+<P>
+    <IMG src="lp1_s.png" style="float: left; width: 18%; margin-right: 0.5%; margin-top: 0.2em;">
+    <IMG src="semi.png" style="float: left; width: 3%; margin-top: 0.5em;">
+    <IMG src="Hz-1_1o.png" style="float: left; width: 22%; margin-right: 0.5%; margin-bottom: 0.5em;">
+    <IMG src="semi.png" style="float: left; width: 3%; margin-top: 0.5em;">
+    <IMG src="diff_eq_1o.png" style="float: left; width: 40%; margin-right: 0.5%; margin-top: 0.7em;">
+    <IMG src="semi.png" style="float: left; width: 3%; margin-top: 0.5em;">
+    <P style="clear: both;">
+<P>
+    <IMG src="sneqifofc.png" style="float: left; width: 40%; margin-right: 0.5%; margin-bottom: 0.5em;">
+    <IMG src="semi.png" style="float: left; width: 3%; margin-top: 0.5em;">
+    bilinear transform with frequency warping from Laplace domain into z-domain <BR>(see "Halbleiter-Schaltungstechnik", U.Tietze & Ch. Schenk, 12. Auflage 2002, Springer, page 1054ff, formula (19.42) ) <BR>(or see <A href="https://en.wikipedia.org/wiki/Bilinear_transform#General_transformation_of_a_continuous-time_IIR_filter" id=s1>
+    <EM>Wikipedia_Bilinear_Transform_Frequency_Warping_ff</EM></A>)
+    <P style="clear: both;"> 
+<P>
+    <IMG src="white.png" style="float: left; width: 2.5%; margin-left: -9%; margin-right: 1%;">
+    
+    <IMG src="hs.png" style="float: left; width: 13%; margin-left: -9%; margin-right: 1%;">
+    <IMG src="dot_chain.png" style="float: left; width: 13%; margin-left: 0%; margin-right: 1%;">
+    transfer function of the lowpass filter in Laplace domain<BR>
+    
+    <IMG src="sn.png" style="float: left; width: 13%; margin-left: -9%; margin-right: 1%;">
+    <IMG src="dot_chain.png" style="float: left; width: 13%; margin-left: 0%; margin-right: 1%;">
+    independent normalized complex spectral variable in Laplace domain<BR>
+    
+    <IMG src="cjdj.png" style="float: left; width: 13%; margin-left: -9%; margin-right: 1%;">
+    <IMG src="dot_chain.png" style="float: left; width: 13%; margin-left: 0%; margin-right: 1%;">
+    polynomial coefficients in z-domain and difference equation<BR>
+    
+    <IMG src="xjyj.png" style="float: left; width: 13%; margin-left: -9%; margin-right: 1%;">
+    <IMG src="dot_chain.png" style="float: left; width: 13%; margin-left: 0%; margin-right: 1%;">
+    j-th samples of the input and output sequence of the difference equation<BR>
+    
+    <IMG src="i.png" style="float: left; width: 13%; margin-left: -9%; margin-right: 1%;">
+    <IMG src="dot_chain.png" style="float: left; width: 13%; margin-left: 0%; margin-right: 1%;">
+    imaginary unit<BR>
+    
+    <IMG src="f.png" style="float: left; width: 13%; margin-left: -9%; margin-right: 1%;">
+    <IMG src="dot_chain.png" style="float: left; width: 13%; margin-left: 0%; margin-right: 1%;">
+    independent frequency<BR>
+    
+    <IMG src="fc.png" style="float: left; width: 13%; margin-left: -9%; margin-right: 1%;">
+    <IMG src="dot_chain.png" style="float: left; width: 13%; margin-left: 0%; margin-right: 1%;">
+    cutoff frequency of the lowpass filter<BR>
+    
+    <IMG src="fs.png" style="float: left; width: 13%; margin-left: -9%; margin-right: 1%;">
+    <IMG src="dot_chain.png" style="float: left; width: 13%; margin-left: 0%; margin-right: 1%;">
+    sampling frequency<BR>
+<HR>
+<P>
+    <IMG src="iem_logo.png" style="float: left; width: 17%; margin-right: 1%; margin-bottom: 0.5em;">
+    <IMG src="kug_logo.png" style="float: left; width: 14%; margin-right: 1%; margin-bottom: 0.5em;">
+    <BR>(c) Thomas Musil @ IEM @ KUG, Graz, Austria, 05.2020
+    <P style="clear: both;">
+</BODY>
+</HTML>
+

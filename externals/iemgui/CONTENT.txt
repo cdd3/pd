@@ -1,0 +1,18 @@
+
+content of iemgui Release 1.21 from November 2018
+
+
+------------------- graphical stuff -------------------------------
+cube_sphere		 a circular area with a selectable number of objects, represented as numbers
+hfadl_scale		 horizontal slider scaling object with fader characteristic and maximum at the left side
+hfadr_scale		 horizontal slider scaling object with fader characteristic and maximum at the right side
+iem_event		 within an invisible rectangular area this object sends mouse- and key-events
+iem_image		 graphical object that displays a gif-file.
+iem_vu			 vertical VU-meter object, (more performance, less graphical properties)
+numberbox_matrix, nbxm	 a two-dimensional matrix of numberboxes
+room_sim_2d		 a rectangular area with a selectable number of objects, represented as numbers
+				plus a listener object
+room_sim_3d		 a rectangular area with a selectable number of objects, represented as numbers
+				plus a listener object, with some special keys you can change the height of the objects
+sym_dial		 similar to a popup button, it changes its state circularly by clicking
+vfad_scale		 vertical slider scaling object with fader characteristic and maximum at the top

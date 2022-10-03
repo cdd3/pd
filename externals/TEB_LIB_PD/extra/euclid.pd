@@ -1,0 +1,27 @@
+#N canvas 956 476 450 300 10;
+#X obj 68 103 expr if ((($f1*$f2)%$f3)<$f2 == 1 \, int((($f1%$f3)/$f3)*$f2)+1
+\, 0) \; if ((($f1*$f2)%$f3)<$f2 == 0 \, int((($f1%$f3)/$f3)*($f3-$f2))+1
+\, 0);
+#X obj 68 32 inlet;
+#X obj 95 199 outlet;
+#X obj 174 32 inlet;
+#X obj 281 35 inlet;
+#X obj 230 35 f \$1;
+#X obj 335 38 f \$2;
+#X obj 230 -18 loadbang;
+#X obj 68 171 sel 0;
+#X obj 308 200 outlet;
+#X obj 281 172 sel 0;
+#X obj 230 9 t b b, f 18;
+#X connect 0 0 8 0;
+#X connect 0 1 10 0;
+#X connect 1 0 0 0;
+#X connect 3 0 0 1;
+#X connect 4 0 0 2;
+#X connect 5 0 0 1;
+#X connect 6 0 0 2;
+#X connect 7 0 11 0;
+#X connect 8 1 2 0;
+#X connect 10 1 9 0;
+#X connect 11 0 5 0;
+#X connect 11 1 6 0;

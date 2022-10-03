@@ -1,0 +1,101 @@
+﻿iem_vanilla contains 66 abstractions and their help files.
+
+This library extends the performance of miller puckette's pure data (pd).
+
+Copyright (C) 2000-2020 Thomas MUSIL [musil_at_iem.at]
+
+
+
+
+content of iem_vanilla Release 1.00 from October 2020
+
+============================ DSP~ ===============================
+
+------------------------- filter~ -------------------------------
+
+allpass_1p~ , allpass_2p~	 allpass 1.order or 2.order
+bandpass_2p~			 bandpass 2.order with Q-inlet
+bandstop_2p~ , notch_2p~	 bandstop 2.order (notch) with Q-inlet
+highpass_1p~ , highpass_2p~	 highpass 1.order or 2.order
+lowpass_1p~ , lowpass_2p~	 lowpass 1.order or 2.order
+resonant_bandpass_2p~		 resonant-bandpass 2.order with Q-inlet
+lowpass_1t~			 lowpass 1.order with time_constant inlet
+shelf_2p~			 shelving filter 2.order with 3 bands
+para_bp_2p~			 parametric bandpass 2.order
+
+------------------------ arithmetic~ ----------------------------
+addl~		 signal-addition with line~
+int_fract~	 a very efficient algorithm to separate the integer part from the fractional part 
+		   of a 32 bit floating-point signal
+mull~		 signal-multiplication with line~
+round~		 signal-float-rounding to the nearest signal-integer-number
+
+------------------------- converter~ ----------------------------
+prvu~		 peak and rms VU-meter interface
+spectroscope~	 display the logarithmical spectral density of a signal
+spectroscope2~   larger display of spectroscope~
+unsig~		 signal to float converter
+
+--------------------------- misc~ -------------------------------
+adctowritesf64~	 dynamical patch with 1 to 64 channel connections from adc~ to writesf~ plus vu-meter
+blockdel~	 delays a signal by one blocksize
+dirac~		 a dirac signal puls generator
+nop~		 no operation, adds a vertex to a signal cord
+peakenv~	 peak envelope shaper
+pink~		 pink noise
+readsftodac64~	 dynamical patch with 1 to 64 channel connections from readsf~ to dac~ plus vu-meter
+vectorsize~	 blocksize of a window in samples
+
+========================= control ==============================
+
+------------- gui (included into millers pd) --------------------
+polar_diagram_500r    circular display of level over angle, zero degree at thr right
+xy_pad_200_200	      2-dimensional xy-slider
+
+--------------------- float operating -------------------------
+1p1z		 float-message-filter 1.order
+db2rms		 dB to rms
+dbtofad		 dB to fader-characteristic
+fadtodb		 fader-characteristic to dB
+fadtorms	 fader-characteristic to rms
+rmstofad	 rms to fader-characteristic
+rms2db		 rms to dB
+
+-------------------- symbol operating -------------------------
+symbol_merge	 merges a list of symbols and floats to a symbol, 
+		   connected by a separator symbol character (default: "")
+symbol_slice	 divides a symbol into a list of symbols, separation point is a certain symbol character
+symbol_split	 divides a symbol into a left and a right part, dividing position is the n-th character.
+splitfilename	 split an incoming symbol into path and filename (separator is the most right "/")
+		   or split the symbol at the n-th character position
+
+------------------- list operating ------------------------
+list_from_r	   receive-name-symbol will be prepended to the received message and sent to output
+list_get_atoms	   extract a sublist of atoms from a list
+list_merge	   convert a serial stream of atoms into a list
+list_remove_atoms  delete a sublist of atoms of a list
+list_replace_atoms replace a sublist of atoms of a list
+list_reverse	   exchange the order of the atoms of a list from begin to end
+list_rev_merge	   convert a serial stream of atoms into a reverse list
+list_rev_slice	   convert a list into a reverse serial stream of atoms
+list_rotate	   shifts the list n times to the left or to the right and feeds the input with the released atom
+list_slice	   convert a list into a serial stream of atoms
+list_sort	   sort a list and its sorting indices
+list_sort2	   sort a list and its sorting indices and sorts a second list in this way
+list_to_s	   the selector symbol of an incomming message will be used for sending the residual part of the message
+
+-------------------------- misc -------------------------------
+any		 a storage for anything-messages
+b_AND_b		 detect 2 bang events at the same time
+c++		 event counter or finite loop-counter
+dsp		 control audio-engine, calculate dsp-performance (aka. dsp~)
+iem_logo	 the blue/yellow emblem of IEM
+nop		 no operation, adds a vertex to a message cord
+once		 any message pass through only the first time
+speedlim	 speed limit for anything messages
+
+-------------------- table operating  -------------------------
+tab2list	 retrieve a certain range of the table content and put out as a list
+tabread2	 read numbers from a table with 2-point interpolation
+tabsize		 read or change the size of a table
+

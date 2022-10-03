@@ -1,0 +1,18 @@
+#N canvas 207 268 641 246 10;
+#X obj 51 47 r \$1;
+#X obj 51 186 s \$2;
+#X obj 51 80 route bang float symbol list;
+#X obj 217 124 list prepend \$1;
+#X text 256 30 1st initial argument: <symbol> send/receive-name of
+one of the sending-inputs;
+#X text 255 64 2nd initial argument: <symbol> send/receive-name of
+the collecting output;
+#X obj 51 129 list prepend \$1 list;
+#X connect 0 0 2 0;
+#X connect 2 0 6 0;
+#X connect 2 1 6 0;
+#X connect 2 2 6 0;
+#X connect 2 3 6 0;
+#X connect 2 4 3 0;
+#X connect 3 0 1 0;
+#X connect 6 0 1 0;

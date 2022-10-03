@@ -1,0 +1,17 @@
+
+
+Compiled 9/26/2018 with sources from https://github.com/reduzent/pd-ggee/tree/master
+
+I changed the makefile line 99:
+
+ifeq ($(uname), MINGW)
+  ldlibs = -lwsock32
+endif
+
+to just:
+
+ ldlibs = -lwsock32
+ 
+Seems 'ifeq' is not working on MINGW64.
+
+

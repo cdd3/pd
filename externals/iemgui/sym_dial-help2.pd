@@ -1,0 +1,17 @@
+#N canvas 242 49 666 489 10;
+#X obj 104 157 sdl 6 14 0 0 empty empty ddd 59 7 0 9 -4034 -258113
+-60 0 3 aaa bbb ccc;
+#X msg 131 77 set_item_name bbb 1;
+#X msg 135 52 set_item_name aaa 0;
+#X msg 130 110 set_item_name ccc 2;
+#X symbolatom 173 183 10 0 0 0 - - -, f 10;
+#X floatatom 78 194 5 0 0 0 - - -, f 5;
+#X obj 371 156 iem_vu 16 120 empty empty -1 -8 0 8 -4034 -1 1 0;
+#X obj 89 258 sdl 6 14 0 0 14 0 eee 59 7 0 9 -4034 -258113 -4160 0
+1 sdl;
+#X obj 499 153 iem_vu 16 120 empty empty -1 -8 0 8 -4034 -1 1 0;
+#X connect 0 0 5 0;
+#X connect 0 1 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;

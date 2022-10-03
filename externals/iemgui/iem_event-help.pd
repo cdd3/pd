@@ -1,0 +1,58 @@
+#N canvas 387 61 565 382 10;
+#X obj 66 125 ivnt 100 100 0 0 empty empty;
+#X obj 66 125 cnv 15 100 100 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 66 261 unpack;
+#X floatatom 66 284 5 0 0 0 - - -, f 5;
+#X floatatom 103 286 5 0 0 0 - - -, f 5;
+#X obj 74 333 print;
+#X obj 148 263 unpack;
+#X floatatom 148 286 5 0 0 0 - - -, f 5;
+#X floatatom 185 288 5 0 0 0 - - -, f 5;
+#X obj 229 262 unpack 0 0 0;
+#X obj 229 289 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 262 289 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 296 290 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 66 231 route move_x_y dragg_x_y mouse_shft_alt key;
+#X obj 369 262 sel 0 127;
+#X obj 352 350 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 384 330 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 418 287 makefilename %c;
+#X symbolatom 418 310 2 0 0 0 - - -, f 2;
+#X text 372 350 return and end;
+#X text 404 328 backspace = correct;
+#X msg 66 59 size 100 100;
+#X msg 79 80 send from_ivnt;
+#X msg 92 101 receive to_ivnt;
+#N canvas 45 259 450 300 (subpatch) 0;
+#X text 103 101 iem_event;
+#X coords 0 -1 1 1 62 18 2 100 100;
+#X restore 270 129 pd;
+#X text 13 8 iem_event;
+#X text 102 7 output mouse coordinates \, mouse key state \, control-
+\, alternate- and shift-key state within the defined event rectangle
+, f 64;
+#X connect 0 0 13 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 9 0 10 0;
+#X connect 9 1 11 0;
+#X connect 9 2 12 0;
+#X connect 13 0 2 0;
+#X connect 13 1 6 0;
+#X connect 13 2 9 0;
+#X connect 13 3 14 0;
+#X connect 14 0 15 0;
+#X connect 14 1 16 0;
+#X connect 14 2 17 0;
+#X connect 17 0 18 0;
+#X connect 21 0 0 0;
+#X connect 22 0 0 0;
+#X connect 23 0 0 0;

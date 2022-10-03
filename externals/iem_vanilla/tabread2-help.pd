@@ -1,0 +1,43 @@
+#N canvas 247 305 756 429 10;
+#X floatatom 47 70 0 0 0 0 - - -;
+#X floatatom 47 167 0 0 0 0 - - -;
+#N canvas 0 50 450 300 (subpatch) 0;
+#X array \$0-array 10 float 3;
+#A 0 2 2.5 3 4 6 9 9.5 10 7 1;
+#X coords 0 10 10 0 250 200 1 0 0;
+#X restore 442 86 graph;
+#X text 191 134 creation argument;
+#X text 193 150 gives array name;
+#X text 195 56 change array name;
+#X obj 20 245 loadbang;
+#X text 100 14 read numbers from a table with 2-point interpolation
+;
+#X obj 20 298 f \$0;
+#X msg 20 325 \; \$1-array 0 2 2.5 3 4 6 9 9.5 10 7 1 \; \$1-array
+xlabel -0.5 0 1 2 3 4 5 6 7 8 9 10 \; \$1-array ylabel -1 0 1 2 3 4
+5 6 7 8 9 10;
+#X msg 30 273 bang;
+#X obj 47 142 tabread2 \$0-array;
+#X msg 152 56 bang;
+#X text 84 69 findex;
+#X text 8 197 output = \$0-array[floor(findex)] + fract(findex) * (\$0-array[floor(findex)
++ 1] - \$0-array[floor(findex)]);
+#X obj 152 78 symbol \$0-array;
+#X msg 152 100 set \$1;
+#X text 14 15 tabread2;
+#X text 26 36 part of iem_vanilla;
+#X text 489 372 IEM KUG;
+#X text 473 360 musil;
+#X text 503 360 @;
+#X text 509 360 iem.at;
+#X text 472 382 Graz \, Austria;
+#X text 484 336 iem_vanilla;
+#X text 424 349 (c) Thomas Musil 2000 - 2019;
+#X connect 0 0 11 0;
+#X connect 6 0 8 0;
+#X connect 8 0 9 0;
+#X connect 10 0 8 0;
+#X connect 11 0 1 0;
+#X connect 12 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 11 0;

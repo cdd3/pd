@@ -1,0 +1,16 @@
+#N canvas 215 199 450 300 10;
+#X obj 88 125 db2rms;
+#X floatatom 88 97 5 0 0 0 - - -;
+#X floatatom 88 155 11 0 0 0 - - -;
+#X text 249 142 IEM KUG;
+#X text 233 130 musil;
+#X text 263 130 @;
+#X text 269 130 iem.at;
+#X text 232 152 Graz \, Austria;
+#X text 244 106 iem_vanilla;
+#X text 184 119 (c) Thomas Musil 2000 - 2019;
+#X text 44 40 part of iem_vanilla;
+#X text 26 11 db2rms;
+#X text 121 14 convert dB to rms value;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;

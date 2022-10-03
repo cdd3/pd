@@ -1,0 +1,580 @@
+#N canvas 43 38 1349 726 10;
+#X msg 101 306 ch 15;
+#X msg 101 325 ch 25;
+#X msg 1177 184 clear;
+#X obj 101 466 adctowritesf64~;
+#X msg 101 227 ch 1;
+#X msg 101 344 ch 64;
+#X msg 1019 203 stop;
+#X msg 1019 179 start;
+#X obj 1019 384 t a;
+#X obj 1097 192 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X msg 1066 200 0;
+#X msg 1062 179 1;
+#X msg 1177 366 print;
+#X obj 101 393 t a;
+#X msg 630 144 bytespersample 2;
+#X msg 630 167 bytespersample 3;
+#X msg 630 190 bytespersample 4;
+#X obj 784 392 t a;
+#X obj 784 172 savepanel;
+#X obj 784 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 101 247 ch 2;
+#X msg 101 267 ch 5;
+#X msg 784 193 create \$1;
+#X msg 784 223 create /tmp/delete_me.wav;
+#X msg 784 278 overwrite;
+#X obj 18 49 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 18 92 5 0 0 0 - - -;
+#X text 72 104 number of audio channels;
+#X text 585 104 number of bytes per sample in one channel, f 26;
+#X text 779 105 soundfile name creation message;
+#X text 1004 107 start and stop message of recording session, f 23
+;
+#N canvas 0 50 450 300 dsp 0;
+#X obj 20 65 inlet;
+#X obj 20 399 outlet;
+#X msg 31 88 \; pd dsp \$1;
+#X obj 20 199 cputime;
+#X obj 20 178 t b b;
+#X text 15 11 dsp;
+#X text 59 65 1/0 = ON/OFF;
+#X text 62 241 CPU-load;
+#X obj 62 126 loadbang;
+#X obj 20 126 sel 1;
+#X text 64 12 turn dsp-kernel on & off \,;
+#X obj 20 240 t f f;
+#X obj 211 405 outlet;
+#X text 65 401 average;
+#X text 177 405 peak;
+#X obj 211 154 f;
+#X obj 146 179 > -1;
+#X obj 169 155 f -1;
+#X obj 179 91 t f b f;
+#X obj 146 204 sel 1;
+#X obj 192 132 f -1;
+#X obj 20 154 metro 500;
+#X obj 20 220 * 0.2;
+#X text 74 37 -dsp-load in %;
+#X text 65 24 measure average- and peak-;
+#X obj 20 308 * 100;
+#X obj 20 353 int;
+#X obj 20 331 + 0.499;
+#X obj 20 376 * 0.01;
+#X obj 246 207 r pd;
+#X obj 246 231 route dsp;
+#X text 245 318 to toggle input;
+#X msg 246 283 \; dsp_tgl set \$1;
+#X obj 247 341 r dsp_tgl;
+#X obj 246 257 route float;
+#X obj 146 227 del 3990;
+#X text 176 455 IEM KUG;
+#X text 160 443 musil;
+#X text 190 443 @;
+#X text 196 443 iem.at;
+#X text 111 432 (c) Thomas Musil 2000 - 2019;
+#X text 159 465 Graz \, Austria;
+#N canvas 0 50 526 475 once 0;
+#X obj 89 162 spigot;
+#X obj 34 59 inlet;
+#X obj 89 111 t a b;
+#X obj 126 140 f 1;
+#X obj 89 194 t a b;
+#X obj 119 216 f 0;
+#X obj 89 247 outlet;
+#X obj 207 56 inlet;
+#X obj 207 79 bang;
+#X obj 207 102 f 1;
+#X text 8 6 once;
+#X text 64 7 only the first message passes through;
+#X text 29 37 message in;
+#X text 29 289 message out (only once);
+#X text 203 36 anything to init once;
+#X obj 34 80 route bang;
+#X obj 34 110 t b b;
+#X obj 34 162 spigot;
+#X obj 34 194 t b b;
+#X text 96 375 IEM KUG;
+#X text 80 363 musil;
+#X text 110 363 @;
+#X text 116 363 iem.at;
+#X text 31 352 (c) Thomas Musil 2000 - 2019;
+#X text 79 385 Graz \, Austria;
+#X text 102 336 @;
+#X text 108 336 iem.at;
+#X text 30 336 (c) zmoelnig;
+#X connect 0 0 4 0;
+#X connect 1 0 15 0;
+#X connect 2 0 0 0;
+#X connect 2 1 3 0;
+#X connect 3 0 0 1;
+#X connect 3 0 17 1;
+#X connect 4 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 1;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 3 1;
+#X connect 15 0 16 0;
+#X connect 15 1 2 0;
+#X connect 16 0 17 0;
+#X connect 16 1 3 0;
+#X connect 17 0 18 0;
+#X connect 18 0 6 0;
+#X connect 18 1 5 0;
+#X restore 52 263 pd once;
+#N canvas 0 50 570 369 1p1z 0;
+#X text 176 295 IEM KUG;
+#X obj 22 221 +;
+#X text 8 6 1p1z;
+#X obj 169 71 inlet;
+#X obj 22 49 inlet;
+#X obj 22 243 outlet;
+#X text 104 22 y[n] = a0*x[n] + a1*x[n-1] + b1*y[n-1];
+#X text 176 53 a0;
+#X text 25 34 x[n];
+#X text 24 259 y[n];
+#X obj 206 71 inlet;
+#X text 213 53 a1;
+#X obj 242 71 inlet;
+#X text 249 53 b1;
+#X obj 284 52 loadbang;
+#X text 71 101 x[n-1];
+#X obj 40 202 +;
+#X obj 22 133 *;
+#X obj 40 160 *;
+#X obj 59 182 *;
+#X text 90 142 y[n-1];
+#X obj 284 72 t b b b;
+#X obj 40 98 f;
+#X obj 64 139 f;
+#X obj 22 71 t f b b;
+#X obj 352 83 inlet;
+#X obj 430 123 inlet;
+#X text 346 66 x[n-1]init;
+#X text 428 105 y[n-1]init;
+#X text 147 202 1.arg: <float> a0;
+#X text 147 213 2.arg: <float> a1;
+#X text 147 224 3.arg: <float> b1;
+#X text 63 5 <float> control-IIR-filter 1.order;
+#X text 160 283 musil;
+#X text 190 283 @;
+#X text 196 283 iem.at;
+#X text 111 272 (c) Thomas Musil 2000 - 2019;
+#X text 159 305 Graz \, Austria;
+#X obj 169 118 f 0.1;
+#X obj 242 167 f 0.9;
+#X obj 206 145 f 0;
+#X connect 1 0 5 0;
+#X connect 1 0 23 1;
+#X connect 3 0 38 0;
+#X connect 4 0 24 0;
+#X connect 10 0 40 0;
+#X connect 12 0 39 0;
+#X connect 14 0 21 0;
+#X connect 16 0 1 1;
+#X connect 17 0 1 0;
+#X connect 18 0 16 0;
+#X connect 19 0 16 1;
+#X connect 21 0 38 0;
+#X connect 21 1 40 0;
+#X connect 21 2 39 0;
+#X connect 22 0 18 0;
+#X connect 23 0 19 0;
+#X connect 24 0 17 0;
+#X connect 24 0 22 1;
+#X connect 24 1 22 0;
+#X connect 24 2 23 0;
+#X connect 25 0 22 1;
+#X connect 26 0 23 1;
+#X connect 38 0 17 1;
+#X connect 39 0 19 1;
+#X connect 40 0 18 1;
+#X restore 20 287 pd 1p1z;
+#X connect 0 0 2 0;
+#X connect 0 0 9 0;
+#X connect 3 0 22 0;
+#X connect 4 0 3 0;
+#X connect 4 1 3 1;
+#X connect 8 0 21 0;
+#X connect 9 0 21 0;
+#X connect 11 0 43 0;
+#X connect 11 1 42 0;
+#X connect 15 0 17 1;
+#X connect 15 0 12 0;
+#X connect 16 0 19 0;
+#X connect 17 0 16 1;
+#X connect 18 0 16 0;
+#X connect 18 1 17 0;
+#X connect 18 2 15 1;
+#X connect 19 0 15 0;
+#X connect 19 0 35 0;
+#X connect 20 0 17 1;
+#X connect 21 0 4 0;
+#X connect 22 0 11 0;
+#X connect 22 0 18 0;
+#X connect 25 0 27 0;
+#X connect 26 0 28 0;
+#X connect 27 0 26 0;
+#X connect 28 0 1 0;
+#X connect 29 0 30 0;
+#X connect 30 0 34 0;
+#X connect 34 0 32 0;
+#X connect 35 0 20 0;
+#X connect 42 0 43 4;
+#X connect 42 0 43 5;
+#X connect 43 0 25 0;
+#X restore 18 69 pd dsp;
+#X floatatom 62 70 5 0 0 0 - - -;
+#X text 36 13 adctowritesf64~;
+#X text 1201 55 IEM KUG;
+#X text 1185 43 musil;
+#X text 1215 43 @;
+#X text 1221 43 iem.at;
+#X text 1184 65 Graz \, Austria;
+#X text 1136 32 (c) Thomas Musil 2000 - 2019;
+#X text 1196 19 iem_vanilla;
+#X text 81 43 part of iem_vanilla;
+#X msg 784 244 create delete_me_5ch.wav;
+#X msg 101 124 ch 5;
+#N canvas 570 18 617 458 (subpatch) 0;
+#X obj 100 100 cnv 1 2 2 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 119 13 loadbang;
+#X obj 138 194 spigot 1;
+#X msg 119 72 1;
+#X obj 183 171 == 0;
+#X obj 109 148 v;
+#X obj 183 149 v;
+#X obj 119 37 t b b b b;
+#N canvas 0 50 450 336 (subpatch) 0;
+#X msg 122 226 set \$1;
+#X obj 112 248 makefilename;
+#X obj 122 183 symbol;
+#X obj 90 161 t f b;
+#X obj 112 88 list append;
+#X obj 112 111 list split 1;
+#X obj 112 61 until;
+#X obj 193 136 t b b;
+#X obj 112 37 t b l b;
+#X msg 161 161 symbol;
+#X obj 128 271 symbol;
+#X obj 122 205 makefilename %s%%c;
+#X obj 112 16 inlet;
+#X obj 128 294 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 1;
+#X connect 1 0 10 1;
+#X connect 2 0 11 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 5 1 4 1;
+#X connect 5 2 7 0;
+#X connect 6 0 4 0;
+#X connect 7 0 10 0;
+#X connect 7 1 6 1;
+#X connect 8 0 6 0;
+#X connect 8 1 4 0;
+#X connect 8 2 9 0;
+#X connect 9 0 2 1;
+#X connect 10 0 13 0;
+#X connect 11 0 0 0;
+#X connect 12 0 8 0;
+#X restore 185 101 pd;
+#X msg 185 69 107 54 74 53 98 56 118 50 99 49 108 48 120 53 70 54 105
+51 109 56 74 54 114 52 100 51;
+#X obj 138 335 route 1;
+#X msg 138 315 1 \$1;
+#X obj 138 356 print -n;
+#N canvas 0 50 776 769 (subpatch) 0;
+#X msg 123 510 set \$1;
+#X obj 121 540 makefilename;
+#X obj 123 467 symbol;
+#X obj 81 439 t f b;
+#X obj 112 88 list append;
+#X obj 112 111 list split 1;
+#X obj 112 61 until;
+#X obj 194 420 t b b;
+#X obj 112 37 t b l b;
+#X msg 162 445 symbol;
+#X obj 142 567 symbol;
+#X obj 123 489 makefilename %s%%c;
+#X obj 112 16 inlet;
+#X obj 142 590 outlet;
+#X obj 90 135 moses 0;
+#X obj 86 177 * -1;
+#X obj 84 206 t f b;
+#X obj 107 305 spigot 0;
+#X obj 87 277 spigot 1;
+#X msg 122 245 0;
+#X msg 167 276 1;
+#X obj 100 363 f;
+#X msg 198 276 0;
+#X msg 152 245 1;
+#X obj 99 385 until;
+#X obj 108 326 t b b f;
+#X obj 123 411 f;
+#X obj 157 181 f;
+#X obj 187 161 + 1;
+#X obj 186 183 % 23;
+#X obj 133 159 t f b;
+#X obj 133 206 -, f 9;
+#X msg 218 160 17;
+#X connect 0 0 1 0;
+#X connect 1 0 2 1;
+#X connect 1 0 10 1;
+#X connect 2 0 11 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 14 0;
+#X connect 5 1 4 1;
+#X connect 5 2 7 0;
+#X connect 6 0 4 0;
+#X connect 7 0 10 0;
+#X connect 7 1 6 1;
+#X connect 8 0 6 0;
+#X connect 8 1 4 0;
+#X connect 8 2 9 0;
+#X connect 8 2 32 0;
+#X connect 9 0 2 1;
+#X connect 10 0 13 0;
+#X connect 11 0 0 0;
+#X connect 12 0 8 0;
+#X connect 14 0 15 0;
+#X connect 14 1 30 0;
+#X connect 15 0 16 0;
+#X connect 16 0 21 1;
+#X connect 16 1 19 0;
+#X connect 16 1 20 0;
+#X connect 17 0 25 0;
+#X connect 18 0 3 0;
+#X connect 19 0 18 1;
+#X connect 20 0 17 1;
+#X connect 21 0 24 0;
+#X connect 22 0 17 1;
+#X connect 23 0 18 1;
+#X connect 24 0 26 0;
+#X connect 25 0 22 0;
+#X connect 25 0 23 0;
+#X connect 25 1 21 0;
+#X connect 25 2 26 1;
+#X connect 26 0 3 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 29 0 27 1;
+#X connect 29 0 31 1;
+#X connect 30 0 31 0;
+#X connect 30 1 27 0;
+#X connect 31 0 18 0;
+#X connect 31 0 17 0;
+#X connect 32 0 28 0;
+#X restore 138 294 pd;
+#X msg 138 217 143 -36 62 31 146 -13 32 106 103 112 99 123 103 117
+113 117 118 108 22 137 46 47 48 57 117 60 52 53 106 104 112 111 100
+119 37 83 124 123 114 118 43 62 61 62 63 48 62 50 69 68 70 79 10 125
+34 35 36 114 123 122 113 117 74 116 113 122 60 112 132 49 50 51 93
+90 99 32 76 87 74 48 37 77 121 105 131 20 50 -36 54;
+#X connect 1 0 7 0;
+#X connect 2 0 14 0;
+#X connect 3 0 5 0;
+#X connect 4 0 2 1;
+#X connect 6 0 4 0;
+#X connect 7 0 3 0;
+#X connect 7 1 2 0;
+#X connect 7 2 6 0;
+#X connect 7 3 9 0;
+#X connect 8 0 6 1;
+#X connect 8 0 5 1;
+#X connect 9 0 8 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 0;
+#X connect 13 0 11 0;
+#X connect 14 0 13 0;
+#X coords 0 -1 1 1 1 1 2 100 100;
+#X restore 44 5 pd;
+#X text 574 12 !!! dependency: adctowritesf64~.pd needs prvu~.pd !!!
+;
+#X msg 275 152 gain 0.1 0.5 0.2 0.7 0.3;
+#X obj 630 390 t a;
+#X text 104 89 1.);
+#X text 274 89 2a.);
+#X text 314 89 2b.);
+#X text 641 63 3.);
+#X text 791 63 4.);
+#X text 1011 63 5.);
+#X obj 275 390 t a;
+#X obj 1177 395 t a;
+#X text 851 272 repeat to create prev. soundfile, f 17;
+#X text 1222 172 clear all graphics and dsp-functions, f 16;
+#X msg 275 132 ch_permutation 1 5 2 7 3;
+#X text 272 104 channel permutation list + gain list;
+#N canvas 169 187 909 464 exactly_description 0;
+#X text 332 228 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0, f 13;
+#X text 338 189 Nullmatrix Z;
+#X text 336 200 N_rec x N_adc;
+#X text 479 186 Einheitsmatrix E;
+#X text 485 197 N_adc x N_adc;
+#X text 483 218 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0
+0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1, f 13;
+#X text 631 198 N_rec x N_adc;
+#X text 107 198 N_rec x 1;
+#X text 126 228 1 5 2 7 3, f 1;
+#X text 627 228 0.1 0 0 0 0 0 0 0 0 0 0 0.5 0 0 0 0.2 0 0 0 0 0 0 0
+0 0 0 0 0.7 0 0 0.3 0 0 0 0, f 15;
+#X text 247 228 0.1 0.5 0.2 0.7 0.3, f 3;
+#X text 227 198 N_rec x 1;
+#X text 158 347 rec_1 rec_2 rec_3 rec_4 rec_5, f 5;
+#X text 332 348 0.1 0 0 0 0 0 0 0 0 0 0 0.5 0 0 0 0.2 0 0 0 0 0 0 0
+0 0 0 0 0.7 0 0 0.3 0 0 0 0, f 15;
+#X text 488 336 adc_1 adc_2 adc_3 adc_4 adc_5 adc_6 adc_7, f 6;
+#X text 100 175 ch_permutation matrix Perm, f 14;
+#X text 227 176 gain matrix Gain, f 11;
+#X text 625 176 gewichtete Permutations matrix WghtPerm, f 23;
+#X obj 105 255 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 103 255 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144 0
+;
+#X obj 154 255 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 156 255 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144 0
+;
+#X obj 227 255 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 225 255 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144 0
+;
+#X obj 285 255 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 287 255 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144 0
+;
+#X obj 311 255 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 309 255 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144 0
+;
+#X obj 432 255 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 434 255 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144 0
+;
+#X obj 457 255 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 455 255 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144 0
+;
+#X obj 587 255 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 589 255 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144 0
+;
+#X obj 607 255 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 605 255 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144 0
+;
+#X obj 737 255 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 739 255 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144 0
+;
+#X obj 312 375 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 310 375 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144 0
+;
+#X obj 442 375 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 444 375 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144 0
+;
+#X obj 462 375 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 460 375 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144 0
+;
+#X obj 542 375 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 544 375 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144 0
+;
+#X obj 137 375 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 135 375 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144 0
+;
+#X obj 210 375 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 212 375 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144 0
+;
+#X text 451 370 *;
+#X text 309 371 =;
+#X text 209 369 =;
+#X text 225 345 adc_1 * 0.1 adc_5 * 0.5 adc_2 * 0.2 adc_7 * 0.7 adc_3
+* 0.3, f 12;
+#X text 72 68 Die gewichtete Permutationsmatrix WghtPerm wird durch
+die ch_permutation-Liste Perm und gain-Liste Gain gebildet \; Beide
+besitzen die Dimension N_rec x 1 Der Wert des rec_i-ten Elements von
+der ersten Liste Perm beträgt adc_i \; Der Wert des rec_i-ten Elements
+von der zweiten Liste Gain beträgt gain(rec_i) \; Zuerst definiert
+man eine Nullmatrix Z der Dimension N_adc x N_rec und eine Einheitsmatrix
+E der Dimension N_adc x N_adc \; Dann ersetzt man die rec_i-te Zeile
+der Nullmatrix Z durch die adc_i-te Zeile der Einheitsmatrix E \; zuvor
+wird diese Zeile elementweise multipliziert mit dem rec_i-ten Element
+der Gainmatrix Gain für alle 1 <= i <= N_rec \; In diesem Beispiel
+korrespondieren die Gain-Gewichte mit den ADC-Indizes., f 133;
+#X restore 1001 455 pd exactly_description;
+#X text 295 183 index rec_i .... record channel from 1 to N_rec;
+#X text 295 196 index adc_i .... adc channel from 1 to N_adc;
+#X text 295 209 list Perm ..... permutation list \, adc_i = Perm(rec_i)
+;
+#X text 295 222 list Gain ..... gain list \, weight[rec_i] = Gain(rec_i)
+;
+#X text 295 242 The rec_i-th VU meter display the level of the rec_i-th
+recorder channel input (1 <= i <= N_rec) \; or the adc_i-th ADC input
+multiplied with the rec_i-th gain., f 52;
+#X text 932 513 rec_1 rec_2 rec_3 rec_4 rec_5, f 5;
+#X text 1106 514 0.1 0 0 0 0 0 0 0 0 0 0 0.5 0 0 0 0.2 0 0 0 0 0 0
+0 0 0 0 0 0.7 0 0 0.3 0 0 0 0, f 15;
+#X text 1262 502 adc_1 adc_2 adc_3 adc_4 adc_5 adc_6 adc_7, f 6;
+#X obj 1086 541 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 1084 541 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144
+0;
+#X obj 1216 541 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 1218 541 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144
+0;
+#X obj 1236 541 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 1234 541 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144
+0;
+#X obj 1316 541 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 1318 541 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144
+0;
+#X obj 911 541 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -1 0;
+#X obj 909 541 cnv 5 1 1 empty empty ( -10 0 0 78 -262144 -262144 0
+;
+#X obj 984 541 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -1 0;
+#X obj 986 541 cnv 5 1 1 empty empty ) -32 0 0 78 -262144 -262144 0
+;
+#X text 1225 536 *;
+#X text 1083 537 =;
+#X text 983 535 =;
+#X text 999 511 adc_1 * 0.1 adc_5 * 0.5 adc_2 * 0.2 adc_7 * 0.7 adc_3
+* 0.3, f 12;
+#X text 175 10 dynamical patch with 1 to 64 channel connections from
+a adc~ object with "N" channels to a writesf~ with "n" channels object
+plus "N" vu-meters. The "N" channel signals will be multiplied by a
+permutation-gain-matrix (N * N);
+#X text 909 483 this is an example for N=5 ch recording with a permutation
+matrix, f 68;
+#X connect 0 0 13 0;
+#X connect 1 0 13 0;
+#X connect 2 0 55 0;
+#X connect 4 0 13 0;
+#X connect 5 0 13 0;
+#X connect 6 0 8 0;
+#X connect 7 0 8 0;
+#X connect 8 0 3 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X connect 12 0 55 0;
+#X connect 13 0 3 0;
+#X connect 14 0 47 0;
+#X connect 15 0 47 0;
+#X connect 16 0 47 0;
+#X connect 17 0 3 0;
+#X connect 18 0 22 0;
+#X connect 19 0 18 0;
+#X connect 20 0 13 0;
+#X connect 21 0 13 0;
+#X connect 22 0 17 0;
+#X connect 23 0 17 0;
+#X connect 24 0 17 0;
+#X connect 25 0 31 0;
+#X connect 31 0 26 0;
+#X connect 31 1 32 0;
+#X connect 42 0 17 0;
+#X connect 43 0 13 0;
+#X connect 46 0 54 0;
+#X connect 47 0 3 0;
+#X connect 54 0 3 0;
+#X connect 55 0 3 0;
+#X connect 58 0 54 0;

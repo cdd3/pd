@@ -1,0 +1,15 @@
+#N canvas 298 390 637 474 10;
+#X obj 159 32 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 159 53 openpanel;
+#X msg 159 74 open \$1;
+#X obj 159 144 iem_image 0 0 0 empty empty;
+#X msg 280 50 clear;
+#X msg 352 50 delta 1 1;
+#X msg 368 85 delta -1 -1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X connect 6 0 3 0;

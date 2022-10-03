@@ -1,0 +1,17 @@
+#N canvas 242 49 666 489 10;
+#X msg 131 77 set_item_name bbb 1;
+#X msg 135 52 set_item_name aaa 0;
+#X msg 130 110 set_item_name ccc 2;
+#X symbolatom 173 183 10 0 0 0 - - -, f 10;
+#X floatatom 78 194 5 0 0 0 - - -, f 5;
+#X obj 371 156 iem_vu 16 120 empty empty -1 -8 0 8 -4034 -1 1 0;
+#X obj 60 355 sdl 6 14 0 0 14 0 llaabbeell 59 7 0 9 -258049 -4033 -64
+0 3 aaa bbb ccc;
+#X msg 202 289 set_item_name bbb 1;
+#X msg 206 264 set_item_name aaa 0;
+#X msg 201 322 set_item_name ccc 2;
+#X obj 65 388 sdl 6 14 0 0 14 0 llaabbeell 59 7 0 9 -258049 -4033 -64
+0 3 aaa bbb ccc;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;

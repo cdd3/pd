@@ -1,0 +1,1506 @@
+#N struct 1012-rad-base float light_frame_col float dark_frame_col
+float ground_col float vis;
+#N struct 1012-rad-label float col float x0 float y0 float vis symbol
+label;
+#N struct 1012-rad-grid float col_dark float col_light float vis;
+#N struct 1012-rad-diagr float x0 float y0 float w0 float col float
+vis array 1012-diagr-array 1012-point;
+#N struct 1012-point float x float y;
+#N canvas 110 67 1152 612 10;
+#X obj 689 176 loadbang;
+#X obj 773 98 inlet;
+#X obj 1047 95 inlet;
+#X text 1045 73 properties;
+#X obj 773 127 route list set;
+#X obj 813 186 t l;
+#X obj 773 156 t l l, f 9;
+#X text 716 74 index / x-pos / y-pos;
+#X msg 689 203 bang;
+#N canvas 50 50 1226 357 init_base_template 0;
+#X obj 69 249 outlet;
+#X obj 69 19 inlet;
+#X text 969 135 ground;
+#X text 869 238 data-structure;
+#X msg 234 104 traverse \$1 \, bang;
+#X obj 234 126 pointer;
+#X msg 249 52 bang;
+#X obj 1494 78 / 160;
+#X obj 1494 100 * 200;
+#X obj 1414 192 list prepend set;
+#X obj 1414 223 list trim;
+#X msg 1414 254;
+#X msg 1411 22;
+#X obj 1486 395 *;
+#X floatatom 1486 417 9 0 0 0 - - -;
+#X msg 1380 385 169.68;
+#X msg 1487 436 set \$1;
+#X msg 1487 458 150.591;
+#X msg 1375 435 155.54;
+#X msg 1395 456 160.489;
+#X msg 1486 373 213 0.707;
+#X msg 1399 419 150.591;
+#N canvas 0 50 450 300 list_dribble 0;
+#X restore 1412 45 pd list_dribble;
+#N canvas 0 50 450 300 list_collect 0;
+#X restore 1414 145 pd list_collect;
+#X text 51 276 base data pointer;
+#X obj 69 48 t b b, f 24;
+#X obj 234 81 symbol pd-\$0-base_;
+#X obj 69 177 append \$0-rad-base light_frame_col dark_frame_col ground_col
+vis, f 24;
+#X text 828 55 light frame top left;
+#X text 832 96 dark frame bottom right;
+#X obj 422 234 struct \$0-rad-base float light_frame_col float dark_frame_col
+float ground_col float vis, f 61;
+#X obj 427 51 filledpolygon -v vis -x light_frame_col light_frame_col
+0 -255 255 255 255 -255 -255 -255 255, f 56;
+#X obj 427 91 filledpolygon -v vis -x dark_frame_col dark_frame_col
+0 255 -255 -255 -255 255 255 255 -255, f 54;
+#X obj 426 137 filledpolygon -v vis -x ground_col 0 0 -250 -250 250
+-250 250 250 -250 250, f 75;
+#X text 83 136 852;
+#X msg 69 108 963 741 987 1;
+#X connect 1 0 25 0;
+#X connect 4 0 5 0;
+#X connect 5 0 27 4;
+#X connect 6 0 26 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 16 0;
+#X connect 16 0 17 0;
+#X connect 20 0 13 0;
+#X connect 25 0 35 0;
+#X connect 25 1 26 0;
+#X connect 26 0 4 0;
+#X connect 27 0 0 0;
+#X connect 35 0 27 0;
+#X restore 780 284 pd init_base_template;
+#N canvas 160 134 575 232 clear_label&grid&base&diagr_data 0;
+#X obj 29 24 inlet;
+#X msg 29 77 clear;
+#X msg 158 78 clear;
+#X msg 370 80 clear;
+#X msg 262 77 clear;
+#X obj 370 105 s pd-\$0-label_;
+#X obj 158 104 s pd-\$0-base_;
+#X obj 262 103 s pd-\$0-grid_;
+#X obj 29 103 s pd-\$0-diagr_;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 1 0 8 0;
+#X connect 2 0 6 0;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X restore 804 256 pd clear_label&grid&base&diagr_data;
+#N canvas 51 28 1660 945 init_grid_template 0;
+#X obj 69 215 outlet;
+#X obj 69 19 inlet;
+#X text 201 714 data-structure;
+#X msg 186 106 traverse \$1 \, bang;
+#X obj 186 128 pointer;
+#X msg 219 62 bang;
+#X obj 1242 214 list prepend set;
+#X obj 1242 245 list trim;
+#X obj 1314 343 *;
+#X floatatom 1314 365 9 0 0 0 - - -;
+#X msg 1208 333 169.68;
+#X msg 1315 384 set \$1;
+#X msg 1315 406 150.591;
+#X msg 1203 383 155.54;
+#X msg 1223 404 160.489;
+#X msg 1314 321 213 0.707;
+#X msg 1227 367 150.591;
+#X obj 69 57 t b b, f 20;
+#X text 65 239 grid data pointer;
+#X obj 186 83 symbol pd-\$0-grid_;
+#X obj 1322 100 / 200;
+#X obj 1322 122 * 25;
+#X msg 1242 276;
+#X msg 1240 37;
+#X obj 347 479 drawcurve -v vis col_light 1 175 0 173.62 21.9333 169.501
+43.5207 162.711 64.4218 153.353 84.3069 141.578 102.862 127.57 119.796
+111.549 134.839 93.7694 147.757 74.5114 158.344 54.078 166.435 32.7917
+171.901 10.9883 174.654 -10.9883 174.654 -32.7917 171.901 -54.078 166.435
+-74.5114 158.344 -93.7694 147.757 -111.549 134.839 -127.57 119.796
+-141.578 102.862 -153.353 84.3069 -162.711 64.4218 -169.501 43.5207
+-173.62 21.9333 -175 0 -173.62 -21.9333 -169.501 -43.5207 -162.711
+-64.4219 -153.353 -84.3069 -141.578 -102.862 -127.57 -119.796 -111.549
+-134.839 -93.7694 -147.757 -74.5113 -158.344 -54.078 -166.435 -32.7916
+-171.901 -10.9882 -174.654 10.9883 -174.654 32.7917 -171.901 54.078
+-166.435 74.5114 -158.344 93.7694 -147.757 111.549 -134.839 127.57
+-119.795 141.578 -102.862 153.353 -84.3068 162.711 -64.4218 169.501
+-43.5207 173.62 -21.9333 175 0;
+#X obj 777 289 drawcurve -v vis col_light 1 125 0 124.014 15.6666 121.073
+31.0862 116.222 46.0156 109.538 60.2192 101.127 73.4731 91.1213 85.5688
+79.6781 96.3138 66.9781 105.541 53.2224 113.103 38.6271 118.882 23.4226
+122.786 7.84881 124.753 -7.84881 124.753 -23.4226 122.786 -38.6271
+118.882 -53.2224 113.103 -66.9781 105.541 -79.6781 96.3138 -91.1213
+85.5688 -101.127 73.4731 -109.538 60.2192 -116.222 46.0156 -121.073
+31.0862 -124.014 15.6666 -125 0 -124.014 -15.6666 -121.073 -31.0862
+-116.222 -46.0156 -109.538 -60.2192 -101.127 -73.4731 -91.1213 -85.5688
+-79.6781 -96.3138 -66.9781 -105.541 -53.2224 -113.103 -38.6271 -118.882
+-23.4226 -122.786 -7.84875 -124.753 7.84881 -124.753 23.4226 -122.786
+38.6271 -118.882 53.2224 -113.103 66.9781 -105.541 79.6781 -96.3138
+91.1213 -85.5681 101.127 -73.4731 109.538 -60.2191 116.222 -46.0156
+121.073 -31.0862 124.014 -15.6666 125 0, f 59;
+#X obj 777 659 drawcurve -v vis col_light 1 75 0 74.4086 9.39998 72.6435
+18.6517 69.7331 27.6093 65.7229 36.1315 60.6765 44.0839 54.6728 51.3413
+47.8069 57.7882 40.1869 63.3244 31.9335 67.8619 23.1763 71.3291 14.0536
+73.6717 4.70929 74.8519 -4.70929 74.8519 -14.0536 73.6717 -23.1763
+71.3291 -31.9335 67.8619 -40.1869 63.3244 -47.8069 57.7882 -54.6728
+51.3413 -60.6765 44.0839 -65.7229 36.1315 -69.7331 27.6093 -72.6435
+18.6517 -74.4086 9.39998 -75 0 -74.4086 -9.39998 -72.6435 -18.6517
+-69.7331 -27.6094 -65.7229 -36.1315 -60.6765 -44.0839 -54.6728 -51.3413
+-47.8069 -57.7882 -40.1869 -63.3244 -31.9334 -67.8619 -23.1763 -71.3291
+-14.0535 -73.6717 -4.70925 -74.8519 4.70929 -74.8519 14.0536 -73.6717
+23.1763 -71.3291 31.9335 -67.8619 40.1869 -63.3244 47.8069 -57.7882
+54.6728 -51.3409 60.6765 -44.0839 65.7229 -36.1315 69.7331 -27.6093
+72.6435 -18.6517 74.4086 -9.39998 75 0, f 59;
+#X obj 1147 659 drawcurve -v vis col_light 1 25 0 24.8029 3.13333 24.2145
+6.21725 23.2444 9.20311 21.9076 12.0438 20.2255 14.6946 18.2243 17.1138
+15.9356 19.2628 13.3956 21.1081 10.6445 22.6206 7.72543 23.7764 4.68453
+24.5572 1.56976 24.9506 -1.56976 24.9506 -4.68453 24.5572 -7.72543
+23.7764 -10.6445 22.6206 -13.3956 21.1081 -15.9356 19.2628 -18.2243
+17.1138 -20.2255 14.6946 -21.9076 12.0438 -23.2444 9.20311 -24.2145
+6.21724 -24.8029 3.13333 -25 0 -24.8029 -3.13333 -24.2145 -6.21725
+-23.2444 -9.20313 -21.9076 -12.0438 -20.2255 -14.6946 -18.2243 -17.1138
+-15.9356 -19.2628 -13.3956 -21.1081 -10.6445 -22.6206 -7.72543 -23.7764
+-4.68451 -24.5572 -1.56975 -24.9506 1.56976 -24.9506 4.68453 -24.5572
+7.72543 -23.7764 10.6445 -22.6206 13.3956 -21.1081 15.9356 -19.2628
+18.2243 -17.1136 20.2255 -14.6946 21.9076 -12.0438 23.2444 -9.20311
+24.2145 -6.21724 24.8029 -3.13333 25 0;
+#X obj 69 159 append \$0-rad-grid col_dark col_light vis, f 20;
+#X obj 32 669 struct \$0-rad-grid float col_dark float col_light float
+vis, f 40;
+#X obj 349 57 drawpolygon -v vis col_dark 1 -220 0 -220 -7 -240 0 -220
+7 -220 0 220 0 220 7 240 0 220 -7 220 0, f 101;
+#X obj 347 159 drawpolygon -v vis col_dark 1 155.54 -155.54 150.591
+-160.489 169.68 -169.68 160.489 -150.591 155.54 -155.54 -155.54 155.54
+-150.591 160.489 -169.68 169.68 -160.489 150.591 -155.54 155.54, f
+101;
+#X obj 349 113 drawpolygon -v vis col_dark 1 155.54 155.54 150.591
+160.489 169.68 169.68 160.489 150.591 155.54 155.54 -155.54 -155.54
+-150.591 -160.489 -169.68 -169.68 -160.489 -150.591 -155.54 -155.54
+, f 103;
+#X obj 349 81 drawpolygon -v vis col_dark 1 0 -220 -7 -220 0 -240 7
+-220 0 -220 0 220 7 220 0 240 -7 220 0 220, f 102;
+#X obj 347 289 drawcurve -v vis col_dark 1 200 0 198.423 25.0666 193.716
+49.738 185.955 73.6249 175.261 96.3507 161.804 117.557 145.794 136.91
+127.485 154.102 107.165 168.865 85.1559 180.965 61.8034 190.211 37.4762
+196.458 12.5581 199.605 -12.5581 199.605 -37.4762 196.458 -61.8034
+190.211 -85.1559 180.965 -107.165 168.865 -127.485 154.102 -145.794
+136.91 -161.804 117.557 -175.261 96.3507 -185.955 73.6249 -193.716
+49.7379 -198.423 25.0666 -200 0 -198.423 -25.0666 -193.716 -49.738
+-185.955 -73.625 -175.261 -96.3507 -161.804 -117.557 -145.794 -136.91
+-127.485 -154.102 -107.165 -168.865 -85.1558 -180.965 -61.8034 -190.211
+-37.4761 -196.458 -12.558 -199.605 12.5581 -199.605 37.4762 -196.458
+61.8034 -190.211 85.1559 -180.965 107.165 -168.865 127.485 -154.102
+145.794 -136.909 161.804 -117.557 175.261 -96.3506 185.955 -73.6249
+193.716 -49.7379 198.423 -25.0666 200 0;
+#X obj 347 659 drawcurve -v vis col_dark 1 150 0 148.818 18.8 145.288
+37.3035 139.466 55.2186 131.446 72.263 121.353 88.1677 109.345 102.682
+95.6136 115.577 80.374 126.649 63.8669 135.724 46.3525 142.659 28.1071
+147.342 9.41856 149.704 -9.41859 149.704 -28.1073 147.342 -46.3525
+142.659 -63.8669 135.724 -80.374 126.649 -95.6136 115.577 -109.345
+102.682 -121.353 88.1677 -131.446 72.263 -139.466 55.2186 -145.288
+37.3035 -148.818 18.8 -150 0 -148.818 -18.8 -145.288 -37.3035 -139.466
+-55.2188 -131.446 -72.2631 -121.353 -88.1677 -109.345 -102.682 -95.6136
+-115.577 -80.374 -126.649 -63.8669 -135.724 -46.3525 -142.659 -28.1071
+-147.342 -9.41851 -149.704 9.41859 -149.704 28.1073 -147.342 46.3526
+-142.659 63.8669 -135.724 80.374 -126.649 95.6136 -115.577 109.345
+-102.682 121.353 -88.1677 131.446 -72.263 139.466 -55.2186 145.288
+-37.3034 148.818 -18.8 150 0;
+#X obj 777 479 drawcurve -v vis col_dark 1 100 0 99.2115 12.5334 96.8584
+24.869 92.9776 36.8125 87.6306 48.1754 80.9017 58.7785 72.8969 68.4548
+63.7424 77.0514 53.5826 84.4328 42.5779 90.4827 30.9017 95.1056 18.7381
+98.2288 6.27904 99.8026 -6.27906 99.8026 -18.7381 98.2288 -30.9017
+95.1056 -42.578 90.4827 -53.5828 84.4328 -63.7424 77.0512 -72.8969
+68.4548 -80.9017 58.7785 -87.6306 48.1754 -92.9776 36.8125 -96.8584
+24.869 -99.2115 12.5333 -100 0 -99.2115 -12.5334 -96.8583 -24.869 -92.9776
+-36.8125 -87.6306 -48.1754 -80.9017 -58.7785 -72.8969 -68.4548 -63.7424
+-77.0514 -53.5826 -84.4328 -42.5779 -90.4827 -30.9016 -95.1056 -18.7381
+-98.2288 -6.279 -99.8026 6.27905 -99.8026 18.7381 -98.2288 30.9017
+-95.1056 42.578 -90.4827 53.5828 -84.4328 63.7424 -77.0512 72.8969
+-68.4546 80.9017 -58.7785 87.6308 -48.1754 92.9776 -36.8124 96.8584
+-24.8689 99.2115 -12.5333 100 0;
+#X obj 1147 479 drawcurve -v vis col_dark 1 50 0 49.6058 6.26666 48.4291
+12.4345 46.4889 18.4063 43.8154 24.0876 40.4509 29.3892 36.4484 34.2274
+31.8713 38.5256 26.7914 42.2164 21.289 45.2414 15.4509 47.5529 9.36906
+49.1144 3.13952 49.9014 -3.13952 49.9014 -9.36907 49.1144 -15.4509
+47.5529 -21.289 45.2414 -26.7914 42.2164 -31.8713 38.5256 -36.4484
+34.2274 -40.4509 29.3892 -43.8154 24.0876 -46.4889 18.4063 -48.4291
+12.4345 -49.6058 6.26665 -50 0 -49.6058 -6.26666 -48.4291 -12.4345
+-46.4889 -18.4063 -43.8154 -24.0878 -40.4509 -29.3892 -36.4484 -34.2274
+-31.8713 -38.5256 -26.7914 -42.2164 -21.289 -45.2414 -15.4509 -47.5529
+-9.36905 -49.1144 -3.1395 -49.9014 3.13952 -49.9014 9.36907 -49.1144
+15.4509 -47.5529 21.289 -45.2414 26.7914 -42.2164 31.8713 -38.5256
+36.4485 -34.2274 40.4509 -29.3892 43.8154 -24.0876 46.4889 -18.4063
+48.4291 -12.4345 49.6058 -6.26665 50 0;
+#X obj 1540 89 expr 4*atan(1);
+#X obj 1540 64 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1459 117 * 3.14, f 12;
+#X obj 1459 94 / 180;
+#X obj 1459 141 expr cos($f1) \; sin($f1), f 16;
+#X floatatom 1458 74 5 0 0 0 - - -;
+#X obj 1461 181 * 200;
+#X obj 1569 179 * 200;
+#X msg 1465 238 set \$1 \$2;
+#X msg 1464 268 -8.74228e-006 200;
+#X obj 1463 214 pack f f;
+#X floatatom 1458 30 5 0 0 0 - - -;
+#X obj 1458 49 * 15;
+#X obj 347 200 drawpolygon -v vis col_light 1 193.19 51.76 -193.19
+-51.76, f 59;
+#X obj 347 220 drawpolygon -v vis col_light 1 173.21 100 -173.21 -100
+, f 59;
+#X obj 347 240 drawpolygon -v vis col_light 1 100 173.21 -100 -173.21
+, f 59;
+#X obj 347 260 drawpolygon -v vis col_light 1 51.76 193.19 -51.76 -193.19
+, f 59;
+#X obj 777 200 drawpolygon -v vis col_light 1 -193.19 51.76 193.19
+-51.76, f 59;
+#X obj 777 220 drawpolygon -v vis col_light 1 -173.21 100 173.21 -100
+, f 59;
+#X obj 777 240 drawpolygon -v vis col_light 1 -100 173.21 100 -173.21
+, f 59;
+#X obj 777 260 drawpolygon -v vis col_light 1 -51.76 193.19 51.76 -193.19
+, f 59;
+#X msg 69 97 555 777 1;
+#N canvas 0 50 450 300 list_dequeue 0;
+#X restore 1240 67 pd list_dequeue;
+#N canvas 0 50 450 300 list_enqueue 0;
+#X restore 1241 184 pd list_enqueue;
+#X connect 1 0 17 0;
+#X connect 3 0 4 0;
+#X connect 4 0 28 3;
+#X connect 5 0 19 0;
+#X connect 6 0 7 0;
+#X connect 7 0 22 0;
+#X connect 8 0 9 0;
+#X connect 9 0 11 0;
+#X connect 11 0 12 0;
+#X connect 15 0 8 0;
+#X connect 17 0 59 0;
+#X connect 17 1 19 0;
+#X connect 19 0 3 0;
+#X connect 20 0 21 0;
+#X connect 28 0 0 0;
+#X connect 38 0 40 1;
+#X connect 39 0 38 0;
+#X connect 40 0 42 0;
+#X connect 41 0 40 0;
+#X connect 42 0 44 0;
+#X connect 42 1 45 0;
+#X connect 43 0 41 0;
+#X connect 44 0 48 0;
+#X connect 45 0 48 1;
+#X connect 46 0 47 0;
+#X connect 48 0 46 0;
+#X connect 49 0 50 0;
+#X connect 50 0 43 0;
+#X connect 59 0 28 0;
+#X restore 747 319 pd init_grid_template;
+#X obj 689 230 t b b b b b, f 17;
+#N canvas 110 140 966 666 init_label_template 0;
+#X obj 443 562 outlet;
+#X obj 34 19 inlet;
+#X text 740 528 data-structure;
+#X obj 582 425 pointer;
+#X msg 582 402 traverse \$1 \, bang;
+#X msg 94 19 bang;
+#X msg 529 60 bang;
+#X obj 55 483 t b p p, f 60;
+#X obj 528 88 t b;
+#X obj 1062 161 *;
+#X floatatom 1062 188 11 0 0 0 - - -;
+#X msg 1062 131 60 0.707;
+#X msg 1045 424 31 209;
+#X floatatom 1119 306 5 0 0 0 - - -;
+#X floatatom 1194 298 5 0 0 0 - - -;
+#X obj 1194 317 t b f;
+#X obj 1045 361 pack f f;
+#X msg 1044 389 set \$1 \$2;
+#X obj 487 531 t a;
+#X obj 443 532 list;
+#X obj 472 506 list prepend;
+#X text 308 597 label data pointer list (12 x pointer);
+#X obj 34 52 t b b b b b b b b b b b b b b b b b, f 37;
+#X obj 55 558 set -symbol \$0-rad-label label;
+#X obj 1119 421 set \$0-rad-label x0 y0;
+#X obj 582 379 symbol pd-\$0-label_;
+#X msg 380 510 bang;
+#X obj 55 533 symbol;
+#X obj 95 509 symbol;
+#X obj 55 460 append \$0-rad-label x0 y0 col vis, f 73;
+#X msg 83 297 -187 -173 222 1 225°;
+#X msg 113 253 -187 186 222 1 135°;
+#X msg 208 156 4 61 222 1 -30.dB;
+#X msg 225 134 13 110 222 1 -20.dB;
+#X msg 240 110 18 161 222 1 -10.dB;
+#X msg 257 87 31 209 222 1 0.dB;
+#X obj 669 552 struct \$0-rad-label float col float x0 float y0 float
+vis symbol label, f 36;
+#X obj 666 38 drawsymbol -v vis label x0 y0 col;
+#X obj 55 436 list split 4;
+#X msg 101 275 -244 21 222 1 180°;
+#X msg 125 231 12 244 222 1 90°;
+#X msg 68 320 12 -234 222 1 270°;
+#X msg 141 209 164 186 222 1 45°;
+#X msg 159 188 230 21 222 1 0°;
+#X msg 53 342 164 -173 222 1 315°;
+#X connect 1 0 22 0;
+#X connect 3 0 29 4;
+#X connect 4 0 3 0;
+#X connect 5 0 22 0;
+#X connect 6 0 8 0;
+#X connect 7 0 27 0;
+#X connect 7 1 23 1;
+#X connect 7 2 20 0;
+#X connect 8 0 20 1;
+#X connect 8 0 25 0;
+#X connect 9 0 10 0;
+#X connect 11 0 9 0;
+#X connect 13 0 16 0;
+#X connect 13 0 24 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 15 0 24 0;
+#X connect 15 1 16 1;
+#X connect 15 1 24 1;
+#X connect 16 0 17 0;
+#X connect 17 0 12 0;
+#X connect 18 0 20 1;
+#X connect 19 0 0 0;
+#X connect 20 0 18 0;
+#X connect 20 0 19 1;
+#X connect 22 0 19 0;
+#X connect 22 1 44 0;
+#X connect 22 2 41 0;
+#X connect 22 3 30 0;
+#X connect 22 4 39 0;
+#X connect 22 5 31 0;
+#X connect 22 6 40 0;
+#X connect 22 7 42 0;
+#X connect 22 8 43 0;
+#X connect 22 11 32 0;
+#X connect 22 12 33 0;
+#X connect 22 13 34 0;
+#X connect 22 14 35 0;
+#X connect 22 15 8 0;
+#X connect 25 0 4 0;
+#X connect 26 0 19 0;
+#X connect 27 0 23 0;
+#X connect 28 0 27 1;
+#X connect 29 0 7 0;
+#X connect 30 0 38 0;
+#X connect 31 0 38 0;
+#X connect 32 0 38 0;
+#X connect 33 0 38 0;
+#X connect 34 0 38 0;
+#X connect 35 0 38 0;
+#X connect 38 0 29 0;
+#X connect 38 1 28 0;
+#X connect 39 0 38 0;
+#X connect 40 0 38 0;
+#X connect 41 0 38 0;
+#X connect 42 0 38 0;
+#X connect 43 0 38 0;
+#X connect 44 0 38 0;
+#X restore 719 350 pd init_label_template;
+#N canvas 91 22 1033 830 init_diagr_template 0;
+#X obj 429 723 outlet;
+#X obj 60 47 inlet;
+#X text 791 649 data-structure;
+#X obj 281 171 pointer;
+#X msg 112 66 bang;
+#X obj 60 223 t b b p, f 41;
+#X obj 60 600 unpack f f f, f 16;
+#X text 670 745 for \$0-point see neighbor template;
+#X obj 60 650 set \$0-point x y;
+#N canvas 123 279 676 520 drip_transform 0;
+#X obj 28 32 inlet;
+#X text 24 12 list;
+#X obj 441 29 inlet;
+#X text 437 9 radius;
+#X obj 28 61 t l l, f 21;
+#X obj 27 431 outlet;
+#X obj 27 402 pack f f f, f 19;
+#X obj 267 136 loadbang;
+#X msg 267 158 bang;
+#X obj 267 180 expr 8*atan(1);
+#X obj 187 108 list length;
+#X obj 95 187 / 64, f 11;
+#X obj 95 208 * 6.28, f 25;
+#X obj 95 229 t f f;
+#X obj 95 250 cos;
+#X obj 127 250 sin;
+#X obj 222 322 outlet;
+#X text 23 458 drip triple;
+#X obj 28 110 unpack f f;
+#X obj 27 336 t f f, f 10;
+#X obj 95 134 t f f, f 9;
+#X obj 27 362 * 0.7;
+#X obj 92 364 * 0.7;
+#X obj 27 309 * 200, f 21;
+#X obj 221 299 change -1;
+#N canvas 1321 261 468 450 drip 0;
+#X obj 60 37 inlet;
+#X obj 142 328 f 0;
+#X obj 209 330 + 1;
+#X msg 158 301 0;
+#X obj 89 364 pack f f;
+#X obj 60 173 until;
+#X obj 60 226 list append;
+#X obj 60 251 list split 1;
+#X obj 92 149 t b;
+#X obj 60 201 t b b;
+#X obj 88 399 outlet;
+#X obj 27 324 f;
+#X obj 60 65 t b b l b l;
+#X msg 132 92 \$1;
+#X connect 0 0 12 0;
+#X connect 1 0 2 0;
+#X connect 1 0 4 1;
+#X connect 2 0 1 1;
+#X connect 3 0 1 1;
+#X connect 4 0 10 0;
+#X connect 5 0 9 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 7 1 6 1;
+#X connect 7 2 8 0;
+#X connect 8 0 5 1;
+#X connect 9 0 6 0;
+#X connect 9 1 1 0;
+#X connect 11 0 4 0;
+#X connect 12 0 11 0;
+#X connect 12 1 5 0;
+#X connect 12 2 6 1;
+#X connect 12 3 3 0;
+#X connect 12 4 13 0;
+#X connect 13 0 11 1;
+#X restore 28 85 pd drip;
+#X obj 211 243 + 1;
+#X obj 540 29 inlet;
+#X text 536 9 reset;
+#X msg 286 268 set -1;
+#X obj 286 245 t b, f 24;
+#X connect 0 0 4 0;
+#X connect 2 0 23 1;
+#X connect 4 0 25 0;
+#X connect 4 1 10 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 12 1;
+#X connect 10 0 11 1;
+#X connect 10 0 26 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 1 15 0;
+#X connect 14 0 21 1;
+#X connect 15 0 22 1;
+#X connect 18 0 23 0;
+#X connect 18 1 20 0;
+#X connect 19 0 21 0;
+#X connect 19 1 22 0;
+#X connect 20 0 11 0;
+#X connect 20 1 6 2;
+#X connect 21 0 6 0;
+#X connect 22 0 6 1;
+#X connect 23 0 19 0;
+#X connect 24 0 16 0;
+#X connect 25 0 18 0;
+#X connect 26 0 24 0;
+#X connect 27 0 30 0;
+#X connect 29 0 24 0;
+#X connect 30 0 29 0;
+#X restore 60 571 pd drip_transform;
+#X obj 487 43 inlet;
+#X obj 169 625 element \$0-rad-diagr \$0-diagr-array;
+#X obj 225 594 setsize \$0-rad-diagr \$0-diagr-array;
+#X obj 60 97 t b b, f 32;
+#X msg 281 146 traverse \$1 \, bang;
+#X msg 307 96 bang;
+#X obj 281 123 symbol pd-\$0-diagr_;
+#X obj 487 540 t l;
+#X text 365 749 diagram data pointer;
+#X obj 567 724 outlet;
+#X obj 567 673 struct \$0-rad-diagr float x0 float y0 float w0 float
+col float vis array \$0-diagr-array \$0-point;
+#X obj 60 195 append \$0-rad-diagr x0 y0 w0 col vis;
+#X msg 60 132 0 0 5 44 1;
+#X msg 60 257 0.844069 0.860582 0.873905 0.884232 0.891694 0.896372
+0.898301 0.897472 0.893837 0.887301 0.877719 0.864879 0.848492 0.828157
+0.803315 0.773177 0.736581 0.691733 0.635662 0.56289 0.461464 0.295427
+0 0.219766 0.394564 0.48542 0.542249 0.579544 0.603385 0.616729 0.621027
+0.616823 0.603933 0.581398 0.547133 0.496974 0.421914 0.297453 0 0.0945389
+0.342043 0.463344 0.542715 0.600091 0.643398 0.676574 0.701829 0.720488
+0.733364 0.740938 0.743446 0.740915 0.733172 0.719807 0.700092 0.672822
+0.63598 0.585983 0.515725 0.407952 0.197054 0 0.340329 0.483627 0.572141
+0.6349 0.682239 0.71904 0.747997 0.770749 0.788361 0.801561 0.810859
+0.816626 0.819132 0.818575 0.8151 0.808815 0.799798 0.788105 0.773784
+0.75688 0.737446 0.715566 0.691369 0.665067 0.636996 0.607671 0.57786
+0.548644 0.521455 0.49803 0.480212 0.469594 0.467087 0.47263 0.485203
+0.503149 0.524603 0.547835 0.571429 0.594313 0.615725 0.635139 0.652199
+0.666661 0.678348 0.687117 0.692835 0.695357 0.694505 0.690047 0.68167
+0.668942 0.651252 0.627707 0.596955 0.556822 0.503521 0.42955 0.316476
+0.0910015 0 0.263795 0.400478 0.48542 0.545529 0.590598 0.625303 0.652224
+0.672929 0.688429 0.6994 0.706298 0.709432 0.709 0.705109 0.697787
+0.686989 0.672588 0.654363 0.631972 0.604906 0.572414 0.533349 0.485902
+0.42699 0.350786 0.244139 0.0649471 0 0.0474326 0.209275 0.298908 0.358607
+0.401715 0.434263 0.459551 0.47963 0.495898 0.509376 0.520848 0.530934
+0.540128 0.548817 0.557291 0.565746 0.574289 0.582941 0.591649 0.600293
+0.6087 0.616652 0.623902 0.630176 0.635179 0.638595 0.64008 0.639252
+0.635669 0.628798 0.617963 0.602258 0.580395 0.55041 0.509035 0.450137
+0.359822 0.192557 0 0.237198 0.410985 0.516228 0.592065 0.65108 0.698931
+0.73865 0.772042 0.800263 0.824091, f 98;
+#X obj 593 133 plot -v vis \$0-diagr-array col w0 x0 y0;
+#X connect 1 0 13 0;
+#X connect 3 0 21 5;
+#X connect 4 0 13 0;
+#X connect 5 0 23 0;
+#X connect 5 1 9 2;
+#X connect 5 2 11 1;
+#X connect 5 2 12 1;
+#X connect 5 2 0 0;
+#X connect 6 0 8 0;
+#X connect 6 1 8 1;
+#X connect 6 2 11 0;
+#X connect 9 0 6 0;
+#X connect 9 1 12 0;
+#X connect 10 0 17 0;
+#X connect 11 0 8 2;
+#X connect 13 0 22 0;
+#X connect 13 1 16 0;
+#X connect 14 0 3 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 17 0 9 0;
+#X connect 20 0 19 0;
+#X connect 21 0 5 0;
+#X connect 22 0 21 0;
+#X connect 23 0 9 0;
+#X restore 690 380 pd init_diagr_template;
+#N canvas 801 309 1025 635 \$0-base_ 0;
+#X scalar 1012-rad-base 963 741 987 1 \;;
+#X coords -250 250 250 -250 500 500 2 0 0;
+#X restore 66 36 pd \$0-base_;
+#N canvas 856 63 1025 635 \$0-label_ 0;
+#X scalar 1012-rad-label 222 31 209 1 0.dB \;;
+#X scalar 1012-rad-label 222 18 161 1 -10.dB \;;
+#X scalar 1012-rad-label 222 13 110 1 -20.dB \;;
+#X scalar 1012-rad-label 222 4 61 1 -30.dB \;;
+#X scalar 1012-rad-label 222 230 21 1 0° \;;
+#X scalar 1012-rad-label 222 164 186 1 45° \;;
+#X scalar 1012-rad-label 222 12 244 1 90° \;;
+#X scalar 1012-rad-label 222 -187 186 1 135° \;;
+#X scalar 1012-rad-label 222 -244 21 1 180° \;;
+#X scalar 1012-rad-label 222 -187 -173 1 225° \;;
+#X scalar 1012-rad-label 222 12 -234 1 270° \;;
+#X scalar 1012-rad-label 222 164 -173 1 315° \;;
+#X coords -250 250 250 -250 500 500 2 0 0;
+#X restore 66 36 pd \$0-label_;
+#N canvas 856 63 1025 635 \$0-grid_ 0;
+#X scalar 1012-rad-grid 555 777 1 \;;
+#X coords -250 250 250 -250 500 500 2 0 0;
+#X restore 66 36 pd \$0-grid_;
+#N canvas 856 63 1025 635 \$0-diagr_ 0;
+#X scalar 1012-rad-diagr 0 0 5 44 1 \; 168.814 0 \; 172.031 5.40631
+\; 174.436 10.9746 \; 176.062 16.6427 \; 176.933 22.3518 \; 177.067
+28.0447 \; 176.478 33.665 \; 175.172 39.1555 \; 173.151 44.4576 \;
+170.414 49.5098 \; 166.952 54.246 \; 162.75 58.5935 \; 157.782 62.4701
+\; 152.009 65.7802 \; 145.372 68.407 \; 137.781 70.203 \; 129.094 70.9701
+\; 119.081 70.4242 \; 107.341 68.121 \; 93.1111 63.2782 \; 74.6664
+54.2483 \; 46.6866 36.2139 \; 0 0 \; 32.9698 29.0668 \; 57.525 54.0195
+\; 68.6488 68.6488 \; 74.239 79.0565 \; 76.6519 86.9445 \; 76.9224
+92.9832 \; 75.5995 97.4623 \; 73.0061 100.484 \; 69.3412 102.032 \;
+64.7207 101.983 \; 59.1911 100.087 \; 52.7167 95.8913 \; 45.1243 88.5614
+\; 35.9284 76.3519 \; 23.6266 54.5978 \; 0 0 \; 6.40478 17.79 \; 21.1394
+65.0604 \; 25.8538 88.9893 \; 26.9936 105.133 \; 26.1811 117.128 \;
+24.1121 126.4 \; 21.1679 133.649 \; 17.5925 139.259 \; 13.5608 143.458
+\; 9.20966 146.383 \; 4.65468 148.114 \; -6.49941e-006 148.689 \; -4.65455
+148.11 \; -9.20724 146.345 \; -13.548 143.323 \; -17.549 138.914 \;
+-21.0505 132.908 \; -23.8342 124.943 \; -25.5656 114.374 \; -25.6511
+99.9045 \; -22.763 78.3507 \; -12.1786 37.4819 \; -0 0 \; -25.0567
+63.286 \; -38.4143 88.7702 \; -48.7212 103.538 \; -57.6477 113.14 \;
+-65.7342 119.57 \; -73.2042 123.782 \; -80.1594 126.311 \; -86.6451
+127.494 \; -92.6774 127.559 \; -98.2565 126.671 \; -103.372 124.955
+\; -108.009 122.512 \; -112.147 119.424 \; -115.764 115.764 \; -118.836
+111.595 \; -121.34 106.976 \; -123.251 101.962 \; -124.545 96.607 \;
+-125.201 90.9637 \; -125.2 85.0859 \; -124.529 79.0287 \; -123.184
+72.8505 \; -121.17 66.6139 \; -118.516 60.3868 \; -115.274 54.2439
+\; -111.539 48.267 \; -107.456 42.5449 \; -103.242 37.1693 \; -99.1866
+32.2277 \; -95.651 27.7892 \; -93.0251 23.8848 \; -91.6569 20.4878
+\; -91.7627 17.5047 \; -93.3622 14.7871 \; -96.2754 12.1624 \; -100.183
+9.47007 \; -104.714 6.58801 \; -109.513 3.44157 \; -114.286 -9.99118e-006
+\; -118.804 -3.73358 \; -122.902 -7.73235 \; -126.464 -11.9544 \; -129.411
+-16.3484 \; -131.691 -20.8577 \; -133.267 -25.4219 \; -134.114 -29.978
+\; -134.214 -34.4602 \; -133.549 -38.7997 \; -132.103 -42.9228 \; -129.85
+-46.749 \; -126.76 -50.1879 \; -122.785 -53.1338 \; -117.854 -55.4579
+\; -111.858 -56.9946 \; -104.623 -57.5171 \; -95.856 -56.6891 \; -85.0274
+-53.96 \; -71.0545 -48.2886 \; -51.2069 -37.204 \; -14.3811 -11.1551
+\; -0 -0 \; -39.5751 -34.8902 \; -58.3872 -54.8292 \; -68.6487 -68.6488
+\; -74.688 -79.5347 \; -78.1139 -88.6028 \; -79.7166 -96.3609 \; -79.9505
+-103.072 \; -79.1076 -108.882 \; -77.3909 -113.877 \; -74.9514 -118.105
+\; -71.907 -121.588 \; -68.3543 -124.336 \; -64.3758 -126.345 \; -60.0441
+-127.6 \; -55.4249 -128.079 \; -50.5795 -127.749 \; -45.5662 -126.565
+\; -40.4419 -124.467 \; -35.2629 -121.376 \; -30.0868 -117.18 \; -24.9737
+-111.726 \; -19.9879 -104.78 \; -15.2023 -95.984 \; -10.7032 -84.7246
+\; -6.60234 -69.8458 \; -3.06592 -48.7314 \; -0.408008 -12.983 \; 0
+-0 \; 0.297979 -9.48184 \; 2.6281 -41.7724 \; 5.62595 -59.5163 \; 8.98908
+-71.1559 \; 12.5684 -79.3538 \; 16.2746 -85.3142 \; 20.0496 -89.6967
+\; 23.8558 -92.9123 \; 27.6702 -95.2415 \; 31.4812 -96.8891 \; 35.2862
+-98.0112 \; 39.09 -98.73 \; 42.9022 -99.141 \; 46.735 -99.3169 \; 50.601
+-99.31 \; 54.5101 -99.1534 \; 58.4674 -98.8629 \; 62.4711 -98.4387
+\; 66.5112 -97.8683 \; 70.5687 -97.1294 \; 74.6153 -96.1934 \; 78.6138
+-95.0277 \; 82.5188 -93.5991 \; 86.2771 -91.8757 \; 89.8279 -89.8278
+\; 93.1032 -87.4296 \; 96.0262 -84.6585 \; 98.5104 -81.4949 \; 100.455
+-77.9212 \; 101.742 -73.9196 \; 102.221 -69.4694 \; 101.701 -64.5412
+\; 99.9141 -59.089 \; 96.4656 -53.0324 \; 90.7107 -46.2194 \; 81.4592
+-38.3318 \; 66.0457 -28.5805 \; 35.807 -14.177 \; 0 -0 \; 45.1177 -14.6596
+\; 78.9333 -22.9322 \; 100.002 -25.6761 \; 115.561 -25.831 \; 127.91
+-24.4 \; 138.065 -21.8674 \; 146.565 -18.5155 \; 153.723 -14.5311 \;
+159.737 -10.0498 \; 164.737 -5.17704 \; 168.814 2.95163e-005 \; \;
+;
+#X coords -250 250 250 -250 500 500 2 0 0;
+#X restore 66 36 pd \$0-diagr_;
+#N canvas 75 328 434 97 \$0-point 0;
+#X obj 35 11 struct \$0-point float x float y;
+#X restore 727 440 pd \$0-point;
+#X msg 757 255 bang;
+#X msg 736 285 bang;
+#X msg 704 318 bang;
+#X msg 678 350 bang;
+#X msg 657 404 bang;
+#X obj 1047 171 route init;
+#X text 664 457 It seems we have to name the subpatch equal to the
+template, f 31;
+#N canvas 238 446 1383 464 set-get-para-redraw 0;
+#X obj 1201 391 outlet;
+#X obj 1201 84 route click change, f 7;
+#X obj 1201 32 inlet;
+#X obj 60 33 inlet;
+#X obj 1201 150 t a;
+#X obj 997 32 inlet;
+#X obj 997 223 t p;
+#X text 1113 416 <list> index + x + y + label;
+#X text 978 12 base pointer;
+#X obj 92 263 del 0;
+#X text 71 238 redraw bang;
+#X obj 866 294 set \$0-rad-base ground_col;
+#X obj 809 270 set \$0-rad-base vis;
+#X obj 747 33 inlet;
+#X obj 747 259 t p;
+#X text 725 12 grid pointer;
+#X obj 630 288 set \$0-rad-grid vis;
+#X obj 463 32 inlet;
+#X text 427 12 label pointer list;
+#X obj 1201 280 get \$0-rad-diagr x0 y0, f 13;
+#X obj 1201 362 pack f f, f 13;
+#X obj 250 29 inlet;
+#X text 236 11 diagram pointer;
+#N canvas 0 50 752 733 redraw_label 0;
+#X obj 316 63 inlet;
+#X obj 316 86 unpack p p p p p p p p p p p p;
+#X obj 242 606 set \$0-rad-label col;
+#X obj 222 566 set \$0-rad-label col;
+#X obj 202 526 set \$0-rad-label col;
+#X obj 182 486 set \$0-rad-label col;
+#X obj 162 446 set \$0-rad-label col;
+#X obj 142 406 set \$0-rad-label col;
+#X obj 121 366 set \$0-rad-label col;
+#X obj 102 326 set \$0-rad-label col;
+#X obj 82 286 set \$0-rad-label col;
+#X obj 62 246 set \$0-rad-label col;
+#X obj 42 206 set \$0-rad-label col;
+#X obj 22 166 set \$0-rad-label col;
+#X obj 98 62 inlet;
+#X obj 21 146 pointer;
+#X obj 79 146 get \$0-rad-label col;
+#X obj 41 186 pointer;
+#X obj 99 186 get \$0-rad-label col;
+#X obj 61 226 pointer;
+#X obj 119 226 get \$0-rad-label col;
+#X obj 81 266 pointer;
+#X obj 139 266 get \$0-rad-label col;
+#X obj 101 306 pointer;
+#X obj 159 306 get \$0-rad-label col;
+#X obj 121 346 pointer;
+#X obj 179 346 get \$0-rad-label col;
+#X obj 141 386 pointer;
+#X obj 199 386 get \$0-rad-label col;
+#X obj 161 426 pointer;
+#X obj 219 426 get \$0-rad-label col;
+#X obj 181 466 pointer;
+#X obj 239 466 get \$0-rad-label col;
+#X obj 201 506 pointer;
+#X obj 259 506 get \$0-rad-label col;
+#X obj 221 546 pointer;
+#X obj 279 546 get \$0-rad-label col;
+#X obj 241 586 pointer;
+#X obj 299 586 get \$0-rad-label col;
+#X text 312 42 list of label pointers;
+#X text 97 42 bang;
+#X connect 0 0 1 0;
+#X connect 1 0 13 1;
+#X connect 1 0 15 1;
+#X connect 1 1 12 1;
+#X connect 1 1 17 1;
+#X connect 1 2 11 1;
+#X connect 1 2 19 1;
+#X connect 1 3 10 1;
+#X connect 1 3 21 1;
+#X connect 1 4 9 1;
+#X connect 1 4 23 1;
+#X connect 1 5 8 1;
+#X connect 1 5 25 1;
+#X connect 1 6 7 1;
+#X connect 1 6 27 1;
+#X connect 1 7 6 1;
+#X connect 1 7 29 1;
+#X connect 1 8 5 1;
+#X connect 1 8 31 1;
+#X connect 1 9 4 1;
+#X connect 1 9 33 1;
+#X connect 1 10 3 1;
+#X connect 1 10 35 1;
+#X connect 1 11 2 1;
+#X connect 1 11 37 1;
+#X connect 14 0 15 0;
+#X connect 14 0 17 0;
+#X connect 14 0 19 0;
+#X connect 14 0 21 0;
+#X connect 14 0 23 0;
+#X connect 14 0 25 0;
+#X connect 14 0 27 0;
+#X connect 14 0 29 0;
+#X connect 14 0 31 0;
+#X connect 14 0 33 0;
+#X connect 14 0 35 0;
+#X connect 14 0 37 0;
+#X connect 15 0 16 0;
+#X connect 16 0 13 0;
+#X connect 17 0 18 0;
+#X connect 18 0 12 0;
+#X connect 19 0 20 0;
+#X connect 20 0 11 0;
+#X connect 21 0 22 0;
+#X connect 22 0 10 0;
+#X connect 23 0 24 0;
+#X connect 24 0 9 0;
+#X connect 25 0 26 0;
+#X connect 26 0 8 0;
+#X connect 27 0 28 0;
+#X connect 28 0 7 0;
+#X connect 29 0 30 0;
+#X connect 30 0 6 0;
+#X connect 31 0 32 0;
+#X connect 32 0 5 0;
+#X connect 33 0 34 0;
+#X connect 34 0 4 0;
+#X connect 35 0 36 0;
+#X connect 36 0 3 0;
+#X connect 37 0 38 0;
+#X connect 38 0 2 0;
+#X restore 361 400 pd redraw_label;
+#X text 44 11 other properties;
+#X obj 250 102 t p;
+#X obj 101 190 set \$0-rad-diagr col;
+#X obj 85 165 set \$0-rad-diagr w0;
+#N canvas 0 50 500 265 redraw_curve_diagram 0;
+#X obj 316 63 inlet;
+#X obj 98 62 inlet;
+#X obj 134 122 pointer;
+#X text 95 39 bang;
+#X obj 134 144 get \$0-rad-diagr col;
+#X obj 134 169 set \$0-rad-diagr col;
+#X text 314 36 diagram pointer;
+#X connect 0 0 2 1;
+#X connect 0 0 5 1;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 4 0 5 0;
+#X restore 92 401 pd redraw_curve_diagram;
+#N canvas 0 50 499 314 redraw_base 0;
+#X obj 316 63 inlet;
+#X obj 98 62 inlet;
+#X obj 134 122 pointer;
+#X text 95 39 bang;
+#X text 314 36 base pointer;
+#X obj 134 144 get \$0-rad-base vis;
+#X obj 134 169 set \$0-rad-base vis;
+#X connect 0 0 2 1;
+#X connect 0 0 6 1;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 5 0 6 0;
+#X restore 901 404 pd redraw_base;
+#X obj 92 375 t b b b b, f 116;
+#X text 914 373 redraw;
+#X text 1145 15 diagram event pointer;
+#X obj 800 172 sel 1;
+#X obj 800 150 != 0;
+#X obj 812 199 t b;
+#X obj 336 160 sel 1;
+#X obj 336 138 != 0;
+#X obj 354 190 t b;
+#X obj 604 164 sel 1;
+#X obj 604 142 != 0;
+#X obj 616 191 t b;
+#N canvas 128 50 811 524 set_label_vis_col 0;
+#X obj 388 68 inlet;
+#X obj 99 69 inlet;
+#X obj 269 67 inlet;
+#X text 265 45 col;
+#X text 94 49 vis;
+#X text 606 90 315 dgr;
+#X text 344 89 0 dB;
+#X obj 388 91 unpack p p p p p p p p p p p p;
+#X obj 439 465 set \$0-rad-label col;
+#X obj 419 445 set \$0-rad-label col;
+#X obj 399 425 set \$0-rad-label col;
+#X obj 379 405 set \$0-rad-label col;
+#X obj 359 385 set \$0-rad-label col;
+#X obj 339 365 set \$0-rad-label col;
+#X obj 319 345 set \$0-rad-label col;
+#X obj 299 325 set \$0-rad-label col;
+#X obj 279 305 set \$0-rad-label col;
+#X obj 259 285 set \$0-rad-label col;
+#X obj 239 265 set \$0-rad-label col;
+#X obj 219 245 set \$0-rad-label col;
+#X obj 269 186 t f;
+#X text 383 47 label pointer;
+#X obj 54 246 set \$0-rad-label vis;
+#X obj 74 266 set \$0-rad-label vis;
+#X obj 94 286 set \$0-rad-label vis;
+#X obj 114 306 set \$0-rad-label vis;
+#X obj 134 326 set \$0-rad-label vis;
+#X obj 154 346 set \$0-rad-label vis;
+#X obj 174 366 set \$0-rad-label vis;
+#X obj 194 386 set \$0-rad-label vis;
+#X obj 214 406 set \$0-rad-label vis;
+#X obj 234 426 set \$0-rad-label vis;
+#X obj 254 446 set \$0-rad-label vis;
+#X obj 274 466 set \$0-rad-label vis;
+#X obj 113 197 t f;
+#X msg 97 165 0;
+#X obj 99 114 sel 0;
+#X obj 131 142 t b;
+#X msg 131 164 1;
+#X connect 0 0 7 0;
+#X connect 1 0 36 0;
+#X connect 2 0 20 0;
+#X connect 7 0 19 1;
+#X connect 7 0 22 1;
+#X connect 7 1 18 1;
+#X connect 7 1 23 1;
+#X connect 7 2 17 1;
+#X connect 7 2 24 1;
+#X connect 7 3 16 1;
+#X connect 7 3 25 1;
+#X connect 7 4 15 1;
+#X connect 7 4 26 1;
+#X connect 7 5 14 1;
+#X connect 7 5 27 1;
+#X connect 7 6 13 1;
+#X connect 7 6 28 1;
+#X connect 7 7 12 1;
+#X connect 7 7 29 1;
+#X connect 7 8 11 1;
+#X connect 7 8 30 1;
+#X connect 7 9 10 1;
+#X connect 7 9 31 1;
+#X connect 7 10 9 1;
+#X connect 7 10 32 1;
+#X connect 7 11 8 1;
+#X connect 7 11 33 1;
+#X connect 20 0 19 0;
+#X connect 20 0 18 0;
+#X connect 20 0 17 0;
+#X connect 20 0 16 0;
+#X connect 20 0 15 0;
+#X connect 20 0 14 0;
+#X connect 20 0 13 0;
+#X connect 20 0 12 0;
+#X connect 20 0 11 0;
+#X connect 20 0 10 0;
+#X connect 20 0 9 0;
+#X connect 20 0 8 0;
+#X connect 34 0 22 0;
+#X connect 34 0 23 0;
+#X connect 34 0 24 0;
+#X connect 34 0 25 0;
+#X connect 34 0 26 0;
+#X connect 34 0 27 0;
+#X connect 34 0 28 0;
+#X connect 34 0 29 0;
+#X connect 34 0 30 0;
+#X connect 34 0 31 0;
+#X connect 34 0 32 0;
+#X connect 34 0 33 0;
+#X connect 35 0 34 0;
+#X connect 36 0 35 0;
+#X connect 36 1 37 0;
+#X connect 37 0 38 0;
+#X connect 38 0 34 0;
+#X restore 345 332 pd set_label_vis_col;
+#X obj 295 112 t f f;
+#X obj 554 109 t f f;
+#X obj 727 109 t f f;
+#N canvas 0 50 499 314 redraw_grid___ 0;
+#X obj 316 63 inlet;
+#X obj 98 62 inlet;
+#X obj 134 122 pointer;
+#X text 314 36 grid pointer;
+#X text 95 39 bang;
+#X obj 134 144 get \$0-rad-grid col_dark;
+#X obj 134 169 set \$0-rad-grid col_dark;
+#X connect 0 0 2 1;
+#X connect 0 0 6 1;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 5 0 6 0;
+#X restore 631 400 pd redraw_grid___;
+#X obj 900 109 t b f;
+#X obj 814 112 t b f;
+#X obj 641 110 t b f;
+#X obj 381 112 t b f;
+#X obj 468 111 t b a;
+#N canvas 1186 221 574 646 change_4_labels 0;
+#X obj 70 84 inlet;
+#X obj 375 87 inlet;
+#X text 337 56 label data pointer list;
+#X text 36 57 list of four label values;
+#X floatatom 94 335 5 0 0 0 - - -;
+#X obj 78 370 clip -1000 1000;
+#N canvas 1321 261 415 343 drip 0;
+#X obj 60 37 inlet;
+#X obj 60 122 until;
+#X obj 60 149 list append;
+#X obj 60 174 list split 1;
+#X obj 92 98 t b;
+#X obj 60 204 outlet;
+#X obj 60 61 t b l;
+#X connect 0 0 6 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 1 2 1;
+#X connect 3 2 4 0;
+#X connect 4 0 1 1;
+#X connect 6 0 1 0;
+#X connect 6 1 2 1;
+#X restore 76 257 pd drip;
+#X obj 75 228 list split 4;
+#X obj 164 316 list split 1;
+#X obj 164 291 list append;
+#X obj 238 260 list;
+#X obj 76 282 t f b;
+#X obj 79 419 set -symbol \$0-rad-label label;
+#X obj 74 202 t l b;
+#X msg 130 159 0 -6 -12 -18;
+#X msg 131 134 0 -10 -20 -30;
+#X obj 78 393 makefilename %d.dB;
+#X obj 70 111 list;
+#X connect 0 0 17 0;
+#X connect 1 0 10 1;
+#X connect 4 0 5 0;
+#X connect 5 0 16 0;
+#X connect 6 0 11 0;
+#X connect 7 0 6 0;
+#X connect 7 2 6 0;
+#X connect 8 0 12 1;
+#X connect 8 1 9 1;
+#X connect 9 0 8 0;
+#X connect 10 0 9 1;
+#X connect 11 0 5 0;
+#X connect 11 1 9 0;
+#X connect 13 0 7 0;
+#X connect 13 1 10 0;
+#X connect 14 0 13 0;
+#X connect 15 0 13 0;
+#X connect 16 0 12 0;
+#X connect 17 0 13 0;
+#X restore 490 305 pd change_4_labels;
+#X obj 463 272 t l;
+#X obj 893 326 set \$0-rad-base light_frame_col;
+#X obj 924 352 set \$0-rad-base dark_frame_col;
+#N canvas 854 303 340 411 col_up&down 0;
+#X obj 61 32 inlet;
+#X obj 61 63 t f f;
+#N canvas 0 50 450 300 modulo_up_down 0;
+#X obj 80 31 inlet;
+#X obj 76 250 outlet;
+#X obj 181 253 outlet;
+#X obj 80 58 % 10;
+#X obj 80 82 t f f;
+#X obj 112 112 - 1;
+#X obj 80 112 + 1;
+#X obj 112 135 clip 0 9;
+#X obj 80 158 clip 0 9;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 2 0;
+#X connect 8 0 1 0;
+#X restore 93 88 pd modulo_up_down;
+#X obj 50 88 / 10;
+#X obj 50 111 int;
+#X obj 50 134 t f f;
+#N canvas 0 50 450 300 modulo_up_down 0;
+#X obj 80 31 inlet;
+#X obj 76 250 outlet;
+#X obj 181 253 outlet;
+#X obj 80 58 % 10;
+#X obj 80 82 t f f;
+#X obj 112 112 - 1;
+#X obj 80 112 + 1;
+#X obj 112 135 clip 0 9;
+#X obj 80 158 clip 0 9;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 2 0;
+#X connect 8 0 1 0;
+#X restore 82 159 pd modulo_up_down;
+#X obj 39 159 / 10;
+#X obj 39 182 int;
+#N canvas 0 50 450 300 modulo_up_down 0;
+#X obj 80 31 inlet;
+#X obj 76 250 outlet;
+#X obj 181 253 outlet;
+#X obj 80 58 % 10;
+#X obj 80 82 t f f;
+#X obj 112 112 - 1;
+#X obj 80 112 + 1;
+#X obj 112 135 clip 0 9;
+#X obj 80 158 clip 0 9;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 2 0;
+#X connect 8 0 1 0;
+#X restore 39 206 pd modulo_up_down;
+#X obj 66 335 outlet;
+#X obj 182 285 outlet;
+#X obj 182 260 +;
+#X obj 200 237 +;
+#X obj 66 313 +;
+#X obj 84 290 +;
+#X obj 183 204 * 10;
+#X obj 152 234 * 100;
+#X obj 81 241 * 10;
+#X obj 39 267 * 100;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 1 2 0;
+#X connect 2 0 15 1;
+#X connect 2 1 13 1;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 5 1 6 0;
+#X connect 6 0 18 0;
+#X connect 6 1 16 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 19 0;
+#X connect 9 1 17 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 1;
+#X connect 14 0 10 0;
+#X connect 15 0 14 1;
+#X connect 16 0 13 0;
+#X connect 17 0 12 0;
+#X connect 18 0 15 0;
+#X connect 19 0 14 0;
+#X restore 933 137 pd col_up&down;
+#X obj 62 140 set \$0-rad-diagr vis;
+#X obj 67 67 route curve_visible curve_width curve_color label_visible
+label_color 4labels grid_visible grid_color base_visible ground_color
+frame_color, f 139;
+#X obj 654 309 set \$0-rad-grid col_light;
+#X obj 705 330 set \$0-rad-grid col_dark;
+#N canvas 854 303 340 411 col_up&down 0;
+#X obj 61 32 inlet;
+#X obj 61 63 t f f;
+#N canvas 0 50 450 300 modulo_up_down 0;
+#X obj 80 31 inlet;
+#X obj 76 250 outlet;
+#X obj 181 253 outlet;
+#X obj 80 58 % 10;
+#X obj 80 82 t f f;
+#X obj 112 112 - 1;
+#X obj 80 112 + 1;
+#X obj 112 135 clip 0 9;
+#X obj 80 158 clip 0 9;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 2 0;
+#X connect 8 0 1 0;
+#X restore 93 88 pd modulo_up_down;
+#X obj 50 88 / 10;
+#X obj 50 111 int;
+#X obj 50 134 t f f;
+#N canvas 0 50 450 300 modulo_up_down 0;
+#X obj 80 31 inlet;
+#X obj 76 250 outlet;
+#X obj 181 253 outlet;
+#X obj 80 58 % 10;
+#X obj 80 82 t f f;
+#X obj 112 112 - 1;
+#X obj 80 112 + 1;
+#X obj 112 135 clip 0 9;
+#X obj 80 158 clip 0 9;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 2 0;
+#X connect 8 0 1 0;
+#X restore 82 159 pd modulo_up_down;
+#X obj 39 159 / 10;
+#X obj 39 182 int;
+#N canvas 0 50 450 300 modulo_up_down 0;
+#X obj 80 31 inlet;
+#X obj 76 250 outlet;
+#X obj 181 253 outlet;
+#X obj 80 58 % 10;
+#X obj 80 82 t f f;
+#X obj 112 112 - 1;
+#X obj 80 112 + 1;
+#X obj 112 135 clip 0 9;
+#X obj 80 158 clip 0 9;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 2 0;
+#X connect 8 0 1 0;
+#X restore 39 206 pd modulo_up_down;
+#X obj 66 335 outlet;
+#X obj 182 285 outlet;
+#X obj 182 260 +;
+#X obj 200 237 +;
+#X obj 66 313 +;
+#X obj 84 290 +;
+#X obj 183 204 * 10;
+#X obj 152 234 * 100;
+#X obj 81 241 * 10;
+#X obj 39 267 * 100;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 1 2 0;
+#X connect 2 0 15 1;
+#X connect 2 1 13 1;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 5 1 6 0;
+#X connect 6 0 18 0;
+#X connect 6 1 16 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 19 0;
+#X connect 9 1 17 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 1;
+#X connect 14 0 10 0;
+#X connect 15 0 14 1;
+#X connect 16 0 13 0;
+#X connect 17 0 12 0;
+#X connect 18 0 15 0;
+#X connect 19 0 14 0;
+#X restore 660 201 pd col_up&down;
+#X obj 872 375 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 1 0 4 0;
+#X connect 1 1 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 58 0;
+#X connect 4 0 19 0;
+#X connect 5 0 6 0;
+#X connect 6 0 11 1;
+#X connect 6 0 12 1;
+#X connect 6 0 29 1;
+#X connect 6 0 54 1;
+#X connect 6 0 55 1;
+#X connect 9 0 30 0;
+#X connect 13 0 14 0;
+#X connect 14 0 16 1;
+#X connect 14 0 46 1;
+#X connect 14 0 59 1;
+#X connect 14 0 60 1;
+#X connect 17 0 53 0;
+#X connect 19 0 20 0;
+#X connect 19 1 20 1;
+#X connect 20 0 0 0;
+#X connect 21 0 25 0;
+#X connect 25 0 26 1;
+#X connect 25 0 27 1;
+#X connect 25 0 28 1;
+#X connect 25 0 57 1;
+#X connect 30 0 28 0;
+#X connect 30 1 23 0;
+#X connect 30 2 46 0;
+#X connect 30 3 29 0;
+#X connect 33 0 35 0;
+#X connect 34 0 33 0;
+#X connect 35 0 9 0;
+#X connect 36 0 38 0;
+#X connect 37 0 36 0;
+#X connect 38 0 9 0;
+#X connect 39 0 41 0;
+#X connect 40 0 39 0;
+#X connect 41 0 9 0;
+#X connect 43 0 37 0;
+#X connect 43 1 42 0;
+#X connect 44 0 40 0;
+#X connect 44 1 16 0;
+#X connect 45 0 34 0;
+#X connect 45 1 12 0;
+#X connect 47 0 35 0;
+#X connect 47 1 56 0;
+#X connect 48 0 35 0;
+#X connect 48 1 11 0;
+#X connect 49 0 41 0;
+#X connect 49 1 61 0;
+#X connect 50 0 38 0;
+#X connect 50 1 42 1;
+#X connect 51 0 38 0;
+#X connect 51 1 52 0;
+#X connect 53 0 42 2;
+#X connect 53 0 23 1;
+#X connect 53 0 52 1;
+#X connect 56 0 54 0;
+#X connect 56 1 55 0;
+#X connect 58 0 57 0;
+#X connect 58 1 27 0;
+#X connect 58 2 26 0;
+#X connect 58 3 43 0;
+#X connect 58 4 50 0;
+#X connect 58 5 51 0;
+#X connect 58 6 44 0;
+#X connect 58 7 49 0;
+#X connect 58 8 45 0;
+#X connect 58 9 48 0;
+#X connect 58 10 47 0;
+#X connect 61 0 59 0;
+#X connect 61 1 60 0;
+#X connect 62 0 29 0;
+#X restore 883 439 pd set-get-para-redraw;
+#N canvas 570 18 617 458 (subpatch) 0;
+#X obj 100 100 cnv 1 2 2 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 119 13 loadbang;
+#X obj 138 194 spigot 1;
+#X msg 119 72 1;
+#X obj 183 171 == 0;
+#X obj 109 148 v;
+#X obj 183 149 v;
+#X obj 119 37 t b b b b;
+#N canvas 0 50 450 336 (subpatch) 0;
+#X msg 122 226 set \$1;
+#X obj 112 248 makefilename;
+#X obj 122 183 symbol;
+#X obj 90 161 t f b;
+#X obj 112 88 list append;
+#X obj 112 111 list split 1;
+#X obj 112 61 until;
+#X obj 193 136 t b b;
+#X obj 112 37 t b l b;
+#X msg 161 161 symbol;
+#X obj 128 271 symbol;
+#X obj 122 205 makefilename %s%%c;
+#X obj 112 16 inlet;
+#X obj 128 294 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 1;
+#X connect 1 0 10 1;
+#X connect 2 0 11 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 5 1 4 1;
+#X connect 5 2 7 0;
+#X connect 6 0 4 0;
+#X connect 7 0 10 0;
+#X connect 7 1 6 1;
+#X connect 8 0 6 0;
+#X connect 8 1 4 0;
+#X connect 8 2 9 0;
+#X connect 9 0 2 1;
+#X connect 10 0 13 0;
+#X connect 11 0 0 0;
+#X connect 12 0 8 0;
+#X restore 185 101 pd;
+#X msg 185 69 107 54 74 53 98 56 118 50 99 49 108 48 120 53 70 54 105
+51 109 56 74 54 114 52 100 51;
+#X obj 138 335 route 1;
+#X msg 138 315 1 \$1;
+#X obj 138 356 print -n;
+#N canvas 0 50 776 769 (subpatch) 0;
+#X msg 123 510 set \$1;
+#X obj 121 540 makefilename;
+#X obj 123 467 symbol;
+#X obj 81 439 t f b;
+#X obj 112 88 list append;
+#X obj 112 111 list split 1;
+#X obj 112 61 until;
+#X obj 194 420 t b b;
+#X obj 112 37 t b l b;
+#X msg 162 445 symbol;
+#X obj 142 567 symbol;
+#X obj 123 489 makefilename %s%%c;
+#X obj 112 16 inlet;
+#X obj 142 590 outlet;
+#X obj 90 135 moses 0;
+#X obj 86 177 * -1;
+#X obj 84 206 t f b;
+#X obj 107 305 spigot 0;
+#X obj 87 277 spigot 1;
+#X msg 122 245 0;
+#X msg 167 276 1;
+#X obj 100 363 f;
+#X msg 198 276 0;
+#X msg 152 245 1;
+#X obj 99 385 until;
+#X obj 108 326 t b b f;
+#X obj 123 411 f;
+#X obj 157 181 f;
+#X obj 187 161 + 1;
+#X obj 186 183 % 23;
+#X obj 133 159 t f b;
+#X obj 133 206 -, f 9;
+#X msg 218 160 17;
+#X connect 0 0 1 0;
+#X connect 1 0 2 1;
+#X connect 1 0 10 1;
+#X connect 2 0 11 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 14 0;
+#X connect 5 1 4 1;
+#X connect 5 2 7 0;
+#X connect 6 0 4 0;
+#X connect 7 0 10 0;
+#X connect 7 1 6 1;
+#X connect 8 0 6 0;
+#X connect 8 1 4 0;
+#X connect 8 2 9 0;
+#X connect 8 2 32 0;
+#X connect 9 0 2 1;
+#X connect 10 0 13 0;
+#X connect 11 0 0 0;
+#X connect 12 0 8 0;
+#X connect 14 0 15 0;
+#X connect 14 1 30 0;
+#X connect 15 0 16 0;
+#X connect 16 0 21 1;
+#X connect 16 1 19 0;
+#X connect 16 1 20 0;
+#X connect 17 0 25 0;
+#X connect 18 0 3 0;
+#X connect 19 0 18 1;
+#X connect 20 0 17 1;
+#X connect 21 0 24 0;
+#X connect 22 0 17 1;
+#X connect 23 0 18 1;
+#X connect 24 0 26 0;
+#X connect 25 0 22 0;
+#X connect 25 0 23 0;
+#X connect 25 1 21 0;
+#X connect 25 2 26 1;
+#X connect 26 0 3 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 29 0 27 1;
+#X connect 29 0 31 1;
+#X connect 30 0 31 0;
+#X connect 30 1 27 0;
+#X connect 31 0 18 0;
+#X connect 31 0 17 0;
+#X connect 32 0 28 0;
+#X restore 138 294 pd;
+#X msg 138 217 143 -36 62 31 146 -13 32 106 103 112 99 123 103 117
+113 117 118 108 22 137 46 47 48 57 117 60 52 53 106 104 112 111 100
+119 37 83 124 123 114 118 43 62 61 62 63 48 62 50 69 68 70 79 10 125
+34 35 36 114 123 122 113 117 74 116 113 122 60 112 132 49 50 51 93
+90 99 32 76 87 74 48 37 77 121 105 131 20 50 -36 54;
+#X connect 1 0 7 0;
+#X connect 2 0 14 0;
+#X connect 3 0 5 0;
+#X connect 4 0 2 1;
+#X connect 6 0 4 0;
+#X connect 7 0 3 0;
+#X connect 7 1 2 0;
+#X connect 7 2 6 0;
+#X connect 7 3 9 0;
+#X connect 8 0 6 1;
+#X connect 8 0 5 1;
+#X connect 9 0 8 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 0;
+#X connect 13 0 11 0;
+#X connect 14 0 13 0;
+#X coords 0 -1 1 1 1 1 2 100 100;
+#X restore 44 5 pd;
+#X text 27 4 polar_diagram_500r;
+#X text 979 522 IEM KUG;
+#X text 963 510 musil;
+#X text 993 510 @;
+#X text 999 510 iem.at;
+#X text 962 532 Graz \, Austria;
+#X text 974 486 iem_vanilla;
+#X text 914 499 (c) Thomas Musil 2000 - 2019;
+#X connect 0 0 8 0;
+#X connect 1 0 4 0;
+#X connect 2 0 25 0;
+#X connect 4 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 14 1;
+#X connect 6 0 5 0;
+#X connect 8 0 12 0;
+#X connect 9 0 27 4;
+#X connect 11 0 27 3;
+#X connect 12 0 14 0;
+#X connect 12 1 13 0;
+#X connect 12 2 11 0;
+#X connect 12 3 9 0;
+#X connect 12 4 10 0;
+#X connect 13 0 27 2;
+#X connect 14 0 27 1;
+#X connect 20 0 10 0;
+#X connect 21 0 9 0;
+#X connect 22 0 11 0;
+#X connect 23 0 13 0;
+#X connect 24 0 14 0;
+#X connect 25 0 12 0;
+#X connect 25 1 27 0;
+#X coords 0 0 1 1 512 512 2 60 30;

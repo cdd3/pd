@@ -1,0 +1,18 @@
+#N canvas 673 485 450 300 10;
+#X obj 152 112 nop;
+#X obj 308 127 nop;
+#X text 105 207 IEM KUG;
+#X text 89 195 musil;
+#X text 119 195 @;
+#X text 125 195 iem.at;
+#X text 88 217 Graz \, Austria;
+#X text 100 171 iem_vanilla;
+#X text 40 184 (c) Thomas Musil 2000 - 2019;
+#X text 40 40 part of iem_vanilla;
+#X text 21 11 nop;
+#X text 68 12 for orthogonal message cords;
+#X obj 152 71 t a;
+#X obj 308 219 t a;
+#X connect 0 0 1 0;
+#X connect 1 0 13 0;
+#X connect 12 0 0 0;

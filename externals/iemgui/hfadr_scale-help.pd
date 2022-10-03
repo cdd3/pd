@@ -1,0 +1,90 @@
+#N canvas 4 20 454 304 10;
+#X obj 90 156 - 100;
+#X floatatom 90 177 5 0 0 0 - - -, f 5;
+#X text 130 179 dB;
+#X text 101 31 for horizontal slider with width of 121 pixels;
+#X obj 93 114 hsl 121 15 0 120 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X text 10 9 hfadr_scale;
+#X text 121 8 horizontal fader scale with right max;
+#X text 127 48 and a value-range from 0 to 120;
+#X obj 89 93 hfadr_scale -1;
+#X text 96 242 IEM KUG;
+#X text 80 230 musil;
+#X text 110 230 @;
+#X text 116 230 iem.at;
+#X text 79 252 Graz \, Austria;
+#N canvas 0 50 937 464 fadtodb 0;
+#X obj 91 69 inlet;
+#X obj 317 65 loadbang;
+#X obj 91 152 outlet;
+#X text 338 375 IEM KUG;
+#X text 322 363 musil;
+#X text 358 363 @;
+#X text 368 363 iem.at;
+#X text 321 385 Graz \, Austria;
+#X text 279 352 (c) Thomas Musil 2000 - 2018;
+#X obj 317 318 table \$0-array 150;
+#X obj 317 293 s \$0-array;
+#N canvas 0 50 671 525 tabread2 0;
+#X text 355 178 y - y1 = (x - x1)*(y2 - y1)/(x2 - x1);
+#X text 383 196 x2 = x1 + 1;
+#X text 390 215 y = y1 + (x - x1)*(y2 - y1);
+#X text 323 233 y2;
+#X text 355 258 y1;
+#X obj 133 205 + 1;
+#X obj 133 180 t f f;
+#X obj 101 32 inlet;
+#X obj 101 113 t f f;
+#X obj 133 139 int;
+#X obj 101 180 -;
+#X obj 101 90 max 0;
+#X text 45 181 x - x1;
+#X text 292 180 x1;
+#X obj 101 290 expr $f3 + $f1*($f2 - $f3), f 11;
+#X obj 101 345 outlet;
+#X text 27 8 read numbers from a table with 2-point interpolation;
+#X obj 133 233 tabread \$0-array;
+#X obj 165 259 tabread \$0-array;
+#X connect 5 0 17 0;
+#X connect 6 0 5 0;
+#X connect 6 1 18 0;
+#X connect 7 0 11 0;
+#X connect 8 0 10 0;
+#X connect 8 1 9 0;
+#X connect 9 0 6 0;
+#X connect 9 0 10 1;
+#X connect 10 0 14 0;
+#X connect 11 0 8 0;
+#X connect 14 0 15 0;
+#X connect 17 0 14 1;
+#X connect 18 0 14 2;
+#X restore 91 99 pd tabread2;
+#X msg 317 87 0 0 6.66667 13.3333 20 26.6667 33.3333 40 41.6667 43.3333
+45 46.6667 48.3333 50 51.6667 53.3333 55 56.6667 58.3333 60 61.6667
+63.3333 65 66.6667 68.3333 70 70.8333 71.6667 72.5 73.3333 74.1667
+75 75.8333 76.6667 77.5 78.3333 79.1667 80 80.6667 81.3333 82 82.6667
+83.3333 84 84.6667 85.3333 86 86.6667 87.3333 88 88.5 89 89.5 90 90.5
+91 91.5 92 92.5 93 93.5 94 94.3333 94.6667 95 95.3333 95.6667 96 96.3333
+96.6667 97 97.3333 97.6667 98 98.1667 98.3333 98.5 98.6667 98.8333
+99 99.1667 99.3333 99.5 99.6667 99.8333 100 100.167 100.333 100.5 100.667
+100.833 101 101.167 101.333 101.5 101.667 101.833 102 102.333 102.667
+103 103.333 103.667 104 104.333 104.667 105 105.333 105.667 106 106.5
+107 107.5 108 108.5 109 110 111 112 113 114 115 116 117 118 119 120
+121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137
+138 139 140 141 142 143 144;
+#X text 13 10 fad2db;
+#X text 86 11 convert fader-scale to dB;
+#X connect 0 0 11 0;
+#X connect 1 0 12 0;
+#X connect 11 0 2 0;
+#X connect 12 0 10 0;
+#X restore 90 135 pd fadtodb;
+#N canvas 0 50 450 300 (subpatch) 0;
+#X text 103 101 hfadr_scale;
+#X coords 0 -1 1 1 74 18 2 100 100;
+#X restore 271 116 pd;
+#X text 31 219 (c) Thomas Musil 2000 - 2018;
+#X connect 0 0 1 0;
+#X connect 4 0 14 0;
+#X connect 14 0 0 0;

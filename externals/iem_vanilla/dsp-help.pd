@@ -1,0 +1,25 @@
+#N canvas 176 150 459 310 10;
+#X floatatom 47 207 5 0 0 0 - - -;
+#X text 297 240 IEM KUG;
+#X text 281 228 musil;
+#X text 311 228 @;
+#X text 317 228 iem.at;
+#X text 280 250 Graz \, Austria;
+#X text 232 217 (c) Thomas Musil 2000 - 2019;
+#X text 292 204 iem_vanilla;
+#X text 36 69 part of iem_vanilla;
+#X text 27 13 dsp;
+#X obj 47 145 dsp;
+#X obj 47 123 tgl 15 0 empty dsp_tgl empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 120 146 no arguments;
+#X floatatom 63 169 5 0 0 0 - - -;
+#X text 89 35 -dsp-load in %;
+#X text 80 22 measure average- and peak-;
+#X text 42 226 average-dsp-load in %;
+#X text 58 188 peak-dsp-load in %;
+#X text 46 105 DSP ON/OFF;
+#X text 79 10 turn dsp-task on & off \,;
+#X connect 10 0 0 0;
+#X connect 10 1 13 0;
+#X connect 11 0 10 0;

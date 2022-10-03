@@ -1,0 +1,23 @@
+#N canvas 110 160 450 300 10;
+#X obj 33 63 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 33 200 5 0 0 0 - - -;
+#X obj 199 174 table \$0-array 123;
+#X obj 33 175 tabsize \$0-array;
+#X msg 72 122 987;
+#X msg 57 99 123;
+#X text 290 247 IEM KUG;
+#X text 274 235 musil;
+#X text 304 235 @;
+#X text 310 235 iem.at;
+#X text 273 257 Graz \, Austria;
+#X text 285 211 iem_vanilla;
+#X text 225 224 (c) Thomas Musil 2000 - 2019;
+#X text 9 4 tabsize : reads or changes size of a table;
+#X text 30 26 part of iem_vanilla;
+#X text 56 63 bang : read table size;
+#X text 103 108 float : change table size;
+#X connect 0 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
