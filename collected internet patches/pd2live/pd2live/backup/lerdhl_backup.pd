@@ -1,0 +1,5626 @@
+#N canvas 272 347 1008 453 10;
+#N canvas 0 22 505 162 melodic.tension 0;
+#N canvas 0 22 450 300 freq.ramps 0;
+#X obj 48 55 r mt.v;
+#X floatatom 48 78 5 0 0 0 - - -;
+#X text 46 11 Send to partch to emphasise frequency regions to incite
+greater relaxation and/or tension.;
+#X obj 47 220 s p.1;
+#X obj 47 146 line;
+#X msg 44 121 $f1 $f2;
+#X text 44 255 Establishing a relationship between tonal quantification
+and real-time timbral synthesis processes.;
+#X connect 0 0 1 0;
+#X restore 23 63 pd freq.ramps;
+#X text 112 58 Establishing a relationship between tonal quantification
+and real-time timbral synthesis processes.;
+#X text 24 22 (cf. [pd embedding]);
+#X text 69 122 Trigger gliss on partch and sweep on +soundhack;
+#X restore 29 380 pd melodic.tension;
+#X text 165 378 Based on depth of embedding (pitch/timbre processes)
+;
+#X text 162 43 Linear Completion based on commonalites in "basic space"
+;
+#N canvas 0 22 562 417 relative.closure 0;
+#X text 70 -83 (e.g. p0 - p1 - p2 - chromatic movement complete on
+diatonic level);
+#X text 70 -50 (e.g. p0 - p2 - p4) - complete on traidic level;
+#X text 121 252 If complete on various levels = trigger a process;
+#X text 311 166 compare spaces in sequence;
+#X obj 29 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 29 93 r g.i;
+#X floatatom 124 222 5 0 0 0 - - -;
+#X floatatom 173 221 5 0 0 0 - - -;
+#X floatatom 215 223 5 0 0 0 - - -;
+#X floatatom 259 224 5 0 0 0 - - -;
+#X floatatom 297 222 5 0 0 0 - - -;
+#X floatatom 337 223 5 0 0 0 - - -;
+#X obj 144 132 expr if($f1 > $f2 \, 1 \, 0) \; if($f2 > $f3 \, 1 \,
+0) \; if($f3 > $f4 \, 1 \, 0) \; if($f4 > $f5 \, 1 \, 0) \; if($f5
+> $f6 \, 1 \, 0) \; if($f6 > $f7 \, 1 \, 0) \;;
+#X text 73 -130 Relative Melodic Closure - comparisons based on melodic
+motion on different levels of basic space (Lerdahl 2001 \, p. 53);
+#X text 26 133 bangs equation;
+#X text 26 148 every time;
+#X text 21 163 a note is played;
+#X text 72 -25 If a space moves to a higher level of basic space \,
+one can assume linear completion has occurred \, leading to a more
+stable melodic point. If the linear motion leads to a lower value of
+basic space \, one may assume that melodic motion has led to a less
+stable point in pitch space \, than the previous note.;
+#X obj 70 75 r \$0-bs1;
+#X obj 125 75 r \$0-bs2;
+#X obj 180 75 r \$0-bs3;
+#X obj 235 75 r \$0-bs4;
+#X obj 290 75 r \$0-bs5;
+#X obj 345 75 r \$0-bs6;
+#X obj 401 75 r \$0-bs7;
+#X floatatom 70 95 5 0 0 0 - - -;
+#X floatatom 125 96 5 0 0 0 - - -;
+#X floatatom 180 96 5 0 0 0 - - -;
+#X floatatom 235 96 5 0 0 0 - - -;
+#X floatatom 290 96 5 0 0 0 - - -;
+#X floatatom 345 95 5 0 0 0 - - -;
+#X floatatom 401 95 5 0 0 0 - - -;
+#X connect 4 0 12 0;
+#X connect 5 0 4 0;
+#X connect 12 0 6 0;
+#X connect 12 1 7 0;
+#X connect 12 2 8 0;
+#X connect 12 3 9 0;
+#X connect 12 4 10 0;
+#X connect 12 5 11 0;
+#X connect 18 0 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 27 0;
+#X connect 21 0 28 0;
+#X connect 22 0 29 0;
+#X connect 23 0 30 0;
+#X connect 24 0 31 0;
+#X connect 25 0 12 0;
+#X connect 26 0 12 1;
+#X connect 27 0 12 2;
+#X connect 28 0 12 3;
+#X connect 29 0 12 4;
+#X connect 30 0 12 5;
+#X connect 31 0 12 6;
+#X restore 35 44 pd relative.closure;
+#N canvas 0 22 387 292 melodic.gestures 0;
+#N canvas 0 48 1280 752 ma.c1 0;
+#X obj 266 133 % 360;
+#X obj 266 109 + 180;
+#X obj 251 66 random 360;
+#X floatatom 266 88 5 0 0 0 - - -;
+#X floatatom 266 150 5 0 0 0 - - -;
+#X obj 251 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 305 87 Generate random points in 360 degrees;
+#X obj 251 170 f;
+#X text 785 246 bang based on first adjacent string formula;
+#X text 782 447 what string note was played on;
+#X obj 521 46 random 10;
+#X obj 804 101 % 360;
+#X obj 804 34 random 360;
+#X floatatom 804 56 5 0 0 0 - - -;
+#X obj 804 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 744 118 f;
+#X obj 251 244 line;
+#X obj 521 245 line;
+#X obj 241 293 spigot;
+#X obj 521 293 spigot;
+#X obj 718 278 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 302 - 1;
+#X obj 620 302 - 1;
+#X floatatom 754 286 5 0 0 0 - - -;
+#X obj 241 449 line;
+#X obj 521 449 line;
+#X obj 230 474 spigot;
+#X obj 521 474 spigot;
+#X obj 620 483 - 1;
+#X floatatom 725 467 5 0 0 0 - - -;
+#X obj 725 448 r \$0-s1;
+#X obj 754 267 r \$0-s7;
+#X msg 521 224 \$1 1000;
+#X text 517 26 distance is randomised (0 - 10);
+#X obj 718 248 reverse;
+#X obj 718 226 == \$1;
+#X obj 718 186 r \$0-s1;
+#X obj 764 209 r \$0-s7;
+#X obj 718 206 pipe 1;
+#X obj 804 -1 sel 0;
+#X obj 958 184 random 10;
+#X obj 601 58 r ma.t;
+#X obj 601 75 sel 1;
+#X obj 646 75 sel 0;
+#X msg 601 92 2;
+#X msg 628 92 180;
+#X msg 655 92 180;
+#X msg 688 92 2;
+#X obj 191 -136 r counter;
+#X obj 191 -116 sel 1;
+#X obj 251 3 sel 1;
+#X obj 521 143 split 5 10;
+#X obj 205 104 f;
+#X obj 870 184 f;
+#X obj 205 129 pipe 1;
+#X obj 241 196 pipe 1;
+#X obj 329 483 - 1;
+#X obj 958 207 split 5 10;
+#X obj 773 109 + 1;
+#X obj 309 -89 r ma.thres;
+#X floatatom 152 -119 5 0 0 0 - - -;
+#X floatatom 201 -77 5 0 0 0 - - -;
+#X obj 870 207 pipe 1;
+#X text 243 577 Output to ambisonic panner abstraction(s);
+#X obj 230 559 s az.1;
+#X obj 276 559 s az.2;
+#X obj 322 559 s az.3;
+#X obj 367 559 s az.4;
+#X obj 414 559 s az.5;
+#X obj 462 559 s az.6;
+#X obj 230 542 demux - - - - - -;
+#X obj 521 542 demux - - - - - -;
+#X obj 521 559 s ad.1;
+#X obj 567 559 s ad.2;
+#X obj 613 559 s ad.3;
+#X obj 658 559 s ad.4;
+#X obj 705 559 s ad.5;
+#X obj 753 559 s ad.6;
+#X obj 521 515 spigot;
+#X obj 230 515 spigot;
+#X obj 708 500 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X text 385 -91 If current melodic attraction value = less than threshold
+- then spatialise whatever channel note a and b where on apart by equidistant
+divisions of 2D space (providing they are played on different strings
+- otherwise \, no spatialisation will occur);
+#X obj 241 380 s az.1;
+#X obj 287 380 s az.2;
+#X obj 333 380 s az.3;
+#X obj 378 380 s az.4;
+#X obj 425 380 s az.5;
+#X obj 473 380 s az.6;
+#X obj 241 363 demux - - - - - -;
+#X obj 521 363 demux - - - - - -;
+#X obj 522 380 s ad.1;
+#X obj 568 380 s ad.2;
+#X obj 614 380 s ad.3;
+#X obj 659 380 s ad.4;
+#X obj 706 380 s ad.5;
+#X obj 754 380 s ad.6;
+#X obj 521 332 spigot;
+#X obj 241 332 spigot;
+#X obj 719 317 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X floatatom 251 -17 5 0 0 0 - - -;
+#X floatatom 192 532 5 0 0 0 - - -;
+#X floatatom 466 532 5 0 0 0 - - -;
+#X floatatom 807 148 5 0 0 0 - - -;
+#X obj 248 -72 >= 0.5;
+#X floatatom 647 54 5 0 0 0 - - -;
+#X obj 190 -96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 190 -33 f;
+#X obj 190 -54 del 15;
+#X msg 251 224 \$1 1000;
+#X msg 241 429 \$1 500;
+#X msg 521 428 \$1 500;
+#X floatatom 309 -49 5 0 0 0 - - -;
+#X floatatom 262 -44 5 0 0 0 - - -;
+#X obj 248 -109 r man.c1;
+#X text 395 -141 Adding assym.ratio to current melodic attraction value
+;
+#X text 395 -127 greater the value \, the closer tones will be together
+in 2d space;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 0 52 1;
+#X connect 4 0 7 1;
+#X connect 5 0 2 0;
+#X connect 5 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 0 52 0;
+#X connect 7 0 55 0;
+#X connect 10 0 51 0;
+#X connect 11 0 15 1;
+#X connect 11 0 102 0;
+#X connect 12 0 13 0;
+#X connect 13 0 58 0;
+#X connect 13 0 53 1;
+#X connect 14 0 12 0;
+#X connect 14 0 15 0;
+#X connect 14 0 40 0;
+#X connect 14 0 53 0;
+#X connect 15 0 109 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 97 0;
+#X connect 19 0 96 0;
+#X connect 20 0 19 1;
+#X connect 20 0 18 1;
+#X connect 20 0 27 1;
+#X connect 20 0 26 1;
+#X connect 21 0 88 1;
+#X connect 22 0 89 1;
+#X connect 23 0 22 0;
+#X connect 23 0 21 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 79 0;
+#X connect 27 0 78 0;
+#X connect 28 0 71 1;
+#X connect 29 0 28 0;
+#X connect 29 0 56 0;
+#X connect 30 0 29 0;
+#X connect 31 0 23 0;
+#X connect 32 0 17 0;
+#X connect 34 0 20 0;
+#X connect 35 0 34 0;
+#X connect 36 0 38 0;
+#X connect 37 0 35 1;
+#X connect 38 0 35 0;
+#X connect 39 0 14 0;
+#X connect 40 0 57 0;
+#X connect 41 0 42 0;
+#X connect 41 0 43 0;
+#X connect 41 0 104 0;
+#X connect 42 0 44 0;
+#X connect 42 0 45 0;
+#X connect 43 0 46 0;
+#X connect 43 0 47 0;
+#X connect 44 0 1 1;
+#X connect 45 0 58 1;
+#X connect 46 0 1 1;
+#X connect 47 0 58 1;
+#X connect 48 0 49 0;
+#X connect 48 0 60 0;
+#X connect 49 0 105 0;
+#X connect 50 0 5 0;
+#X connect 51 0 32 0;
+#X connect 51 0 110 0;
+#X connect 52 0 54 0;
+#X connect 53 0 62 0;
+#X connect 54 0 108 0;
+#X connect 55 0 109 0;
+#X connect 56 0 70 1;
+#X connect 57 0 110 0;
+#X connect 57 0 32 0;
+#X connect 58 0 11 0;
+#X connect 59 0 103 1;
+#X connect 59 0 111 0;
+#X connect 62 0 108 0;
+#X connect 70 0 64 0;
+#X connect 70 1 65 0;
+#X connect 70 2 66 0;
+#X connect 70 3 67 0;
+#X connect 70 4 68 0;
+#X connect 70 5 69 0;
+#X connect 71 0 72 0;
+#X connect 71 1 73 0;
+#X connect 71 2 74 0;
+#X connect 71 3 75 0;
+#X connect 71 4 76 0;
+#X connect 71 5 77 0;
+#X connect 78 0 71 0;
+#X connect 78 0 101 0;
+#X connect 79 0 70 0;
+#X connect 79 0 100 0;
+#X connect 80 0 78 1;
+#X connect 80 0 79 1;
+#X connect 88 0 82 0;
+#X connect 88 1 83 0;
+#X connect 88 2 84 0;
+#X connect 88 3 85 0;
+#X connect 88 4 86 0;
+#X connect 88 5 87 0;
+#X connect 89 0 90 0;
+#X connect 89 1 91 0;
+#X connect 89 2 92 0;
+#X connect 89 3 93 0;
+#X connect 89 4 94 0;
+#X connect 89 5 95 0;
+#X connect 96 0 89 0;
+#X connect 97 0 88 0;
+#X connect 98 0 96 1;
+#X connect 98 0 97 1;
+#X connect 99 0 50 0;
+#X connect 99 0 39 0;
+#X connect 103 0 106 1;
+#X connect 103 0 112 0;
+#X connect 105 0 107 0;
+#X connect 106 0 99 0;
+#X connect 107 0 106 0;
+#X connect 108 0 16 0;
+#X connect 109 0 24 0;
+#X connect 110 0 25 0;
+#X connect 113 0 103 0;
+#X restore 22 69 pd ma.c1;
+#N canvas 0 48 1280 752 ma.c2 0;
+#X obj 266 133 % 360;
+#X obj 266 109 + 180;
+#X obj 251 66 random 360;
+#X floatatom 266 88 5 0 0 0 - - -;
+#X floatatom 266 150 5 0 0 0 - - -;
+#X obj 251 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 305 87 Generate random points in 360 degrees;
+#X obj 251 170 f;
+#X text 785 246 bang based on first adjacent string formula;
+#X text 782 447 what string note was played on;
+#X obj 521 46 random 10;
+#X obj 804 101 % 360;
+#X obj 804 34 random 360;
+#X floatatom 804 56 5 0 0 0 - - -;
+#X obj 804 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 744 118 f;
+#X obj 251 244 line;
+#X obj 521 245 line;
+#X obj 241 293 spigot;
+#X obj 521 293 spigot;
+#X obj 718 278 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 302 - 1;
+#X obj 620 302 - 1;
+#X floatatom 754 286 5 0 0 0 - - -;
+#X obj 241 449 line;
+#X obj 521 449 line;
+#X obj 230 474 spigot;
+#X obj 521 474 spigot;
+#X obj 620 483 - 1;
+#X floatatom 725 467 5 0 0 0 - - -;
+#X msg 521 224 \$1 1000;
+#X text 517 26 distance is randomised (0 - 10);
+#X obj 718 248 reverse;
+#X obj 718 226 == \$1;
+#X obj 718 206 pipe 1;
+#X obj 804 -1 sel 0;
+#X obj 958 184 random 10;
+#X obj 601 58 r ma.t;
+#X obj 601 75 sel 1;
+#X obj 646 75 sel 0;
+#X msg 601 92 2;
+#X msg 628 92 180;
+#X msg 655 92 180;
+#X msg 688 92 2;
+#X obj 191 -136 r counter;
+#X obj 251 3 sel 1;
+#X obj 521 143 split 5 10;
+#X obj 205 104 f;
+#X obj 870 184 f;
+#X obj 205 129 pipe 1;
+#X obj 241 196 pipe 1;
+#X obj 329 483 - 1;
+#X obj 958 207 split 5 10;
+#X obj 773 109 + 1;
+#X obj 309 -89 r ma.thres;
+#X floatatom 152 -119 5 0 0 0 - - -;
+#X floatatom 201 -77 5 0 0 0 - - -;
+#X obj 870 207 pipe 1;
+#X text 243 577 Output to ambisonic panner abstraction(s);
+#X obj 230 559 s az.1;
+#X obj 276 559 s az.2;
+#X obj 322 559 s az.3;
+#X obj 367 559 s az.4;
+#X obj 414 559 s az.5;
+#X obj 462 559 s az.6;
+#X obj 230 542 demux - - - - - -;
+#X obj 521 542 demux - - - - - -;
+#X obj 521 559 s ad.1;
+#X obj 567 559 s ad.2;
+#X obj 613 559 s ad.3;
+#X obj 658 559 s ad.4;
+#X obj 705 559 s ad.5;
+#X obj 753 559 s ad.6;
+#X obj 521 515 spigot;
+#X obj 230 515 spigot;
+#X obj 708 500 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X text 422 -126 If current melodic attraction value = less than threshold
+- then spatialise whatever channel note a and b where on apart by equidistant
+divisions of 2D space (providing they are played on different strings
+- otherwise \, no spatialisation will occur);
+#X obj 241 380 s az.1;
+#X obj 287 380 s az.2;
+#X obj 333 380 s az.3;
+#X obj 378 380 s az.4;
+#X obj 425 380 s az.5;
+#X obj 473 380 s az.6;
+#X obj 241 363 demux - - - - - -;
+#X obj 521 363 demux - - - - - -;
+#X obj 522 380 s ad.1;
+#X obj 568 380 s ad.2;
+#X obj 614 380 s ad.3;
+#X obj 659 380 s ad.4;
+#X obj 706 380 s ad.5;
+#X obj 754 380 s ad.6;
+#X obj 521 332 spigot;
+#X obj 241 332 spigot;
+#X obj 719 317 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X floatatom 251 -17 5 0 0 0 - - -;
+#X floatatom 192 532 5 0 0 0 - - -;
+#X floatatom 466 532 5 0 0 0 - - -;
+#X floatatom 807 148 5 0 0 0 - - -;
+#X obj 248 -72 >= 0.5;
+#X floatatom 647 54 5 0 0 0 - - -;
+#X obj 190 -96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 190 -33 f;
+#X obj 190 -54 del 15;
+#X msg 251 224 \$1 1000;
+#X msg 241 429 \$1 500;
+#X msg 521 428 \$1 500;
+#X obj 191 -116 sel 2;
+#X obj 718 186 r \$0-s2;
+#X obj 764 209 r \$0-s1;
+#X obj 754 267 r \$0-s1;
+#X obj 725 448 r \$0-s2;
+#X obj 248 -94 r man.c2;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 0 47 1;
+#X connect 4 0 7 1;
+#X connect 5 0 2 0;
+#X connect 5 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 0 47 0;
+#X connect 7 0 50 0;
+#X connect 10 0 46 0;
+#X connect 11 0 15 1;
+#X connect 11 0 97 0;
+#X connect 12 0 13 0;
+#X connect 13 0 53 0;
+#X connect 13 0 48 1;
+#X connect 14 0 12 0;
+#X connect 14 0 15 0;
+#X connect 14 0 36 0;
+#X connect 14 0 48 0;
+#X connect 15 0 104 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 92 0;
+#X connect 19 0 91 0;
+#X connect 20 0 19 1;
+#X connect 20 0 18 1;
+#X connect 20 0 27 1;
+#X connect 20 0 26 1;
+#X connect 21 0 83 1;
+#X connect 22 0 84 1;
+#X connect 23 0 22 0;
+#X connect 23 0 21 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 74 0;
+#X connect 27 0 73 0;
+#X connect 28 0 66 1;
+#X connect 29 0 28 0;
+#X connect 29 0 51 0;
+#X connect 30 0 17 0;
+#X connect 32 0 20 0;
+#X connect 33 0 32 0;
+#X connect 34 0 33 0;
+#X connect 35 0 14 0;
+#X connect 36 0 52 0;
+#X connect 37 0 38 0;
+#X connect 37 0 39 0;
+#X connect 37 0 99 0;
+#X connect 38 0 40 0;
+#X connect 38 0 41 0;
+#X connect 39 0 42 0;
+#X connect 39 0 43 0;
+#X connect 40 0 1 1;
+#X connect 41 0 53 1;
+#X connect 42 0 1 1;
+#X connect 43 0 53 1;
+#X connect 44 0 55 0;
+#X connect 44 0 106 0;
+#X connect 45 0 5 0;
+#X connect 46 0 30 0;
+#X connect 46 0 105 0;
+#X connect 47 0 49 0;
+#X connect 48 0 57 0;
+#X connect 49 0 103 0;
+#X connect 50 0 104 0;
+#X connect 51 0 65 1;
+#X connect 52 0 105 0;
+#X connect 52 0 30 0;
+#X connect 53 0 11 0;
+#X connect 54 0 98 1;
+#X connect 57 0 103 0;
+#X connect 65 0 59 0;
+#X connect 65 1 60 0;
+#X connect 65 2 61 0;
+#X connect 65 3 62 0;
+#X connect 65 4 63 0;
+#X connect 65 5 64 0;
+#X connect 66 0 67 0;
+#X connect 66 1 68 0;
+#X connect 66 2 69 0;
+#X connect 66 3 70 0;
+#X connect 66 4 71 0;
+#X connect 66 5 72 0;
+#X connect 73 0 66 0;
+#X connect 73 0 96 0;
+#X connect 74 0 65 0;
+#X connect 74 0 95 0;
+#X connect 75 0 73 1;
+#X connect 75 0 74 1;
+#X connect 83 0 77 0;
+#X connect 83 1 78 0;
+#X connect 83 2 79 0;
+#X connect 83 3 80 0;
+#X connect 83 4 81 0;
+#X connect 83 5 82 0;
+#X connect 84 0 85 0;
+#X connect 84 1 86 0;
+#X connect 84 2 87 0;
+#X connect 84 3 88 0;
+#X connect 84 4 89 0;
+#X connect 84 5 90 0;
+#X connect 91 0 84 0;
+#X connect 92 0 83 0;
+#X connect 93 0 91 1;
+#X connect 93 0 92 1;
+#X connect 94 0 45 0;
+#X connect 94 0 35 0;
+#X connect 98 0 101 1;
+#X connect 100 0 102 0;
+#X connect 101 0 94 0;
+#X connect 102 0 101 0;
+#X connect 103 0 16 0;
+#X connect 104 0 24 0;
+#X connect 105 0 25 0;
+#X connect 106 0 100 0;
+#X connect 107 0 34 0;
+#X connect 108 0 33 1;
+#X connect 109 0 23 0;
+#X connect 110 0 29 0;
+#X connect 111 0 56 0;
+#X connect 111 0 98 0;
+#X restore 22 92 pd ma.c2;
+#N canvas 0 22 1280 752 ma.c3 0;
+#X obj 266 133 % 360;
+#X obj 266 109 + 180;
+#X obj 251 66 random 360;
+#X floatatom 266 88 5 0 0 0 - - -;
+#X floatatom 266 150 5 0 0 0 - - -;
+#X obj 251 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 305 87 Generate random points in 360 degrees;
+#X obj 251 170 f;
+#X text 785 246 bang based on first adjacent string formula;
+#X text 782 447 what string note was played on;
+#X obj 521 46 random 10;
+#X obj 804 101 % 360;
+#X obj 804 34 random 360;
+#X floatatom 804 56 5 0 0 0 - - -;
+#X obj 804 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 744 118 f;
+#X obj 251 244 line;
+#X obj 521 245 line;
+#X obj 241 293 spigot;
+#X obj 521 293 spigot;
+#X obj 718 278 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 302 - 1;
+#X obj 620 302 - 1;
+#X floatatom 754 286 5 0 0 0 - - -;
+#X obj 241 449 line;
+#X obj 521 449 line;
+#X obj 230 474 spigot;
+#X obj 521 474 spigot;
+#X obj 620 483 - 1;
+#X floatatom 725 467 5 0 0 0 - - -;
+#X msg 521 224 \$1 1000;
+#X text 517 26 distance is randomised (0 - 10);
+#X obj 718 248 reverse;
+#X obj 718 226 == \$1;
+#X obj 718 206 pipe 1;
+#X obj 804 -1 sel 0;
+#X obj 958 184 random 10;
+#X obj 601 58 r ma.t;
+#X obj 601 75 sel 1;
+#X obj 646 75 sel 0;
+#X msg 601 92 2;
+#X msg 628 92 180;
+#X msg 655 92 180;
+#X msg 688 92 2;
+#X obj 191 -136 r counter;
+#X obj 251 3 sel 1;
+#X obj 521 143 split 5 10;
+#X obj 205 104 f;
+#X obj 870 184 f;
+#X obj 205 129 pipe 1;
+#X obj 241 196 pipe 1;
+#X obj 329 483 - 1;
+#X obj 958 207 split 5 10;
+#X obj 773 109 + 1;
+#X obj 309 -89 r ma.thres;
+#X floatatom 152 -119 5 0 0 0 - - -;
+#X floatatom 201 -77 5 0 0 0 - - -;
+#X obj 870 207 pipe 1;
+#X text 243 577 Output to ambisonic panner abstraction(s);
+#X obj 230 559 s az.1;
+#X obj 276 559 s az.2;
+#X obj 322 559 s az.3;
+#X obj 367 559 s az.4;
+#X obj 414 559 s az.5;
+#X obj 462 559 s az.6;
+#X obj 230 542 demux - - - - - -;
+#X obj 521 542 demux - - - - - -;
+#X obj 521 559 s ad.1;
+#X obj 567 559 s ad.2;
+#X obj 613 559 s ad.3;
+#X obj 658 559 s ad.4;
+#X obj 705 559 s ad.5;
+#X obj 753 559 s ad.6;
+#X obj 521 515 spigot;
+#X obj 230 515 spigot;
+#X obj 708 500 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X text 422 -126 If current melodic attraction value = less than threshold
+- then spatialise whatever channel note a and b where on apart by equidistant
+divisions of 2D space (providing they are played on different strings
+- otherwise \, no spatialisation will occur);
+#X obj 241 380 s az.1;
+#X obj 287 380 s az.2;
+#X obj 333 380 s az.3;
+#X obj 378 380 s az.4;
+#X obj 425 380 s az.5;
+#X obj 473 380 s az.6;
+#X obj 241 363 demux - - - - - -;
+#X obj 521 363 demux - - - - - -;
+#X obj 522 380 s ad.1;
+#X obj 568 380 s ad.2;
+#X obj 614 380 s ad.3;
+#X obj 659 380 s ad.4;
+#X obj 706 380 s ad.5;
+#X obj 754 380 s ad.6;
+#X obj 521 332 spigot;
+#X obj 241 332 spigot;
+#X obj 719 317 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X floatatom 251 -17 5 0 0 0 - - -;
+#X floatatom 192 532 5 0 0 0 - - -;
+#X floatatom 466 532 5 0 0 0 - - -;
+#X floatatom 807 148 5 0 0 0 - - -;
+#X obj 248 -72 >= 0.5;
+#X floatatom 647 54 5 0 0 0 - - -;
+#X obj 190 -96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 190 -33 f;
+#X obj 190 -54 del 15;
+#X msg 251 224 \$1 1000;
+#X msg 241 429 \$1 500;
+#X msg 521 428 \$1 500;
+#X obj 191 -116 sel 3;
+#X obj 718 186 r \$0-s3;
+#X obj 754 267 r \$0-s2;
+#X obj 725 448 r \$0-s3;
+#X obj 764 209 r \$0-s2;
+#X obj 248 -94 r man.c3;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 0 47 1;
+#X connect 4 0 7 1;
+#X connect 5 0 2 0;
+#X connect 5 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 0 47 0;
+#X connect 7 0 50 0;
+#X connect 10 0 46 0;
+#X connect 11 0 15 1;
+#X connect 11 0 97 0;
+#X connect 12 0 13 0;
+#X connect 13 0 53 0;
+#X connect 13 0 48 1;
+#X connect 14 0 12 0;
+#X connect 14 0 15 0;
+#X connect 14 0 36 0;
+#X connect 14 0 48 0;
+#X connect 15 0 104 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 92 0;
+#X connect 19 0 91 0;
+#X connect 20 0 19 1;
+#X connect 20 0 18 1;
+#X connect 20 0 27 1;
+#X connect 20 0 26 1;
+#X connect 21 0 83 1;
+#X connect 22 0 84 1;
+#X connect 23 0 22 0;
+#X connect 23 0 21 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 74 0;
+#X connect 27 0 73 0;
+#X connect 28 0 66 1;
+#X connect 29 0 28 0;
+#X connect 29 0 51 0;
+#X connect 30 0 17 0;
+#X connect 32 0 20 0;
+#X connect 33 0 32 0;
+#X connect 34 0 33 0;
+#X connect 35 0 14 0;
+#X connect 36 0 52 0;
+#X connect 37 0 38 0;
+#X connect 37 0 39 0;
+#X connect 37 0 99 0;
+#X connect 38 0 40 0;
+#X connect 38 0 41 0;
+#X connect 39 0 42 0;
+#X connect 39 0 43 0;
+#X connect 40 0 1 1;
+#X connect 41 0 53 1;
+#X connect 42 0 1 1;
+#X connect 43 0 53 1;
+#X connect 44 0 55 0;
+#X connect 44 0 106 0;
+#X connect 45 0 5 0;
+#X connect 46 0 30 0;
+#X connect 46 0 105 0;
+#X connect 47 0 49 0;
+#X connect 48 0 57 0;
+#X connect 49 0 103 0;
+#X connect 50 0 104 0;
+#X connect 51 0 65 1;
+#X connect 52 0 105 0;
+#X connect 52 0 30 0;
+#X connect 53 0 11 0;
+#X connect 54 0 98 1;
+#X connect 57 0 103 0;
+#X connect 65 0 59 0;
+#X connect 65 1 60 0;
+#X connect 65 2 61 0;
+#X connect 65 3 62 0;
+#X connect 65 4 63 0;
+#X connect 65 5 64 0;
+#X connect 66 0 67 0;
+#X connect 66 1 68 0;
+#X connect 66 2 69 0;
+#X connect 66 3 70 0;
+#X connect 66 4 71 0;
+#X connect 66 5 72 0;
+#X connect 73 0 66 0;
+#X connect 73 0 96 0;
+#X connect 74 0 65 0;
+#X connect 74 0 95 0;
+#X connect 75 0 73 1;
+#X connect 75 0 74 1;
+#X connect 83 0 77 0;
+#X connect 83 1 78 0;
+#X connect 83 2 79 0;
+#X connect 83 3 80 0;
+#X connect 83 4 81 0;
+#X connect 83 5 82 0;
+#X connect 84 0 85 0;
+#X connect 84 1 86 0;
+#X connect 84 2 87 0;
+#X connect 84 3 88 0;
+#X connect 84 4 89 0;
+#X connect 84 5 90 0;
+#X connect 91 0 84 0;
+#X connect 92 0 83 0;
+#X connect 93 0 91 1;
+#X connect 93 0 92 1;
+#X connect 94 0 45 0;
+#X connect 94 0 35 0;
+#X connect 98 0 101 1;
+#X connect 100 0 102 0;
+#X connect 101 0 94 0;
+#X connect 102 0 101 0;
+#X connect 103 0 16 0;
+#X connect 104 0 24 0;
+#X connect 105 0 25 0;
+#X connect 106 0 100 0;
+#X connect 107 0 34 0;
+#X connect 108 0 23 0;
+#X connect 109 0 29 0;
+#X connect 110 0 33 1;
+#X connect 111 0 56 0;
+#X connect 111 0 98 0;
+#X restore 22 115 pd ma.c3;
+#N canvas 0 48 1280 752 ma.c4 0;
+#X obj 266 133 % 360;
+#X obj 266 109 + 180;
+#X obj 251 66 random 360;
+#X floatatom 266 88 5 0 0 0 - - -;
+#X floatatom 266 150 5 0 0 0 - - -;
+#X obj 251 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 305 87 Generate random points in 360 degrees;
+#X obj 251 170 f;
+#X text 785 246 bang based on first adjacent string formula;
+#X text 782 447 what string note was played on;
+#X obj 521 46 random 10;
+#X obj 804 101 % 360;
+#X obj 804 34 random 360;
+#X floatatom 804 56 5 0 0 0 - - -;
+#X obj 804 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 744 118 f;
+#X obj 251 244 line;
+#X obj 521 245 line;
+#X obj 241 293 spigot;
+#X obj 521 293 spigot;
+#X obj 718 278 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 302 - 1;
+#X obj 620 302 - 1;
+#X floatatom 754 286 5 0 0 0 - - -;
+#X obj 241 449 line;
+#X obj 521 449 line;
+#X obj 230 474 spigot;
+#X obj 521 474 spigot;
+#X obj 620 483 - 1;
+#X floatatom 725 467 5 0 0 0 - - -;
+#X msg 521 224 \$1 1000;
+#X text 517 26 distance is randomised (0 - 10);
+#X obj 718 248 reverse;
+#X obj 718 226 == \$1;
+#X obj 718 206 pipe 1;
+#X obj 804 -1 sel 0;
+#X obj 958 184 random 10;
+#X obj 601 58 r ma.t;
+#X obj 601 75 sel 1;
+#X obj 646 75 sel 0;
+#X msg 601 92 2;
+#X msg 628 92 180;
+#X msg 655 92 180;
+#X msg 688 92 2;
+#X obj 191 -136 r counter;
+#X obj 251 3 sel 1;
+#X obj 521 143 split 5 10;
+#X obj 205 104 f;
+#X obj 870 184 f;
+#X obj 205 129 pipe 1;
+#X obj 241 196 pipe 1;
+#X obj 329 483 - 1;
+#X obj 958 207 split 5 10;
+#X obj 773 109 + 1;
+#X obj 309 -89 r ma.thres;
+#X floatatom 152 -119 5 0 0 0 - - -;
+#X floatatom 201 -77 5 0 0 0 - - -;
+#X obj 870 207 pipe 1;
+#X text 243 577 Output to ambisonic panner abstraction(s);
+#X obj 230 559 s az.1;
+#X obj 276 559 s az.2;
+#X obj 322 559 s az.3;
+#X obj 367 559 s az.4;
+#X obj 414 559 s az.5;
+#X obj 462 559 s az.6;
+#X obj 230 542 demux - - - - - -;
+#X obj 521 542 demux - - - - - -;
+#X obj 521 559 s ad.1;
+#X obj 567 559 s ad.2;
+#X obj 613 559 s ad.3;
+#X obj 658 559 s ad.4;
+#X obj 705 559 s ad.5;
+#X obj 753 559 s ad.6;
+#X obj 521 515 spigot;
+#X obj 230 515 spigot;
+#X obj 708 500 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X text 422 -126 If current melodic attraction value = less than threshold
+- then spatialise whatever channel note a and b where on apart by equidistant
+divisions of 2D space (providing they are played on different strings
+- otherwise \, no spatialisation will occur);
+#X obj 241 380 s az.1;
+#X obj 287 380 s az.2;
+#X obj 333 380 s az.3;
+#X obj 378 380 s az.4;
+#X obj 425 380 s az.5;
+#X obj 473 380 s az.6;
+#X obj 241 363 demux - - - - - -;
+#X obj 521 363 demux - - - - - -;
+#X obj 522 380 s ad.1;
+#X obj 568 380 s ad.2;
+#X obj 614 380 s ad.3;
+#X obj 659 380 s ad.4;
+#X obj 706 380 s ad.5;
+#X obj 754 380 s ad.6;
+#X obj 521 332 spigot;
+#X obj 241 332 spigot;
+#X obj 719 317 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X floatatom 251 -17 5 0 0 0 - - -;
+#X floatatom 192 532 5 0 0 0 - - -;
+#X floatatom 466 532 5 0 0 0 - - -;
+#X floatatom 807 148 5 0 0 0 - - -;
+#X obj 248 -72 >= 0.5;
+#X floatatom 647 54 5 0 0 0 - - -;
+#X obj 190 -96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 190 -33 f;
+#X obj 190 -54 del 15;
+#X msg 251 224 \$1 1000;
+#X msg 241 429 \$1 500;
+#X msg 521 428 \$1 500;
+#X obj 191 -116 sel 4;
+#X obj 718 186 r \$0-s4;
+#X obj 764 209 r \$0-s3;
+#X obj 754 267 r \$0-s3;
+#X obj 725 448 r \$0-s4;
+#X obj 248 -94 r man.c4;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 0 47 1;
+#X connect 4 0 7 1;
+#X connect 5 0 2 0;
+#X connect 5 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 0 47 0;
+#X connect 7 0 50 0;
+#X connect 10 0 46 0;
+#X connect 11 0 15 1;
+#X connect 11 0 97 0;
+#X connect 12 0 13 0;
+#X connect 13 0 53 0;
+#X connect 13 0 48 1;
+#X connect 14 0 12 0;
+#X connect 14 0 15 0;
+#X connect 14 0 36 0;
+#X connect 14 0 48 0;
+#X connect 15 0 104 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 92 0;
+#X connect 19 0 91 0;
+#X connect 20 0 19 1;
+#X connect 20 0 18 1;
+#X connect 20 0 27 1;
+#X connect 20 0 26 1;
+#X connect 21 0 83 1;
+#X connect 22 0 84 1;
+#X connect 23 0 22 0;
+#X connect 23 0 21 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 74 0;
+#X connect 27 0 73 0;
+#X connect 28 0 66 1;
+#X connect 29 0 28 0;
+#X connect 29 0 51 0;
+#X connect 30 0 17 0;
+#X connect 32 0 20 0;
+#X connect 33 0 32 0;
+#X connect 34 0 33 0;
+#X connect 35 0 14 0;
+#X connect 36 0 52 0;
+#X connect 37 0 38 0;
+#X connect 37 0 39 0;
+#X connect 37 0 99 0;
+#X connect 38 0 40 0;
+#X connect 38 0 41 0;
+#X connect 39 0 42 0;
+#X connect 39 0 43 0;
+#X connect 40 0 1 1;
+#X connect 41 0 53 1;
+#X connect 42 0 1 1;
+#X connect 43 0 53 1;
+#X connect 44 0 55 0;
+#X connect 44 0 106 0;
+#X connect 45 0 5 0;
+#X connect 46 0 30 0;
+#X connect 46 0 105 0;
+#X connect 47 0 49 0;
+#X connect 48 0 57 0;
+#X connect 49 0 103 0;
+#X connect 50 0 104 0;
+#X connect 51 0 65 1;
+#X connect 52 0 105 0;
+#X connect 52 0 30 0;
+#X connect 53 0 11 0;
+#X connect 54 0 98 1;
+#X connect 57 0 103 0;
+#X connect 65 0 59 0;
+#X connect 65 1 60 0;
+#X connect 65 2 61 0;
+#X connect 65 3 62 0;
+#X connect 65 4 63 0;
+#X connect 65 5 64 0;
+#X connect 66 0 67 0;
+#X connect 66 1 68 0;
+#X connect 66 2 69 0;
+#X connect 66 3 70 0;
+#X connect 66 4 71 0;
+#X connect 66 5 72 0;
+#X connect 73 0 66 0;
+#X connect 73 0 96 0;
+#X connect 74 0 65 0;
+#X connect 74 0 95 0;
+#X connect 75 0 73 1;
+#X connect 75 0 74 1;
+#X connect 83 0 77 0;
+#X connect 83 1 78 0;
+#X connect 83 2 79 0;
+#X connect 83 3 80 0;
+#X connect 83 4 81 0;
+#X connect 83 5 82 0;
+#X connect 84 0 85 0;
+#X connect 84 1 86 0;
+#X connect 84 2 87 0;
+#X connect 84 3 88 0;
+#X connect 84 4 89 0;
+#X connect 84 5 90 0;
+#X connect 91 0 84 0;
+#X connect 92 0 83 0;
+#X connect 93 0 91 1;
+#X connect 93 0 92 1;
+#X connect 94 0 45 0;
+#X connect 94 0 35 0;
+#X connect 98 0 101 1;
+#X connect 100 0 102 0;
+#X connect 101 0 94 0;
+#X connect 102 0 101 0;
+#X connect 103 0 16 0;
+#X connect 104 0 24 0;
+#X connect 105 0 25 0;
+#X connect 106 0 100 0;
+#X connect 107 0 34 0;
+#X connect 108 0 33 1;
+#X connect 109 0 23 0;
+#X connect 110 0 29 0;
+#X connect 111 0 56 0;
+#X connect 111 0 98 0;
+#X restore 22 138 pd ma.c4;
+#N canvas 0 48 1280 752 ma.c5 0;
+#X obj 266 133 % 360;
+#X obj 266 109 + 180;
+#X obj 251 66 random 360;
+#X floatatom 266 88 5 0 0 0 - - -;
+#X floatatom 266 150 5 0 0 0 - - -;
+#X obj 251 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 305 87 Generate random points in 360 degrees;
+#X obj 251 170 f;
+#X text 785 246 bang based on first adjacent string formula;
+#X text 782 447 what string note was played on;
+#X obj 521 46 random 10;
+#X obj 804 101 % 360;
+#X obj 804 34 random 360;
+#X floatatom 804 56 5 0 0 0 - - -;
+#X obj 804 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 744 118 f;
+#X obj 251 244 line;
+#X obj 521 245 line;
+#X obj 241 293 spigot;
+#X obj 521 293 spigot;
+#X obj 718 278 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 302 - 1;
+#X obj 620 302 - 1;
+#X floatatom 754 286 5 0 0 0 - - -;
+#X obj 241 449 line;
+#X obj 521 449 line;
+#X obj 230 474 spigot;
+#X obj 521 474 spigot;
+#X obj 620 483 - 1;
+#X floatatom 725 467 5 0 0 0 - - -;
+#X msg 521 224 \$1 1000;
+#X text 517 26 distance is randomised (0 - 10);
+#X obj 718 248 reverse;
+#X obj 718 226 == \$1;
+#X obj 718 206 pipe 1;
+#X obj 804 -1 sel 0;
+#X obj 958 184 random 10;
+#X obj 601 58 r ma.t;
+#X obj 601 75 sel 1;
+#X obj 646 75 sel 0;
+#X msg 601 92 2;
+#X msg 628 92 180;
+#X msg 655 92 180;
+#X msg 688 92 2;
+#X obj 191 -136 r counter;
+#X obj 251 3 sel 1;
+#X obj 521 143 split 5 10;
+#X obj 205 104 f;
+#X obj 870 184 f;
+#X obj 205 129 pipe 1;
+#X obj 241 196 pipe 1;
+#X obj 329 483 - 1;
+#X obj 958 207 split 5 10;
+#X obj 773 109 + 1;
+#X obj 309 -89 r ma.thres;
+#X floatatom 152 -119 5 0 0 0 - - -;
+#X floatatom 201 -77 5 0 0 0 - - -;
+#X obj 870 207 pipe 1;
+#X text 243 577 Output to ambisonic panner abstraction(s);
+#X obj 230 559 s az.1;
+#X obj 276 559 s az.2;
+#X obj 322 559 s az.3;
+#X obj 367 559 s az.4;
+#X obj 414 559 s az.5;
+#X obj 462 559 s az.6;
+#X obj 230 542 demux - - - - - -;
+#X obj 521 542 demux - - - - - -;
+#X obj 521 559 s ad.1;
+#X obj 567 559 s ad.2;
+#X obj 613 559 s ad.3;
+#X obj 658 559 s ad.4;
+#X obj 705 559 s ad.5;
+#X obj 753 559 s ad.6;
+#X obj 521 515 spigot;
+#X obj 230 515 spigot;
+#X obj 708 500 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X text 422 -126 If current melodic attraction value = less than threshold
+- then spatialise whatever channel note a and b where on apart by equidistant
+divisions of 2D space (providing they are played on different strings
+- otherwise \, no spatialisation will occur);
+#X obj 241 380 s az.1;
+#X obj 287 380 s az.2;
+#X obj 333 380 s az.3;
+#X obj 378 380 s az.4;
+#X obj 425 380 s az.5;
+#X obj 473 380 s az.6;
+#X obj 241 363 demux - - - - - -;
+#X obj 521 363 demux - - - - - -;
+#X obj 522 380 s ad.1;
+#X obj 568 380 s ad.2;
+#X obj 614 380 s ad.3;
+#X obj 659 380 s ad.4;
+#X obj 706 380 s ad.5;
+#X obj 754 380 s ad.6;
+#X obj 521 332 spigot;
+#X obj 241 332 spigot;
+#X obj 719 317 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X floatatom 251 -17 5 0 0 0 - - -;
+#X floatatom 192 532 5 0 0 0 - - -;
+#X floatatom 466 532 5 0 0 0 - - -;
+#X floatatom 807 148 5 0 0 0 - - -;
+#X obj 248 -72 >= 0.5;
+#X floatatom 647 54 5 0 0 0 - - -;
+#X obj 190 -96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 190 -33 f;
+#X obj 190 -54 del 15;
+#X msg 251 224 \$1 1000;
+#X msg 241 429 \$1 500;
+#X msg 521 428 \$1 500;
+#X obj 191 -116 sel 5;
+#X obj 718 186 r \$0-s5;
+#X obj 764 209 r \$0-s4;
+#X obj 754 267 r \$0-s4;
+#X obj 725 448 r \$0-s5;
+#X obj 248 -94 r man.c5;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 0 47 1;
+#X connect 4 0 7 1;
+#X connect 5 0 2 0;
+#X connect 5 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 0 47 0;
+#X connect 7 0 50 0;
+#X connect 10 0 46 0;
+#X connect 11 0 15 1;
+#X connect 11 0 97 0;
+#X connect 12 0 13 0;
+#X connect 13 0 53 0;
+#X connect 13 0 48 1;
+#X connect 14 0 12 0;
+#X connect 14 0 15 0;
+#X connect 14 0 36 0;
+#X connect 14 0 48 0;
+#X connect 15 0 104 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 92 0;
+#X connect 19 0 91 0;
+#X connect 20 0 19 1;
+#X connect 20 0 18 1;
+#X connect 20 0 27 1;
+#X connect 20 0 26 1;
+#X connect 21 0 83 1;
+#X connect 22 0 84 1;
+#X connect 23 0 22 0;
+#X connect 23 0 21 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 74 0;
+#X connect 27 0 73 0;
+#X connect 28 0 66 1;
+#X connect 29 0 28 0;
+#X connect 29 0 51 0;
+#X connect 30 0 17 0;
+#X connect 32 0 20 0;
+#X connect 33 0 32 0;
+#X connect 34 0 33 0;
+#X connect 35 0 14 0;
+#X connect 36 0 52 0;
+#X connect 37 0 38 0;
+#X connect 37 0 39 0;
+#X connect 37 0 99 0;
+#X connect 38 0 40 0;
+#X connect 38 0 41 0;
+#X connect 39 0 42 0;
+#X connect 39 0 43 0;
+#X connect 40 0 1 1;
+#X connect 41 0 53 1;
+#X connect 42 0 1 1;
+#X connect 43 0 53 1;
+#X connect 44 0 55 0;
+#X connect 44 0 106 0;
+#X connect 45 0 5 0;
+#X connect 46 0 30 0;
+#X connect 46 0 105 0;
+#X connect 47 0 49 0;
+#X connect 48 0 57 0;
+#X connect 49 0 103 0;
+#X connect 50 0 104 0;
+#X connect 51 0 65 1;
+#X connect 52 0 105 0;
+#X connect 52 0 30 0;
+#X connect 53 0 11 0;
+#X connect 54 0 98 1;
+#X connect 57 0 103 0;
+#X connect 65 0 59 0;
+#X connect 65 1 60 0;
+#X connect 65 2 61 0;
+#X connect 65 3 62 0;
+#X connect 65 4 63 0;
+#X connect 65 5 64 0;
+#X connect 66 0 67 0;
+#X connect 66 1 68 0;
+#X connect 66 2 69 0;
+#X connect 66 3 70 0;
+#X connect 66 4 71 0;
+#X connect 66 5 72 0;
+#X connect 73 0 66 0;
+#X connect 73 0 96 0;
+#X connect 74 0 65 0;
+#X connect 74 0 95 0;
+#X connect 75 0 73 1;
+#X connect 75 0 74 1;
+#X connect 83 0 77 0;
+#X connect 83 1 78 0;
+#X connect 83 2 79 0;
+#X connect 83 3 80 0;
+#X connect 83 4 81 0;
+#X connect 83 5 82 0;
+#X connect 84 0 85 0;
+#X connect 84 1 86 0;
+#X connect 84 2 87 0;
+#X connect 84 3 88 0;
+#X connect 84 4 89 0;
+#X connect 84 5 90 0;
+#X connect 91 0 84 0;
+#X connect 92 0 83 0;
+#X connect 93 0 91 1;
+#X connect 93 0 92 1;
+#X connect 94 0 45 0;
+#X connect 94 0 35 0;
+#X connect 98 0 101 1;
+#X connect 100 0 102 0;
+#X connect 101 0 94 0;
+#X connect 102 0 101 0;
+#X connect 103 0 16 0;
+#X connect 104 0 24 0;
+#X connect 105 0 25 0;
+#X connect 106 0 100 0;
+#X connect 107 0 34 0;
+#X connect 108 0 33 1;
+#X connect 109 0 23 0;
+#X connect 110 0 29 0;
+#X connect 111 0 56 0;
+#X connect 111 0 98 0;
+#X restore 22 161 pd ma.c5;
+#N canvas 0 22 1280 752 ma.c6 0;
+#X obj 266 133 % 360;
+#X obj 266 109 + 180;
+#X obj 251 66 random 360;
+#X floatatom 266 88 5 0 0 0 - - -;
+#X floatatom 266 150 5 0 0 0 - - -;
+#X obj 251 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 305 87 Generate random points in 360 degrees;
+#X obj 251 170 f;
+#X text 785 246 bang based on first adjacent string formula;
+#X text 782 447 what string note was played on;
+#X obj 521 46 random 10;
+#X obj 804 101 % 360;
+#X obj 804 34 random 360;
+#X floatatom 804 56 5 0 0 0 - - -;
+#X obj 804 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 744 118 f;
+#X obj 251 244 line;
+#X obj 521 245 line;
+#X obj 241 293 spigot;
+#X obj 521 293 spigot;
+#X obj 718 278 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 302 - 1;
+#X obj 620 302 - 1;
+#X floatatom 754 286 5 0 0 0 - - -;
+#X obj 241 449 line;
+#X obj 521 449 line;
+#X obj 230 474 spigot;
+#X obj 521 474 spigot;
+#X obj 620 483 - 1;
+#X floatatom 725 467 5 0 0 0 - - -;
+#X msg 521 224 \$1 1000;
+#X text 517 26 distance is randomised (0 - 10);
+#X obj 718 248 reverse;
+#X obj 718 226 == \$1;
+#X obj 718 206 pipe 1;
+#X obj 804 -1 sel 0;
+#X obj 958 184 random 10;
+#X obj 601 58 r ma.t;
+#X obj 601 75 sel 1;
+#X obj 646 75 sel 0;
+#X msg 601 92 2;
+#X msg 628 92 180;
+#X msg 655 92 180;
+#X msg 688 92 2;
+#X obj 191 -136 r counter;
+#X obj 251 3 sel 1;
+#X obj 521 143 split 5 10;
+#X obj 205 104 f;
+#X obj 870 184 f;
+#X obj 205 129 pipe 1;
+#X obj 241 196 pipe 1;
+#X obj 329 483 - 1;
+#X obj 958 207 split 5 10;
+#X obj 773 109 + 1;
+#X obj 309 -89 r ma.thres;
+#X floatatom 152 -119 5 0 0 0 - - -;
+#X floatatom 201 -77 5 0 0 0 - - -;
+#X obj 870 207 pipe 1;
+#X text 243 577 Output to ambisonic panner abstraction(s);
+#X obj 230 559 s az.1;
+#X obj 276 559 s az.2;
+#X obj 322 559 s az.3;
+#X obj 367 559 s az.4;
+#X obj 414 559 s az.5;
+#X obj 462 559 s az.6;
+#X obj 230 542 demux - - - - - -;
+#X obj 521 542 demux - - - - - -;
+#X obj 521 559 s ad.1;
+#X obj 567 559 s ad.2;
+#X obj 613 559 s ad.3;
+#X obj 658 559 s ad.4;
+#X obj 705 559 s ad.5;
+#X obj 753 559 s ad.6;
+#X obj 521 515 spigot;
+#X obj 230 515 spigot;
+#X obj 708 500 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X text 422 -126 If current melodic attraction value = less than threshold
+- then spatialise whatever channel note a and b where on apart by equidistant
+divisions of 2D space (providing they are played on different strings
+- otherwise \, no spatialisation will occur);
+#X obj 241 380 s az.1;
+#X obj 287 380 s az.2;
+#X obj 333 380 s az.3;
+#X obj 378 380 s az.4;
+#X obj 425 380 s az.5;
+#X obj 473 380 s az.6;
+#X obj 241 363 demux - - - - - -;
+#X obj 521 363 demux - - - - - -;
+#X obj 522 380 s ad.1;
+#X obj 568 380 s ad.2;
+#X obj 614 380 s ad.3;
+#X obj 659 380 s ad.4;
+#X obj 706 380 s ad.5;
+#X obj 754 380 s ad.6;
+#X obj 521 332 spigot;
+#X obj 241 332 spigot;
+#X obj 719 317 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X floatatom 251 -17 5 0 0 0 - - -;
+#X floatatom 192 532 5 0 0 0 - - -;
+#X floatatom 466 532 5 0 0 0 - - -;
+#X floatatom 807 148 5 0 0 0 - - -;
+#X obj 248 -72 >= 0.5;
+#X floatatom 647 54 5 0 0 0 - - -;
+#X obj 190 -96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 190 -33 f;
+#X obj 190 -54 del 15;
+#X msg 251 224 \$1 1000;
+#X msg 241 429 \$1 500;
+#X msg 521 428 \$1 500;
+#X obj 191 -116 sel 6;
+#X obj 718 186 r \$0-s6;
+#X obj 764 209 r \$0-s5;
+#X obj 754 267 r \$0-s5;
+#X obj 725 448 r \$0-s6;
+#X obj 248 -94 r man.c6;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 0 47 1;
+#X connect 4 0 7 1;
+#X connect 5 0 2 0;
+#X connect 5 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 0 47 0;
+#X connect 7 0 50 0;
+#X connect 10 0 46 0;
+#X connect 11 0 15 1;
+#X connect 11 0 97 0;
+#X connect 12 0 13 0;
+#X connect 13 0 53 0;
+#X connect 13 0 48 1;
+#X connect 14 0 12 0;
+#X connect 14 0 15 0;
+#X connect 14 0 36 0;
+#X connect 14 0 48 0;
+#X connect 15 0 104 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 92 0;
+#X connect 19 0 91 0;
+#X connect 20 0 19 1;
+#X connect 20 0 18 1;
+#X connect 20 0 27 1;
+#X connect 20 0 26 1;
+#X connect 21 0 83 1;
+#X connect 22 0 84 1;
+#X connect 23 0 22 0;
+#X connect 23 0 21 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 74 0;
+#X connect 27 0 73 0;
+#X connect 28 0 66 1;
+#X connect 29 0 28 0;
+#X connect 29 0 51 0;
+#X connect 30 0 17 0;
+#X connect 32 0 20 0;
+#X connect 33 0 32 0;
+#X connect 34 0 33 0;
+#X connect 35 0 14 0;
+#X connect 36 0 52 0;
+#X connect 37 0 38 0;
+#X connect 37 0 39 0;
+#X connect 37 0 99 0;
+#X connect 38 0 40 0;
+#X connect 38 0 41 0;
+#X connect 39 0 42 0;
+#X connect 39 0 43 0;
+#X connect 40 0 1 1;
+#X connect 41 0 53 1;
+#X connect 42 0 1 1;
+#X connect 43 0 53 1;
+#X connect 44 0 55 0;
+#X connect 44 0 106 0;
+#X connect 45 0 5 0;
+#X connect 46 0 30 0;
+#X connect 46 0 105 0;
+#X connect 47 0 49 0;
+#X connect 48 0 57 0;
+#X connect 49 0 103 0;
+#X connect 50 0 104 0;
+#X connect 51 0 65 1;
+#X connect 52 0 105 0;
+#X connect 52 0 30 0;
+#X connect 53 0 11 0;
+#X connect 54 0 98 1;
+#X connect 57 0 103 0;
+#X connect 65 0 59 0;
+#X connect 65 1 60 0;
+#X connect 65 2 61 0;
+#X connect 65 3 62 0;
+#X connect 65 4 63 0;
+#X connect 65 5 64 0;
+#X connect 66 0 67 0;
+#X connect 66 1 68 0;
+#X connect 66 2 69 0;
+#X connect 66 3 70 0;
+#X connect 66 4 71 0;
+#X connect 66 5 72 0;
+#X connect 73 0 66 0;
+#X connect 73 0 96 0;
+#X connect 74 0 65 0;
+#X connect 74 0 95 0;
+#X connect 75 0 73 1;
+#X connect 75 0 74 1;
+#X connect 83 0 77 0;
+#X connect 83 1 78 0;
+#X connect 83 2 79 0;
+#X connect 83 3 80 0;
+#X connect 83 4 81 0;
+#X connect 83 5 82 0;
+#X connect 84 0 85 0;
+#X connect 84 1 86 0;
+#X connect 84 2 87 0;
+#X connect 84 3 88 0;
+#X connect 84 4 89 0;
+#X connect 84 5 90 0;
+#X connect 91 0 84 0;
+#X connect 92 0 83 0;
+#X connect 93 0 91 1;
+#X connect 93 0 92 1;
+#X connect 94 0 45 0;
+#X connect 94 0 35 0;
+#X connect 98 0 101 1;
+#X connect 100 0 102 0;
+#X connect 101 0 94 0;
+#X connect 102 0 101 0;
+#X connect 103 0 16 0;
+#X connect 104 0 24 0;
+#X connect 105 0 25 0;
+#X connect 106 0 100 0;
+#X connect 107 0 34 0;
+#X connect 108 0 33 1;
+#X connect 109 0 23 0;
+#X connect 110 0 29 0;
+#X connect 111 0 56 0;
+#X connect 111 0 98 0;
+#X restore 22 183 pd ma.c6;
+#N canvas 0 22 1280 752 ma.c7 0;
+#X obj 266 133 % 360;
+#X obj 266 109 + 180;
+#X obj 251 66 random 360;
+#X floatatom 266 88 5 0 0 0 - - -;
+#X floatatom 266 150 5 0 0 0 - - -;
+#X obj 251 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 305 87 Generate random points in 360 degrees;
+#X obj 251 170 f;
+#X text 785 246 bang based on first adjacent string formula;
+#X text 782 447 what string note was played on;
+#X obj 521 46 random 10;
+#X obj 804 101 % 360;
+#X obj 804 34 random 360;
+#X floatatom 804 56 5 0 0 0 - - -;
+#X obj 804 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 744 118 f;
+#X obj 251 244 line;
+#X obj 521 245 line;
+#X obj 241 293 spigot;
+#X obj 521 293 spigot;
+#X obj 718 278 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 302 - 1;
+#X obj 620 302 - 1;
+#X floatatom 754 286 5 0 0 0 - - -;
+#X obj 241 449 line;
+#X obj 521 449 line;
+#X obj 230 474 spigot;
+#X obj 521 474 spigot;
+#X obj 620 483 - 1;
+#X floatatom 725 467 5 0 0 0 - - -;
+#X msg 521 224 \$1 1000;
+#X text 517 26 distance is randomised (0 - 10);
+#X obj 718 248 reverse;
+#X obj 718 226 == \$1;
+#X obj 718 206 pipe 1;
+#X obj 804 -1 sel 0;
+#X obj 958 184 random 10;
+#X obj 601 58 r ma.t;
+#X obj 601 75 sel 1;
+#X obj 646 75 sel 0;
+#X msg 601 92 2;
+#X msg 628 92 180;
+#X msg 655 92 180;
+#X msg 688 92 2;
+#X obj 191 -136 r counter;
+#X obj 251 3 sel 1;
+#X obj 521 143 split 5 10;
+#X obj 205 104 f;
+#X obj 870 184 f;
+#X obj 205 129 pipe 1;
+#X obj 241 196 pipe 1;
+#X obj 329 483 - 1;
+#X obj 958 207 split 5 10;
+#X obj 773 109 + 1;
+#X obj 309 -89 r ma.thres;
+#X floatatom 152 -119 5 0 0 0 - - -;
+#X floatatom 201 -77 5 0 0 0 - - -;
+#X obj 870 207 pipe 1;
+#X text 243 577 Output to ambisonic panner abstraction(s);
+#X obj 230 559 s az.1;
+#X obj 276 559 s az.2;
+#X obj 322 559 s az.3;
+#X obj 367 559 s az.4;
+#X obj 414 559 s az.5;
+#X obj 462 559 s az.6;
+#X obj 230 542 demux - - - - - -;
+#X obj 521 542 demux - - - - - -;
+#X obj 521 559 s ad.1;
+#X obj 567 559 s ad.2;
+#X obj 613 559 s ad.3;
+#X obj 658 559 s ad.4;
+#X obj 705 559 s ad.5;
+#X obj 753 559 s ad.6;
+#X obj 521 515 spigot;
+#X obj 230 515 spigot;
+#X obj 708 500 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X text 422 -126 If current melodic attraction value = less than threshold
+- then spatialise whatever channel note a and b where on apart by equidistant
+divisions of 2D space (providing they are played on different strings
+- otherwise \, no spatialisation will occur);
+#X obj 241 380 s az.1;
+#X obj 287 380 s az.2;
+#X obj 333 380 s az.3;
+#X obj 378 380 s az.4;
+#X obj 425 380 s az.5;
+#X obj 473 380 s az.6;
+#X obj 241 363 demux - - - - - -;
+#X obj 521 363 demux - - - - - -;
+#X obj 522 380 s ad.1;
+#X obj 568 380 s ad.2;
+#X obj 614 380 s ad.3;
+#X obj 659 380 s ad.4;
+#X obj 706 380 s ad.5;
+#X obj 754 380 s ad.6;
+#X obj 521 332 spigot;
+#X obj 241 332 spigot;
+#X obj 719 317 tgl 15 0 empty lerdahl.sw empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X floatatom 251 -17 5 0 0 0 - - -;
+#X floatatom 192 532 5 0 0 0 - - -;
+#X floatatom 466 532 5 0 0 0 - - -;
+#X floatatom 807 148 5 0 0 0 - - -;
+#X obj 248 -72 >= 0.5;
+#X floatatom 647 54 5 0 0 0 - - -;
+#X obj 190 -96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 190 -33 f;
+#X obj 190 -54 del 15;
+#X msg 251 224 \$1 1000;
+#X msg 241 429 \$1 500;
+#X msg 521 428 \$1 500;
+#X obj 191 -116 sel 7;
+#X obj 718 186 r \$0-s7;
+#X obj 764 209 r \$0-s6;
+#X obj 754 267 r \$0-s6;
+#X obj 725 448 r \$0-s7;
+#X obj 248 -94 r man.c7;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 0 47 1;
+#X connect 4 0 7 1;
+#X connect 5 0 2 0;
+#X connect 5 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 0 47 0;
+#X connect 7 0 50 0;
+#X connect 10 0 46 0;
+#X connect 11 0 15 1;
+#X connect 11 0 97 0;
+#X connect 12 0 13 0;
+#X connect 13 0 53 0;
+#X connect 13 0 48 1;
+#X connect 14 0 12 0;
+#X connect 14 0 15 0;
+#X connect 14 0 36 0;
+#X connect 14 0 48 0;
+#X connect 15 0 104 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 92 0;
+#X connect 19 0 91 0;
+#X connect 20 0 19 1;
+#X connect 20 0 18 1;
+#X connect 20 0 27 1;
+#X connect 20 0 26 1;
+#X connect 21 0 83 1;
+#X connect 22 0 84 1;
+#X connect 23 0 22 0;
+#X connect 23 0 21 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 74 0;
+#X connect 27 0 73 0;
+#X connect 28 0 66 1;
+#X connect 29 0 28 0;
+#X connect 29 0 51 0;
+#X connect 30 0 17 0;
+#X connect 32 0 20 0;
+#X connect 33 0 32 0;
+#X connect 34 0 33 0;
+#X connect 35 0 14 0;
+#X connect 36 0 52 0;
+#X connect 37 0 38 0;
+#X connect 37 0 39 0;
+#X connect 37 0 99 0;
+#X connect 38 0 40 0;
+#X connect 38 0 41 0;
+#X connect 39 0 42 0;
+#X connect 39 0 43 0;
+#X connect 40 0 1 1;
+#X connect 41 0 53 1;
+#X connect 42 0 1 1;
+#X connect 43 0 53 1;
+#X connect 44 0 55 0;
+#X connect 44 0 106 0;
+#X connect 45 0 5 0;
+#X connect 46 0 30 0;
+#X connect 46 0 105 0;
+#X connect 47 0 49 0;
+#X connect 48 0 57 0;
+#X connect 49 0 103 0;
+#X connect 50 0 104 0;
+#X connect 51 0 65 1;
+#X connect 52 0 105 0;
+#X connect 52 0 30 0;
+#X connect 53 0 11 0;
+#X connect 54 0 98 1;
+#X connect 57 0 103 0;
+#X connect 65 0 59 0;
+#X connect 65 1 60 0;
+#X connect 65 2 61 0;
+#X connect 65 3 62 0;
+#X connect 65 4 63 0;
+#X connect 65 5 64 0;
+#X connect 66 0 67 0;
+#X connect 66 1 68 0;
+#X connect 66 2 69 0;
+#X connect 66 3 70 0;
+#X connect 66 4 71 0;
+#X connect 66 5 72 0;
+#X connect 73 0 66 0;
+#X connect 73 0 96 0;
+#X connect 74 0 65 0;
+#X connect 74 0 95 0;
+#X connect 75 0 73 1;
+#X connect 75 0 74 1;
+#X connect 83 0 77 0;
+#X connect 83 1 78 0;
+#X connect 83 2 79 0;
+#X connect 83 3 80 0;
+#X connect 83 4 81 0;
+#X connect 83 5 82 0;
+#X connect 84 0 85 0;
+#X connect 84 1 86 0;
+#X connect 84 2 87 0;
+#X connect 84 3 88 0;
+#X connect 84 4 89 0;
+#X connect 84 5 90 0;
+#X connect 91 0 84 0;
+#X connect 92 0 83 0;
+#X connect 93 0 91 1;
+#X connect 93 0 92 1;
+#X connect 94 0 45 0;
+#X connect 94 0 35 0;
+#X connect 98 0 101 1;
+#X connect 100 0 102 0;
+#X connect 101 0 94 0;
+#X connect 102 0 101 0;
+#X connect 103 0 16 0;
+#X connect 104 0 24 0;
+#X connect 105 0 25 0;
+#X connect 106 0 100 0;
+#X connect 107 0 34 0;
+#X connect 108 0 33 1;
+#X connect 109 0 23 0;
+#X connect 110 0 29 0;
+#X connect 111 0 56 0;
+#X connect 111 0 98 0;
+#X restore 22 206 pd ma.c7;
+#X text 20 28 Spatial gestures based on (sequential) tonal pitch space
+quantification;
+#X text 19 230 Consecutive octaves will produce a value of 0;
+#X text 20 248 and will return tone location back to centre;
+#X text 83 68 melodic attraction \, asymm done.;
+#X restore 30 346 pd melodic.gestures;
+#X text 164 345 Implement time dependent algorithm based on perceived
+time between movements in PC space;
+#X text 36 -19 //Tonal Pitch Space - tonal attraction - relate to guitar
+theory - (Cognitive Models based on Quantification of pitch relationships)
+;
+#N canvas 170 58 782 572 find.tonic 0;
+#X floatatom 56 212 5 0 0 0 - - -;
+#X text 101 191 Receive incoming pitch;
+#N canvas 788 335 450 300 pair 0;
+#X obj 160 89 inlet;
+#X floatatom 160 109 5 0 0 0 - - -;
+#X obj 160 130 t f b f;
+#X obj 160 154 f;
+#X obj 160 179 pack;
+#X obj 160 202 outlet;
+#X text 33 25 Based on the following tutorial: http://algorithmiccomposer.blogspot.com/2010/05/algorithmic-composition-tutorial-markov.html
+;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 1;
+#X connect 2 1 3 0;
+#X connect 2 2 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X restore 56 253 pd pair;
+#X msg 56 275 merge \$1 \$2;
+#X msg 151 279 clear;
+#X obj 56 191 r \$0-p;
+#X obj 56 296 coll markov;
+#C restore;
+#N canvas 671 152 539 411 mpgen 0;
+#X obj 80 131 length;
+#X obj 80 151 t b f;
+#X obj 80 174 random;
+#X obj 80 107 coll markov;
+#C restore;
+#X obj 80 82 t f f;
+#X obj 198 19 coll markov;
+#C restore;
+#X obj 80 58 f;
+#X obj 80 11 inlet;
+#X obj 80 35 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 198 42 5 0 0 0 - - -;
+#X msg 198 -2 next;
+#X obj 198 -27 inlet;
+#X text 125 131 Looks for list length of certain MIDI number in coll
+;
+#X obj 86 238 pack;
+#X obj 86 281 coll markov;
+#C restore;
+#X msg 86 260 nth \$2 \$1;
+#X floatatom 86 302 5 0 0 0 - - -;
+#X obj 187 318 outlet;
+#X obj 80 195 + 1;
+#X obj 209 255 unpack;
+#X floatatom 292 295 5 0 0 0 - - -;
+#X floatatom 291 272 5 0 0 0 - - -;
+#X text 261 272 goto;
+#X text 219 295 pick number;
+#X text 328 295 in list;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 2 0 18 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 4 1 13 1;
+#X connect 5 0 9 0;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 1;
+#X connect 10 0 5 0;
+#X connect 11 0 10 0;
+#X connect 13 0 15 0;
+#X connect 13 0 19 0;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 18 0 13 0;
+#X connect 19 0 20 0;
+#X connect 19 1 21 0;
+#X restore 58 392 pd mpgen;
+#X obj 58 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 28 380 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 134 369 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 151 369 start new pitch;
+#X floatatom 58 412 5 0 0 0 - - -;
+#X obj 56 232 int;
+#X obj 151 257 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 58 363 metro 300;
+#X obj 58 433 pitch;
+#X floatatom 71 456 5 0 0 0 - - -;
+#X text 56 166 CORROBORATE WITH MARKOV CHAIN;
+#X obj 173 478 r tcf;
+#X obj 116 518 s tcf.p;
+#X obj 116 472 spigot;
+#X obj 236 412 r tf.p;
+#X obj 58 135 s tf.p;
+#X text 213 477 switch;
+#X text 55 -13 "Because a piece's overall tonal context is its tonic
+\, it is necessary first to develop a method for finding the tonic
+(Lerdahl 2001 \, p. 193 \; cf. Krumhansl 1990).;
+#X obj 116 495 spigot;
+#X obj 557 144 r stf;
+#X obj 381 114 timer;
+#X floatatom 381 139 5 0 0 0 - - -;
+#X text 423 113 Producing time from last note attack;
+#X obj 381 197 sel 0 1;
+#X text 57 83 CONSIDER THE BASIC SPACE;
+#X text 404 57 CONSIDER TIME BETWEEN NOTE ATTACKS;
+#X text 197 277 Specified time frame in which to reset Markov chain
+;
+#X obj 381 161 expr if($f1 >= $f2 \, 1 \, 0);
+#X obj 400 242 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 0 22 450 300 note 0;
+#X obj 122 90 r si.1;
+#X obj 155 198 outlet;
+#X obj 168 88 r si.2;
+#X obj 217 88 r si.3;
+#X obj 263 86 r si.4;
+#X obj 124 118 r si.5;
+#X obj 219 116 r si.7;
+#X obj 172 118 r si.6;
+#X obj 172 164 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 135 57 * make these more accurate;
+#X connect 0 0 8 0;
+#X connect 2 0 8 0;
+#X connect 3 0 8 0;
+#X connect 4 0 8 0;
+#X connect 5 0 8 0;
+#X connect 6 0 8 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X restore 408 78 pd note offsets;
+#X text 251 134 Sent to global coll;
+#X obj 294 155 s nt.off;
+#N canvas 291 44 832 670 bs.comparison 0;
+#X obj 79 361 outlet;
+#X obj 77 137 r \$0-bs1;
+#X obj 77 172 mux _ _ _ _ _ _ _;
+#X obj 132 137 r \$0-bs2;
+#X obj 105 120 r \$0-bs3;
+#X obj 119 103 r \$0-bs4;
+#X obj 42 155 r \$0-bs5;
+#X obj 98 155 r \$0-bs6;
+#X obj 153 155 r \$0-bs7;
+#X text 79 398 (1) If single pitches are under consideration \, prefer
+the interpretation that places the pitches at the highest locations
+in the current basic space configuration (Lerdahl 2001 \, p. 198).
+;
+#X obj 208 234 r sbs;
+#X floatatom 84 194 5 0 0 0 - - -;
+#X obj 217 85 r counter;
+#X obj 217 104 sel 1 2 3 4 5 6 7;
+#X floatatom 280 179 5 0 0 0 - - -;
+#X floatatom 281 85 5 0 0 0 - - -;
+#X msg 221 126 6;
+#X msg 227 145 0;
+#X msg 254 126 1;
+#X msg 256 146 2;
+#X msg 289 126 3;
+#X msg 295 145 4;
+#X msg 326 136 5;
+#X text 160 60 (previous note);
+#X obj 411 129 r \$0-bs1;
+#X obj 411 164 mux _ _ _ _ _ _ _;
+#X obj 545 76 r counter;
+#X obj 466 129 r \$0-bs2;
+#X obj 439 112 r \$0-bs3;
+#X obj 453 95 r \$0-bs4;
+#X obj 376 147 r \$0-bs5;
+#X obj 432 147 r \$0-bs6;
+#X obj 487 147 r \$0-bs7;
+#X floatatom 412 187 5 0 0 0 - - -;
+#X obj 545 95 sel 1 2 3 4 5 6 7;
+#X msg 549 117 0;
+#X msg 555 136 1;
+#X msg 582 117 2;
+#X msg 584 137 3;
+#X msg 617 117 4;
+#X msg 623 136 5;
+#X msg 654 127 6;
+#X floatatom 608 170 5 0 0 0 - - -;
+#X floatatom 609 76 5 0 0 0 - - -;
+#X text 533 45 (current note - BS);
+#X floatatom 122 327 5 0 0 0 - - -;
+#X obj 208 263 i;
+#X floatatom 244 280 5 0 0 0 - - -;
+#X text 248 233 receive minimum basic space (min of 1);
+#X text 78 464 This system can afford to be a little less comprehensive
+\, given the improvisatory performance style (non tonal chromaticism
+| pedal point playing).;
+#X text 491 604 cf. Bregman 1990 \, p. 476 - melodic anchoring;
+#X text 29 6 Decrease in the basic space \, i.e. if next tone becomes
+less stable in current basic space configuration - consider changing
+pitch class zero based on most repeating note;
+#X text 95 593 "These melodic fragments indicate that the choice with
+the least overall embedding in the basic space guides the provisional
+assignment of tonic orientation";
+#X text 429 638 one of many factors in finding the tonic;
+#X obj 79 296 expr $f1 < $f2 && $f1 < $f3;
+#X text 302 272 $f1 (current tone) $f2 (previous tone) + $f3 (minimum
+basic space \, specified by the user. Expression = if current tone's
+basic space is less than the previous tone's basic space (i.e. if the
+pitch sequence has moved to a less stable tonal context) AND the current
+space is less than embedding specified by the user THEN produce 1 (criteria
+satisfied) ELSE 0 (in order to work with expression concerning Markov
+chain.;
+#X text 79 514 if basic spaces are the same? they are part of the same
+collection \, so expression assumes current tone combination apart
+of the same collection \, and tonic finder assumes an inertial state
+;
+#X text 427 2 "a tone cannot be anchored by one that precedes it" (bregman
+1990 \, p. 475).;
+#X connect 1 0 2 0;
+#X connect 2 0 11 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 2;
+#X connect 5 0 2 3;
+#X connect 6 0 2 4;
+#X connect 7 0 2 5;
+#X connect 8 0 2 6;
+#X connect 10 0 46 0;
+#X connect 11 0 54 1;
+#X connect 12 0 13 0;
+#X connect 12 0 15 0;
+#X connect 13 0 16 0;
+#X connect 13 1 17 0;
+#X connect 13 2 18 0;
+#X connect 13 3 19 0;
+#X connect 13 4 20 0;
+#X connect 13 5 21 0;
+#X connect 13 6 22 0;
+#X connect 14 0 2 7;
+#X connect 16 0 14 0;
+#X connect 17 0 14 0;
+#X connect 18 0 14 0;
+#X connect 19 0 14 0;
+#X connect 20 0 14 0;
+#X connect 21 0 14 0;
+#X connect 22 0 14 0;
+#X connect 24 0 25 0;
+#X connect 25 0 33 0;
+#X connect 26 0 34 0;
+#X connect 26 0 43 0;
+#X connect 27 0 25 1;
+#X connect 28 0 25 2;
+#X connect 29 0 25 3;
+#X connect 30 0 25 4;
+#X connect 31 0 25 5;
+#X connect 32 0 25 6;
+#X connect 33 0 54 0;
+#X connect 34 0 35 0;
+#X connect 34 1 36 0;
+#X connect 34 2 37 0;
+#X connect 34 3 38 0;
+#X connect 34 4 39 0;
+#X connect 34 5 40 0;
+#X connect 34 6 41 0;
+#X connect 35 0 42 0;
+#X connect 36 0 42 0;
+#X connect 37 0 42 0;
+#X connect 38 0 42 0;
+#X connect 39 0 42 0;
+#X connect 40 0 42 0;
+#X connect 41 0 42 0;
+#X connect 42 0 25 7;
+#X connect 46 0 47 0;
+#X connect 46 0 54 2;
+#X connect 54 0 0 0;
+#X connect 54 0 45 0;
+#X restore 58 111 pd bs.comparison;
+#X floatatom 290 429 5 0 0 0 - - -;
+#X text 58 481 new pc 0?;
+#X text 433 191 if time exceeds user threshold \, consider changing
+pitch class zero;
+#X obj 58 324 r tcf;
+#X text 407 95 Note offset controls reset and printout of each time
+elapsed;
+#X floatatom 15 450 5 0 0 0 - - -;
+#N canvas 0 22 964 701 more 0;
+#X text 70 -214 Moreover \, characteristics other than specific intervals
+have been indicated as additional cues for key perceptionfor example
+\, two and three tone transitions (Krumhansl \, 1979 \, 1990 \, 2000)
+\; a grouping of consecutive pitches on the basis of pitch proximity
+(Deutsch \, 1984) \; a combination of specific intervals (e.g. \, Vos
+\, 2000) \; the pitch of the last tone of a sequence (Lamont \, 1998
+\; Parncutt & Bregman \, 2000) \; both the pitches of the opening tone
+and the last tone of a sequence (Cuddy \, Cohen \, & Mewhort \, 1981
+\; Dowling \, 1991) \; a combination of specific pitches (e.g. \, Bharucha
+\, 1984 \; Cuddy et al. \, 1981 \; Povel & Jansen \, 2001 \, 2002)
+\; and pitch salience and sensory memory decay (Huron & Parncutt \,
+1993).;
+#X text 11 -245 Consider intervals... &;
+#X text 134 21 RIE MATSUNAGA AND JUN-ICHI ABE Department of Psychology
+\, Hokkaido University;
+#X text 114 73 Pitch salience depends on the degree to which partials
+are harmonic;
+#X text 250 141 See melodic anchor....;
+#X text 242 165 Look at japanese paper on identifying tonic in sequence
+;
+#X text 244 193 pitch salience (degree of consonance and dissoance)
+;
+#X text 208 260 see david huron paper concerns pitch salience and echoic
+memory;
+#N canvas 0 22 1135 725 huron 0;
+#X obj 159 152 image huron1.gif;
+#X obj 240 488 image huron2.gif;
+#X obj 766 482 image huron3.gif;
+#X text 413 626 under < 90s versus > 120s;
+#X restore 126 233 pd huron;
+#X text 60 312 The following algorithm assumes that "when a single
+note of chord sounds itself in isolation \, the listener assumes that
+it is the tonic. for the shortest distance from an event is to itself"
+(Lerdahl 2001 \, p. 194).;
+#X text 60 371 Tonal Anchor - "This implies that tonality is flexible
+and in continuous flux as a line evolves. Within the progress of the
+line itself \, temporary points of tonality may be established as anchors"
+(liebman p. 55);
+#X text 458 300 "criterion includes the familiar claim that stated
+or implied diatonic collection is a factor in finding the tonic. For
+if a (partial) collection fits at a diatonic level etc.";
+#X text 457 361 rare intervals \, because they do not happen very often
+may tell us more about what the collection might be versus a more stable
+position in the space;
+#X text 459 411 the elements of the presumed collection are given the
+least embedded interpretation in the space (p. 194).;
+#X restore 59 54 pd more info;
+#X obj 134 333 sel 1;
+#X obj 149 450 expr $f1 == $f2 == $f3;
+#N canvas 561 153 496 219 interval 0;
+#X obj 196 180 outlet;
+#X text 27 34 0 = unison \, 8ve;
+#X text 27 119 6 = tritone;
+#X text 27 50 1 = minor 2/maj7th;
+#X text 27 66 2 = major 2/min 7th;
+#X text 27 80 3 = min 3rd/maj 6th;
+#X text 27 107 5 = p4/p5;
+#X text 27 95 4 = mj 3rd/minor 6th;
+#X obj 196 133 mux _ _ _ _ _ _ _;
+#X obj 330 45 r counter;
+#X floatatom 196 156 5 0 0 0 - - -;
+#X obj 330 64 sel 1 2 3 4 5 6 7;
+#X msg 334 86 0;
+#X msg 340 105 1;
+#X msg 367 86 2;
+#X msg 369 106 3;
+#X msg 402 86 4;
+#X msg 408 105 5;
+#X msg 439 96 6;
+#X floatatom 393 139 5 0 0 0 - - -;
+#X floatatom 394 45 5 0 0 0 - - -;
+#X obj 161 116 r \$0-ic5;
+#X obj 238 64 r \$0-ic4;
+#X obj 224 81 r \$0-ic3;
+#X obj 196 98 r \$0-ic1;
+#X obj 217 116 r \$0-ic6;
+#X obj 251 98 r \$0-ic2;
+#X obj 272 116 r \$0-ic7;
+#X connect 8 0 10 0;
+#X connect 9 0 11 0;
+#X connect 9 0 20 0;
+#X connect 10 0 0 0;
+#X connect 11 0 12 0;
+#X connect 11 1 13 0;
+#X connect 11 2 14 0;
+#X connect 11 3 15 0;
+#X connect 11 4 16 0;
+#X connect 11 5 17 0;
+#X connect 11 6 18 0;
+#X connect 12 0 19 0;
+#X connect 13 0 19 0;
+#X connect 14 0 19 0;
+#X connect 15 0 19 0;
+#X connect 16 0 19 0;
+#X connect 17 0 19 0;
+#X connect 18 0 19 0;
+#X connect 19 0 8 7;
+#X connect 21 0 8 4;
+#X connect 22 0 8 3;
+#X connect 23 0 8 2;
+#X connect 24 0 8 0;
+#X connect 25 0 8 5;
+#X connect 26 0 8 1;
+#X connect 27 0 8 6;
+#X restore 353 434 pd interval;
+#X floatatom 304 472 5 0 0 0 - - -;
+#X text 353 474 If current interval is not a tritone then do not change
+tonic \, assuming interval may be apart of a diatonic \, triadic \,
+or 8ve collection (including minor second);
+#X text 429 430 Consider Interval Class?;
+#X text 355 329 //HOW IT WORKS?? So \, if the basic space of current
+tone is less than previous tone \, the time elapsed from previous note
+attack exceeds threshold \, and the current interval class is a tritone
+- then change to most prominent note in markov chain matrix;
+#X obj 353 455 expr if($f1 == 6 \, 1 \, 0);
+#X floatatom 133 128 5 0 0 0 - - -;
+#X floatatom 167 141 5 0 0 0 - - -;
+#X connect 0 0 13 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 0 0;
+#X connect 7 0 12 0;
+#X connect 8 0 15 0;
+#X connect 10 0 7 1;
+#X connect 12 0 16 0;
+#X connect 13 0 2 0;
+#X connect 14 0 4 0;
+#X connect 15 0 9 0;
+#X connect 15 0 7 0;
+#X connect 16 0 46 0;
+#X connect 16 2 17 0;
+#X connect 17 0 21 0;
+#X connect 19 0 26 1;
+#X connect 21 0 26 0;
+#X connect 22 0 41 0;
+#X connect 22 0 49 1;
+#X connect 26 0 20 0;
+#X connect 27 0 35 1;
+#X connect 28 0 29 0;
+#X connect 29 0 35 0;
+#X connect 29 0 39 0;
+#X connect 31 1 36 0;
+#X connect 35 0 31 0;
+#X connect 35 0 49 0;
+#X connect 36 0 14 0;
+#X connect 37 0 28 1;
+#X connect 37 0 28 0;
+#X connect 40 0 23 0;
+#X connect 40 0 56 0;
+#X connect 44 0 8 0;
+#X connect 48 0 10 0;
+#X connect 49 0 21 1;
+#X connect 49 0 48 0;
+#X connect 49 0 8 0;
+#X connect 50 0 55 0;
+#X connect 55 0 51 0;
+#X connect 55 0 49 2;
+#X restore 31 187 pd find.tonic;
+#N canvas 0 22 751 444 more.info 0;
+#X text 74 116 Overall \, the point of this cognitive model is to "capture
+the interaction of melodic attraction and melodic direction in a stepwise
+context" in real-time sequential pitch structure. And why linear completion
+is important to tonal concepts \, such as voice leading (Lerdahl 2001
+\, p. 171).;
+#X text 74 193 To attend to harmonic/simultaneous structures \, pitch
+tracker and instrument resonance would need to be improved;
+#X text 77 226 Jackendoff 1991 \; Foder 1983 - "unconscious processing
+of music continues on blindly" - Is there some link between expectation
+algorithm \, and memory? If expectations are further away in pitch
+space \, then slow interpolation time Lerdahl 2006?;
+#X text 167 357 tend.\$1 (tendency offset);
+#X text 169 320 ma.c\$1 (melodic attraction value);
+#X text 168 338 man.c\$1 (assymetry ratio offset);
+#X text 167 373 deni.\$1 (denial offset);
+#X text 77 36 The author must consider what values potentially generated
+by Lerdahl's melodic rules would be most useful in the context of a
+live performance system - conceptually speaking - in order to establish
+a compositional narrative between TSP \, spatialisation via ambisonics
+\, and other synthesis parameters;
+#X restore 405 -12 pd more.info;
+#X text 28 304 //Resultant timbral and spatial gestures (cognitively
+equidistant gestures?);
+#N canvas 0 22 1280 752 basic.space 0;
+#X text 56 187 1 C C# D D# E F F# G G# A A# B C;
+#X obj 61 219 r \$0-pc;
+#X floatatom 61 239 5 0 0 0 - - -;
+#X text 260 169 PC 2 \, 5 \, 9 \, 11;
+#X text 260 187 PC 1 \, 3 \, 6 \, 8 \, 10;
+#X floatatom 61 341 5 0 0 0 - - -;
+#X text 74 340 8ve;
+#X text 59 420 to coll;
+#X obj 61 403 s \$0-bs;
+#X obj 61 363 != 0;
+#X obj 61 383 gate 1;
+#X floatatom 174 339 5 0 0 0 - - -;
+#X floatatom 287 339 5 0 0 0 - - -;
+#X floatatom 400 341 5 0 0 0 - - -;
+#X text 188 339 triadic;
+#X text 299 338 diatonic;
+#X text 410 340 chromatic;
+#X obj 174 359 != 0;
+#X obj 287 361 != 0;
+#X obj 400 365 != 0;
+#X text 171 418 to coll;
+#X obj 174 401 s \$0-bs;
+#X obj 174 381 gate 1;
+#X text 284 417 to coll;
+#X obj 287 401 s \$0-bs;
+#X obj 287 381 gate 1;
+#X obj 400 405 s \$0-bs;
+#X obj 400 385 gate 1;
+#X text 397 422 to coll;
+#X text 116 217 develop to accomodate diffent pitch structures using
+offset for modes;
+#X obj 61 259 expr if($f1 == 0 \, 4 \, 0) \; if($f1 == 4 | $f1 == 7
+\, 3 \, 0) \; if($f1 == 2 | $f1 == 5 | $f1 == 9 | $f1 == 11 \, 2 \,
+0) \; if($f1 == 1 | $f1 == 3 | $f1 == 6 | $f1 == 8 | $f1 == 10 \, 1
+\, 0);
+#X text 56 169 2 C D E F G A B C;
+#X text 56 149 3 C E G C PC 4 7;
+#X text 57 134 4 C C PC 0;
+#X text 57 460 Lerdahl's rule of melodic attraction sees the omission
+of 5th space \, "as it works better." (Lerdahl 2001 \, pp. 161 - 162).
+;
+#X text 57 509 * note this is a melodic (sequential) tonal equation.
+simultaneous harmonic structures are not accomodated (p.165);
+#X text 648 243 Based on vertical distance relationships (Lerdahl 2001
+\, p. 162);
+#X text 649 220 Anchoring and Tension (for major diatonic scale);
+#X text 647 286 *implement different modes as well as ionian;
+#X text 56 79 Organising PC into basic space (MAJOR - i.e. MAJ 3rd
+= basic space 3 while MIN 3rd treated as part of chromatic space);
+#X text 220 40 * expand to deal with minor space;
+#X connect 1 0 2 0;
+#X connect 2 0 30 0;
+#X connect 5 0 9 0;
+#X connect 5 0 10 1;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 11 0 17 0;
+#X connect 11 0 22 1;
+#X connect 12 0 18 0;
+#X connect 12 0 25 1;
+#X connect 13 0 19 0;
+#X connect 13 0 27 1;
+#X connect 17 0 22 0;
+#X connect 18 0 25 0;
+#X connect 19 0 27 0;
+#X connect 22 0 21 0;
+#X connect 25 0 24 0;
+#X connect 27 0 26 0;
+#X connect 30 0 5 0;
+#X connect 30 1 11 0;
+#X connect 30 2 12 0;
+#X connect 30 3 13 0;
+#X restore 678 17 pd basic.space;
+#N canvas 261 195 517 359 embedding 0;
+#X obj 33 84 r \$0-pc;
+#X floatatom 33 104 5 0 0 0 - - -;
+#X floatatom 33 202 5 0 0 0 - - -;
+#X floatatom 146 201 5 0 0 0 - - -;
+#X floatatom 259 203 5 0 0 0 - - -;
+#X floatatom 372 204 5 0 0 0 - - -;
+#X text 160 201 triadic;
+#X text 271 202 diatonic;
+#X text 382 203 chromatic;
+#X text 47 202 8ve;
+#X obj 33 124 expr if($f1 == 0 \, 1 \, 0) \; if($f1 == 4 | $f1 == 7
+\, 2 \, 0) \; if($f1 == 2 | $f1 == 5 | $f1 == 9 | $f1 == 11 \, 3 \,
+0) \; if($f1 == 1 | $f1 == 3 | $f1 == 6 | $f1 == 8 | $f1 == 10 \, 4
+\, 0);
+#X obj 33 224 - 1;
+#X obj 146 224 - 1;
+#X obj 259 224 - 1;
+#X obj 372 224 - 1;
+#X text 89 83 (Lerdahl 2001 \, pp. 161 - 162).;
+#X obj 33 241 s mt.v;
+#X text 32 261 Send current melodic tension value;
+#X text 27 31 Melodic Tension (8ve == 0 \, Triadic == 1 \, Diatonic
+== 2 \, Chromatic == 3);
+#X connect 0 0 1 0;
+#X connect 1 0 10 0;
+#X connect 2 0 11 0;
+#X connect 3 0 12 0;
+#X connect 4 0 13 0;
+#X connect 5 0 14 0;
+#X connect 10 0 2 0;
+#X connect 10 1 3 0;
+#X connect 10 2 4 0;
+#X connect 10 3 5 0;
+#X connect 11 0 16 0;
+#X connect 12 0 16 0;
+#X connect 13 0 16 0;
+#X connect 14 0 16 0;
+#X restore 679 41 pd embedding;
+#N canvas 0 22 1280 752 melodic.attraction 0;
+#X text 112 75 Based on s2/s1 * 1/npow2;
+#X text 310 29 * based on Newton's "inverse-square law" - Whereby the
+gravitational attraction between masses is inversely proportional to
+the square distance of the distance between them (Lerdahl 2001 \, p.
+163).;
+#X text 1015 521 1 C C# D D# E F F# G G# A A# B C;
+#X text 1015 503 2 C D E F G A B C;
+#X text 1015 483 3 C E G C PC 4 7;
+#X text 1015 466 4 C C PC 0;
+#N canvas 0 22 531 704 lerdahl.notes 0;
+#X text 72 375 ATTRACTIONAL ASYMMETRIES (Lerdahl 2001 \, p. 167);
+#X text 76 635 This equation accounts for ascending and descending
+pitch sets and relative attraction between tones;
+#X text 74 571 See also: An attractional approach to harmony & voice
+leading attractions (p. 173).;
+#X text 72 423 * cite bregman in terms of anchoring a note and synder
+in terms of choosing a 7 note phrases as a maximum to work with;
+#X text 70 399 *applicable to interval classes;
+#X text 73 462 implement swarm function.... everything centred \, attenuate
+amplitude (increase distance) \, then group based on melodic attraction
+;
+#X text 73 508 implement blending - interpolate tension data to allow
+for blending using reverb to resolve beating issues between tensions.
+i.e. increase reverb on chc if tension is high \, reduce if tension
+is low etc....;
+#X text 75 617 Melodic attraction based on basic space and pc distance
+;
+#X text 73 52 Where p1 and p2 are not equal (p1 -> p2) = the attraction
+of p1 to p2;
+#X text 73 88 s1 = anchoring strength of p1 & s2 = anchoring strength
+of p2 in the current basic space configuration. n = number of semitone
+intervals between p1 and p2;
+#X text 73 24 MELODIC ATTRACTION = (p1 -> p2) = s2/s1 X 1/n(sqrt);
+#X text 73 322 Send value for melodic attraction between each note
+in pitch set;
+#X text 72 275 Greater the number \, greater the attraction (p. 164)
+;
+#X text 72 144 Quantifying melodic attraction (context of PC 0 = C)
+;
+#X text 41 176 e.g. (B -> C) = 4/2 X 1/1(pow2) = 4/2 = 2;
+#X text 72 200 (A -> G) = 3/2 X 1/2(pow2) = 3/8 = 0.375;
+#X text 72 223 (F -> G) = 3/2 X 1/2(pow2) = 1.5 x 0.25 = 0.375;
+#X text 73 248 (C -> F#) = 1/4 x 1/6(pow2) = 0.25 x 1/36 = 0.0069444
+;
+#X text 73 289 melodic attraction based on basic space and pc distance
+;
+#X text 72 306 Should I omit 8ve equivalencies?? Otherwise == 0;
+#X restore 1016 554 pd lerdahl.notes;
+#X floatatom 116 130 5 0 0 0 - - -;
+#X obj 116 110 r counter;
+#X obj 212 237 expr 1/$f1;
+#X obj 212 199 abs;
+#X floatatom 212 254 5 0 0 0 - - -;
+#X floatatom 89 299 10 0 0 0 - - -;
+#X obj 212 220 pow 2;
+#X floatatom 283 237 5 0 0 0 - - -;
+#X floatatom 212 161 5 0 0 0 - - -;
+#X obj 212 182 % 12;
+#X floatatom 262 199 5 0 0 0 - - -;
+#X floatatom 89 210 5 0 0 0 - - -;
+#X text 88 176 new;
+#X obj 212 144 r \$0-pcd1;
+#X obj 89 190 r \$0-bs1;
+#X floatatom 150 217 5 0 0 0 - - -;
+#X text 147 186 previous;
+#X obj 150 200 r \$0-bs7;
+#X obj 150 249 f;
+#X obj 95 232 once;
+#X obj 123 249 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 1013 434 where pc 0 = C;
+#X text 102 656 0.5 = aggregate tonal melodic attraction;
+#X obj 89 321 s ma.c1;
+#X obj 116 149 sel 7;
+#X obj 89 275 expr $f2 / $f3 * $f4 \;;
+#X obj 535 240 expr 1/$f1;
+#X obj 535 202 abs;
+#X floatatom 535 257 5 0 0 0 - - -;
+#X floatatom 412 302 10 0 0 0 - - -;
+#X obj 535 223 pow 2;
+#X floatatom 606 240 5 0 0 0 - - -;
+#X floatatom 535 164 5 0 0 0 - - -;
+#X obj 535 185 % 12;
+#X floatatom 585 202 5 0 0 0 - - -;
+#X floatatom 412 213 5 0 0 0 - - -;
+#X text 411 179 new;
+#X floatatom 473 220 5 0 0 0 - - -;
+#X text 470 189 previous;
+#X obj 412 278 expr $f2 / $f3 * $f4 \;;
+#X obj 412 193 r \$0-bs2;
+#X obj 473 203 r \$0-bs1;
+#X obj 412 324 s ma.c2;
+#X obj 535 147 r \$0-pcd2;
+#X obj 852 244 expr 1/$f1;
+#X obj 852 206 abs;
+#X floatatom 852 261 5 0 0 0 - - -;
+#X floatatom 729 306 10 0 0 0 - - -;
+#X obj 852 227 pow 2;
+#X floatatom 923 244 5 0 0 0 - - -;
+#X floatatom 852 168 5 0 0 0 - - -;
+#X obj 852 189 % 12;
+#X floatatom 902 206 5 0 0 0 - - -;
+#X floatatom 729 217 5 0 0 0 - - -;
+#X text 728 183 new;
+#X floatatom 790 224 5 0 0 0 - - -;
+#X text 787 193 previous;
+#X obj 729 282 expr $f2 / $f3 * $f4 \;;
+#X obj 1175 247 expr 1/$f1;
+#X obj 1175 209 abs;
+#X floatatom 1175 264 5 0 0 0 - - -;
+#X floatatom 1052 309 10 0 0 0 - - -;
+#X obj 1175 230 pow 2;
+#X floatatom 1246 247 5 0 0 0 - - -;
+#X floatatom 1175 171 5 0 0 0 - - -;
+#X obj 1175 192 % 12;
+#X floatatom 1225 209 5 0 0 0 - - -;
+#X floatatom 1052 220 5 0 0 0 - - -;
+#X text 1051 186 new;
+#X floatatom 1113 227 5 0 0 0 - - -;
+#X text 1110 196 previous;
+#X obj 1052 285 expr $f2 / $f3 * $f4 \;;
+#X obj 729 197 r \$0-bs3;
+#X obj 790 207 r \$0-bs2;
+#X obj 729 329 s ma.c3;
+#X obj 1052 331 s ma.c4;
+#X obj 852 151 r \$0-pcd3;
+#X obj 1052 200 r \$0-bs4;
+#X obj 1113 210 r \$0-bs3;
+#X obj 1175 154 r \$0-pcd4;
+#X obj 208 495 expr 1/$f1;
+#X obj 208 457 abs;
+#X floatatom 208 512 5 0 0 0 - - -;
+#X floatatom 85 557 10 0 0 0 - - -;
+#X obj 208 478 pow 2;
+#X floatatom 279 495 5 0 0 0 - - -;
+#X floatatom 208 419 5 0 0 0 - - -;
+#X obj 208 440 % 12;
+#X floatatom 258 457 5 0 0 0 - - -;
+#X floatatom 85 468 5 0 0 0 - - -;
+#X text 84 434 new;
+#X floatatom 146 475 5 0 0 0 - - -;
+#X text 143 444 previous;
+#X obj 85 533 expr $f2 / $f3 * $f4 \;;
+#X obj 531 498 expr 1/$f1;
+#X obj 531 460 abs;
+#X floatatom 531 515 5 0 0 0 - - -;
+#X floatatom 408 560 10 0 0 0 - - -;
+#X obj 531 481 pow 2;
+#X floatatom 602 498 5 0 0 0 - - -;
+#X floatatom 531 422 5 0 0 0 - - -;
+#X obj 531 443 % 12;
+#X floatatom 581 460 5 0 0 0 - - -;
+#X floatatom 408 471 5 0 0 0 - - -;
+#X text 407 437 new;
+#X floatatom 469 478 5 0 0 0 - - -;
+#X text 466 447 previous;
+#X obj 408 536 expr $f2 / $f3 * $f4 \;;
+#X obj 85 580 s ma.c5;
+#X obj 208 402 r \$0-pcd5;
+#X obj 85 448 r \$0-bs5;
+#X obj 146 458 r \$0-bs4;
+#X obj 408 582 s ma.c6;
+#X obj 408 451 r \$0-bs6;
+#X obj 469 461 r \$0-bs5;
+#X obj 531 405 r \$0-pcd6;
+#X obj 859 495 expr 1/$f1;
+#X obj 859 457 abs;
+#X floatatom 859 512 5 0 0 0 - - -;
+#X floatatom 736 557 10 0 0 0 - - -;
+#X obj 859 478 pow 2;
+#X floatatom 930 495 5 0 0 0 - - -;
+#X floatatom 859 419 5 0 0 0 - - -;
+#X obj 859 440 % 12;
+#X floatatom 909 457 5 0 0 0 - - -;
+#X floatatom 736 468 5 0 0 0 - - -;
+#X text 735 434 new;
+#X floatatom 797 475 5 0 0 0 - - -;
+#X text 794 444 previous;
+#X obj 736 533 expr $f2 / $f3 * $f4 \;;
+#X obj 736 579 s ma.c7;
+#X obj 736 448 r \$0-bs7;
+#X obj 797 458 r \$0-bs6;
+#X obj 859 402 r \$0-pcd7;
+#X obj 20 176 sel 1;
+#X obj 20 197 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 366 205 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 366 163 5 0 0 0 - - -;
+#X obj 366 143 r counter;
+#X obj 366 184 sel 2;
+#X obj 685 221 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 685 179 5 0 0 0 - - -;
+#X obj 685 159 r counter;
+#X obj 685 200 sel 3;
+#X obj 1000 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 1000 187 5 0 0 0 - - -;
+#X obj 1000 167 r counter;
+#X obj 1000 208 sel 4;
+#X obj 34 475 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 34 433 5 0 0 0 - - -;
+#X obj 34 413 r counter;
+#X obj 34 454 sel 5;
+#X obj 359 479 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 359 437 5 0 0 0 - - -;
+#X obj 359 417 r counter;
+#X obj 359 458 sel 6;
+#X obj 694 481 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 694 439 5 0 0 0 - - -;
+#X obj 694 419 r counter;
+#X obj 694 460 sel 7;
+#X obj 20 217 del 50;
+#X obj 366 232 del 50;
+#X obj 685 242 del 50;
+#X obj 1000 251 del 50;
+#X obj 34 496 del 50;
+#X obj 359 501 del 50;
+#X obj 694 503 del 50;
+#X text 778 31 Repeating unisons produce zero!;
+#X text 813 59 could be mapped to spatial inertia....;
+#X connect 7 0 31 0;
+#X connect 7 0 141 0;
+#X connect 8 0 7 0;
+#X connect 9 0 11 0;
+#X connect 10 0 13 0;
+#X connect 11 0 32 3;
+#X connect 12 0 30 0;
+#X connect 13 0 9 0;
+#X connect 13 0 14 0;
+#X connect 15 0 16 0;
+#X connect 16 0 10 0;
+#X connect 16 0 17 0;
+#X connect 18 0 26 0;
+#X connect 18 0 32 1;
+#X connect 20 0 15 0;
+#X connect 21 0 18 0;
+#X connect 22 0 25 1;
+#X connect 24 0 22 0;
+#X connect 25 0 32 2;
+#X connect 26 0 27 0;
+#X connect 27 0 25 0;
+#X connect 31 0 26 1;
+#X connect 32 0 12 0;
+#X connect 33 0 35 0;
+#X connect 34 0 37 0;
+#X connect 35 0 46 3;
+#X connect 36 0 49 0;
+#X connect 37 0 33 0;
+#X connect 37 0 38 0;
+#X connect 39 0 40 0;
+#X connect 40 0 34 0;
+#X connect 40 0 41 0;
+#X connect 42 0 46 1;
+#X connect 44 0 46 2;
+#X connect 46 0 36 0;
+#X connect 47 0 42 0;
+#X connect 48 0 44 0;
+#X connect 50 0 39 0;
+#X connect 51 0 53 0;
+#X connect 52 0 55 0;
+#X connect 53 0 64 3;
+#X connect 54 0 81 0;
+#X connect 55 0 51 0;
+#X connect 55 0 56 0;
+#X connect 57 0 58 0;
+#X connect 58 0 52 0;
+#X connect 58 0 59 0;
+#X connect 60 0 64 1;
+#X connect 62 0 64 2;
+#X connect 64 0 54 0;
+#X connect 65 0 67 0;
+#X connect 66 0 69 0;
+#X connect 67 0 78 3;
+#X connect 68 0 82 0;
+#X connect 69 0 65 0;
+#X connect 69 0 70 0;
+#X connect 71 0 72 0;
+#X connect 72 0 66 0;
+#X connect 72 0 73 0;
+#X connect 74 0 78 1;
+#X connect 76 0 78 2;
+#X connect 78 0 68 0;
+#X connect 79 0 60 0;
+#X connect 80 0 62 0;
+#X connect 83 0 57 0;
+#X connect 84 0 74 0;
+#X connect 85 0 76 0;
+#X connect 86 0 71 0;
+#X connect 87 0 89 0;
+#X connect 88 0 91 0;
+#X connect 89 0 100 3;
+#X connect 90 0 115 0;
+#X connect 91 0 87 0;
+#X connect 91 0 92 0;
+#X connect 93 0 94 0;
+#X connect 94 0 88 0;
+#X connect 94 0 95 0;
+#X connect 96 0 100 1;
+#X connect 98 0 100 2;
+#X connect 100 0 90 0;
+#X connect 101 0 103 0;
+#X connect 102 0 105 0;
+#X connect 103 0 114 3;
+#X connect 104 0 119 0;
+#X connect 105 0 101 0;
+#X connect 105 0 106 0;
+#X connect 107 0 108 0;
+#X connect 108 0 102 0;
+#X connect 108 0 109 0;
+#X connect 110 0 114 1;
+#X connect 112 0 114 2;
+#X connect 114 0 104 0;
+#X connect 116 0 93 0;
+#X connect 117 0 96 0;
+#X connect 118 0 98 0;
+#X connect 120 0 110 0;
+#X connect 121 0 112 0;
+#X connect 122 0 107 0;
+#X connect 123 0 125 0;
+#X connect 124 0 127 0;
+#X connect 125 0 136 3;
+#X connect 126 0 137 0;
+#X connect 127 0 123 0;
+#X connect 127 0 128 0;
+#X connect 129 0 130 0;
+#X connect 130 0 124 0;
+#X connect 130 0 131 0;
+#X connect 132 0 136 1;
+#X connect 134 0 136 2;
+#X connect 136 0 126 0;
+#X connect 138 0 132 0;
+#X connect 139 0 134 0;
+#X connect 140 0 129 0;
+#X connect 141 0 142 0;
+#X connect 142 0 167 0;
+#X connect 143 0 168 0;
+#X connect 144 0 146 0;
+#X connect 145 0 144 0;
+#X connect 146 0 143 0;
+#X connect 147 0 169 0;
+#X connect 148 0 150 0;
+#X connect 149 0 148 0;
+#X connect 150 0 147 0;
+#X connect 151 0 170 0;
+#X connect 152 0 154 0;
+#X connect 153 0 152 0;
+#X connect 154 0 151 0;
+#X connect 155 0 171 0;
+#X connect 156 0 158 0;
+#X connect 157 0 156 0;
+#X connect 158 0 155 0;
+#X connect 159 0 172 0;
+#X connect 160 0 162 0;
+#X connect 161 0 160 0;
+#X connect 162 0 159 0;
+#X connect 163 0 173 0;
+#X connect 164 0 166 0;
+#X connect 165 0 164 0;
+#X connect 166 0 163 0;
+#X connect 167 0 32 0;
+#X connect 168 0 46 0;
+#X connect 169 0 64 0;
+#X connect 170 0 78 0;
+#X connect 171 0 100 0;
+#X connect 172 0 114 0;
+#X connect 173 0 136 0;
+#X restore 33 75 pd melodic.attraction;
+#N canvas 275 22 974 734 attractional.asymmetry 0;
+#X text 34 7 Attractional Asymmetries;
+#X text 30 643 Send differential value to modify current spatial location
+of comparison tones \, in order to reflect cognitive construct;
+#X text 436 25 "the listener appears to merge this attractional differential
+withe the perception of symmetrical distance between the two pitches"
+(Lerdahl 2001 \, pp. 167 - 168).;
+#X text 28 673 * i.e. - to be used as offset with melodic attraction
+rule (subtract from distance between integrated spatial trajectories)
+;
+#X text 28 329 The following algorithm produces a value or ratio ratio
+if asymmetry for the ratio \; p1 -> 2 / p2 -> p1;
+#X text 32 31 "Ratios of asymmetry provide a means of interpreting
+what would otherwise be a troubling prediction of the attraction rule
+\, namely \, that attractions of stable to unstable pitches that are
+half a step away attain relatively high values compared to attractions
+of unstable to stable pitches that are a whole step or more away" (Lerdahl
+2001 \, p. 169).;
+#X text 30 246 *solution - The comparison should not be to other attractions
+\, but to the "relative attraction exerted on the particular pitch
+in relation to the attractive force it exerts on other pitches" (cf.
+[linear_expectation] \; Lerdahl 2001;
+#X text 33 141 e.g. Current MA for D -> C and D -> Eb = 0.5;
+#X text 29 174 Arguably inaccurate without Asymm.offset;
+#X text 29 192 as D to Eb generally incurs more tension in to Chromatic
+spac. Thus \, an MA value of 0.5 is too high in relation to D -> C
+;
+#X text 436 75 "This use of asymmetries does not constitute an alternative
+to the attraction rule. Rather \, it is an interpretation that justifies
+the rule's predictions where they might otherwise seem questionable
+(Lerdahl 2001 \, p. 169)";
+#X text 132 515 value (ratio of attractional asymmetry) - value reflects
+degree of attractional asymmetry between two tones in sequence (e.g.
+higher value = high asymmetry between tone combination in sequence)
+- quantified and reflected as differential offset in spatial gesture
+;
+#X text 435 216 adjustment in tuning here may be interesting to use
+with Partch~ If resolution is needed \, filter sweep at tone with frequency
+offset to help incite dissonance to encourage tonal resolution;
+#X text 435 143 "attractional asymmetries shed on intonational practices
+for instruments capable of continuous tuning. Even though intervals
+are symmetrically equidistant in a conceptual sense \, in a musical
+context their tunings may not be" (Lerdahl 2001 \, p. 170).;
+#N canvas 75 105 1071 641 asymm.ma.1 0;
+#X obj 336 329 /;
+#X floatatom 336 350 10 0 0 0 - - -;
+#X text 519 249 divided by inverse tone config;
+#X obj 451 195 r \$0-bs1;
+#X floatatom 390 222 5 0 0 0 - - -;
+#X floatatom 451 222 5 0 0 0 - - -;
+#X obj 390 195 r \$0-bs7;
+#X obj 513 213 expr 1/$f1;
+#X obj 513 175 abs;
+#X floatatom 513 230 5 0 0 0 - - -;
+#X floatatom 390 268 10 0 0 0 - - -;
+#X obj 513 196 pow 2;
+#X floatatom 583 213 5 0 0 0 - - -;
+#X floatatom 513 139 5 0 0 0 - - -;
+#X obj 513 158 % 12;
+#X floatatom 563 175 5 0 0 0 - - -;
+#X obj 513 122 r \$0-pcd1;
+#X floatatom 277 313 5 0 0 0 - - -;
+#X obj 395 447 +;
+#X obj 353 447 -;
+#X obj 439 304 sel 1;
+#X obj 439 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 472 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 336 490 mux _ _ _;
+#X obj 336 122 r ma.c1;
+#X floatatom 336 519 5 0 0 0 - - -;
+#X obj 353 473 pipe 5;
+#X obj 395 473 pipe 5;
+#X obj 439 473 * \$1;
+#X msg 439 337 2;
+#X msg 472 336 1;
+#X obj 336 542 s man.c1;
+#X text 401 354 value (ratio of attractional asymmetry) - value reflects
+degree of attractional asymmetry;
+#X obj 253 366 s asymm.1;
+#X obj 588 284 s asymm.ma1;
+#X obj 439 284 >;
+#X obj 503 284 ==;
+#X obj 503 302 sel 1;
+#X msg 503 321 0;
+#X text -160 -3 Producing ratios from decimal values is difficult;
+#N canvas 0 22 450 300 decimal.fraction.info 0;
+#X text -179 174 http://en.wikipedia.org/wiki/Fraction_%28mathematics%29#Converting_repeating_decimals_to_fractions
+;
+#X text -203 141 http://en.wikipedia.org/wiki/Repeating_decimal#Converting_repeating_decimals_to_fractions
+;
+#X text -207 76 For repeating decimal - Let x = 0.111... (1) So 1000x
+= 111.111... (2) Subtracting (2) and (1) gives: 1000x - x = 111.111...
+- 0.111... ==> 999x = 111 ==> x = 111/999 ==> x = 1/9 Therefore \,
+0.111... = 1/9.;
+#X restore -161 97 pd decimal.fraction.info;
+#X text -161 16 Dividing fractions to produce ratio: Turn the second
+fraction upside-down (it becomes a reciprocal) 2) Multiply the first
+fraction by that reciprocal 3) Simplify;
+#X floatatom -163 255 5 0 0 0 - - -;
+#X floatatom 8 255 5 0 0 0 - - -;
+#X obj -163 238 expr $f2 * $f3;
+#X obj -66 238 expr $f2 * $f3;
+#X obj -163 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 139 r counter;
+#X obj -163 160 sel 1;
+#X floatatom -100 156 5 0 0 0 - - -;
+#X text -160 63 http://www.mathsisfun.com/fractions_division.html;
+#X obj -163 277 expr if ($f1 == $f2 \, 1 \, $f1) \; if ($f2 == $f1
+\, 1 \, $f2) \;;
+#X floatatom -163 316 5 0 0 0 - - -;
+#X floatatom 8 319 5 0 0 0 - - -;
+#X obj -78 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 358 mod;
+#X obj 8 359 mod;
+#X floatatom -163 378 5 0 0 0 - - -;
+#X floatatom 8 376 5 0 0 0 - - -;
+#X text -162 584 [expr]s receiving their first inlet value before the
+second inlet because the [loadbang] does not have a [trigger] enforcing
+the right execution order.;
+#X text -49 489 SIMPLIFY!!!!!!;
+#X obj 460 438 r asym.ofs;
+#X obj 390 249 expr $f2 / $f3 * $f4;
+#X floatatom -163 490 5 0 0 0 - - -;
+#X floatatom 182 489 10 0 0 0 - - -;
+#X obj -163 338 pipe 1;
+#X obj 8 338 pipe 1;
+#X obj -48 399 pipe 2;
+#X obj -163 425 expr if($f3 == 0 | $f4 == 0 && $f1 > $f2 \, $f1 / $f2
+\, if ($f3 == 0 | $f4 == 0 && $f2 > $f1 \, $f1/$f1 \, $f1)) \; if($f3
+== 0 | $f4 == 0 && $f1 > $f2 \, $f2/$f2 \, if ($f3 == 0 | $f4 == 0
+&& $f2 > $f1 \, $f2/$f1 \, $f2));
+#X obj -66 204 del 15;
+#X obj -163 399 pipe 2;
+#X obj -163 511 s ar.1a;
+#X obj 182 509 s ar.1b;
+#X obj 277 292 pipe 10;
+#X obj 321 419 pipe 1;
+#X obj 376 418 pipe 1;
+#X text 547 311 accounting for mutual attractions (==) same attractional
+value - result = do nothing - output original MA;
+#X text 430 523 Similar to concept of implicative denial in order to
+account for melodic motion - Further quantification of sequential pitch
+relationships (p. 170) - might not be suitable \, though.;
+#X text -162 538 if mod 3 or 4 == 0 (2 numbers divide into each other)
+AND 1 is greater than 2 > then produced 1/2 \, ELSE if MOD 3 or 4 ==
+0 AND 2 > 1 \, then 1/1 \, or produce 1 etc.;
+#X floatatom 471 490 5 0 0 0 - - -;
+#X text 510 490 output select for mux;
+#X obj 368 391 / 16;
+#X floatatom 424 408 10 0 0 0 - - -;
+#X floatatom 269 490 10 0 0 0 - - -;
+#X floatatom 395 490 5 0 0 0 - - -;
+#X text 494 391 Divide by 16 as it is the maximum value for a line
+of assymetrical attraction (Lerdahl 2001 \, p. 168) - This method produces
+values which are more suitable as an offset;
+#X text 659 284 to use with tendency algorithm;
+#X text 252 384 intial offset;
+#X text 319 560 scaled offset;
+#X connect 0 0 1 0;
+#X connect 1 0 33 0;
+#X connect 1 0 81 0;
+#X connect 3 0 5 0;
+#X connect 4 0 44 1;
+#X connect 4 0 44 2;
+#X connect 4 0 62 1;
+#X connect 5 0 45 2;
+#X connect 5 0 45 1;
+#X connect 5 0 62 2;
+#X connect 6 0 4 0;
+#X connect 7 0 9 0;
+#X connect 8 0 11 0;
+#X connect 9 0 62 3;
+#X connect 10 0 0 1;
+#X connect 10 0 35 1;
+#X connect 10 0 36 1;
+#X connect 10 0 34 0;
+#X connect 11 0 7 0;
+#X connect 11 0 12 0;
+#X connect 13 0 14 0;
+#X connect 14 0 8 0;
+#X connect 14 0 15 0;
+#X connect 16 0 13 0;
+#X connect 17 0 0 0;
+#X connect 17 0 74 0;
+#X connect 17 0 75 0;
+#X connect 17 0 36 0;
+#X connect 17 0 35 0;
+#X connect 18 0 27 0;
+#X connect 19 0 26 0;
+#X connect 20 0 21 0;
+#X connect 20 1 22 0;
+#X connect 21 0 29 0;
+#X connect 22 0 30 0;
+#X connect 23 0 25 0;
+#X connect 23 0 31 0;
+#X connect 24 0 23 0;
+#X connect 24 0 73 0;
+#X connect 26 0 23 1;
+#X connect 26 0 83 0;
+#X connect 27 0 23 2;
+#X connect 27 0 84 0;
+#X connect 28 0 23 3;
+#X connect 28 0 79 0;
+#X connect 29 0 28 0;
+#X connect 30 0 28 0;
+#X connect 35 0 20 0;
+#X connect 36 0 37 0;
+#X connect 37 0 38 0;
+#X connect 38 0 28 0;
+#X connect 42 0 51 0;
+#X connect 43 0 51 1;
+#X connect 43 0 54 0;
+#X connect 44 0 42 0;
+#X connect 45 0 43 0;
+#X connect 46 0 44 0;
+#X connect 46 0 69 0;
+#X connect 47 0 48 0;
+#X connect 47 0 49 0;
+#X connect 48 0 46 0;
+#X connect 51 0 52 0;
+#X connect 51 1 53 0;
+#X connect 52 0 56 1;
+#X connect 52 0 65 0;
+#X connect 52 0 70 0;
+#X connect 53 0 55 1;
+#X connect 53 0 66 0;
+#X connect 53 0 67 0;
+#X connect 54 0 51 0;
+#X connect 55 0 57 0;
+#X connect 56 0 58 0;
+#X connect 57 0 68 2;
+#X connect 58 0 68 3;
+#X connect 61 0 28 1;
+#X connect 62 0 10 0;
+#X connect 63 0 71 0;
+#X connect 64 0 72 0;
+#X connect 65 0 55 0;
+#X connect 66 0 56 0;
+#X connect 67 0 68 1;
+#X connect 68 0 63 0;
+#X connect 68 1 64 0;
+#X connect 69 0 45 0;
+#X connect 69 0 62 0;
+#X connect 70 0 68 0;
+#X connect 73 0 17 0;
+#X connect 74 0 19 0;
+#X connect 75 0 18 0;
+#X connect 81 0 19 1;
+#X connect 81 0 18 1;
+#X connect 81 0 82 0;
+#X restore 30 490 pd asymm.ma.1;
+#N canvas 209 22 1071 641 asymm.ma.2 0;
+#X obj 336 329 /;
+#X floatatom 336 350 10 0 0 0 - - -;
+#X text 519 249 divided by inverse tone config;
+#X floatatom 390 222 5 0 0 0 - - -;
+#X floatatom 451 222 5 0 0 0 - - -;
+#X obj 513 213 expr 1/$f1;
+#X obj 513 175 abs;
+#X floatatom 513 230 5 0 0 0 - - -;
+#X floatatom 390 268 10 0 0 0 - - -;
+#X obj 513 196 pow 2;
+#X floatatom 583 213 5 0 0 0 - - -;
+#X floatatom 513 139 5 0 0 0 - - -;
+#X obj 513 158 % 12;
+#X floatatom 563 175 5 0 0 0 - - -;
+#X floatatom 277 313 5 0 0 0 - - -;
+#X obj 395 447 +;
+#X obj 353 447 -;
+#X obj 439 304 sel 1;
+#X obj 439 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 472 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 336 490 mux _ _ _;
+#X floatatom 336 526 5 0 0 0 - - -;
+#X obj 353 473 pipe 5;
+#X obj 395 473 pipe 5;
+#X obj 439 473 * \$1;
+#X msg 439 337 2;
+#X msg 472 336 1;
+#X text 401 354 value (ratio of attractional asymmetry) - value reflects
+degree of attractional asymmetry;
+#X obj 439 284 >;
+#X obj 503 284 ==;
+#X obj 503 302 sel 1;
+#X msg 503 321 0;
+#X text -160 -3 Producing ratios from decimal values is difficult;
+#N canvas 0 22 450 300 decimal.fraction.info 0;
+#X text -179 174 http://en.wikipedia.org/wiki/Fraction_%28mathematics%29#Converting_repeating_decimals_to_fractions
+;
+#X text -203 141 http://en.wikipedia.org/wiki/Repeating_decimal#Converting_repeating_decimals_to_fractions
+;
+#X text -207 76 For repeating decimal - Let x = 0.111... (1) So 1000x
+= 111.111... (2) Subtracting (2) and (1) gives: 1000x - x = 111.111...
+- 0.111... ==> 999x = 111 ==> x = 111/999 ==> x = 1/9 Therefore \,
+0.111... = 1/9.;
+#X restore -161 97 pd decimal.fraction.info;
+#X text -161 16 Dividing fractions to produce ratio: Turn the second
+fraction upside-down (it becomes a reciprocal) 2) Multiply the first
+fraction by that reciprocal 3) Simplify;
+#X floatatom -163 255 5 0 0 0 - - -;
+#X floatatom 8 255 5 0 0 0 - - -;
+#X obj -163 238 expr $f2 * $f3;
+#X obj -66 238 expr $f2 * $f3;
+#X obj -163 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 139 r counter;
+#X floatatom -100 156 5 0 0 0 - - -;
+#X text -160 63 http://www.mathsisfun.com/fractions_division.html;
+#X obj -163 277 expr if ($f1 == $f2 \, 1 \, $f1) \; if ($f2 == $f1
+\, 1 \, $f2) \;;
+#X floatatom -163 316 5 0 0 0 - - -;
+#X floatatom 8 319 5 0 0 0 - - -;
+#X obj -78 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 358 mod;
+#X obj 8 359 mod;
+#X floatatom -163 378 5 0 0 0 - - -;
+#X floatatom 8 376 5 0 0 0 - - -;
+#X text -162 584 [expr]s receiving their first inlet value before the
+second inlet because the [loadbang] does not have a [trigger] enforcing
+the right execution order.;
+#X text -49 489 SIMPLIFY!!!!!!;
+#X obj 460 438 r asym.ofs;
+#X obj 390 249 expr $f2 / $f3 * $f4;
+#X floatatom -163 490 5 0 0 0 - - -;
+#X floatatom 182 489 10 0 0 0 - - -;
+#X obj -163 338 pipe 1;
+#X obj 8 338 pipe 1;
+#X obj -48 399 pipe 2;
+#X obj -163 425 expr if($f3 == 0 | $f4 == 0 && $f1 > $f2 \, $f1 / $f2
+\, if ($f3 == 0 | $f4 == 0 && $f2 > $f1 \, $f1/$f1 \, $f1)) \; if($f3
+== 0 | $f4 == 0 && $f1 > $f2 \, $f2/$f2 \, if ($f3 == 0 | $f4 == 0
+&& $f2 > $f1 \, $f2/$f1 \, $f2));
+#X obj -66 204 del 15;
+#X obj -163 399 pipe 2;
+#X obj 277 292 pipe 10;
+#X obj 321 419 pipe 1;
+#X obj 376 418 pipe 1;
+#X text 534 312 accounting for mutual attractions (==) same attractional
+value - result = do nothing - output original MA;
+#X text 417 526 Similar to concept of implicative denial in order to
+account for melodic motion - Further quantification of sequential pitch
+relationships (p. 170) - might not be suitable \, though.;
+#X text -162 538 if mod 3 or 4 == 0 (2 numbers divide into each other)
+AND 1 is greater than 2 > then produced 1/2 \, ELSE if MOD 3 or 4 ==
+0 AND 2 > 1 \, then 1/1 \, or produce 1 etc.;
+#X floatatom 471 490 5 0 0 0 - - -;
+#X text 510 490 output select for mux;
+#X obj 368 391 / 16;
+#X floatatom 424 408 10 0 0 0 - - -;
+#X floatatom 272 490 10 0 0 0 - - -;
+#X floatatom 395 490 5 0 0 0 - - -;
+#X text 494 391 divide by 16 as it is the maximum value for a line
+of assymetrical attraction (Lerdahl 2001 \, p. 168) - Values are more
+suitable as an offset;
+#X obj -163 160 sel 2;
+#X obj -163 511 s ar.2a;
+#X obj 182 509 s ar.2b;
+#X obj 336 542 s man.c2;
+#X obj 253 366 s asymm.2;
+#X obj 588 284 s asymm.ma2;
+#X obj 390 195 r \$0-bs1;
+#X obj 451 195 r \$0-bs2;
+#X obj 336 122 r ma.c2;
+#X obj 513 122 r \$0-pcd2;
+#X connect 0 0 1 0;
+#X connect 1 0 71 0;
+#X connect 1 0 80 0;
+#X connect 3 0 37 1;
+#X connect 3 0 37 2;
+#X connect 3 0 54 1;
+#X connect 4 0 38 2;
+#X connect 4 0 38 1;
+#X connect 4 0 54 2;
+#X connect 5 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 54 3;
+#X connect 8 0 0 1;
+#X connect 8 0 28 1;
+#X connect 8 0 29 1;
+#X connect 8 0 81 0;
+#X connect 9 0 5 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 12 0 6 0;
+#X connect 12 0 13 0;
+#X connect 14 0 0 0;
+#X connect 14 0 64 0;
+#X connect 14 0 65 0;
+#X connect 14 0 29 0;
+#X connect 14 0 28 0;
+#X connect 15 0 23 0;
+#X connect 16 0 22 0;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 18 0 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 21 0;
+#X connect 20 0 79 0;
+#X connect 22 0 20 1;
+#X connect 22 0 73 0;
+#X connect 23 0 20 2;
+#X connect 23 0 74 0;
+#X connect 24 0 20 3;
+#X connect 24 0 69 0;
+#X connect 25 0 24 0;
+#X connect 26 0 24 0;
+#X connect 28 0 17 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 31 0 24 0;
+#X connect 35 0 43 0;
+#X connect 36 0 43 1;
+#X connect 36 0 46 0;
+#X connect 37 0 35 0;
+#X connect 38 0 36 0;
+#X connect 39 0 37 0;
+#X connect 39 0 61 0;
+#X connect 40 0 41 0;
+#X connect 40 0 76 0;
+#X connect 43 0 44 0;
+#X connect 43 1 45 0;
+#X connect 44 0 48 1;
+#X connect 44 0 57 0;
+#X connect 44 0 62 0;
+#X connect 45 0 47 1;
+#X connect 45 0 58 0;
+#X connect 45 0 59 0;
+#X connect 46 0 43 0;
+#X connect 47 0 49 0;
+#X connect 48 0 50 0;
+#X connect 49 0 60 2;
+#X connect 50 0 60 3;
+#X connect 53 0 24 1;
+#X connect 54 0 8 0;
+#X connect 55 0 77 0;
+#X connect 56 0 78 0;
+#X connect 57 0 47 0;
+#X connect 58 0 48 0;
+#X connect 59 0 60 1;
+#X connect 60 0 55 0;
+#X connect 60 1 56 0;
+#X connect 61 0 38 0;
+#X connect 61 0 54 0;
+#X connect 62 0 60 0;
+#X connect 63 0 14 0;
+#X connect 64 0 16 0;
+#X connect 65 0 15 0;
+#X connect 71 0 16 1;
+#X connect 71 0 15 1;
+#X connect 71 0 72 0;
+#X connect 76 0 39 0;
+#X connect 82 0 3 0;
+#X connect 83 0 4 0;
+#X connect 84 0 20 0;
+#X connect 84 0 63 0;
+#X connect 85 0 11 0;
+#X restore 30 511 pd asymm.ma.2;
+#N canvas 203 22 1071 641 asymm.ma.3 0;
+#X obj 336 329 /;
+#X floatatom 336 350 10 0 0 0 - - -;
+#X text 519 249 divided by inverse tone config;
+#X floatatom 390 222 5 0 0 0 - - -;
+#X floatatom 451 222 5 0 0 0 - - -;
+#X obj 513 213 expr 1/$f1;
+#X obj 513 175 abs;
+#X floatatom 513 230 5 0 0 0 - - -;
+#X floatatom 390 268 10 0 0 0 - - -;
+#X obj 513 196 pow 2;
+#X floatatom 583 213 5 0 0 0 - - -;
+#X floatatom 513 139 5 0 0 0 - - -;
+#X obj 513 158 % 12;
+#X floatatom 563 175 5 0 0 0 - - -;
+#X floatatom 277 313 5 0 0 0 - - -;
+#X obj 395 447 +;
+#X obj 353 447 -;
+#X obj 439 304 sel 1;
+#X obj 439 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 472 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 336 490 mux _ _ _;
+#X floatatom 336 526 5 0 0 0 - - -;
+#X obj 353 473 pipe 5;
+#X obj 395 473 pipe 5;
+#X obj 439 473 * \$1;
+#X msg 439 337 2;
+#X msg 472 336 1;
+#X text 401 354 value (ratio of attractional asymmetry) - value reflects
+degree of attractional asymmetry;
+#X obj 439 284 >;
+#X obj 503 284 ==;
+#X obj 503 302 sel 1;
+#X msg 503 321 0;
+#X text -160 -3 Producing ratios from decimal values is difficult;
+#N canvas 0 22 450 300 decimal.fraction.info 0;
+#X text -179 174 http://en.wikipedia.org/wiki/Fraction_%28mathematics%29#Converting_repeating_decimals_to_fractions
+;
+#X text -203 141 http://en.wikipedia.org/wiki/Repeating_decimal#Converting_repeating_decimals_to_fractions
+;
+#X text -207 76 For repeating decimal - Let x = 0.111... (1) So 1000x
+= 111.111... (2) Subtracting (2) and (1) gives: 1000x - x = 111.111...
+- 0.111... ==> 999x = 111 ==> x = 111/999 ==> x = 1/9 Therefore \,
+0.111... = 1/9.;
+#X restore -161 97 pd decimal.fraction.info;
+#X text -161 16 Dividing fractions to produce ratio: Turn the second
+fraction upside-down (it becomes a reciprocal) 2) Multiply the first
+fraction by that reciprocal 3) Simplify;
+#X floatatom -163 255 5 0 0 0 - - -;
+#X floatatom 8 255 5 0 0 0 - - -;
+#X obj -163 238 expr $f2 * $f3;
+#X obj -66 238 expr $f2 * $f3;
+#X obj -163 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 139 r counter;
+#X floatatom -100 156 5 0 0 0 - - -;
+#X text -160 63 http://www.mathsisfun.com/fractions_division.html;
+#X obj -163 277 expr if ($f1 == $f2 \, 1 \, $f1) \; if ($f2 == $f1
+\, 1 \, $f2) \;;
+#X floatatom -163 316 5 0 0 0 - - -;
+#X floatatom 8 319 5 0 0 0 - - -;
+#X obj -78 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 358 mod;
+#X obj 8 359 mod;
+#X floatatom -163 378 5 0 0 0 - - -;
+#X floatatom 8 376 5 0 0 0 - - -;
+#X text -162 584 [expr]s receiving their first inlet value before the
+second inlet because the [loadbang] does not have a [trigger] enforcing
+the right execution order.;
+#X text -49 489 SIMPLIFY!!!!!!;
+#X obj 460 438 r asym.ofs;
+#X obj 390 249 expr $f2 / $f3 * $f4;
+#X floatatom -163 490 5 0 0 0 - - -;
+#X floatatom 182 489 10 0 0 0 - - -;
+#X obj -163 338 pipe 1;
+#X obj 8 338 pipe 1;
+#X obj -48 399 pipe 2;
+#X obj -163 425 expr if($f3 == 0 | $f4 == 0 && $f1 > $f2 \, $f1 / $f2
+\, if ($f3 == 0 | $f4 == 0 && $f2 > $f1 \, $f1/$f1 \, $f1)) \; if($f3
+== 0 | $f4 == 0 && $f1 > $f2 \, $f2/$f2 \, if ($f3 == 0 | $f4 == 0
+&& $f2 > $f1 \, $f2/$f1 \, $f2));
+#X obj -66 204 del 15;
+#X obj -163 399 pipe 2;
+#X obj 277 292 pipe 10;
+#X obj 321 419 pipe 1;
+#X obj 376 418 pipe 1;
+#X text 534 312 accounting for mutual attractions (==) same attractional
+value - result = do nothing - output original MA;
+#X text 417 526 Similar to concept of implicative denial in order to
+account for melodic motion - Further quantification of sequential pitch
+relationships (p. 170) - might not be suitable \, though.;
+#X text -162 538 if mod 3 or 4 == 0 (2 numbers divide into each other)
+AND 1 is greater than 2 > then produced 1/2 \, ELSE if MOD 3 or 4 ==
+0 AND 2 > 1 \, then 1/1 \, or produce 1 etc.;
+#X floatatom 471 490 5 0 0 0 - - -;
+#X text 510 490 output select for mux;
+#X obj 368 391 / 16;
+#X floatatom 424 408 10 0 0 0 - - -;
+#X floatatom 272 490 10 0 0 0 - - -;
+#X floatatom 395 490 5 0 0 0 - - -;
+#X text 494 391 divide by 16 as it is the maximum value for a line
+of assymetrical attraction (Lerdahl 2001 \, p. 168) - Values are more
+suitable as an offset;
+#X obj -163 160 sel 3;
+#X obj -163 511 s ar.3a;
+#X obj 182 509 s ar.3b;
+#X obj 336 122 r ma.c3;
+#X obj 513 122 r \$0-pcd3;
+#X obj 390 195 r \$0-bs2;
+#X obj 451 195 r \$0-bs3;
+#X obj 253 366 s asymm.3;
+#X obj 588 284 s asymm.ma3;
+#X obj 336 542 s man.c3;
+#X connect 0 0 1 0;
+#X connect 1 0 71 0;
+#X connect 1 0 83 0;
+#X connect 3 0 37 1;
+#X connect 3 0 37 2;
+#X connect 3 0 54 1;
+#X connect 4 0 38 2;
+#X connect 4 0 38 1;
+#X connect 4 0 54 2;
+#X connect 5 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 54 3;
+#X connect 8 0 0 1;
+#X connect 8 0 28 1;
+#X connect 8 0 29 1;
+#X connect 8 0 84 0;
+#X connect 9 0 5 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 12 0 6 0;
+#X connect 12 0 13 0;
+#X connect 14 0 0 0;
+#X connect 14 0 64 0;
+#X connect 14 0 65 0;
+#X connect 14 0 29 0;
+#X connect 14 0 28 0;
+#X connect 15 0 23 0;
+#X connect 16 0 22 0;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 18 0 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 21 0;
+#X connect 20 0 85 0;
+#X connect 22 0 20 1;
+#X connect 22 0 73 0;
+#X connect 23 0 20 2;
+#X connect 23 0 74 0;
+#X connect 24 0 20 3;
+#X connect 24 0 69 0;
+#X connect 25 0 24 0;
+#X connect 26 0 24 0;
+#X connect 28 0 17 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 31 0 24 0;
+#X connect 35 0 43 0;
+#X connect 36 0 43 1;
+#X connect 36 0 46 0;
+#X connect 37 0 35 0;
+#X connect 38 0 36 0;
+#X connect 39 0 37 0;
+#X connect 39 0 61 0;
+#X connect 40 0 41 0;
+#X connect 40 0 76 0;
+#X connect 43 0 44 0;
+#X connect 43 1 45 0;
+#X connect 44 0 48 1;
+#X connect 44 0 57 0;
+#X connect 44 0 62 0;
+#X connect 45 0 47 1;
+#X connect 45 0 58 0;
+#X connect 45 0 59 0;
+#X connect 46 0 43 0;
+#X connect 47 0 49 0;
+#X connect 48 0 50 0;
+#X connect 49 0 60 2;
+#X connect 50 0 60 3;
+#X connect 53 0 24 1;
+#X connect 54 0 8 0;
+#X connect 55 0 77 0;
+#X connect 56 0 78 0;
+#X connect 57 0 47 0;
+#X connect 58 0 48 0;
+#X connect 59 0 60 1;
+#X connect 60 0 55 0;
+#X connect 60 1 56 0;
+#X connect 61 0 38 0;
+#X connect 61 0 54 0;
+#X connect 62 0 60 0;
+#X connect 63 0 14 0;
+#X connect 64 0 16 0;
+#X connect 65 0 15 0;
+#X connect 71 0 16 1;
+#X connect 71 0 15 1;
+#X connect 71 0 72 0;
+#X connect 76 0 39 0;
+#X connect 79 0 20 0;
+#X connect 79 0 63 0;
+#X connect 80 0 11 0;
+#X connect 81 0 3 0;
+#X connect 82 0 4 0;
+#X restore 30 532 pd asymm.ma.3;
+#N canvas 209 22 1071 641 asymm.ma.4 0;
+#X obj 336 329 /;
+#X floatatom 336 350 10 0 0 0 - - -;
+#X text 519 249 divided by inverse tone config;
+#X floatatom 390 222 5 0 0 0 - - -;
+#X floatatom 451 222 5 0 0 0 - - -;
+#X obj 513 213 expr 1/$f1;
+#X obj 513 175 abs;
+#X floatatom 513 230 5 0 0 0 - - -;
+#X floatatom 390 268 10 0 0 0 - - -;
+#X obj 513 196 pow 2;
+#X floatatom 583 213 5 0 0 0 - - -;
+#X floatatom 513 139 5 0 0 0 - - -;
+#X obj 513 158 % 12;
+#X floatatom 563 175 5 0 0 0 - - -;
+#X floatatom 277 313 5 0 0 0 - - -;
+#X obj 395 447 +;
+#X obj 353 447 -;
+#X obj 439 304 sel 1;
+#X obj 439 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 472 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 336 490 mux _ _ _;
+#X floatatom 336 526 5 0 0 0 - - -;
+#X obj 353 473 pipe 5;
+#X obj 395 473 pipe 5;
+#X obj 439 473 * \$1;
+#X msg 439 337 2;
+#X msg 472 336 1;
+#X text 401 354 value (ratio of attractional asymmetry) - value reflects
+degree of attractional asymmetry;
+#X obj 439 284 >;
+#X obj 503 284 ==;
+#X obj 503 302 sel 1;
+#X msg 503 321 0;
+#X text -160 -3 Producing ratios from decimal values is difficult;
+#N canvas 0 22 450 300 decimal.fraction.info 0;
+#X text -179 174 http://en.wikipedia.org/wiki/Fraction_%28mathematics%29#Converting_repeating_decimals_to_fractions
+;
+#X text -203 141 http://en.wikipedia.org/wiki/Repeating_decimal#Converting_repeating_decimals_to_fractions
+;
+#X text -207 76 For repeating decimal - Let x = 0.111... (1) So 1000x
+= 111.111... (2) Subtracting (2) and (1) gives: 1000x - x = 111.111...
+- 0.111... ==> 999x = 111 ==> x = 111/999 ==> x = 1/9 Therefore \,
+0.111... = 1/9.;
+#X restore -161 97 pd decimal.fraction.info;
+#X text -161 16 Dividing fractions to produce ratio: Turn the second
+fraction upside-down (it becomes a reciprocal) 2) Multiply the first
+fraction by that reciprocal 3) Simplify;
+#X floatatom -163 255 5 0 0 0 - - -;
+#X floatatom 8 255 5 0 0 0 - - -;
+#X obj -163 238 expr $f2 * $f3;
+#X obj -66 238 expr $f2 * $f3;
+#X obj -163 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 139 r counter;
+#X floatatom -100 156 5 0 0 0 - - -;
+#X text -160 63 http://www.mathsisfun.com/fractions_division.html;
+#X obj -163 277 expr if ($f1 == $f2 \, 1 \, $f1) \; if ($f2 == $f1
+\, 1 \, $f2) \;;
+#X floatatom -163 316 5 0 0 0 - - -;
+#X floatatom 8 319 5 0 0 0 - - -;
+#X obj -78 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 358 mod;
+#X obj 8 359 mod;
+#X floatatom -163 378 5 0 0 0 - - -;
+#X floatatom 8 376 5 0 0 0 - - -;
+#X text -162 584 [expr]s receiving their first inlet value before the
+second inlet because the [loadbang] does not have a [trigger] enforcing
+the right execution order.;
+#X text -49 489 SIMPLIFY!!!!!!;
+#X obj 460 438 r asym.ofs;
+#X obj 390 249 expr $f2 / $f3 * $f4;
+#X floatatom -163 490 5 0 0 0 - - -;
+#X floatatom 182 489 10 0 0 0 - - -;
+#X obj -163 338 pipe 1;
+#X obj 8 338 pipe 1;
+#X obj -48 399 pipe 2;
+#X obj -163 425 expr if($f3 == 0 | $f4 == 0 && $f1 > $f2 \, $f1 / $f2
+\, if ($f3 == 0 | $f4 == 0 && $f2 > $f1 \, $f1/$f1 \, $f1)) \; if($f3
+== 0 | $f4 == 0 && $f1 > $f2 \, $f2/$f2 \, if ($f3 == 0 | $f4 == 0
+&& $f2 > $f1 \, $f2/$f1 \, $f2));
+#X obj -66 204 del 15;
+#X obj -163 399 pipe 2;
+#X obj 277 292 pipe 10;
+#X obj 321 419 pipe 1;
+#X obj 376 418 pipe 1;
+#X text 534 312 accounting for mutual attractions (==) same attractional
+value - result = do nothing - output original MA;
+#X text 417 526 Similar to concept of implicative denial in order to
+account for melodic motion - Further quantification of sequential pitch
+relationships (p. 170) - might not be suitable \, though.;
+#X text -162 538 if mod 3 or 4 == 0 (2 numbers divide into each other)
+AND 1 is greater than 2 > then produced 1/2 \, ELSE if MOD 3 or 4 ==
+0 AND 2 > 1 \, then 1/1 \, or produce 1 etc.;
+#X floatatom 471 490 5 0 0 0 - - -;
+#X text 510 490 output select for mux;
+#X obj 368 391 / 16;
+#X floatatom 424 408 10 0 0 0 - - -;
+#X floatatom 272 490 10 0 0 0 - - -;
+#X floatatom 395 490 5 0 0 0 - - -;
+#X text 494 391 divide by 16 as it is the maximum value for a line
+of assymetrical attraction (Lerdahl 2001 \, p. 168) - Values are more
+suitable as an offset;
+#X obj -163 160 sel 4;
+#X obj -163 511 s ar.4a;
+#X obj 182 509 s ar.4b;
+#X obj 336 542 s man.c4;
+#X obj 588 284 s asymm.ma4;
+#X obj 513 122 r \$0-pcd4;
+#X obj 390 195 r \$0-bs3;
+#X obj 451 195 r \$0-bs4;
+#X obj 336 122 r ma.c4;
+#X obj 253 366 s asymm.4;
+#X connect 0 0 1 0;
+#X connect 1 0 71 0;
+#X connect 1 0 85 0;
+#X connect 3 0 37 1;
+#X connect 3 0 37 2;
+#X connect 3 0 54 1;
+#X connect 4 0 38 2;
+#X connect 4 0 38 1;
+#X connect 4 0 54 2;
+#X connect 5 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 54 3;
+#X connect 8 0 0 1;
+#X connect 8 0 28 1;
+#X connect 8 0 29 1;
+#X connect 8 0 80 0;
+#X connect 9 0 5 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 12 0 6 0;
+#X connect 12 0 13 0;
+#X connect 14 0 0 0;
+#X connect 14 0 64 0;
+#X connect 14 0 65 0;
+#X connect 14 0 29 0;
+#X connect 14 0 28 0;
+#X connect 15 0 23 0;
+#X connect 16 0 22 0;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 18 0 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 21 0;
+#X connect 20 0 79 0;
+#X connect 22 0 20 1;
+#X connect 22 0 73 0;
+#X connect 23 0 20 2;
+#X connect 23 0 74 0;
+#X connect 24 0 20 3;
+#X connect 24 0 69 0;
+#X connect 25 0 24 0;
+#X connect 26 0 24 0;
+#X connect 28 0 17 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 31 0 24 0;
+#X connect 35 0 43 0;
+#X connect 36 0 43 1;
+#X connect 36 0 46 0;
+#X connect 37 0 35 0;
+#X connect 38 0 36 0;
+#X connect 39 0 37 0;
+#X connect 39 0 61 0;
+#X connect 40 0 41 0;
+#X connect 40 0 76 0;
+#X connect 43 0 44 0;
+#X connect 43 1 45 0;
+#X connect 44 0 48 1;
+#X connect 44 0 57 0;
+#X connect 44 0 62 0;
+#X connect 45 0 47 1;
+#X connect 45 0 58 0;
+#X connect 45 0 59 0;
+#X connect 46 0 43 0;
+#X connect 47 0 49 0;
+#X connect 48 0 50 0;
+#X connect 49 0 60 2;
+#X connect 50 0 60 3;
+#X connect 53 0 24 1;
+#X connect 54 0 8 0;
+#X connect 55 0 77 0;
+#X connect 56 0 78 0;
+#X connect 57 0 47 0;
+#X connect 58 0 48 0;
+#X connect 59 0 60 1;
+#X connect 60 0 55 0;
+#X connect 60 1 56 0;
+#X connect 61 0 38 0;
+#X connect 61 0 54 0;
+#X connect 62 0 60 0;
+#X connect 63 0 14 0;
+#X connect 64 0 16 0;
+#X connect 65 0 15 0;
+#X connect 71 0 16 1;
+#X connect 71 0 15 1;
+#X connect 71 0 72 0;
+#X connect 76 0 39 0;
+#X connect 81 0 11 0;
+#X connect 82 0 3 0;
+#X connect 83 0 4 0;
+#X connect 84 0 20 0;
+#X connect 84 0 63 0;
+#X restore 30 553 pd asymm.ma.4;
+#N canvas 209 22 1071 641 asymm.ma.5 0;
+#X obj 336 329 /;
+#X floatatom 336 350 10 0 0 0 - - -;
+#X text 519 249 divided by inverse tone config;
+#X floatatom 390 222 5 0 0 0 - - -;
+#X floatatom 451 222 5 0 0 0 - - -;
+#X obj 515 216 expr 1/$f1;
+#X obj 515 178 abs;
+#X floatatom 515 233 5 0 0 0 - - -;
+#X floatatom 390 268 10 0 0 0 - - -;
+#X obj 515 199 pow 2;
+#X floatatom 585 216 5 0 0 0 - - -;
+#X floatatom 515 142 5 0 0 0 - - -;
+#X obj 515 161 % 12;
+#X floatatom 565 178 5 0 0 0 - - -;
+#X floatatom 277 313 5 0 0 0 - - -;
+#X obj 395 447 +;
+#X obj 353 447 -;
+#X obj 439 304 sel 1;
+#X obj 439 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 472 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 336 490 mux _ _ _;
+#X floatatom 336 526 5 0 0 0 - - -;
+#X obj 353 473 pipe 5;
+#X obj 395 473 pipe 5;
+#X obj 439 473 * \$1;
+#X msg 439 337 2;
+#X msg 472 336 1;
+#X text 401 354 value (ratio of attractional asymmetry) - value reflects
+degree of attractional asymmetry;
+#X obj 439 284 >;
+#X obj 503 284 ==;
+#X obj 503 302 sel 1;
+#X msg 503 321 0;
+#X text -160 -3 Producing ratios from decimal values is difficult;
+#N canvas 0 22 450 300 decimal.fraction.info 0;
+#X text -179 174 http://en.wikipedia.org/wiki/Fraction_%28mathematics%29#Converting_repeating_decimals_to_fractions
+;
+#X text -203 141 http://en.wikipedia.org/wiki/Repeating_decimal#Converting_repeating_decimals_to_fractions
+;
+#X text -207 76 For repeating decimal - Let x = 0.111... (1) So 1000x
+= 111.111... (2) Subtracting (2) and (1) gives: 1000x - x = 111.111...
+- 0.111... ==> 999x = 111 ==> x = 111/999 ==> x = 1/9 Therefore \,
+0.111... = 1/9.;
+#X restore -161 97 pd decimal.fraction.info;
+#X text -161 16 Dividing fractions to produce ratio: Turn the second
+fraction upside-down (it becomes a reciprocal) 2) Multiply the first
+fraction by that reciprocal 3) Simplify;
+#X floatatom -163 255 5 0 0 0 - - -;
+#X floatatom 8 255 5 0 0 0 - - -;
+#X obj -163 238 expr $f2 * $f3;
+#X obj -66 238 expr $f2 * $f3;
+#X obj -163 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 139 r counter;
+#X floatatom -100 156 5 0 0 0 - - -;
+#X text -160 63 http://www.mathsisfun.com/fractions_division.html;
+#X obj -163 277 expr if ($f1 == $f2 \, 1 \, $f1) \; if ($f2 == $f1
+\, 1 \, $f2) \;;
+#X floatatom -163 316 5 0 0 0 - - -;
+#X floatatom 8 319 5 0 0 0 - - -;
+#X obj -78 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 358 mod;
+#X obj 8 359 mod;
+#X floatatom -163 378 5 0 0 0 - - -;
+#X floatatom 8 376 5 0 0 0 - - -;
+#X text -162 584 [expr]s receiving their first inlet value before the
+second inlet because the [loadbang] does not have a [trigger] enforcing
+the right execution order.;
+#X text -49 489 SIMPLIFY!!!!!!;
+#X obj 460 438 r asym.ofs;
+#X obj 390 249 expr $f2 / $f3 * $f4;
+#X floatatom -163 490 5 0 0 0 - - -;
+#X floatatom 182 489 10 0 0 0 - - -;
+#X obj -163 338 pipe 1;
+#X obj 8 338 pipe 1;
+#X obj -48 399 pipe 2;
+#X obj -163 425 expr if($f3 == 0 | $f4 == 0 && $f1 > $f2 \, $f1 / $f2
+\, if ($f3 == 0 | $f4 == 0 && $f2 > $f1 \, $f1/$f1 \, $f1)) \; if($f3
+== 0 | $f4 == 0 && $f1 > $f2 \, $f2/$f2 \, if ($f3 == 0 | $f4 == 0
+&& $f2 > $f1 \, $f2/$f1 \, $f2));
+#X obj -66 204 del 15;
+#X obj -163 399 pipe 2;
+#X obj 277 292 pipe 10;
+#X obj 321 419 pipe 1;
+#X obj 376 418 pipe 1;
+#X text 534 312 accounting for mutual attractions (==) same attractional
+value - result = do nothing - output original MA;
+#X text 417 526 Similar to concept of implicative denial in order to
+account for melodic motion - Further quantification of sequential pitch
+relationships (p. 170) - might not be suitable \, though.;
+#X text -162 538 if mod 3 or 4 == 0 (2 numbers divide into each other)
+AND 1 is greater than 2 > then produced 1/2 \, ELSE if MOD 3 or 4 ==
+0 AND 2 > 1 \, then 1/1 \, or produce 1 etc.;
+#X floatatom 471 490 5 0 0 0 - - -;
+#X text 510 490 output select for mux;
+#X obj 368 391 / 16;
+#X floatatom 424 408 10 0 0 0 - - -;
+#X floatatom 272 490 10 0 0 0 - - -;
+#X floatatom 395 490 5 0 0 0 - - -;
+#X text 494 391 divide by 16 as it is the maximum value for a line
+of assymetrical attraction (Lerdahl 2001 \, p. 168) - Values are more
+suitable as an offset;
+#X obj -163 160 sel 5;
+#X obj -163 511 s ar.5a;
+#X obj 182 509 s ar.5b;
+#X obj 336 542 s man.c5;
+#X obj 588 284 s asymm.ma5;
+#X obj 336 122 r ma.c5;
+#X obj 515 125 r \$0-pcd5;
+#X obj 390 195 r \$0-bs4;
+#X obj 451 195 r \$0-bs5;
+#X obj 253 366 s asymm.5;
+#X connect 0 0 1 0;
+#X connect 1 0 71 0;
+#X connect 1 0 85 0;
+#X connect 3 0 37 1;
+#X connect 3 0 37 2;
+#X connect 3 0 54 1;
+#X connect 4 0 38 2;
+#X connect 4 0 38 1;
+#X connect 4 0 54 2;
+#X connect 5 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 54 3;
+#X connect 8 0 0 1;
+#X connect 8 0 28 1;
+#X connect 8 0 29 1;
+#X connect 8 0 80 0;
+#X connect 9 0 5 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 12 0 6 0;
+#X connect 12 0 13 0;
+#X connect 14 0 0 0;
+#X connect 14 0 64 0;
+#X connect 14 0 65 0;
+#X connect 14 0 29 0;
+#X connect 14 0 28 0;
+#X connect 15 0 23 0;
+#X connect 16 0 22 0;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 18 0 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 21 0;
+#X connect 20 0 79 0;
+#X connect 22 0 20 1;
+#X connect 22 0 73 0;
+#X connect 23 0 20 2;
+#X connect 23 0 74 0;
+#X connect 24 0 20 3;
+#X connect 24 0 69 0;
+#X connect 25 0 24 0;
+#X connect 26 0 24 0;
+#X connect 28 0 17 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 31 0 24 0;
+#X connect 35 0 43 0;
+#X connect 36 0 43 1;
+#X connect 36 0 46 0;
+#X connect 37 0 35 0;
+#X connect 38 0 36 0;
+#X connect 39 0 37 0;
+#X connect 39 0 61 0;
+#X connect 40 0 41 0;
+#X connect 40 0 76 0;
+#X connect 43 0 44 0;
+#X connect 43 1 45 0;
+#X connect 44 0 48 1;
+#X connect 44 0 57 0;
+#X connect 44 0 62 0;
+#X connect 45 0 47 1;
+#X connect 45 0 58 0;
+#X connect 45 0 59 0;
+#X connect 46 0 43 0;
+#X connect 47 0 49 0;
+#X connect 48 0 50 0;
+#X connect 49 0 60 2;
+#X connect 50 0 60 3;
+#X connect 53 0 24 1;
+#X connect 54 0 8 0;
+#X connect 55 0 77 0;
+#X connect 56 0 78 0;
+#X connect 57 0 47 0;
+#X connect 58 0 48 0;
+#X connect 59 0 60 1;
+#X connect 60 0 55 0;
+#X connect 60 1 56 0;
+#X connect 61 0 38 0;
+#X connect 61 0 54 0;
+#X connect 62 0 60 0;
+#X connect 63 0 14 0;
+#X connect 64 0 16 0;
+#X connect 65 0 15 0;
+#X connect 71 0 16 1;
+#X connect 71 0 15 1;
+#X connect 71 0 72 0;
+#X connect 76 0 39 0;
+#X connect 81 0 20 0;
+#X connect 81 0 63 0;
+#X connect 82 0 11 0;
+#X connect 83 0 3 0;
+#X connect 84 0 4 0;
+#X restore 30 574 pd asymm.ma.5;
+#N canvas 209 22 1071 641 asymm.ma.6 0;
+#X obj 336 329 /;
+#X floatatom 336 350 10 0 0 0 - - -;
+#X text 519 249 divided by inverse tone config;
+#X floatatom 390 222 5 0 0 0 - - -;
+#X floatatom 451 222 5 0 0 0 - - -;
+#X obj 513 213 expr 1/$f1;
+#X obj 513 175 abs;
+#X floatatom 513 230 5 0 0 0 - - -;
+#X floatatom 390 268 10 0 0 0 - - -;
+#X obj 513 196 pow 2;
+#X floatatom 583 213 5 0 0 0 - - -;
+#X floatatom 513 139 5 0 0 0 - - -;
+#X obj 513 158 % 12;
+#X floatatom 563 175 5 0 0 0 - - -;
+#X floatatom 277 313 5 0 0 0 - - -;
+#X obj 395 447 +;
+#X obj 353 447 -;
+#X obj 439 304 sel 1;
+#X obj 439 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 472 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 336 490 mux _ _ _;
+#X floatatom 336 526 5 0 0 0 - - -;
+#X obj 353 473 pipe 5;
+#X obj 395 473 pipe 5;
+#X obj 439 473 * \$1;
+#X msg 439 337 2;
+#X msg 472 336 1;
+#X text 401 354 value (ratio of attractional asymmetry) - value reflects
+degree of attractional asymmetry;
+#X obj 439 284 >;
+#X obj 503 284 ==;
+#X obj 503 302 sel 1;
+#X msg 503 321 0;
+#X text -160 -3 Producing ratios from decimal values is difficult;
+#N canvas 0 22 450 300 decimal.fraction.info 0;
+#X text -179 174 http://en.wikipedia.org/wiki/Fraction_%28mathematics%29#Converting_repeating_decimals_to_fractions
+;
+#X text -203 141 http://en.wikipedia.org/wiki/Repeating_decimal#Converting_repeating_decimals_to_fractions
+;
+#X text -207 76 For repeating decimal - Let x = 0.111... (1) So 1000x
+= 111.111... (2) Subtracting (2) and (1) gives: 1000x - x = 111.111...
+- 0.111... ==> 999x = 111 ==> x = 111/999 ==> x = 1/9 Therefore \,
+0.111... = 1/9.;
+#X restore -161 97 pd decimal.fraction.info;
+#X text -161 16 Dividing fractions to produce ratio: Turn the second
+fraction upside-down (it becomes a reciprocal) 2) Multiply the first
+fraction by that reciprocal 3) Simplify;
+#X floatatom -163 255 5 0 0 0 - - -;
+#X floatatom 8 255 5 0 0 0 - - -;
+#X obj -163 238 expr $f2 * $f3;
+#X obj -66 238 expr $f2 * $f3;
+#X obj -163 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 139 r counter;
+#X floatatom -100 156 5 0 0 0 - - -;
+#X text -160 63 http://www.mathsisfun.com/fractions_division.html;
+#X obj -163 277 expr if ($f1 == $f2 \, 1 \, $f1) \; if ($f2 == $f1
+\, 1 \, $f2) \;;
+#X floatatom -163 316 5 0 0 0 - - -;
+#X floatatom 8 319 5 0 0 0 - - -;
+#X obj -78 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 358 mod;
+#X obj 8 359 mod;
+#X floatatom -163 378 5 0 0 0 - - -;
+#X floatatom 8 376 5 0 0 0 - - -;
+#X text -162 584 [expr]s receiving their first inlet value before the
+second inlet because the [loadbang] does not have a [trigger] enforcing
+the right execution order.;
+#X text -49 489 SIMPLIFY!!!!!!;
+#X obj 460 438 r asym.ofs;
+#X obj 390 249 expr $f2 / $f3 * $f4;
+#X floatatom -163 490 5 0 0 0 - - -;
+#X floatatom 182 489 10 0 0 0 - - -;
+#X obj -163 338 pipe 1;
+#X obj 8 338 pipe 1;
+#X obj -48 399 pipe 2;
+#X obj -163 425 expr if($f3 == 0 | $f4 == 0 && $f1 > $f2 \, $f1 / $f2
+\, if ($f3 == 0 | $f4 == 0 && $f2 > $f1 \, $f1/$f1 \, $f1)) \; if($f3
+== 0 | $f4 == 0 && $f1 > $f2 \, $f2/$f2 \, if ($f3 == 0 | $f4 == 0
+&& $f2 > $f1 \, $f2/$f1 \, $f2));
+#X obj -66 204 del 15;
+#X obj -163 399 pipe 2;
+#X obj 277 292 pipe 10;
+#X obj 321 419 pipe 1;
+#X obj 376 418 pipe 1;
+#X text 534 312 accounting for mutual attractions (==) same attractional
+value - result = do nothing - output original MA;
+#X text 417 526 Similar to concept of implicative denial in order to
+account for melodic motion - Further quantification of sequential pitch
+relationships (p. 170) - might not be suitable \, though.;
+#X text -162 538 if mod 3 or 4 == 0 (2 numbers divide into each other)
+AND 1 is greater than 2 > then produced 1/2 \, ELSE if MOD 3 or 4 ==
+0 AND 2 > 1 \, then 1/1 \, or produce 1 etc.;
+#X floatatom 471 490 5 0 0 0 - - -;
+#X text 510 490 output select for mux;
+#X obj 368 391 / 16;
+#X floatatom 424 408 10 0 0 0 - - -;
+#X floatatom 272 490 10 0 0 0 - - -;
+#X floatatom 395 490 5 0 0 0 - - -;
+#X text 494 391 divide by 16 as it is the maximum value for a line
+of assymetrical attraction (Lerdahl 2001 \, p. 168) - Values are more
+suitable as an offset;
+#X obj -163 160 sel 6;
+#X obj -163 511 s ar.6a;
+#X obj 182 509 s ar.6b;
+#X obj 336 122 r ma.c6;
+#X obj 253 366 s asymm.6;
+#X obj 336 542 s man.c6;
+#X obj 588 284 s asymm.ma6;
+#X obj 513 122 r \$0-pcd6;
+#X obj 390 195 r \$0-bs5;
+#X obj 451 195 r \$0-bs6;
+#X connect 0 0 1 0;
+#X connect 1 0 71 0;
+#X connect 1 0 80 0;
+#X connect 3 0 37 1;
+#X connect 3 0 37 2;
+#X connect 3 0 54 1;
+#X connect 4 0 38 2;
+#X connect 4 0 38 1;
+#X connect 4 0 54 2;
+#X connect 5 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 54 3;
+#X connect 8 0 0 1;
+#X connect 8 0 28 1;
+#X connect 8 0 29 1;
+#X connect 8 0 82 0;
+#X connect 9 0 5 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 12 0 6 0;
+#X connect 12 0 13 0;
+#X connect 14 0 0 0;
+#X connect 14 0 64 0;
+#X connect 14 0 65 0;
+#X connect 14 0 29 0;
+#X connect 14 0 28 0;
+#X connect 15 0 23 0;
+#X connect 16 0 22 0;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 18 0 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 21 0;
+#X connect 20 0 81 0;
+#X connect 22 0 20 1;
+#X connect 22 0 73 0;
+#X connect 23 0 20 2;
+#X connect 23 0 74 0;
+#X connect 24 0 20 3;
+#X connect 24 0 69 0;
+#X connect 25 0 24 0;
+#X connect 26 0 24 0;
+#X connect 28 0 17 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 31 0 24 0;
+#X connect 35 0 43 0;
+#X connect 36 0 43 1;
+#X connect 36 0 46 0;
+#X connect 37 0 35 0;
+#X connect 38 0 36 0;
+#X connect 39 0 37 0;
+#X connect 39 0 61 0;
+#X connect 40 0 41 0;
+#X connect 40 0 76 0;
+#X connect 43 0 44 0;
+#X connect 43 1 45 0;
+#X connect 44 0 48 1;
+#X connect 44 0 57 0;
+#X connect 44 0 62 0;
+#X connect 45 0 47 1;
+#X connect 45 0 58 0;
+#X connect 45 0 59 0;
+#X connect 46 0 43 0;
+#X connect 47 0 49 0;
+#X connect 48 0 50 0;
+#X connect 49 0 60 2;
+#X connect 50 0 60 3;
+#X connect 53 0 24 1;
+#X connect 54 0 8 0;
+#X connect 55 0 77 0;
+#X connect 56 0 78 0;
+#X connect 57 0 47 0;
+#X connect 58 0 48 0;
+#X connect 59 0 60 1;
+#X connect 60 0 55 0;
+#X connect 60 1 56 0;
+#X connect 61 0 38 0;
+#X connect 61 0 54 0;
+#X connect 62 0 60 0;
+#X connect 63 0 14 0;
+#X connect 64 0 16 0;
+#X connect 65 0 15 0;
+#X connect 71 0 16 1;
+#X connect 71 0 15 1;
+#X connect 71 0 72 0;
+#X connect 76 0 39 0;
+#X connect 79 0 20 0;
+#X connect 79 0 63 0;
+#X connect 83 0 11 0;
+#X connect 84 0 3 0;
+#X connect 85 0 4 0;
+#X restore 30 595 pd asymm.ma.6;
+#N canvas 209 150 1071 641 asymm.ma.7 0;
+#X obj 336 329 /;
+#X floatatom 336 350 10 0 0 0 - - -;
+#X text 519 249 divided by inverse tone config;
+#X floatatom 390 222 5 0 0 0 - - -;
+#X floatatom 451 222 5 0 0 0 - - -;
+#X obj 513 213 expr 1/$f1;
+#X obj 513 175 abs;
+#X floatatom 513 230 5 0 0 0 - - -;
+#X floatatom 390 268 10 0 0 0 - - -;
+#X obj 513 196 pow 2;
+#X floatatom 583 213 5 0 0 0 - - -;
+#X floatatom 513 139 5 0 0 0 - - -;
+#X obj 513 158 % 12;
+#X floatatom 563 175 5 0 0 0 - - -;
+#X floatatom 277 313 5 0 0 0 - - -;
+#X obj 395 447 +;
+#X obj 353 447 -;
+#X obj 439 304 sel 1;
+#X obj 439 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 472 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 336 490 mux _ _ _;
+#X floatatom 336 526 5 0 0 0 - - -;
+#X obj 353 473 pipe 5;
+#X obj 395 473 pipe 5;
+#X obj 439 473 * \$1;
+#X msg 439 337 2;
+#X msg 472 336 1;
+#X text 401 354 value (ratio of attractional asymmetry) - value reflects
+degree of attractional asymmetry;
+#X obj 439 284 >;
+#X obj 503 284 ==;
+#X obj 503 302 sel 1;
+#X msg 503 321 0;
+#X text -160 -3 Producing ratios from decimal values is difficult;
+#N canvas 0 22 450 300 decimal.fraction.info 0;
+#X text -179 174 http://en.wikipedia.org/wiki/Fraction_%28mathematics%29#Converting_repeating_decimals_to_fractions
+;
+#X text -203 141 http://en.wikipedia.org/wiki/Repeating_decimal#Converting_repeating_decimals_to_fractions
+;
+#X text -207 76 For repeating decimal - Let x = 0.111... (1) So 1000x
+= 111.111... (2) Subtracting (2) and (1) gives: 1000x - x = 111.111...
+- 0.111... ==> 999x = 111 ==> x = 111/999 ==> x = 1/9 Therefore \,
+0.111... = 1/9.;
+#X restore -161 97 pd decimal.fraction.info;
+#X text -161 16 Dividing fractions to produce ratio: Turn the second
+fraction upside-down (it becomes a reciprocal) 2) Multiply the first
+fraction by that reciprocal 3) Simplify;
+#X floatatom -163 255 5 0 0 0 - - -;
+#X floatatom 8 255 5 0 0 0 - - -;
+#X obj -163 238 expr $f2 * $f3;
+#X obj -66 238 expr $f2 * $f3;
+#X obj -163 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 139 r counter;
+#X floatatom -100 156 5 0 0 0 - - -;
+#X text -160 63 http://www.mathsisfun.com/fractions_division.html;
+#X obj -163 277 expr if ($f1 == $f2 \, 1 \, $f1) \; if ($f2 == $f1
+\, 1 \, $f2) \;;
+#X floatatom -163 316 5 0 0 0 - - -;
+#X floatatom 8 319 5 0 0 0 - - -;
+#X obj -78 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 358 mod;
+#X obj 8 359 mod;
+#X floatatom -163 378 5 0 0 0 - - -;
+#X floatatom 8 376 5 0 0 0 - - -;
+#X text -162 584 [expr]s receiving their first inlet value before the
+second inlet because the [loadbang] does not have a [trigger] enforcing
+the right execution order.;
+#X text -49 489 SIMPLIFY!!!!!!;
+#X obj 460 438 r asym.ofs;
+#X obj 390 249 expr $f2 / $f3 * $f4;
+#X floatatom -163 490 5 0 0 0 - - -;
+#X floatatom 182 489 10 0 0 0 - - -;
+#X obj -163 338 pipe 1;
+#X obj 8 338 pipe 1;
+#X obj -48 399 pipe 2;
+#X obj -163 425 expr if($f3 == 0 | $f4 == 0 && $f1 > $f2 \, $f1 / $f2
+\, if ($f3 == 0 | $f4 == 0 && $f2 > $f1 \, $f1/$f1 \, $f1)) \; if($f3
+== 0 | $f4 == 0 && $f1 > $f2 \, $f2/$f2 \, if ($f3 == 0 | $f4 == 0
+&& $f2 > $f1 \, $f2/$f1 \, $f2));
+#X obj -66 204 del 15;
+#X obj -163 399 pipe 2;
+#X obj 277 292 pipe 10;
+#X obj 321 419 pipe 1;
+#X obj 376 418 pipe 1;
+#X text 534 312 accounting for mutual attractions (==) same attractional
+value - result = do nothing - output original MA;
+#X text 417 526 Similar to concept of implicative denial in order to
+account for melodic motion - Further quantification of sequential pitch
+relationships (p. 170) - might not be suitable \, though.;
+#X text -162 538 if mod 3 or 4 == 0 (2 numbers divide into each other)
+AND 1 is greater than 2 > then produced 1/2 \, ELSE if MOD 3 or 4 ==
+0 AND 2 > 1 \, then 1/1 \, or produce 1 etc.;
+#X floatatom 471 490 5 0 0 0 - - -;
+#X text 510 490 output select for mux;
+#X obj 368 391 / 16;
+#X floatatom 424 408 10 0 0 0 - - -;
+#X floatatom 272 490 10 0 0 0 - - -;
+#X floatatom 395 490 5 0 0 0 - - -;
+#X text 494 391 divide by 16 as it is the maximum value for a line
+of assymetrical attraction (Lerdahl 2001 \, p. 168) - Values are more
+suitable as an offset;
+#X obj -163 160 sel 7;
+#X obj -163 511 s ar.7a;
+#X obj 182 509 s ar.7b;
+#X obj 336 122 r ma.c7;
+#X obj 513 122 r \$0-pcd7;
+#X obj 390 195 r \$0-bs6;
+#X obj 451 194 r \$0-bs7;
+#X obj 588 284 s asymm.ma7;
+#X obj 253 366 s asymm.7;
+#X obj 336 542 s man.c7;
+#X connect 0 0 1 0;
+#X connect 1 0 71 0;
+#X connect 1 0 84 0;
+#X connect 3 0 37 1;
+#X connect 3 0 37 2;
+#X connect 3 0 54 1;
+#X connect 4 0 38 2;
+#X connect 4 0 38 1;
+#X connect 4 0 54 2;
+#X connect 5 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 54 3;
+#X connect 8 0 0 1;
+#X connect 8 0 28 1;
+#X connect 8 0 29 1;
+#X connect 8 0 83 0;
+#X connect 9 0 5 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 12 0 6 0;
+#X connect 12 0 13 0;
+#X connect 14 0 0 0;
+#X connect 14 0 64 0;
+#X connect 14 0 65 0;
+#X connect 14 0 29 0;
+#X connect 14 0 28 0;
+#X connect 15 0 23 0;
+#X connect 16 0 22 0;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 18 0 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 21 0;
+#X connect 20 0 85 0;
+#X connect 22 0 20 1;
+#X connect 22 0 73 0;
+#X connect 23 0 20 2;
+#X connect 23 0 74 0;
+#X connect 24 0 20 3;
+#X connect 24 0 69 0;
+#X connect 25 0 24 0;
+#X connect 26 0 24 0;
+#X connect 28 0 17 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 31 0 24 0;
+#X connect 35 0 43 0;
+#X connect 36 0 43 1;
+#X connect 36 0 46 0;
+#X connect 37 0 35 0;
+#X connect 38 0 36 0;
+#X connect 39 0 37 0;
+#X connect 39 0 61 0;
+#X connect 40 0 41 0;
+#X connect 40 0 76 0;
+#X connect 43 0 44 0;
+#X connect 43 1 45 0;
+#X connect 44 0 48 1;
+#X connect 44 0 57 0;
+#X connect 44 0 62 0;
+#X connect 45 0 47 1;
+#X connect 45 0 58 0;
+#X connect 45 0 59 0;
+#X connect 46 0 43 0;
+#X connect 47 0 49 0;
+#X connect 48 0 50 0;
+#X connect 49 0 60 2;
+#X connect 50 0 60 3;
+#X connect 53 0 24 1;
+#X connect 54 0 8 0;
+#X connect 55 0 77 0;
+#X connect 56 0 78 0;
+#X connect 57 0 47 0;
+#X connect 58 0 48 0;
+#X connect 59 0 60 1;
+#X connect 60 0 55 0;
+#X connect 60 1 56 0;
+#X connect 61 0 38 0;
+#X connect 61 0 54 0;
+#X connect 62 0 60 0;
+#X connect 63 0 14 0;
+#X connect 64 0 16 0;
+#X connect 65 0 15 0;
+#X connect 71 0 16 1;
+#X connect 71 0 15 1;
+#X connect 71 0 72 0;
+#X connect 76 0 39 0;
+#X connect 79 0 20 0;
+#X connect 79 0 63 0;
+#X connect 80 0 11 0;
+#X connect 81 0 3 0;
+#X connect 82 0 4 0;
+#X restore 30 617 pd asymm.ma.7;
+#X text 27 384 It then applies a similar approach to Lerdahl's concept
+of implicative denial \, whereby if the resultant melodic attraction
+is less than p2 -> p1 \, then the ratio value is subtracted from the
+current melodic attraction value \, producing a melodic attraction
+value (+ offset). It is the intention of the author to reflect this
+offset in the resultant spatial gesture.;
+#X restore 32 102 pd attractional.asymmetry;
+#N canvas 0 22 1280 752 tendency 0;
+#X text -696 -4 Compare to stepwise diatonic motion either side of
+tone e.g. E to F produces a lower MA going to G than back in the opposite
+direction \, to E in the context of I/C = 0 - then subtract the value
+= and this will give a value for tendency to go from F to G = 1 - 1.5
+= -0.5;
+#X text -694 -218 The following formula begins by assigning the value
+of 1 to what Lerdahl refers to as an "inertial tendency" The next step
+is to add the melodic inertia and attraction values for each tone together
+if the direction is the same \, or subtract the expectation values
+(tendency) if the direction is not the same. e.g. tendency = inertia
+(1) (+/-) melodic attraction = 1 + 1.5 = 2.5;
+#X text -696 168 This algorithm does not take into account all factors
+that influence overall melodic tendency \, such as motivic or elaborational
+pattern \, but covers inertial and attractional vectors in a stepwise
+context;
+#N canvas 148 216 727 521 tend.t1 0;
+#X obj 429 248 r counter;
+#X floatatom 429 269 5 0 0 0 - - -;
+#X obj -32 100 * \$1;
+#X floatatom -32 121 5 0 0 0 - - -;
+#X obj 14 83 r iert.os;
+#X obj -32 140 s tend.1;
+#X text 87 72 This expression will output the "tendency" (p. 171) to
+go to this tone;
+#X floatatom -32 71 5 0 0 0 - - -;
+#X obj 289 -19 r asymm.ma7;
+#X floatatom 289 1 5 0 0 0 - - -;
+#X floatatom -32 -5 10 0 0 0 - - -;
+#X obj -32 -28 r man.c1;
+#X text -35 -49 MA C.Tone;
+#N canvas 0 22 450 300 potential.development 0;
+#X text 23 -71 is the melodic motion the same?;
+#X obj 144 -44 r \$0-pcd1;
+#X obj 28 -41 r \$0-pcd7;
+#X obj 144 -23 > 0;
+#X obj 28 -20 > 0;
+#X obj 144 0 sel 1;
+#X obj 28 1 sel 1;
+#X msg 28 23 1;
+#X msg 55 23 0;
+#X msg 144 22 1;
+#X msg 175 22 0;
+#X obj 28 45 i;
+#X obj 145 48 i;
+#X text 30 -59 from 6 to 7;
+#X text 144 -61 from 7 to 1;
+#X floatatom 62 -24 5 0 0 0 - - -;
+#X floatatom 185 -27 5 0 0 0 - - -;
+#X text 7 77 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 && $f4 !=
+$f3 \, 1 - $f1 \, 0));
+#X text 3 117 Further corroborating realised pitch motion may be essential
+as stepwise reversal may be less than current melodic attraction value
+obtained by breaking continuity of melodic motion;
+#X connect 1 0 3 0;
+#X connect 1 0 16 0;
+#X connect 2 0 4 0;
+#X connect 2 0 15 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 9 0;
+#X connect 5 1 10 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 12 0;
+#X connect 10 0 12 0;
+#X restore -34 400 pd potential.development;
+#X text 287 -39 MA from note 7 and 6 (asymm) == stepwise reversal;
+#X obj -7 26 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -32 45 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 \, 1 - $f2
+\, 0));
+#X text -35 302 If attraction values are the same \, the expression
+will produce zero.;
+#X text 33 127 The system will treat the "tendency" value as a differential/spatial
+offset;
+#X text -36 335 If the realised tone configuration is less than the
+stepwise reversal \, the expression will subtract the (wasted) potential
+from the "melodic inertia" value of 1 \, producing a smaller value.
+;
+#X text -35 182 If current melodic attraction is more than stepwise
+reversal calculated by previous assymetry ratio algorithm \, then add
+melodic inertia to melodic attraction value (tendency) ELSE if current
+melodic attraction value is less than stepwise reversal \, and provides
+a greater attraction (in the opposite melodic direction) which disrupts
+melodic continuity \, THEN subtract melodic attraction from melodic
+inertia.;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 2 1;
+#X connect 7 0 2 0;
+#X connect 8 0 9 0;
+#X connect 9 0 16 1;
+#X connect 10 0 15 0;
+#X connect 10 0 16 0;
+#X connect 11 0 10 0;
+#X connect 16 0 7 0;
+#X restore -692 -109 pd tend.t1;
+#N canvas 148 216 727 521 tend.t2 0;
+#X obj 429 248 r counter;
+#X floatatom 429 269 5 0 0 0 - - -;
+#X obj -32 100 * \$1;
+#X floatatom -32 121 5 0 0 0 - - -;
+#X obj 14 83 r iert.os;
+#X text 87 72 This expression will output the "tendency" (p. 171) to
+go to this tone;
+#X floatatom -32 71 5 0 0 0 - - -;
+#X floatatom 289 1 5 0 0 0 - - -;
+#X floatatom -32 -5 10 0 0 0 - - -;
+#X text -35 -49 MA C.Tone;
+#N canvas 0 22 450 300 potential.development 0;
+#X text 23 -71 is the melodic motion the same?;
+#X obj 144 -44 r \$0-pcd1;
+#X obj 28 -41 r \$0-pcd7;
+#X obj 144 -23 > 0;
+#X obj 28 -20 > 0;
+#X obj 144 0 sel 1;
+#X obj 28 1 sel 1;
+#X msg 28 23 1;
+#X msg 55 23 0;
+#X msg 144 22 1;
+#X msg 175 22 0;
+#X obj 28 45 i;
+#X obj 145 48 i;
+#X text 30 -59 from 6 to 7;
+#X text 144 -61 from 7 to 1;
+#X floatatom 62 -24 5 0 0 0 - - -;
+#X floatatom 185 -27 5 0 0 0 - - -;
+#X text 7 77 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 && $f4 !=
+$f3 \, 1 - $f1 \, 0));
+#X text 3 117 Further corroborating realised pitch motion may be essential
+as stepwise reversal may be less than current melodic attraction value
+obtained by breaking continuity of melodic motion;
+#X connect 1 0 3 0;
+#X connect 1 0 16 0;
+#X connect 2 0 4 0;
+#X connect 2 0 15 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 9 0;
+#X connect 5 1 10 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 12 0;
+#X connect 10 0 12 0;
+#X restore -34 400 pd potential.development;
+#X obj -7 26 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -32 45 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 \, 1 - $f2
+\, 0));
+#X text -35 302 If attraction values are the same \, the expression
+will produce zero.;
+#X text 33 127 The system will treat the "tendency" value as a differential/spatial
+offset;
+#X text -36 335 If the realised tone configuration is less than the
+stepwise reversal \, the expression will subtract the (wasted) potential
+from the "melodic inertia" value of 1 \, producing a smaller value.
+;
+#X text -35 182 If current melodic attraction is more than stepwise
+reversal calculated by previous assymetry ratio algorithm \, then add
+melodic inertia to melodic attraction value (tendency) ELSE if current
+melodic attraction value is less than stepwise reversal \, and provides
+a greater attraction (in the opposite melodic direction) which disrupts
+melodic continuity \, THEN subtract melodic attraction from melodic
+inertia.;
+#X obj -32 -28 r man.c2;
+#X obj 289 -19 r asymm.ma1;
+#X obj -32 140 s tend.2;
+#X text 287 -39 MA from note 1 and 7 (asymm) == stepwise reversal;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 19 0;
+#X connect 4 0 2 1;
+#X connect 6 0 2 0;
+#X connect 7 0 12 1;
+#X connect 8 0 11 0;
+#X connect 8 0 12 0;
+#X connect 12 0 6 0;
+#X connect 17 0 8 0;
+#X connect 18 0 7 0;
+#X restore -692 -87 pd tend.t2;
+#X text -696 68 The following algorithm compares current to next tone
+against previous step-wise motion. If current melodic attraction between
+current and next tone is greater than previous stepwise motion provided
+by assymetry algorithm and thus the melodic motion/continuity continues
+in the same direct (relative to gestalt psychology of good continuation)
+then add melodic interia \, else subtract.;
+#N canvas 148 216 727 521 tend.t3 0;
+#X obj 429 248 r counter;
+#X floatatom 429 269 5 0 0 0 - - -;
+#X obj -32 100 * \$1;
+#X floatatom -32 121 5 0 0 0 - - -;
+#X obj 14 83 r iert.os;
+#X text 87 72 This expression will output the "tendency" (p. 171) to
+go to this tone;
+#X floatatom -32 71 5 0 0 0 - - -;
+#X floatatom 289 1 5 0 0 0 - - -;
+#X floatatom -32 -5 10 0 0 0 - - -;
+#X text -35 -49 MA C.Tone;
+#N canvas 0 22 450 300 potential.development 0;
+#X text 23 -71 is the melodic motion the same?;
+#X obj 144 -44 r \$0-pcd1;
+#X obj 28 -41 r \$0-pcd7;
+#X obj 144 -23 > 0;
+#X obj 28 -20 > 0;
+#X obj 144 0 sel 1;
+#X obj 28 1 sel 1;
+#X msg 28 23 1;
+#X msg 55 23 0;
+#X msg 144 22 1;
+#X msg 175 22 0;
+#X obj 28 45 i;
+#X obj 145 48 i;
+#X text 30 -59 from 6 to 7;
+#X text 144 -61 from 7 to 1;
+#X floatatom 62 -24 5 0 0 0 - - -;
+#X floatatom 185 -27 5 0 0 0 - - -;
+#X text 7 77 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 && $f4 !=
+$f3 \, 1 - $f1 \, 0));
+#X text 3 117 Further corroborating realised pitch motion may be essential
+as stepwise reversal may be less than current melodic attraction value
+obtained by breaking continuity of melodic motion;
+#X connect 1 0 3 0;
+#X connect 1 0 16 0;
+#X connect 2 0 4 0;
+#X connect 2 0 15 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 9 0;
+#X connect 5 1 10 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 12 0;
+#X connect 10 0 12 0;
+#X restore -34 400 pd potential.development;
+#X obj -7 26 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -32 45 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 \, 1 - $f2
+\, 0));
+#X text -35 302 If attraction values are the same \, the expression
+will produce zero.;
+#X text 33 127 The system will treat the "tendency" value as a differential/spatial
+offset;
+#X text -36 335 If the realised tone configuration is less than the
+stepwise reversal \, the expression will subtract the (wasted) potential
+from the "melodic inertia" value of 1 \, producing a smaller value.
+;
+#X text -35 182 If current melodic attraction is more than stepwise
+reversal calculated by previous assymetry ratio algorithm \, then add
+melodic inertia to melodic attraction value (tendency) ELSE if current
+melodic attraction value is less than stepwise reversal \, and provides
+a greater attraction (in the opposite melodic direction) which disrupts
+melodic continuity \, THEN subtract melodic attraction from melodic
+inertia.;
+#X obj -32 -28 r man.c3;
+#X obj 289 -19 r asymm.ma2;
+#X obj -32 140 s tend.3;
+#X text 287 -39 MA from note 2 and 1 (asymm) == stepwise reversal;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 19 0;
+#X connect 4 0 2 1;
+#X connect 6 0 2 0;
+#X connect 7 0 12 1;
+#X connect 8 0 11 0;
+#X connect 8 0 12 0;
+#X connect 12 0 6 0;
+#X connect 17 0 8 0;
+#X connect 18 0 7 0;
+#X restore -692 -65 pd tend.t3;
+#N canvas 148 216 727 521 tend.t4 0;
+#X obj 429 248 r counter;
+#X floatatom 429 269 5 0 0 0 - - -;
+#X obj -32 100 * \$1;
+#X floatatom -32 121 5 0 0 0 - - -;
+#X obj 14 83 r iert.os;
+#X text 87 72 This expression will output the "tendency" (p. 171) to
+go to this tone;
+#X floatatom -32 71 5 0 0 0 - - -;
+#X floatatom 289 1 5 0 0 0 - - -;
+#X floatatom -32 -5 10 0 0 0 - - -;
+#X text -35 -49 MA C.Tone;
+#N canvas 0 22 450 300 potential.development 0;
+#X text 23 -71 is the melodic motion the same?;
+#X obj 144 -44 r \$0-pcd1;
+#X obj 28 -41 r \$0-pcd7;
+#X obj 144 -23 > 0;
+#X obj 28 -20 > 0;
+#X obj 144 0 sel 1;
+#X obj 28 1 sel 1;
+#X msg 28 23 1;
+#X msg 55 23 0;
+#X msg 144 22 1;
+#X msg 175 22 0;
+#X obj 28 45 i;
+#X obj 145 48 i;
+#X text 30 -59 from 6 to 7;
+#X text 144 -61 from 7 to 1;
+#X floatatom 62 -24 5 0 0 0 - - -;
+#X floatatom 185 -27 5 0 0 0 - - -;
+#X text 7 77 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 && $f4 !=
+$f3 \, 1 - $f1 \, 0));
+#X text 3 117 Further corroborating realised pitch motion may be essential
+as stepwise reversal may be less than current melodic attraction value
+obtained by breaking continuity of melodic motion;
+#X connect 1 0 3 0;
+#X connect 1 0 16 0;
+#X connect 2 0 4 0;
+#X connect 2 0 15 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 9 0;
+#X connect 5 1 10 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 12 0;
+#X connect 10 0 12 0;
+#X restore -34 400 pd potential.development;
+#X obj -7 26 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -32 45 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 \, 1 - $f2
+\, 0));
+#X text -35 302 If attraction values are the same \, the expression
+will produce zero.;
+#X text 33 127 The system will treat the "tendency" value as a differential/spatial
+offset;
+#X text -36 335 If the realised tone configuration is less than the
+stepwise reversal \, the expression will subtract the (wasted) potential
+from the "melodic inertia" value of 1 \, producing a smaller value.
+;
+#X text -35 182 If current melodic attraction is more than stepwise
+reversal calculated by previous assymetry ratio algorithm \, then add
+melodic inertia to melodic attraction value (tendency) ELSE if current
+melodic attraction value is less than stepwise reversal \, and provides
+a greater attraction (in the opposite melodic direction) which disrupts
+melodic continuity \, THEN subtract melodic attraction from melodic
+inertia.;
+#X obj -32 -28 r man.c4;
+#X obj 289 -19 r asymm.ma3;
+#X obj -32 140 s tend.4;
+#X text 287 -39 MA from note 3 and 2 (asymm) == stepwise reversal;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 19 0;
+#X connect 4 0 2 1;
+#X connect 6 0 2 0;
+#X connect 7 0 12 1;
+#X connect 8 0 11 0;
+#X connect 8 0 12 0;
+#X connect 12 0 6 0;
+#X connect 17 0 8 0;
+#X connect 18 0 7 0;
+#X restore -692 -43 pd tend.t4;
+#X text -689 -385 //Melodic Inertia + MA = Tendency value - Produces
+"tendency" in relation to melodic continuity;
+#N canvas 148 216 727 521 tend.t5 0;
+#X obj 429 248 r counter;
+#X floatatom 429 269 5 0 0 0 - - -;
+#X obj -32 100 * \$1;
+#X floatatom -32 121 5 0 0 0 - - -;
+#X obj 14 83 r iert.os;
+#X text 87 72 This expression will output the "tendency" (p. 171) to
+go to this tone;
+#X floatatom -32 71 5 0 0 0 - - -;
+#X floatatom 289 1 5 0 0 0 - - -;
+#X floatatom -32 -5 10 0 0 0 - - -;
+#X text -35 -49 MA C.Tone;
+#N canvas 0 22 450 300 potential.development 0;
+#X text 23 -71 is the melodic motion the same?;
+#X obj 144 -44 r \$0-pcd1;
+#X obj 28 -41 r \$0-pcd7;
+#X obj 144 -23 > 0;
+#X obj 28 -20 > 0;
+#X obj 144 0 sel 1;
+#X obj 28 1 sel 1;
+#X msg 28 23 1;
+#X msg 55 23 0;
+#X msg 144 22 1;
+#X msg 175 22 0;
+#X obj 28 45 i;
+#X obj 145 48 i;
+#X text 30 -59 from 6 to 7;
+#X text 144 -61 from 7 to 1;
+#X floatatom 62 -24 5 0 0 0 - - -;
+#X floatatom 185 -27 5 0 0 0 - - -;
+#X text 7 77 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 && $f4 !=
+$f3 \, 1 - $f1 \, 0));
+#X text 3 117 Further corroborating realised pitch motion may be essential
+as stepwise reversal may be less than current melodic attraction value
+obtained by breaking continuity of melodic motion;
+#X connect 1 0 3 0;
+#X connect 1 0 16 0;
+#X connect 2 0 4 0;
+#X connect 2 0 15 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 9 0;
+#X connect 5 1 10 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 12 0;
+#X connect 10 0 12 0;
+#X restore -34 400 pd potential.development;
+#X obj -7 26 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -32 45 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 \, 1 - $f2
+\, 0));
+#X text -35 302 If attraction values are the same \, the expression
+will produce zero.;
+#X text 33 127 The system will treat the "tendency" value as a differential/spatial
+offset;
+#X text -36 335 If the realised tone configuration is less than the
+stepwise reversal \, the expression will subtract the (wasted) potential
+from the "melodic inertia" value of 1 \, producing a smaller value.
+;
+#X text -35 182 If current melodic attraction is more than stepwise
+reversal calculated by previous assymetry ratio algorithm \, then add
+melodic inertia to melodic attraction value (tendency) ELSE if current
+melodic attraction value is less than stepwise reversal \, and provides
+a greater attraction (in the opposite melodic direction) which disrupts
+melodic continuity \, THEN subtract melodic attraction from melodic
+inertia.;
+#X obj -32 -28 r man.c5;
+#X obj 289 -19 r asymm.ma4;
+#X obj -32 140 s tend.5;
+#X text 287 -39 MA from note 4 and 3 (asymm) == stepwise reversal;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 19 0;
+#X connect 4 0 2 1;
+#X connect 6 0 2 0;
+#X connect 7 0 12 1;
+#X connect 8 0 11 0;
+#X connect 8 0 12 0;
+#X connect 12 0 6 0;
+#X connect 17 0 8 0;
+#X connect 18 0 7 0;
+#X restore -618 -109 pd tend.t5;
+#N canvas 148 216 727 521 tend.t6 0;
+#X obj 429 248 r counter;
+#X floatatom 429 269 5 0 0 0 - - -;
+#X obj -32 100 * \$1;
+#X floatatom -32 121 5 0 0 0 - - -;
+#X obj 14 83 r iert.os;
+#X text 87 72 This expression will output the "tendency" (p. 171) to
+go to this tone;
+#X floatatom -32 71 5 0 0 0 - - -;
+#X floatatom 289 1 5 0 0 0 - - -;
+#X floatatom -32 -5 10 0 0 0 - - -;
+#X text -35 -49 MA C.Tone;
+#N canvas 0 22 450 300 potential.development 0;
+#X text 23 -71 is the melodic motion the same?;
+#X obj 144 -44 r \$0-pcd1;
+#X obj 28 -41 r \$0-pcd7;
+#X obj 144 -23 > 0;
+#X obj 28 -20 > 0;
+#X obj 144 0 sel 1;
+#X obj 28 1 sel 1;
+#X msg 28 23 1;
+#X msg 55 23 0;
+#X msg 144 22 1;
+#X msg 175 22 0;
+#X obj 28 45 i;
+#X obj 145 48 i;
+#X text 30 -59 from 6 to 7;
+#X text 144 -61 from 7 to 1;
+#X floatatom 62 -24 5 0 0 0 - - -;
+#X floatatom 185 -27 5 0 0 0 - - -;
+#X text 7 77 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 && $f4 !=
+$f3 \, 1 - $f1 \, 0));
+#X text 3 117 Further corroborating realised pitch motion may be essential
+as stepwise reversal may be less than current melodic attraction value
+obtained by breaking continuity of melodic motion;
+#X connect 1 0 3 0;
+#X connect 1 0 16 0;
+#X connect 2 0 4 0;
+#X connect 2 0 15 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 9 0;
+#X connect 5 1 10 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 12 0;
+#X connect 10 0 12 0;
+#X restore -34 400 pd potential.development;
+#X obj -7 26 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -32 45 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 \, 1 - $f2
+\, 0));
+#X text -35 302 If attraction values are the same \, the expression
+will produce zero.;
+#X text 33 127 The system will treat the "tendency" value as a differential/spatial
+offset;
+#X text -36 335 If the realised tone configuration is less than the
+stepwise reversal \, the expression will subtract the (wasted) potential
+from the "melodic inertia" value of 1 \, producing a smaller value.
+;
+#X text -35 182 If current melodic attraction is more than stepwise
+reversal calculated by previous assymetry ratio algorithm \, then add
+melodic inertia to melodic attraction value (tendency) ELSE if current
+melodic attraction value is less than stepwise reversal \, and provides
+a greater attraction (in the opposite melodic direction) which disrupts
+melodic continuity \, THEN subtract melodic attraction from melodic
+inertia.;
+#X obj -32 -28 r man.c6;
+#X obj -32 140 s tend.6;
+#X obj 289 -19 r asymm.ma5;
+#X text 287 -39 MA from note 5 and 4 (asymm) == stepwise reversal;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 18 0;
+#X connect 4 0 2 1;
+#X connect 6 0 2 0;
+#X connect 7 0 12 1;
+#X connect 8 0 11 0;
+#X connect 8 0 12 0;
+#X connect 12 0 6 0;
+#X connect 17 0 8 0;
+#X connect 19 0 7 0;
+#X restore -618 -87 pd tend.t6;
+#N canvas 148 216 727 521 tend.t7 0;
+#X obj 429 248 r counter;
+#X floatatom 429 269 5 0 0 0 - - -;
+#X obj -32 100 * \$1;
+#X floatatom -32 121 5 0 0 0 - - -;
+#X obj 14 83 r iert.os;
+#X text 87 72 This expression will output the "tendency" (p. 171) to
+go to this tone;
+#X floatatom -32 71 5 0 0 0 - - -;
+#X floatatom 289 1 5 0 0 0 - - -;
+#X floatatom -32 -5 10 0 0 0 - - -;
+#X text -35 -49 MA C.Tone;
+#N canvas 0 22 450 300 potential.development 0;
+#X text 23 -71 is the melodic motion the same?;
+#X obj 144 -44 r \$0-pcd1;
+#X obj 28 -41 r \$0-pcd7;
+#X obj 144 -23 > 0;
+#X obj 28 -20 > 0;
+#X obj 144 0 sel 1;
+#X obj 28 1 sel 1;
+#X msg 28 23 1;
+#X msg 55 23 0;
+#X msg 144 22 1;
+#X msg 175 22 0;
+#X obj 28 45 i;
+#X obj 145 48 i;
+#X text 30 -59 from 6 to 7;
+#X text 144 -61 from 7 to 1;
+#X floatatom 62 -24 5 0 0 0 - - -;
+#X floatatom 185 -27 5 0 0 0 - - -;
+#X text 7 77 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 && $f4 !=
+$f3 \, 1 - $f1 \, 0));
+#X text 3 117 Further corroborating realised pitch motion may be essential
+as stepwise reversal may be less than current melodic attraction value
+obtained by breaking continuity of melodic motion;
+#X connect 1 0 3 0;
+#X connect 1 0 16 0;
+#X connect 2 0 4 0;
+#X connect 2 0 15 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 9 0;
+#X connect 5 1 10 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 12 0;
+#X connect 10 0 12 0;
+#X restore -34 400 pd potential.development;
+#X obj -7 26 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -32 45 expr if($f1 > $f2 \, 1 + $f1 \, if($f1 < $f2 \, 1 - $f2
+\, 0));
+#X text -35 302 If attraction values are the same \, the expression
+will produce zero.;
+#X text 33 127 The system will treat the "tendency" value as a differential/spatial
+offset;
+#X text -36 335 If the realised tone configuration is less than the
+stepwise reversal \, the expression will subtract the (wasted) potential
+from the "melodic inertia" value of 1 \, producing a smaller value.
+;
+#X text -35 182 If current melodic attraction is more than stepwise
+reversal calculated by previous assymetry ratio algorithm \, then add
+melodic inertia to melodic attraction value (tendency) ELSE if current
+melodic attraction value is less than stepwise reversal \, and provides
+a greater attraction (in the opposite melodic direction) which disrupts
+melodic continuity \, THEN subtract melodic attraction from melodic
+inertia.;
+#X obj -32 -28 r man.c7;
+#X obj 289 -19 r asymm.ma6;
+#X obj -32 140 s tend.7;
+#X text 287 -39 MA from note 6 and 5 (asymm) == stepwise reversal;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 19 0;
+#X connect 4 0 2 1;
+#X connect 6 0 2 0;
+#X connect 7 0 12 1;
+#X connect 8 0 11 0;
+#X connect 8 0 12 0;
+#X connect 12 0 6 0;
+#X connect 17 0 8 0;
+#X connect 18 0 7 0;
+#X restore -618 -65 pd tend.t7;
+#X text -689 -348 Initial quantification of an "expected" tone for
+proximate attractors simply takes the melodic attraction of the ascending
+and descending step-wise motions from the current tone \, subtracting
+the largest MA value from the smallest to give the "expected continuation"
+(Lerdahl 2001 \, pp. 170 - 171 \; cf. Lerdahl 1996). However \, Lerdahl
+then simply adopts the MA value as the expected continution value so
+as to not "dilute" the MA values unnecessarily.;
+#X restore 32 129 pd tendency;
+#N canvas 106 106 961 689 implicative.denial 0;
+#X text -6 -31 (expected pitch) D to C = 4/2 * 1/2pow2 = 2 * 0.25 =
+0.5 (realised pitch) D to E = 3/2 * 1/2pow2 = 1.5 * 0.25 = 0.35;
+#X text -5 -556 "power of implicative denial";
+#X text -1 -519 The attraction rule (virtually) predicts the attraction
+of any pitch (p) to any other pitch.;
+#X text 0 -485 Essentially comparing highest virtual attraction value
+to the realised pitch attraction value;
+#X text 0 -534 e(p1 -> p2) - r(p1 -> p2) = power of implicative denial
+;
+#X text 69 -320 (r) = current/next note;
+#X obj 39 -212 expr $f2 - $f1;
+#N canvas 0 22 1280 732 apmav 0;
+#X obj 91 153 abs;
+#X floatatom -32 237 10 0 0 0 - - -;
+#X obj 91 170 pow 2;
+#X floatatom 134 120 5 0 0 0 - - -;
+#X floatatom -116 156 5 0 0 0 - - -;
+#X obj 29 203 f;
+#X obj 1 172 once;
+#X obj 1 188 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 134 86 cup;
+#X obj -79 46 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj -115 78 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -116 96 cup;
+#X obj -140 283 coll;
+#C restore;
+#X obj -294 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -140 266 pack 0 0 0 0;
+#X obj -294 161 cup;
+#X msg -294 227 0;
+#X obj -32 172 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -294 251 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -47 337 outlet;
+#X floatatom -47 317 10 0 0 0 - - -;
+#X msg 199 266 clear;
+#X floatatom -106 317 5 0 0 0 - - -;
+#X floatatom -189 317 5 0 0 0 - - -;
+#X obj -189 338 outlet;
+#X obj -106 339 outlet;
+#X text -211 411 basic space;
+#X text -127 409 steps (semitones);
+#X obj 44 -21 r \$0-bs1;
+#X obj 44 14 mux _ _ _ _ _ _ _;
+#X obj 175 -28 r counter;
+#X obj 175 -3 - 1;
+#X obj 99 -21 r \$0-bs2;
+#X obj 72 -38 r \$0-bs3;
+#X obj 86 -55 r \$0-bs4;
+#X obj 9 -3 r \$0-bs5;
+#X obj 65 -3 r \$0-bs6;
+#X obj 120 -3 r \$0-bs7;
+#X text 84 32 selects basic space of current note;
+#X obj 6 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -140 300 unpack 0 0 0;
+#X text -58 283 sort by highest melodic attraction value;
+#X text -225 281 store in coll;
+#X text -192 356 recall highest attraction value in relation to previous
+note based on unique value using [nth message(;
+#X text 334 -47 "should all virtual attractions on p be combined in
+making a quantified prediction for its single most expected continuation?
+This step would seem unnecessary as well as complicated \, for attractions
+more than a whole step away would count for little (Lerdahl 2001 \,
+p. 170).";
+#X text -400 -98 Lerdahl restricts this rule to "proximate attractors."
+- either side of the current tone;
+#X text -35 146 bs: 1 to 4;
+#X text 164 102 steps: 1 to 12;
+#X text -400 -1 needs 20ms to process 48 possibilities 12 semitone
+steps per 4 basic spaces = 4 x 12 = 48 = 0 to 47;
+#X obj -32 220 expr $f1 / $f2 * $f3 \;;
+#X floatatom 205 -11 5 0 0 0 - - -;
+#X floatatom 173 156 5 0 0 0 - - -;
+#X obj 134 136 moses 1;
+#X obj 173 190 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 173 172 sel 12;
+#X obj 134 103 % 13;
+#X msg 172 205 0;
+#X msg 134 70 1;
+#X obj -116 136 % 5;
+#X obj -116 116 + 1;
+#X obj 97 115 sel 1;
+#X msg -294 266 bang;
+#X obj -294 203 sel 48;
+#X obj -294 181 % 49;
+#X text 100 220 s2/s1 * 1/npow2;
+#X obj 528 140 mux _ _ _ _ _ _ _;
+#X obj 662 98 r counter;
+#X obj 662 123 - 1;
+#X floatatom 692 115 5 0 0 0 - - -;
+#X obj 482 106 r \$0-pc1;
+#X obj 542 106 r \$0-pc2;
+#X obj 598 106 r \$0-pc3;
+#X obj 570 89 r \$0-pc4;
+#X obj 482 123 r \$0-pc5;
+#X obj 542 123 r \$0-pc6;
+#X obj 598 123 r \$0-pc7;
+#X floatatom 528 159 5 0 0 0 - - -;
+#X text 567 161 current pitch class;
+#X floatatom 43 33 5 0 0 0 - - -;
+#X text 73 436 only if available;
+#X msg -50 266 sort 1 3;
+#X floatatom 416 509 5 0 0 0 - - -;
+#X floatatom 31 437 5 0 0 0 - - -;
+#X floatatom 578 350 5 0 0 0 - - -;
+#X msg 74 474 1;
+#X msg 176 474 3;
+#X msg 31 474 4;
+#X msg 118 474 2;
+#X msg 530 458 1;
+#X msg 589 458 3;
+#X msg 501 458 4;
+#X msg 560 458 2;
+#X text -352 502 once generated - bang through contents until suitable
+(e) is found based on current bs and pc;
+#X text 334 550 e.g. bs = 4 and pc = 0;
+#X text 335 566 add pcd add and test against basic space;
+#X obj 578 366 < 0;
+#X obj 628 424 + 12;
+#X obj 578 387 sel 1;
+#X obj 628 404 i;
+#X obj 501 424 i;
+#X obj 530 404 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 530 423 del 5;
+#X obj 662 404 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 662 424 del 5;
+#X text 370 274 considering pcd both motions (modulo arithmetic - pitch
+= circular 0 to 11);
+#X floatatom 9 511 5 0 0 0 - - -;
+#X text -401 -67 This algorithm will generate all possible melodic
+attraction values based on current basic space - before next note is
+played and suggest the most attractive tone a step wise motion away
+;
+#X obj 31 457 sel 0 1 2 3 4 5 6 7 8 9 10 11 12;
+#X obj 501 441 sel 0 1 2 3 4 5 6 7 8 9 10 11 12;
+#X floatatom 118 491 5 0 0 0 - - -;
+#X floatatom 501 475 5 0 0 0 - - -;
+#X text 622 458 negative numbers to pc;
+#X text 559 485 otherwise bang positive;
+#X text 86 45 and compares against all possible combinations;
+#X obj 199 527 expr if($f1 | $f2 > 0 \, 1 \, 0);
+#X obj 199 549 sel 1;
+#X floatatom 281 544 5 0 0 0 - - -;
+#X obj 199 506 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -79 64 metro 1;
+#X obj 278 508 t b f;
+#X floatatom 447 350 5 0 0 0 - - -;
+#X obj 447 333 expr $f2 - $f1;
+#X obj 31 406 expr $f1 + $f2;
+#X obj 9 491 expr $f1 == $f2;
+#X obj 416 491 expr $f1 == $f2;
+#X obj 199 566 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -362 318 output tones in order of ma;
+#X text 156 249 clear coll once most suitable tone is output;
+#X msg 199 585 0;
+#X obj 225 566 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -189 474 pipe 20;
+#X obj -331 249 del 1;
+#X text -8 409 MA value;
+#X text 263 200 add/substract current pitch class to projected pcd
+\, then match up basic space;
+#X text -297 50 produce all possible combinations;
+#X obj 111 246 /;
+#X msg 111 227 1;
+#X obj 111 206 t b f;
+#X connect 0 0 2 0;
+#X connect 1 0 14 3;
+#X connect 2 0 137 0;
+#X connect 3 0 52 0;
+#X connect 4 0 6 0;
+#X connect 4 0 14 1;
+#X connect 4 0 49 0;
+#X connect 5 0 49 1;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 8 0 55 0;
+#X connect 9 0 118 0;
+#X connect 10 0 11 0;
+#X connect 10 0 6 1;
+#X connect 11 0 59 0;
+#X connect 12 0 40 0;
+#X connect 13 0 15 0;
+#X connect 14 0 12 0;
+#X connect 15 0 63 0;
+#X connect 16 0 9 0;
+#X connect 16 0 57 0;
+#X connect 16 0 15 0;
+#X connect 16 0 55 0;
+#X connect 16 0 11 0;
+#X connect 17 0 49 0;
+#X connect 18 0 80 0;
+#X connect 18 0 61 0;
+#X connect 20 0 19 0;
+#X connect 21 0 12 0;
+#X connect 22 0 25 0;
+#X connect 22 0 121 0;
+#X connect 22 0 122 0;
+#X connect 23 0 24 0;
+#X connect 23 0 130 0;
+#X connect 28 0 29 0;
+#X connect 29 0 5 1;
+#X connect 29 0 39 0;
+#X connect 29 0 78 0;
+#X connect 30 0 31 0;
+#X connect 30 0 50 0;
+#X connect 31 0 29 7;
+#X connect 32 0 29 1;
+#X connect 33 0 29 2;
+#X connect 34 0 29 3;
+#X connect 35 0 29 4;
+#X connect 36 0 29 5;
+#X connect 37 0 29 6;
+#X connect 39 0 9 0;
+#X connect 40 0 23 0;
+#X connect 40 1 22 0;
+#X connect 40 2 20 0;
+#X connect 49 0 1 0;
+#X connect 51 0 54 0;
+#X connect 51 0 17 0;
+#X connect 52 1 14 2;
+#X connect 52 1 0 0;
+#X connect 52 1 51 0;
+#X connect 53 0 56 0;
+#X connect 54 0 53 0;
+#X connect 55 0 3 0;
+#X connect 55 0 60 0;
+#X connect 56 0 8 0;
+#X connect 57 0 8 0;
+#X connect 58 0 4 0;
+#X connect 59 0 58 0;
+#X connect 60 0 10 0;
+#X connect 61 0 12 0;
+#X connect 62 0 16 0;
+#X connect 62 0 18 0;
+#X connect 63 0 14 0;
+#X connect 63 0 62 0;
+#X connect 65 0 76 0;
+#X connect 66 0 67 0;
+#X connect 66 0 68 0;
+#X connect 67 0 65 7;
+#X connect 69 0 65 0;
+#X connect 70 0 65 1;
+#X connect 71 0 65 2;
+#X connect 72 0 65 3;
+#X connect 73 0 65 4;
+#X connect 74 0 65 5;
+#X connect 75 0 65 6;
+#X connect 76 0 121 1;
+#X connect 76 0 122 1;
+#X connect 80 0 12 0;
+#X connect 82 0 107 0;
+#X connect 83 0 95 0;
+#X connect 83 0 99 1;
+#X connect 83 0 98 1;
+#X connect 84 0 109 0;
+#X connect 84 0 123 1;
+#X connect 85 0 109 0;
+#X connect 85 0 123 1;
+#X connect 86 0 109 0;
+#X connect 86 0 123 1;
+#X connect 87 0 109 0;
+#X connect 87 0 123 1;
+#X connect 88 0 110 0;
+#X connect 89 0 110 0;
+#X connect 90 0 110 0;
+#X connect 91 0 110 0;
+#X connect 95 0 97 0;
+#X connect 96 0 108 0;
+#X connect 97 0 102 0;
+#X connect 97 1 100 0;
+#X connect 98 0 96 0;
+#X connect 99 0 108 0;
+#X connect 100 0 101 0;
+#X connect 101 0 99 0;
+#X connect 102 0 103 0;
+#X connect 103 0 98 0;
+#X connect 105 0 114 0;
+#X connect 107 0 86 0;
+#X connect 107 1 84 0;
+#X connect 107 2 87 0;
+#X connect 107 3 84 0;
+#X connect 107 4 85 0;
+#X connect 107 5 87 0;
+#X connect 107 6 84 0;
+#X connect 107 7 85 0;
+#X connect 107 8 84 0;
+#X connect 107 9 87 0;
+#X connect 107 10 84 0;
+#X connect 107 11 87 0;
+#X connect 107 12 86 0;
+#X connect 108 0 90 0;
+#X connect 108 1 88 0;
+#X connect 108 2 91 0;
+#X connect 108 3 88 0;
+#X connect 108 4 89 0;
+#X connect 108 5 91 0;
+#X connect 108 6 88 0;
+#X connect 108 7 89 0;
+#X connect 108 8 88 0;
+#X connect 108 9 91 0;
+#X connect 108 10 88 0;
+#X connect 108 11 91 0;
+#X connect 108 13 90 0;
+#X connect 110 0 124 1;
+#X connect 114 0 115 0;
+#X connect 114 0 116 0;
+#X connect 115 0 125 0;
+#X connect 115 1 129 0;
+#X connect 117 0 114 0;
+#X connect 118 0 8 0;
+#X connect 118 0 13 0;
+#X connect 119 0 117 0;
+#X connect 119 1 114 1;
+#X connect 121 0 83 0;
+#X connect 121 0 120 0;
+#X connect 122 0 82 0;
+#X connect 123 0 105 0;
+#X connect 124 0 81 0;
+#X connect 124 0 119 0;
+#X connect 125 0 128 0;
+#X connect 125 0 21 0;
+#X connect 128 0 114 1;
+#X connect 129 0 131 0;
+#X connect 130 0 123 0;
+#X connect 130 0 124 0;
+#X connect 131 0 61 0;
+#X connect 135 0 49 2;
+#X connect 136 0 135 0;
+#X connect 137 0 136 0;
+#X connect 137 1 135 1;
+#X restore 243 -245 pd apmav;
+#X floatatom 311 -228 5 0 0 0 - - -;
+#X floatatom 315 -194 5 0 0 0 - - -;
+#X floatatom 313 -161 5 0 0 0 - - -;
+#X text 349 -164 basic space;
+#X text 354 -195 steps (semitones);
+#X text 355 -228 attraction value;
+#X obj 4 -249 r ma.c1;
+#X obj 39 -232 mux 0 1 2 3 4 5 6;
+#X obj 53 -249 r ma.c2;
+#X obj -7 -152 s deni.1;
+#X obj 39 -169 demux 0 1 2 3 4 5 6;
+#X obj 57 -152 s deni.2;
+#X obj 176 -266 r counter;
+#X obj 176 -249 - 1;
+#X floatatom 39 -192 5 0 0 0 - - -;
+#X floatatom 204 -249 5 0 0 0 - - -;
+#X obj 242 -169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -4 -449 This patch is a development on Lerdahl's computation
+of all possible proximate attractors.;
+#X text -5 -415 This patch will produce melodic attraction value for
+all tones combinations within the basic space \, organise each combination
+in order of highest melodic attraction \, and then produce the most
+convenient step-wise motion based on current pitch class and projected
+pitch class distance.;
+#X obj 76 -135 s deni.3;
+#X obj 94 -119 s deni.4;
+#X obj 113 -152 s deni.5;
+#X obj 131 -135 s deni.6;
+#X obj 150 -118 s deni.7;
+#X obj 67 -266 r ma.c3;
+#X obj 81 -283 r ma.c4;
+#X obj 95 -300 r ma.c5;
+#X obj 109 -249 r ma.c6;
+#X obj 123 -266 r ma.c7;
+#X text 409 -114 calculating (e) = linear expectation value compared
+against all possible melodic attraction values - highest possible value
+a step-wise motion away;
+#X text -2 0 The following algorithm should produce 0 if highest attractor
+was selected;
+#X text -3 -62 Power of implicative denial = probable tone (p1 ->
+p2) - actual (p1 -> p3 (p. 172);
+#X text 424 -481 e.g. Asteroid analog: Stable pitches = large asteroids.
+Proximate pitches = closer asteroids - could translate well to changing
+the size of W harmonic in ambisonics panner;
+#X obj 313 -140 s pbs;
+#X obj 326 -176 s ppcd;
+#X obj 320 -209 s pmav;
+#X connect 6 0 18 0;
+#X connect 6 0 22 0;
+#X connect 7 0 10 0;
+#X connect 7 1 9 0;
+#X connect 7 2 8 0;
+#X connect 8 0 6 1;
+#X connect 8 0 24 0;
+#X connect 8 0 43 0;
+#X connect 9 0 42 0;
+#X connect 10 0 41 0;
+#X connect 14 0 15 0;
+#X connect 15 0 6 0;
+#X connect 16 0 15 1;
+#X connect 18 0 17 0;
+#X connect 18 1 19 0;
+#X connect 18 2 27 0;
+#X connect 18 3 28 0;
+#X connect 18 4 29 0;
+#X connect 18 5 30 0;
+#X connect 18 6 31 0;
+#X connect 20 0 21 0;
+#X connect 20 0 23 0;
+#X connect 21 0 15 7;
+#X connect 21 0 18 1;
+#X connect 24 0 6 0;
+#X connect 32 0 15 2;
+#X connect 33 0 15 3;
+#X connect 34 0 15 4;
+#X connect 35 0 15 5;
+#X connect 36 0 15 6;
+#X restore 413 212 pd implicative.denial;
+#N canvas 275 22 974 734 attractional.asymmetry2 0;
+#X text 34 7 Attractional Asymmetries;
+#X text 30 643 Send differential value to modify current spatial location
+of comparison tones \, in order to reflect cognitive construct;
+#X text 436 25 "the listener appears to merge this attractional differential
+withe the perception of symmetrical distance between the two pitches"
+(Lerdahl 2001 \, pp. 167 - 168).;
+#X text 28 673 * i.e. - to be used as offset with melodic attraction
+rule (subtract from distance between integrated spatial trajectories)
+;
+#X text 28 329 The following algorithm produces a value or ratio ratio
+if asymmetry for the ratio \; p1 -> 2 / p2 -> p1;
+#X text 32 31 "Ratios of asymmetry provide a means of interpreting
+what would otherwise be a troubling prediction of the attraction rule
+\, namely \, that attractions of stable to unstable pitches that are
+half a step away attain relatively high values compared to attractions
+of unstable to stable pitches that are a whole step or more away" (Lerdahl
+2001 \, p. 169).;
+#X text 30 246 *solution - The comparison should not be to other attractions
+\, but to the "relative attraction exerted on the particular pitch
+in relation to the attractive force it exerts on other pitches" (cf.
+[linear_expectation] \; Lerdahl 2001;
+#X text 33 141 e.g. Current MA for D -> C and D -> Eb = 0.5;
+#X text 29 174 Arguably inaccurate without Asymm.offset;
+#X text 29 192 as D to Eb generally incurs more tension in to Chromatic
+spac. Thus \, an MA value of 0.5 is too high in relation to D -> C
+;
+#X text 436 75 "This use of asymmetries does not constitute an alternative
+to the attraction rule. Rather \, it is an interpretation that justifies
+the rule's predictions where they might otherwise seem questionable
+(Lerdahl 2001 \, p. 169)";
+#X text 132 515 value (ratio of attractional asymmetry) - value reflects
+degree of attractional asymmetry between two tones in sequence (e.g.
+higher value = high asymmetry between tone combination in sequence)
+- quantified and reflected as differential offset in spatial gesture
+;
+#X text 435 216 adjustment in tuning here may be interesting to use
+with Partch~ If resolution is needed \, filter sweep at tone with frequency
+offset to help incite dissonance to encourage tonal resolution;
+#X text 435 143 "attractional asymmetries shed on intonational practices
+for instruments capable of continuous tuning. Even though intervals
+are symmetrically equidistant in a conceptual sense \, in a musical
+context their tunings may not be" (Lerdahl 2001 \, p. 170).;
+#N canvas 209 71 1071 641 asymm.ma.1 0;
+#X obj 336 329 /;
+#X floatatom 336 350 10 0 0 0 - - -;
+#X floatatom 390 268 10 0 0 0 - - -;
+#X floatatom 277 313 5 0 0 0 - - -;
+#X obj 395 447 +;
+#X obj 353 447 -;
+#X obj 439 304 sel 1;
+#X obj 439 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 472 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 336 490 mux _ _ _;
+#X obj 336 122 r ma.c1;
+#X floatatom 336 519 5 0 0 0 - - -;
+#X obj 353 473 pipe 5;
+#X obj 395 473 pipe 5;
+#X obj 439 473 * \$1;
+#X msg 439 337 2;
+#X msg 472 336 1;
+#X obj 336 542 s man.c1;
+#X text 401 354 value (ratio of attractional asymmetry) - value reflects
+degree of attractional asymmetry;
+#X obj 253 366 s asymm.1;
+#X obj 588 284 s asymm.ma1;
+#X obj 439 284 >;
+#X obj 503 284 ==;
+#X obj 503 302 sel 1;
+#X msg 503 321 0;
+#X text -160 -3 Producing ratios from decimal values is difficult;
+#N canvas 0 22 450 300 decimal.fraction.info 0;
+#X text -179 174 http://en.wikipedia.org/wiki/Fraction_%28mathematics%29#Converting_repeating_decimals_to_fractions
+;
+#X text -203 141 http://en.wikipedia.org/wiki/Repeating_decimal#Converting_repeating_decimals_to_fractions
+;
+#X text -207 76 For repeating decimal - Let x = 0.111... (1) So 1000x
+= 111.111... (2) Subtracting (2) and (1) gives: 1000x - x = 111.111...
+- 0.111... ==> 999x = 111 ==> x = 111/999 ==> x = 1/9 Therefore \,
+0.111... = 1/9.;
+#X restore -161 97 pd decimal.fraction.info;
+#X text -161 16 Dividing fractions to produce ratio: Turn the second
+fraction upside-down (it becomes a reciprocal) 2) Multiply the first
+fraction by that reciprocal 3) Simplify;
+#X floatatom -163 237 5 0 0 0 - - -;
+#X floatatom 8 237 5 0 0 0 - - -;
+#X text -160 63 http://www.mathsisfun.com/fractions_division.html;
+#X obj -163 259 expr if ($f1 == $f2 \, 1 \, $f1) \; if ($f2 == $f1
+\, 1 \, $f2) \;;
+#X floatatom -163 316 5 0 0 0 - - -;
+#X floatatom 8 319 5 0 0 0 - - -;
+#X obj -78 244 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -163 358 mod;
+#X obj 8 359 mod;
+#X floatatom -163 378 5 0 0 0 - - -;
+#X floatatom 8 376 5 0 0 0 - - -;
+#X text -162 584 [expr]s receiving their first inlet value before the
+second inlet because the [loadbang] does not have a [trigger] enforcing
+the right execution order.;
+#X text -49 489 SIMPLIFY!!!!!!;
+#X obj 460 438 r asym.ofs;
+#X floatatom -163 490 5 0 0 0 - - -;
+#X floatatom 182 489 10 0 0 0 - - -;
+#X obj -163 338 pipe 1;
+#X obj 8 338 pipe 1;
+#X obj -48 399 pipe 2;
+#X obj -163 425 expr if($f3 == 0 | $f4 == 0 && $f1 > $f2 \, $f1 / $f2
+\, if ($f3 == 0 | $f4 == 0 && $f2 > $f1 \, $f1/$f1 \, $f1)) \; if($f3
+== 0 | $f4 == 0 && $f1 > $f2 \, $f2/$f2 \, if ($f3 == 0 | $f4 == 0
+&& $f2 > $f1 \, $f2/$f1 \, $f2));
+#X obj -163 399 pipe 2;
+#X obj -163 511 s ar.1a;
+#X obj 182 509 s ar.1b;
+#X obj 277 292 pipe 10;
+#X obj 321 419 pipe 1;
+#X obj 376 418 pipe 1;
+#X text 547 311 accounting for mutual attractions (==) same attractional
+value - result = do nothing - output original MA;
+#X text 430 523 Similar to concept of implicative denial in order to
+account for melodic motion - Further quantification of sequential pitch
+relationships (p. 170) - might not be suitable \, though.;
+#X text -162 538 if mod 3 or 4 == 0 (2 numbers divide into each other)
+AND 1 is greater than 2 > then produced 1/2 \, ELSE if MOD 3 or 4 ==
+0 AND 2 > 1 \, then 1/1 \, or produce 1 etc.;
+#X floatatom 471 490 5 0 0 0 - - -;
+#X text 510 490 output select for mux;
+#X obj 368 391 / 16;
+#X floatatom 424 408 10 0 0 0 - - -;
+#X floatatom 269 490 10 0 0 0 - - -;
+#X floatatom 395 490 5 0 0 0 - - -;
+#X text 494 391 Divide by 16 as it is the maximum value for a line
+of assymetrical attraction (Lerdahl 2001 \, p. 168) - This method produces
+values which are more suitable as an offset;
+#X text 659 284 to use with tendency algorithm;
+#X text 252 384 intial offset;
+#X text 319 560 scaled offset;
+#X obj 114 264 loadbang;
+#X msg 102 292 1;
+#X text 519 249 divided by inverse tone config;
+#X floatatom 411 67 5 0 0 0 - - -;
+#X obj 411 47 r counter;
+#X obj 603 70 abs;
+#X floatatom 603 168 5 0 0 0 - - -;
+#X floatatom 480 210 10 0 0 0 - - -;
+#X obj 603 89 pow 2;
+#X floatatom 603 30 5 0 0 0 - - -;
+#X obj 603 51 % 12;
+#X floatatom 653 68 5 0 0 0 - - -;
+#X obj 480 186 expr $f2 / $f3 * $f4 \;;
+#X obj 411 87 sel 1;
+#X obj 411 108 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 411 128 del 50;
+#X obj 603 9 r \$0-pcd1;
+#X floatatom 470 108 5 0 0 0 - - -;
+#X text 469 74 new;
+#X text 528 87 previous;
+#X floatatom 552 118 5 0 0 0 - - -;
+#X obj 603 149 /;
+#X msg 603 130 1;
+#X obj 603 109 t b f;
+#X obj 470 88 r \$0-bs7;
+#X obj 531 101 r \$0-bs1;
+#X obj -163 220 expr $f2 * $f3;
+#X obj 8 215 expr $f2 * $f3;
+#X obj 39 195 r \$0-bs1;
+#X obj 102 196 r \$0-bs7;
+#X obj -59 193 r \$0-bs1;
+#X obj -120 194 r \$0-bs7;
+#X connect 0 0 1 0;
+#X connect 1 0 19 0;
+#X connect 1 0 59 0;
+#X connect 2 0 0 1;
+#X connect 2 0 21 1;
+#X connect 2 0 22 1;
+#X connect 2 0 20 0;
+#X connect 3 0 0 0;
+#X connect 3 0 52 0;
+#X connect 3 0 53 0;
+#X connect 3 0 22 0;
+#X connect 3 0 21 0;
+#X connect 4 0 13 0;
+#X connect 5 0 12 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 15 0;
+#X connect 8 0 16 0;
+#X connect 9 0 11 0;
+#X connect 9 0 17 0;
+#X connect 10 0 9 0;
+#X connect 10 0 51 0;
+#X connect 12 0 9 1;
+#X connect 12 0 61 0;
+#X connect 13 0 9 2;
+#X connect 13 0 62 0;
+#X connect 14 0 9 3;
+#X connect 14 0 57 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;
+#X connect 21 0 6 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 14 0;
+#X connect 28 0 31 0;
+#X connect 29 0 31 1;
+#X connect 29 0 34 0;
+#X connect 31 0 32 0;
+#X connect 31 1 33 0;
+#X connect 32 0 36 1;
+#X connect 32 0 44 0;
+#X connect 32 0 48 0;
+#X connect 33 0 35 1;
+#X connect 33 0 45 0;
+#X connect 33 0 46 0;
+#X connect 34 0 31 0;
+#X connect 35 0 37 0;
+#X connect 36 0 38 0;
+#X connect 37 0 47 2;
+#X connect 38 0 47 3;
+#X connect 41 0 14 1;
+#X connect 42 0 49 0;
+#X connect 43 0 50 0;
+#X connect 44 0 35 0;
+#X connect 45 0 36 0;
+#X connect 46 0 47 1;
+#X connect 47 0 42 0;
+#X connect 47 1 43 0;
+#X connect 48 0 47 0;
+#X connect 51 0 3 0;
+#X connect 52 0 5 0;
+#X connect 53 0 4 0;
+#X connect 59 0 5 1;
+#X connect 59 0 4 1;
+#X connect 59 0 60 0;
+#X connect 67 0 68 0;
+#X connect 68 0 33 0;
+#X connect 68 0 32 0;
+#X connect 70 0 80 0;
+#X connect 71 0 70 0;
+#X connect 72 0 75 0;
+#X connect 73 0 79 3;
+#X connect 74 0 2 0;
+#X connect 75 0 90 0;
+#X connect 76 0 77 0;
+#X connect 77 0 72 0;
+#X connect 77 0 78 0;
+#X connect 79 0 74 0;
+#X connect 80 0 81 0;
+#X connect 81 0 82 0;
+#X connect 82 0 79 0;
+#X connect 82 0 94 0;
+#X connect 82 0 93 0;
+#X connect 83 0 76 0;
+#X connect 84 0 79 1;
+#X connect 88 0 73 0;
+#X connect 89 0 88 0;
+#X connect 90 0 89 0;
+#X connect 90 1 88 1;
+#X connect 91 0 84 0;
+#X connect 92 0 79 2;
+#X connect 92 0 87 0;
+#X connect 93 0 28 0;
+#X connect 94 0 29 0;
+#X connect 95 0 94 1;
+#X connect 96 0 94 2;
+#X connect 97 0 93 2;
+#X connect 98 0 93 1;
+#X restore 30 490 pd asymm.ma.1;
+#X text 27 384 It then applies a similar approach to Lerdahl's concept
+of implicative denial \, whereby if the resultant melodic attraction
+is less than p2 -> p1 \, then the ratio value is subtracted from the
+current melodic attraction value \, producing a melodic attraction
+value (+ offset). It is the intention of the author to reflect this
+offset in the resultant spatial gesture.;
+#X restore 413 150 pd attractional.asymmetry2;

@@ -1,0 +1,82 @@
+#N canvas 140 22 895 635 10;
+#X obj 97 479 outlet~;
+#X msg 159 34 preset 1;
+#X msg 159 56 preset 2;
+#X msg 159 81 preset 3;
+#X msg 159 105 preset 4;
+#X msg 159 128 preset 5;
+#X text 226 35 fast change medium wah-wah;
+#X text 227 56 slow change medium wah-wah;
+#X text 229 81 fast wah-wah;
+#X text 229 104 ranged wah-wah;
+#X obj 63 317 inlet~;
+#X text 230 127 wah-wah 400/2000 Hz;
+#X obj 612 325 hsl 128 15 0 100 0 0 empty empty empty 20 8 0 8 -262144
+-1 -1 7366 0;
+#X text 617 305 The pedal (step);
+#X obj 611 226 f;
+#X obj 642 226 + 1;
+#X msg 609 168 bang;
+#X obj 655 252 > 100;
+#X obj 698 251 route 1;
+#X msg 695 225 -1;
+#X msg 569 226 0;
+#X obj 703 195 route 1;
+#X obj 674 196 < 0;
+#X msg 700 169 1;
+#X msg 565 170 stop;
+#X obj 171 197 hsl 128 15 0 3000 0 0 empty empty empty 20 8 0 8 -262144
+-1 -1 2000 0;
+#X text 172 176 Minimum freq [ 0 - 3000 ];
+#X obj 222 231 hsl 128 15 0 3000 0 0 empty empty empty 20 8 0 8 -262144
+-1 -1 11400 0;
+#X text 217 215 Maximum freq [ 0 - 3000 ];
+#X obj 247 269 hsl 128 15 0 1000 0 0 empty empty empty 20 8 0 8 -262144
+-1 -1 400 0;
+#X text 244 251 Sensibility [ 0 - 1000 ];
+#X obj 295 302 hsl 128 15 0 100 0 0 empty empty empty 20 8 0 8 -262144
+-1 -1 3400 0;
+#X text 290 285 Maxstep [ 0 - 100 ];
+#X obj 350 337 hsl 128 15 -15 15 0 0 empty empty empty 20 8 0 8 -262144
+-1 -1 7000 0;
+#X text 345 320 Gain [ -15 - 15 ];
+#X obj 418 379 hsl 128 15 0 10 0 0 empty empty empty 20 8 0 8 -262144
+-1 -1 3600 0;
+#X text 413 361 Bandwidth [ 0 - 10 ];
+#X text 607 136 Auto;
+#X text 174 158 Note : setting a parameter overrides presets;
+#X obj 97 424 wahwah~ --------------------------------------------------
+;
+#X text 143 553 Note : interesting to set bandwith close to 10;
+#X obj 610 195 metro 10;
+#X obj 658 137 loadbang;
+#X connect 1 0 39 0;
+#X connect 2 0 39 0;
+#X connect 3 0 39 0;
+#X connect 4 0 39 0;
+#X connect 5 0 39 0;
+#X connect 10 0 39 0;
+#X connect 12 0 39 7;
+#X connect 14 0 15 0;
+#X connect 14 0 17 0;
+#X connect 14 0 22 0;
+#X connect 14 0 12 0;
+#X connect 15 0 14 1;
+#X connect 16 0 41 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 15 1;
+#X connect 20 0 14 0;
+#X connect 21 0 23 0;
+#X connect 22 0 21 0;
+#X connect 23 0 15 1;
+#X connect 24 0 41 0;
+#X connect 25 0 39 1;
+#X connect 27 0 39 2;
+#X connect 29 0 39 3;
+#X connect 31 0 39 4;
+#X connect 33 0 39 5;
+#X connect 35 0 39 6;
+#X connect 39 0 0 0;
+#X connect 41 0 14 0;
+#X connect 42 0 16 0;

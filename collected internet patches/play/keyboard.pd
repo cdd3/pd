@@ -1,0 +1,9 @@
+#N canvas 607 75 660 406 10;
+#X msg 208 53 \; play2 1;
+#X msg 42 54 \; play1 1;
+#X msg 28 -65 \; pd dsp 1;
+#X obj 42 128 read_from_abstr 1;
+#X obj 207 127 read_from_abstr 2;
+#X obj 28 -94 loadbang;
+#X connect 5 0 2 0;
+#X coords 0 406 1 405 350 50 0;

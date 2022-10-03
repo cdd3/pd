@@ -1,0 +1,56 @@
+#N canvas 210 19 803 631 10;
+#X obj 166 23 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 71 249 tgl 15 0 \$0-ch1-reverse-btn-snd \$0-ch1-reverse-btn-rcv
+Reverse_(CH1) 17 7 0 10 -258113 -1 -1 0 1;
+#X obj 310 249 tgl 15 0 \$0-ch2-reverse-btn-snd \$0-ch2-reverse-btn-rcv
+Reverse_(CH2) 17 7 0 10 -4160 -262144 -1 0 1;
+#X obj 71 279 tgl 15 0 \$0-ch1-hold-btn-snd \$0-ch1-hold-btn-rcv Hold_(CH1)
+17 7 0 10 -258113 -1 -1 0 1;
+#X obj 310 290 tgl 15 0 \$0-ch2-hold-btn-snd \$0-ch2-hold-btn-rcv Hold_(CH2)
+17 7 0 10 -4160 -262144 -1 0 1;
+#X obj 74 85 hsl 128 15 0 127 0 0 \$0-ch1-time-snd \$0-ch1-time-rcv
+Time_(CH1) -2 -8 0 10 -258113 -1 -1 0 1;
+#X obj 313 85 hsl 128 15 0 127 0 0 \$0-ch2-time-snd \$0-ch2-time-rcv
+Time_(CH2) -2 -8 0 10 -4160 -262144 -1 0 1;
+#X obj 74 126 hsl 128 15 0 127 0 0 \$0-ch1-fbk-snd \$0-ch1-fbk-rcv
+Feedback_(CH1) -2 -8 0 10 -258113 -1 -1 0 1;
+#X obj 313 126 hsl 128 15 0 127 0 0 \$0-ch2-fbk-snd \$0-ch2-fbk-rcv
+Feedback_(CH2) -2 -8 0 10 -4160 -262144 -1 0 1;
+#X obj 74 167 hsl 128 15 0 127 0 0 \$0-ch1-dlyfeed-snd \$0-ch1-dlyfeed-rcv
+Delay_Feed_(CH1) -2 -8 0 10 -258113 -1 -1 0 1;
+#X obj 313 167 hsl 128 15 0 127 0 0 \$0-ch2-dlyfeed-snd \$0-ch2-dlyfeed-rcv
+Delay_Feed_(CH2) -2 -8 0 10 -4160 -262144 -1 0 1;
+#X obj 74 208 hsl 128 15 0 127 0 0 \$0-ch1-mix-snd \$0-ch1-mix-rcv
+Mix_(CH1) -2 -8 0 10 -258113 -1 -1 0 1;
+#X obj 313 208 hsl 128 15 0 127 0 0 \$0-ch2-mix-snd \$0-ch2-mix-rcv
+Mix_(CH2) -2 -8 0 10 -4160 -262144 -1 0 1;
+#X obj 137 363 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 595 407 print;
+#X obj 595 370 r \$0-ch1-mix-snd;
+#X obj 626 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 626 249 print \$0;
+#X obj 597 480 r toGUI;
+#X obj 561 127 print;
+#X obj 626 280 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 626 300 print \$1;
+#X obj 615 166 DLD_Guts \$0;
+#X obj 561 39 loadbang;
+#X obj 520 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 561 60 \$0;
+#X obj 561 85 \$1;
+#X obj 71 309 tgl 15 0 \$0-ch1-mute-btn-snd \$0-ch1-mute-btn-rcv Input_Mute_(CH1)
+17 7 0 10 -258113 -1 -1 0 1;
+#X obj 242 89 bng 15 250 50 0 \$0-ping-snd \$0-ping-rcv Ping 17 7 0
+10 -262144 -1 -1;
+#X connect 16 0 17 0;
+#X connect 20 0 21 0;
+#X connect 23 0 25 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 19 0;
+#X coords 0 -1 1 1 420 420 1 50 50;

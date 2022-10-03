@@ -1,0 +1,15 @@
+#N canvas 733 23 847 757 10;
+#X obj 99 26 inlet;
+#X obj 288 94 f;
+#X text 315 125 smooth and remove noise;
+#X obj 99 206 outlet;
+#X obj 99 53 t f b, f 16;
+#X obj 193 80 \$1;
+#X obj 99 123 expr ($f1*(($f2*-1)+1))+($f3*$f2);
+#X connect 0 0 4 0;
+#X connect 1 0 6 2;
+#X connect 4 0 6 0;
+#X connect 4 1 5 0;
+#X connect 5 0 6 1;
+#X connect 6 0 1 0;
+#X connect 6 0 3 0;

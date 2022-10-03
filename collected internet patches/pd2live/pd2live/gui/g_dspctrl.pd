@@ -1,0 +1,2 @@
+#N canvas 41 22 1007 507 10;
+#X obj -6 -341 g_dsp.ctrl;

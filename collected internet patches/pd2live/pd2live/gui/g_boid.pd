@@ -1,0 +1,11 @@
+#N canvas 605 81 260 215 10;
+#X obj -2 97 unpack 0 0;
+#X text 0 23 cartopol for ambipanner~;
+#X obj -2 137 outlet;
+#X obj -2 71 inlet;
+#X obj -2 114 lrds_cartopol;
+#X text 67 93 x and y -> y and x;
+#X connect 0 0 4 1;
+#X connect 0 1 4 0;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;

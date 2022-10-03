@@ -1,0 +1,21 @@
+#N canvas 197 99 519 344 10;
+#X obj 21 114 ambipan~;
+#X obj 21 69 apanctrl;
+#X text 80 72 Parameters;
+#X text 80 94 Parameters can be altered using the apanctrl abstraction
+or by passing messages directly into the ambipan~ objects 1st input.
+Parameters are:;
+#X text 78 236 Input 1 Left channel and messages Input 2 Right channel
+Output 1 W Output 2 X Output 3 Y Output 4 Z;
+#X text 78 144 azl = Azimuth Left \, ell = Elevation Left \, zel =
+Zeroth Left \, fil = First Left \, disl = Distance Left \, cenl = Centre
+Left \, dfacl = Distance Factor Left \, voll = Volume Left \, azr =
+Azimuth Right \, elr = Elevation Right \, zer = Zeroth Right \, fir
+= First Right \, disr = Distance Right \, cenr = Centre Right \, dfacr
+= Distance Factor Right \, volr = Volume Right;
+#X text 76 273 For more information see http://www.dmalham.freeserve.co.uk/vst_ambisonics.html
+;
+#X text 14 16 Ambipan~ Ambisonic panner based on the b_pan VST plugin
+by Dave Malham. Ported to pd by Matthew Paradis;
+#X text 78 223 All parameters are scaled between 0 - 1;
+#X connect 1 0 0 0;

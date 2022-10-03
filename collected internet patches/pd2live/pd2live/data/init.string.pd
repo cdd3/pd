@@ -1,0 +1,16 @@
+#N canvas 410 59 812 426 10;
+#X obj 161 120 r ri.s1;
+#X obj 214 121 r ri.s2;
+#X obj 315 122 r ri.s4;
+#X obj 368 123 r ri.s5;
+#X obj 279 218 outlet;
+#X msg 279 185 bang;
+#X obj 418 123 r ri.s6;
+#X obj 264 121 r ri.s3;
+#X connect 0 0 5 0;
+#X connect 1 0 5 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;

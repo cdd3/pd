@@ -1,0 +1,24 @@
+#N canvas 484 527 577 360 10;
+#X declare -path extra;
+#X obj 51 74 develop;
+#X obj 51 50 xyz;
+#X obj 51 99 euclid;
+#X obj 51 136 consequence;
+#X obj 49 562 declare -path extra;
+#X text 106 73 list developer;
+#X text 106 101 euclidian maths;
+#X text 256 137 Consequential probability table;
+#X text 50 21 DATA STUFF__________________________________________________
+;
+#X text 47 467 NOTE__________________________________ all abstractions
+that require saved data automatically save as a txt file in the parent
+folder \, this is so they are supported by systms that have volatile
+quitting procedures like rinning pd on rpi with power pull for off/quit
+;
+#X text 50 -5 open help on each abstraction for more info;
+#X text 83 49 preset morpher;
+#X text 47 336 AUDIO STUFF____________________________;
+#X text 111 384 granular delay with freze defineablemax length and
+auto saved last freze sample.;
+#X obj 52 381 gdelay~;
+#X obj 51 296 removenoise 0.9;

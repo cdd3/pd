@@ -1,0 +1,1 @@
+call as start-up binary: ambilib~

@@ -1,0 +1,28 @@
+#N canvas 20 249 551 484 10;
+#X obj 18 130 ambi2s~;
+#X text 145 72 Input 1 = W \, Input 2 = X \, Input 3 = Y \, Input 4
+= Z.;
+#X text 144 85 Output 1 = L.;
+#X text 144 99 Output 2 = R.;
+#X text 144 115 Output 3 = C.;
+#X text 144 129 Output 4 = LFE.;
+#X text 144 157 Output 6 = SR.;
+#X text 144 172 Output 7 = SC.;
+#X text 144 143 Output 5 = SL.;
+#X text 143 190 Parameters;
+#X text 142 322 All parameters are scaled between 0.0-1.0;
+#X text 143 212 Parameters can be altered using the a2sctrl abstraction
+or by passing messages directly into the ambi2s~ objects 1st input.
+Parameters are:;
+#X text 142 252 Front Angle = aFront \, Rear Angle = aRear \, Pattern
+Front = patFront \, Pattern Rear = patRear \, Gain Left = gainL \,
+GainR = gainR \, Gain Center = gainC \, Gain LFE = gainLFE \, Gain
+Surround Left = gainSL \, Gain Surround Right = gainSR \, Gain Surround
+Center = gainSC.;
+#X obj 18 91 a2sctrl;
+#X text 16 7 Ambi2s~ Ambisonic B-Format to 6.1 utility based on the
+Bf2sgui VST plugin by Padraig Kitterick based on Dave Malham's Bmic
+VST plugin. Ported to pd by Matthew Paradis;
+#X text 140 336 For more informataion see: http://www.york.ac.uk/inst/mustech/3d_audio/vst/bf2s_gui_help/bf2sgui_help/bf2sgui_help_file.htm
+;
+#X connect 13 0 0 0;

@@ -1,0 +1,20 @@
+
+#This script will run on boot, this USB will be mounted at /mnt/sda1
+
+amixer cset numid=1 121
+amixer cset numid=14 on
+amixer cset numid=3 23
+amixer cset numid=4 on,on
+
+sleep=1
+
+
+#sudo /home/tc/pd-0.46-7/bin/pd -nogui -audiobuf 50 -blocksize 64 -r 48000 -path /mnt/sda1/pd-externals/ -lib /mnt/sda1/pd-externals/*/*-meta.pd /mnt/sda1/startup.pd &
+
+sudo /home/tc/pd-0.46-7/bin/pd -nogui -audiobuf 50 -rt -r 48000 -path /mnt/sda1/pd-externals/ /mnt/sda1/startup/startup.pd & 
+
+
+# sudo /home/tc/pd-0.46-7/bin/pd -nogui -stderr 2>&1 | while true; do pdsend 9999 
+localhost udp; done &
+
+

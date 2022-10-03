@@ -1,0 +1,1933 @@
+#N canvas 369 419 849 289 10;
+#X declare -path dsp/rj/;
+#X declare -path dsp/rj/;
+#X declare -path dsp/rj/;
+#X declare -path dsp/rj/;
+#X declare -path dsp/rj/;
+#X declare -path dsp/rj/;
+#N canvas 638 64 1280 737 s1 0;
+#X obj 371 -109 r ad.1;
+#X obj 348 -135 r az.1;
+#X obj 68 -109 adc~ 1;
+#X obj 138 -111 r 2_amp;
+#X obj 91 -152 r 1_th;
+#X obj 114 -130 r 1_xt;
+#X obj 161 -154 r 1_d.ms;
+#X obj 184 -126 r 1_icr;
+#X obj 208 -109 r 1_g.ms;
+#X obj 254 -107 r 1_p.ms;
+#X obj 278 -150 r 1_f.ms;
+#X obj 301 -127 r 1_f.f;
+#X obj 324 -108 r 1_f.r;
+#X obj 95 170 rg.contour;
+#X obj 109 94 r 1_pc;
+#X obj 152 94 r 1_ic;
+#X obj 66 94 r 1_cs;
+#X obj 237 124 r 1_cc;
+#X obj 152 187 s 1_ccv;
+#X text 94 234 ins: on/off pc ic contour choice (pc/ic/rand);
+#X text 94 248 outs: interpolated contour current contour value (for
+tables);
+#X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0;
+#X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12 0 9
+-1 -262144 0;
+#X obj 95 215 s 1_icr;
+#X obj 462 -102 r 1_euc;
+#X obj 352 -50 r s1.v;
+#X obj 88 -63 s 1_i;
+#X obj 108 -41 s 1_pc;
+#X obj 68 -18 s 1_mp;
+#X obj 129 -62 s 1_ic;
+#X obj 149 -15 s 1_amp;
+#X obj 170 -36 s 1_b;
+#X obj 190 -60 s 1_thb;
+#X obj 459 -68 s dist.1;
+#X obj 406 -68 s azi.1;
+#X obj 612 -68 env~;
+#X obj 612 -49 - 100;
+#X obj 612 -29 s string1.vu;
+#X obj 522 -68 env~;
+#X obj 522 -49 - 100;
+#X obj 568 -68 env~;
+#X obj 568 -49 - 100;
+#X obj 522 -28 s vu.l;
+#X obj 568 -29 s vu.r;
+#X obj 250 -4 dac~ 1 2 3 4 5 6 7 8;
+#X obj 231 -165 r 1_t.c;
+#X obj 472 147 s 1_sit;
+#X obj 472 103 r 1_i;
+#X obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -262144
+0;
+#X obj 472 125 rg.note.offset;
+#X obj 151 128 r mt.1;
+#X obj 68 -85 chain_1 - - - - - - - - - - - - - - - - - - - - - - -
+-;
+#X obj 253 -33 volume - - - -;
+#X connect 0 0 51 13;
+#X connect 1 0 51 12;
+#X connect 2 0 51 0;
+#X connect 3 0 51 3;
+#X connect 4 0 51 1;
+#X connect 5 0 51 2;
+#X connect 6 0 51 4;
+#X connect 7 0 51 5;
+#X connect 8 0 51 6;
+#X connect 9 0 51 8;
+#X connect 10 0 51 9;
+#X connect 11 0 51 10;
+#X connect 12 0 51 11;
+#X connect 13 0 23 0;
+#X connect 13 1 18 0;
+#X connect 14 0 13 1;
+#X connect 15 0 13 2;
+#X connect 16 0 13 0;
+#X connect 17 0 13 4;
+#X connect 24 0 51 14;
+#X connect 25 0 52 8;
+#X connect 35 0 36 0;
+#X connect 36 0 37 0;
+#X connect 38 0 39 0;
+#X connect 39 0 42 0;
+#X connect 40 0 41 0;
+#X connect 41 0 43 0;
+#X connect 45 0 51 7;
+#X connect 47 0 49 0;
+#X connect 49 0 46 0;
+#X connect 50 0 13 3;
+#X connect 51 0 28 0;
+#X connect 51 1 26 0;
+#X connect 51 2 27 0;
+#X connect 51 3 29 0;
+#X connect 51 4 30 0;
+#X connect 51 5 31 0;
+#X connect 51 6 32 0;
+#X connect 51 7 38 0;
+#X connect 51 7 35 0;
+#X connect 51 7 52 0;
+#X connect 51 8 40 0;
+#X connect 51 8 35 0;
+#X connect 51 8 52 1;
+#X connect 51 9 52 2;
+#X connect 51 10 52 3;
+#X connect 51 11 52 4;
+#X connect 51 12 52 5;
+#X connect 51 13 52 6;
+#X connect 51 14 52 7;
+#X connect 51 15 34 0;
+#X connect 51 16 33 0;
+#X connect 52 0 44 0;
+#X connect 52 1 44 1;
+#X connect 52 2 44 2;
+#X connect 52 3 44 3;
+#X connect 52 4 44 4;
+#X connect 52 5 44 5;
+#X connect 52 6 44 6;
+#X connect 52 7 44 7;
+#X restore 45 37 pd s1;
+#N canvas 0 22 450 300 gw 0;
+#X obj 25 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 70 123 t f f;
+#X obj 52 181 - 1;
+#X floatatom 241 185 5 0 0 0 - - -;
+#X obj 52 205 expr exp(-1*(pow(($f2*$f1) \, 2)));
+#X obj 25 97 Uzi 1024;
+#X obj 52 160 / 512;
+#X obj 241 145 loadbang;
+#X msg 241 166 3;
+#X obj 214 35 r gwv;
+#X obj 214 56 t b f;
+#X obj 52 229 tabwrite gw;
+#X connect 0 0 5 0;
+#X connect 1 0 6 0;
+#X connect 1 1 11 1;
+#X connect 2 0 4 0;
+#X connect 3 0 4 1;
+#X connect 4 0 11 0;
+#X connect 5 2 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 8 0;
+#X connect 7 0 0 0;
+#X connect 8 0 3 0;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
+#X connect 10 1 3 0;
+#X restore 176 205 pd gw;
+#X text 175 185 For use with mygrain~;
+#N canvas 0 59 1280 737 s2 0;
+#X obj 371 -109 r ad.2;
+#X obj 348 -135 r az.2;
+#X obj 68 -109 adc~ 2;
+#X obj 138 -111 r 3_amp;
+#X obj 91 -152 r 2_th;
+#X obj 114 -130 r 2_xt;
+#X obj 161 -154 r 2_d.ms;
+#X obj 184 -126 r 2_icr;
+#X obj 208 -109 r 2_g.ms;
+#X obj 254 -107 r 2_p.ms;
+#X obj 278 -150 r 2_f.ms;
+#X obj 301 -127 r 2_f.f;
+#X obj 324 -108 r 2_f.r;
+#X obj 109 94 r 2_pc;
+#X obj 152 94 r 2_ic;
+#X obj 66 94 r 2_cs;
+#X obj 237 124 r 2_cc;
+#X obj 152 187 s 2_ccv;
+#X text 94 234 ins: on/off pc ic contour choice (pc/ic/rand);
+#X text 94 248 outs: interpolated contour current contour value (for
+tables);
+#X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0;
+#X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12 0 9
+-1 -262144 0;
+#X obj 95 215 s 2_icr;
+#X obj 462 -102 r 2_euc;
+#X obj 352 -56 r s2.v;
+#X obj 88 -63 s 2_i;
+#X obj 108 -41 s 2_pc;
+#X obj 68 -18 s 2_mp;
+#X obj 129 -62 s 2_ic;
+#X obj 149 -15 s 2_amp;
+#X obj 170 -36 s 2_b;
+#X obj 190 -60 s 2_thb;
+#X obj 459 -68 s dist.2;
+#X obj 406 -68 s azi.2;
+#X obj 612 -68 env~;
+#X obj 612 -49 - 100;
+#X obj 612 -29 s string2.vu;
+#X obj 522 -68 env~;
+#X obj 522 -49 - 100;
+#X obj 568 -68 env~;
+#X obj 568 -49 - 100;
+#X obj 522 -28 s vu.l;
+#X obj 568 -29 s vu.r;
+#X obj 250 -4 dac~ 1 2 3 4 5 6 7 8;
+#X obj 231 -165 r 2_t.c;
+#X obj 472 147 s 2_sit;
+#X obj 472 103 r 2_i;
+#X obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -262144
+0;
+#X obj 472 125 rg.note.offset;
+#X obj 151 128 r mt.2;
+#X obj 68 -85 chain_2 - - - - - - - - - - - - - - - - - - - - - - -
+-;
+#X obj 95 170 rg.contour;
+#X obj 253 -33 volume - - - -;
+#X connect 0 0 50 13;
+#X connect 1 0 50 12;
+#X connect 2 0 50 0;
+#X connect 3 0 50 3;
+#X connect 4 0 50 1;
+#X connect 5 0 50 2;
+#X connect 6 0 50 4;
+#X connect 7 0 50 5;
+#X connect 8 0 50 6;
+#X connect 9 0 50 8;
+#X connect 10 0 50 9;
+#X connect 11 0 50 10;
+#X connect 12 0 50 11;
+#X connect 13 0 51 1;
+#X connect 14 0 51 2;
+#X connect 15 0 51 0;
+#X connect 16 0 51 4;
+#X connect 23 0 50 14;
+#X connect 24 0 52 8;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 37 0 38 0;
+#X connect 38 0 41 0;
+#X connect 39 0 40 0;
+#X connect 40 0 42 0;
+#X connect 44 0 50 7;
+#X connect 46 0 48 0;
+#X connect 48 0 45 0;
+#X connect 49 0 51 3;
+#X connect 50 0 27 0;
+#X connect 50 1 25 0;
+#X connect 50 2 26 0;
+#X connect 50 3 28 0;
+#X connect 50 4 29 0;
+#X connect 50 5 30 0;
+#X connect 50 6 31 0;
+#X connect 50 7 37 0;
+#X connect 50 7 34 0;
+#X connect 50 7 52 0;
+#X connect 50 8 39 0;
+#X connect 50 8 34 0;
+#X connect 50 8 52 1;
+#X connect 50 9 52 2;
+#X connect 50 10 52 3;
+#X connect 50 11 52 4;
+#X connect 50 12 52 5;
+#X connect 50 13 52 6;
+#X connect 50 14 52 7;
+#X connect 50 15 33 0;
+#X connect 50 16 32 0;
+#X connect 51 0 22 0;
+#X connect 51 1 17 0;
+#X connect 52 0 43 0;
+#X connect 52 1 43 1;
+#X connect 52 2 43 2;
+#X connect 52 3 43 3;
+#X connect 52 4 43 4;
+#X connect 52 5 43 5;
+#X connect 52 6 43 6;
+#X connect 52 7 43 7;
+#X restore 174 39 pd s2;
+#N canvas 0 63 1280 737 s3 0;
+#X obj 371 -109 r ad.3;
+#X obj 348 -135 r az.3;
+#X obj 68 -109 adc~ 3;
+#X obj 138 -111 r 4_amp;
+#X obj 91 -152 r 3_th;
+#X obj 114 -130 r 3_xt;
+#X obj 161 -154 r 3_d.ms;
+#X obj 184 -126 r 3_icr;
+#X obj 208 -109 r 3_g.ms;
+#X obj 254 -107 r 3_p.ms;
+#X obj 278 -150 r 3_f.ms;
+#X obj 301 -127 r 3_f.f;
+#X obj 324 -108 r 3_f.r;
+#X obj 109 94 r 3_pc;
+#X obj 152 94 r 3_ic;
+#X obj 66 94 r 3_cs;
+#X obj 237 124 r 3_cc;
+#X obj 152 187 s 3_ccv;
+#X text 94 234 ins: on/off pc ic contour choice (pc/ic/rand);
+#X text 94 248 outs: interpolated contour current contour value (for
+tables);
+#X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0;
+#X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12 0 9
+-1 -262144 0;
+#X obj 95 215 s 3_icr;
+#X obj 462 -102 r 3_euc;
+#X obj 352 -56 r s3.v;
+#X obj 88 -63 s 3_i;
+#X obj 108 -41 s 3_pc;
+#X obj 68 -18 s 3_mp;
+#X obj 129 -62 s 3_ic;
+#X obj 149 -15 s 3_amp;
+#X obj 170 -36 s 3_b;
+#X obj 190 -60 s 3_thb;
+#X obj 459 -68 s dist.3;
+#X obj 406 -68 s azi.3;
+#X obj 612 -68 env~;
+#X obj 612 -49 - 100;
+#X obj 612 -29 s string3.vu;
+#X obj 522 -68 env~;
+#X obj 522 -49 - 100;
+#X obj 568 -68 env~;
+#X obj 568 -49 - 100;
+#X obj 522 -28 s vu.l;
+#X obj 568 -29 s vu.r;
+#X obj 250 -4 dac~ 1 2 3 4 5 6 7 8;
+#X obj 231 -165 r 3_t.c;
+#X obj 472 147 s 3_sit;
+#X obj 472 103 r 3_i;
+#X obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -262144
+0;
+#X obj 472 125 rg.note.offset;
+#X obj 151 128 r mt.3;
+#X obj 68 -85 chain_3 - - - - - - - - - - - - - - - - - - - - - - -
+-;
+#X obj 95 170 rg.contour;
+#X obj 253 -33 volume - - - -;
+#X connect 0 0 50 13;
+#X connect 1 0 50 12;
+#X connect 2 0 50 0;
+#X connect 3 0 50 3;
+#X connect 4 0 50 1;
+#X connect 5 0 50 2;
+#X connect 6 0 50 4;
+#X connect 7 0 50 5;
+#X connect 8 0 50 6;
+#X connect 9 0 50 8;
+#X connect 10 0 50 9;
+#X connect 11 0 50 10;
+#X connect 12 0 50 11;
+#X connect 13 0 51 1;
+#X connect 14 0 51 2;
+#X connect 15 0 51 0;
+#X connect 16 0 51 4;
+#X connect 23 0 50 14;
+#X connect 24 0 52 8;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 37 0 38 0;
+#X connect 38 0 41 0;
+#X connect 39 0 40 0;
+#X connect 40 0 42 0;
+#X connect 44 0 50 7;
+#X connect 46 0 48 0;
+#X connect 48 0 45 0;
+#X connect 49 0 51 3;
+#X connect 50 0 27 0;
+#X connect 50 1 25 0;
+#X connect 50 2 26 0;
+#X connect 50 3 28 0;
+#X connect 50 4 29 0;
+#X connect 50 5 30 0;
+#X connect 50 6 31 0;
+#X connect 50 7 37 0;
+#X connect 50 7 34 0;
+#X connect 50 7 52 0;
+#X connect 50 8 39 0;
+#X connect 50 8 34 0;
+#X connect 50 8 52 1;
+#X connect 50 9 52 2;
+#X connect 50 10 52 3;
+#X connect 50 11 52 4;
+#X connect 50 12 52 5;
+#X connect 50 13 52 6;
+#X connect 50 14 52 7;
+#X connect 50 15 33 0;
+#X connect 50 16 32 0;
+#X connect 51 0 22 0;
+#X connect 51 1 17 0;
+#X connect 52 0 43 0;
+#X connect 52 1 43 1;
+#X connect 52 2 43 2;
+#X connect 52 3 43 3;
+#X connect 52 4 43 4;
+#X connect 52 5 43 5;
+#X connect 52 6 43 6;
+#X connect 52 7 43 7;
+#X restore 313 37 pd s3;
+#N canvas 0 63 1280 737 s4 0;
+#X obj 371 -109 r ad.4;
+#X obj 348 -135 r az.4;
+#X obj 68 -109 adc~ 4;
+#X obj 138 -111 r 5_amp;
+#X obj 91 -152 r 4_th;
+#X obj 114 -130 r 4_xt;
+#X obj 161 -154 r 4_d.ms;
+#X obj 208 -109 r 4_g.ms;
+#X obj 254 -107 r 4_p.ms;
+#X obj 278 -150 r 4_f.ms;
+#X obj 301 -127 r 4_f.f;
+#X obj 324 -108 r 4_f.r;
+#X obj 109 94 r 4_pc;
+#X obj 152 94 r 4_ic;
+#X obj 66 94 r 4_cs;
+#X obj 237 124 r 4_cc;
+#X obj 152 187 s 4_ccv;
+#X text 94 234 ins: on/off pc ic contour choice (pc/ic/rand);
+#X text 94 248 outs: interpolated contour current contour value (for
+tables);
+#X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0;
+#X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12 0 9
+-1 -262144 0;
+#X obj 95 215 s 4_icr;
+#X obj 462 -102 r 4_euc;
+#X obj 352 -56 r s4.v;
+#X obj 88 -63 s 4_i;
+#X obj 108 -41 s 4_pc;
+#X obj 68 -18 s 4_mp;
+#X obj 129 -62 s 4_ic;
+#X obj 149 -15 s 4_amp;
+#X obj 170 -36 s 4_b;
+#X obj 190 -60 s 4_thb;
+#X obj 459 -68 s dist.4;
+#X obj 406 -68 s azi.4;
+#X obj 612 -68 env~;
+#X obj 612 -49 - 100;
+#X obj 612 -29 s string4.vu;
+#X obj 522 -68 env~;
+#X obj 522 -49 - 100;
+#X obj 568 -68 env~;
+#X obj 568 -49 - 100;
+#X obj 522 -28 s vu.l;
+#X obj 568 -29 s vu.r;
+#X obj 250 -4 dac~ 1 2 3 4 5 6 7 8;
+#X obj 472 147 s 4_sit;
+#X obj 472 103 r 4_i;
+#X obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -262144
+0;
+#X obj 472 125 rg.note.offset;
+#X obj 151 128 r mt.4;
+#X obj 231 -165 r 4_t.c;
+#X obj 184 -126 r 4_icr;
+#X obj 68 -85 chain_2 - - - - - - - - - - - - - - - - - - - - - - -
+-;
+#X obj 95 170 rg.contour;
+#X obj 253 -33 volume - - - -;
+#X connect 0 0 50 13;
+#X connect 1 0 50 12;
+#X connect 2 0 50 0;
+#X connect 3 0 50 3;
+#X connect 4 0 50 1;
+#X connect 5 0 50 2;
+#X connect 6 0 50 4;
+#X connect 7 0 50 6;
+#X connect 8 0 50 8;
+#X connect 9 0 50 9;
+#X connect 10 0 50 10;
+#X connect 11 0 50 11;
+#X connect 12 0 51 1;
+#X connect 13 0 51 2;
+#X connect 14 0 51 0;
+#X connect 15 0 51 4;
+#X connect 22 0 50 14;
+#X connect 23 0 52 8;
+#X connect 33 0 34 0;
+#X connect 34 0 35 0;
+#X connect 36 0 37 0;
+#X connect 37 0 40 0;
+#X connect 38 0 39 0;
+#X connect 39 0 41 0;
+#X connect 44 0 46 0;
+#X connect 46 0 43 0;
+#X connect 47 0 51 3;
+#X connect 48 0 50 7;
+#X connect 49 0 50 5;
+#X connect 50 0 26 0;
+#X connect 50 1 24 0;
+#X connect 50 2 25 0;
+#X connect 50 3 27 0;
+#X connect 50 4 28 0;
+#X connect 50 5 29 0;
+#X connect 50 6 30 0;
+#X connect 50 7 36 0;
+#X connect 50 7 33 0;
+#X connect 50 7 52 0;
+#X connect 50 8 38 0;
+#X connect 50 8 33 0;
+#X connect 50 8 52 1;
+#X connect 50 9 52 2;
+#X connect 50 10 52 3;
+#X connect 50 11 52 4;
+#X connect 50 12 52 5;
+#X connect 50 13 52 6;
+#X connect 50 14 52 7;
+#X connect 50 15 32 0;
+#X connect 50 16 31 0;
+#X connect 51 0 21 0;
+#X connect 51 1 16 0;
+#X connect 52 0 42 0;
+#X connect 52 1 42 1;
+#X connect 52 2 42 2;
+#X connect 52 3 42 3;
+#X connect 52 4 42 4;
+#X connect 52 5 42 5;
+#X connect 52 6 42 6;
+#X connect 52 7 42 7;
+#X restore 446 37 pd s4;
+#N canvas 0 63 1280 737 s5 0;
+#X obj 371 -109 r ad.5;
+#X obj 348 -135 r az.5;
+#X obj 68 -109 adc~ 5;
+#X obj 138 -111 r 6_amp;
+#X obj 91 -152 r 5_th;
+#X obj 114 -130 r 5_xt;
+#X obj 161 -154 r 5_d.ms;
+#X obj 184 -126 r 5_icr;
+#X obj 208 -109 r 5_g.ms;
+#X obj 254 -107 r 5_p.ms;
+#X obj 278 -150 r 5_f.ms;
+#X obj 301 -127 r 5_f.f;
+#X obj 324 -108 r 5_f.r;
+#X obj 109 94 r 5_pc;
+#X obj 152 94 r 5_ic;
+#X obj 66 94 r 5_cs;
+#X obj 237 124 r 5_cc;
+#X obj 152 187 s 5_ccv;
+#X text 94 234 ins: on/off pc ic contour choice (pc/ic/rand);
+#X text 94 248 outs: interpolated contour current contour value (for
+tables);
+#X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0;
+#X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12 0 9
+-1 -262144 0;
+#X obj 95 215 s 5_icr;
+#X obj 462 -102 r 5_euc;
+#X obj 352 -56 r s5.v;
+#X obj 88 -63 s 5_i;
+#X obj 108 -41 s 5_pc;
+#X obj 68 -18 s 5_mp;
+#X obj 129 -62 s 5_ic;
+#X obj 149 -15 s 5_amp;
+#X obj 170 -36 s 5_b;
+#X obj 190 -60 s 5_thb;
+#X obj 459 -68 s dist.5;
+#X obj 406 -68 s azi.5;
+#X obj 612 -68 env~;
+#X obj 612 -49 - 100;
+#X obj 612 -29 s string5.vu;
+#X obj 522 -68 env~;
+#X obj 522 -49 - 100;
+#X obj 568 -68 env~;
+#X obj 568 -49 - 100;
+#X obj 522 -28 s vu.l;
+#X obj 568 -29 s vu.r;
+#X obj 250 -4 dac~ 1 2 3 4 5 6 7 8;
+#X obj 231 -165 r 5_t.c;
+#X obj 472 147 s 5_sit;
+#X obj 472 103 r 5_i;
+#X obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -262144
+0;
+#X obj 472 125 rg.note.offset;
+#X obj 151 128 r mt.5;
+#X obj 68 -85 chain_2 - - - - - - - - - - - - - - - - - - - - - - -
+-;
+#X obj 95 170 rg.contour;
+#X obj 253 -33 volume - - - -;
+#X connect 0 0 50 13;
+#X connect 1 0 50 12;
+#X connect 2 0 50 0;
+#X connect 3 0 50 3;
+#X connect 4 0 50 1;
+#X connect 5 0 50 2;
+#X connect 6 0 50 4;
+#X connect 7 0 50 5;
+#X connect 8 0 50 6;
+#X connect 9 0 50 8;
+#X connect 10 0 50 9;
+#X connect 11 0 50 10;
+#X connect 12 0 50 11;
+#X connect 13 0 51 1;
+#X connect 14 0 51 2;
+#X connect 15 0 51 0;
+#X connect 16 0 51 4;
+#X connect 23 0 50 14;
+#X connect 24 0 52 8;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 37 0 38 0;
+#X connect 38 0 41 0;
+#X connect 39 0 40 0;
+#X connect 40 0 42 0;
+#X connect 44 0 50 7;
+#X connect 46 0 48 0;
+#X connect 48 0 45 0;
+#X connect 49 0 51 3;
+#X connect 50 0 27 0;
+#X connect 50 1 25 0;
+#X connect 50 2 26 0;
+#X connect 50 3 28 0;
+#X connect 50 4 29 0;
+#X connect 50 5 30 0;
+#X connect 50 6 31 0;
+#X connect 50 7 37 0;
+#X connect 50 7 34 0;
+#X connect 50 7 52 0;
+#X connect 50 8 39 0;
+#X connect 50 8 34 0;
+#X connect 50 8 52 1;
+#X connect 50 9 52 2;
+#X connect 50 10 52 3;
+#X connect 50 11 52 4;
+#X connect 50 12 52 5;
+#X connect 50 13 52 6;
+#X connect 50 14 52 7;
+#X connect 50 15 33 0;
+#X connect 50 16 32 0;
+#X connect 51 0 22 0;
+#X connect 51 1 17 0;
+#X connect 52 0 43 0;
+#X connect 52 1 43 1;
+#X connect 52 2 43 2;
+#X connect 52 3 43 3;
+#X connect 52 4 43 4;
+#X connect 52 5 43 5;
+#X connect 52 6 43 6;
+#X connect 52 7 43 7;
+#X restore 579 37 pd s5;
+#N canvas 0 63 1280 737 s6 0;
+#X obj 371 -109 r ad.6;
+#X obj 348 -135 r az.6;
+#X obj 68 -109 adc~ 6;
+#X obj 138 -111 r 1_amp;
+#X obj 91 -152 r 6_th;
+#X obj 114 -130 r 6_xt;
+#X obj 161 -154 r 6_d.ms;
+#X obj 184 -126 r 6_icr;
+#X obj 208 -109 r 6_g.ms;
+#X obj 254 -107 r 6_p.ms;
+#X obj 278 -150 r 6_f.ms;
+#X obj 301 -127 r 6_f.f;
+#X obj 324 -108 r 6_f.r;
+#X obj 109 94 r 6_pc;
+#X obj 152 94 r 6_ic;
+#X obj 66 94 r 6_cs;
+#X obj 237 124 r 6_cc;
+#X obj 152 187 s 6_ccv;
+#X text 94 234 ins: on/off pc ic contour choice (pc/ic/rand);
+#X text 94 248 outs: interpolated contour current contour value (for
+tables);
+#X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0;
+#X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12 0 9
+-1 -262144 0;
+#X obj 95 215 s 6_icr;
+#X obj 462 -102 r 6_euc;
+#X obj 352 -56 r s6.v;
+#X obj 88 -63 s 6_i;
+#X obj 108 -41 s 6_pc;
+#X obj 68 -18 s 6_mp;
+#X obj 129 -62 s 6_ic;
+#X obj 149 -15 s 6_amp;
+#X obj 170 -36 s 6_b;
+#X obj 190 -60 s 6_thb;
+#X obj 459 -68 s dist.6;
+#X obj 406 -68 s azi.6;
+#X obj 612 -68 env~;
+#X obj 612 -49 - 100;
+#X obj 612 -29 s string6.vu;
+#X obj 522 -68 env~;
+#X obj 522 -49 - 100;
+#X obj 568 -68 env~;
+#X obj 568 -49 - 100;
+#X obj 522 -28 s vu.l;
+#X obj 568 -29 s vu.r;
+#X obj 250 -4 dac~ 1 2 3 4 5 6 7 8;
+#X obj 231 -165 r 6_t.c;
+#X obj 472 147 s 6_sit;
+#X obj 472 103 r 6_i;
+#X obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -262144
+0;
+#X obj 472 125 rg.note.offset;
+#X obj 151 128 r mt.6;
+#X obj 95 170 rg.contour;
+#X obj 68 -85 chain_3 - - - - - - - - - - - - - - - - - - - - - - -
+-;
+#X obj 253 -33 volume - - - -;
+#X connect 0 0 51 13;
+#X connect 1 0 51 12;
+#X connect 2 0 51 0;
+#X connect 3 0 51 3;
+#X connect 4 0 51 1;
+#X connect 5 0 51 2;
+#X connect 6 0 51 4;
+#X connect 7 0 51 5;
+#X connect 8 0 51 6;
+#X connect 9 0 51 8;
+#X connect 10 0 51 9;
+#X connect 11 0 51 10;
+#X connect 12 0 51 11;
+#X connect 13 0 50 1;
+#X connect 14 0 50 2;
+#X connect 15 0 50 0;
+#X connect 16 0 50 4;
+#X connect 23 0 51 14;
+#X connect 24 0 52 8;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 37 0 38 0;
+#X connect 38 0 41 0;
+#X connect 39 0 40 0;
+#X connect 40 0 42 0;
+#X connect 44 0 51 7;
+#X connect 46 0 48 0;
+#X connect 48 0 45 0;
+#X connect 49 0 50 3;
+#X connect 50 0 22 0;
+#X connect 50 1 17 0;
+#X connect 51 0 27 0;
+#X connect 51 1 25 0;
+#X connect 51 2 26 0;
+#X connect 51 3 28 0;
+#X connect 51 4 29 0;
+#X connect 51 5 30 0;
+#X connect 51 6 31 0;
+#X connect 51 7 37 0;
+#X connect 51 7 34 0;
+#X connect 51 7 52 0;
+#X connect 51 8 39 0;
+#X connect 51 8 34 0;
+#X connect 51 8 52 1;
+#X connect 51 9 52 2;
+#X connect 51 10 52 3;
+#X connect 51 11 52 4;
+#X connect 51 12 52 5;
+#X connect 51 13 52 6;
+#X connect 51 14 52 7;
+#X connect 51 15 33 0;
+#X connect 51 16 32 0;
+#X connect 52 0 43 0;
+#X connect 52 1 43 1;
+#X connect 52 2 43 2;
+#X connect 52 3 43 3;
+#X connect 52 4 43 4;
+#X connect 52 5 43 5;
+#X connect 52 6 43 6;
+#X connect 52 7 43 7;
+#X restore 709 38 pd s6;
+#N canvas 0 28 1280 752 dyn.s1 0;
+#X obj -1110 276 list trim;
+#X text -1111 226 Where DSP chain is to be (re)placed;
+#X text -616 226 switch off dsp before chain change;
+#X text -894 247 dsp on;
+#X obj -1110 246 list prepend obj 68 -85;
+#X text -788 98 Chain Select (per string);
+#X msg -784 159 chain_2 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X msg -784 130 chain_1 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X text -1158 325 obj 68 -85 d_chain - - - - - - - - - - - - - - -
+- - - - - - - - -;
+#N canvas 139 50 528 724 code 0;
+#X text 22 14 #N canvas 0 22 450 300 10 \; #X obj 371 -109 r ad.1 \;
+#X obj 348 -135 r az.1 \; #X obj 68 -109 adc~ 1 \; #X obj 138 -111
+r 2_amp \; #X obj 91 -152 r 1_th \; #X obj 114 -130 r 1_xt \; #X obj
+161 -154 r 1_d.ms \; #X obj 184 -126 r 1_d.cf \; #X obj 208 -109 r
+1_g.ms \; #X obj 254 -107 r 1_p.ms \; #X obj 278 -150 r 1_f.ms \; #X
+obj 301 -127 r 1_f.f \; #X obj 324 -108 r 1_f.r \; #X obj 95 170 rg.contour
+\; #X obj 109 94 r 1_pc \; #X obj 152 94 r 1_ic \; #X obj 66 94 r 1_cs
+\; #X obj 237 124 r 1_cc \; #X obj 152 187 s 1_ccv \; #X text 94 234
+ins: on/off \, pc \, ic \, contour choice (pc/ic/rand) \; #X text 94
+248 outs: interpolated contour \, current contour value (for tables)
+\; #X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0 \; #X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12
+0 9 -1 -262144 0 \; #X obj 95 215 s 1_icr \; #X obj 462 -102 r 1_euc
+\; #X obj 352 -56 r s1.v \; #X obj 88 -63 s 1_i \; #X obj 108 -41 s
+1_pc \; #X obj 68 -18 s 1_mp \; #X obj 129 -62 s 1_ic \; #X obj 149
+-15 s 1_amp \; #X obj 170 -36 s 1_b \; #X obj 190 -60 s 1_thb \; #X
+obj 459 -68 s dist.1 \; #X obj 406 -68 s azi.1 \; #X obj 612 -68 env~
+\; #X obj 612 -49 - 100 \; #X obj 612 -29 s string1.vu \; #X obj 522
+-68 env~ \; #X obj 522 -49 - 100 \; #X obj 568 -68 env~ \; #X obj 568
+-49 - 100 \; #X obj 522 -28 s vu.l \; #X obj 568 -29 s vu.r \; #X obj
+250 -4 dac~ 1 2 3 4 5 6 7 8 \; #X obj 231 -165 r 1_t.c \; #X obj 472
+147 s 1_sit \; #X obj 472 103 r 1_i \; #X obj 472 37 cnv 15 200 20
+empty empty note.offset 20 12 0 9 -1 -262144 0 \; #X obj 472 125 rg.note.offset
+\; #X obj 151 128 r mt.1 \; #X obj 68 -85 d_chain - - - - - - - - -
+- - - - - - - - - - - - - - - \; #X obj 253 -33 volume - - - - \; #X
+connect 0 0 51 13 \; #X connect 1 0 51 12 \; #X connect 2 0 51 0 \;
+#X connect 3 0 51 3 \; #X connect 4 0 51 1 \; #X connect 5 0 51 2 \;
+#X connect 6 0 51 4 \; #X connect 7 0 51 5 \; #X connect 8 0 51 6 \;
+#X connect 9 0 51 8 \; #X connect 10 0 51 9 \; #X connect 11 0 51 10
+\; #X connect 12 0 51 11 \; #X connect 13 0 23 0 \; #X connect 13 1
+18 0 \; #X connect 14 0 13 1 \; #X connect 15 0 13 2 \; #X connect
+16 0 13 0 \; #X connect 17 0 13 4 \; #X connect 24 0 51 14 \; #X connect
+25 0 52 8 \; #X connect 35 0 36 0 \; #X connect 36 0 37 0 \; #X connect
+38 0 39 0 \; #X connect 39 0 42 0 \; #X connect 40 0 41 0 \; #X connect
+41 0 43 0 \; #X connect 45 0 51 7 \; #X connect 47 0 49 0 \; #X connect
+49 0 46 0 \; #X connect 50 0 13 3 \; #X connect 51 0 28 0 \; #X connect
+51 1 26 0 \; #X connect 51 2 27 0 \; #X connect 51 3 29 0 \; #X connect
+51 4 30 0 \; #X connect 51 5 31 0 \; #X connect 51 6 32 0 \; #X connect
+51 7 38 0 \; #X connect 51 7 35 0 \; #X connect 51 7 52 0 \; #X connect
+51 8 40 0 \; #X connect 51 8 35 0 \; #X connect 51 8 52 1 \; #X connect
+51 9 52 2 \; #X connect 51 10 52 3 \; #X connect 51 11 52 4 \; #X connect
+51 12 52 5 \; #X connect 51 13 52 6 \; #X connect 51 14 52 7 \; #X
+connect 51 15 34 0 \; #X connect 51 16 33 0 \; #X connect 52 0 44 0
+\; #X connect 52 1 44 1 \; #X connect 52 2 44 2 \; #X connect 52 3
+44 3 \; #X connect 52 4 44 4 \; #X connect 52 5 44 5 \; #X connect
+52 6 44 6 \; #X connect 52 7 44 7 \;;
+#X restore -1108 74 pd code;
+#X text -1111 52 Code Guide (should look like this);
+#X obj -952 293 print check;
+#X text -1046 275 list to msg \, create chain first;
+#X text -1061 520 clear first;
+#X msg -1110 522 clear;
+#X msg -290 246 obj 253 -33 volume - - - - \, connect 0 0 51 13 \,
+connect 1 0 51 12 \, connect 2 0 51 0 \, connect 3 0 51 3 \, connect
+4 0 51 1 \, connect 5 0 51 2 \, connect 6 0 51 4 \, connect 7 0 51
+5 \, connect 8 0 51 6 \, connect 9 0 51 8 \, connect 10 0 51 9 \, connect
+11 0 51 10 \, connect 12 0 51 11 \, connect 13 0 23 0 \, connect 13
+1 18 0 \, connect 14 0 13 1 \, connect 15 0 13 2 \, connect 16 0 13
+0 \, connect 17 0 13 4 \, connect 24 0 51 14 \, connect 25 0 52 8 \,
+connect 35 0 36 0 \, connect 36 0 37 0 \, connect 38 0 39 0 \, connect
+39 0 42 0 \, connect 40 0 41 0 \, connect 41 0 43 0 \, connect 45 0
+51 7 \, connect 47 0 49 0 \, connect 49 0 46 0 \, connect 50 0 13 3
+\, connect 51 0 28 0 \, connect 51 1 26 0 \, connect 51 2 27 0 \, connect
+51 3 29 0 \, connect 51 4 30 0 \, connect 51 5 31 0 \, connect 51 6
+32 0 \, connect 51 7 38 0 \, connect 51 7 35 0 \, connect 51 7 52 0
+\, connect 51 8 40 0 \, connect 51 8 35 0 \, connect 51 8 52 1 \, connect
+51 9 52 2 \, connect 51 10 52 3 \, connect 51 11 52 4 \, connect 51
+12 52 5 \, connect 51 13 52 6 \, connect 51 14 52 7 \, connect 51 15
+34 0 \, connect 51 16 33 0 \, connect 52 0 44 0 \, connect 52 1 44
+1 \, connect 52 2 44 2 \, connect 52 3 44 3 \, connect 52 4 44 4 \,
+connect 52 5 44 5 \, connect 52 6 44 6 \, connect 52 7 44 7;
+#X msg -784 188 chain_3 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X text -1109 31 DYNAMIC CHAIN PATCHING (STRING 1);
+#X obj -1110 666 outlet;
+#X obj -784 34 inlet;
+#X text -945 440 put objects \, then dsp chain;
+#X text -292 213 Connections last;
+#X obj -784 67 sel 0 1 2;
+#X msg -850 246 \; pd dsp 1;
+#X msg -673 246 \; pd dsp 0;
+#X obj -784 229 t b b a b b b b;
+#X obj -347 266 s s1.v;
+#X msg -347 246 0;
+#X msg -741 273 obj 371 -109 r ad.1 \, obj 348 -135 r az.1 \, obj 68
+-109 adc~ 1 \, obj 138 -111 r 2_amp \, obj 91 -152 r 1_th \, obj 114
+-130 r 1_xt \, obj 161 -154 r 1_d.ms \, obj 184 -126 r 1_icr \, obj
+208 -109 r 1_g.ms \, obj 254 -107 r 1_p.ms \, obj 278 -150 r 1_f.ms
+\, obj 301 -127 r 1_f.f \, obj 324 -108 r 1_f.r \, obj 95 170 rg.contour
+\, obj 109 94 r 1_pc \, obj 152 94 r 1_ic \, obj 66 94 r 1_cs \, obj
+237 124 r 1_cc \, obj 152 187 s 1_ccv \, text 94 234 ins: on/off pc
+ic contour choice (pc/ic/rand) \, text 94 248 outs: interpolated contour
+current contour value (for tables) \, obj 67 39 cnv 15 200 20 empty
+empty contour 20 12 0 9 -1 -262144 0 \, obj 68 -200 cnv 15 200 20 empty
+empty signal.processes 20 12 0 9 -1 -262144 0 \, obj 95 215 s 1_icr
+\, obj 462 -102 r 1_euc \, obj 352 -56 r s1.v \, obj 88 -63 s 1_i \,
+obj 108 -41 s 1_pc \, obj 68 -18 s 1_mp \, obj 129 -62 s 1_ic \, obj
+149 -15 s 1_amp \, obj 170 -36 s 1_b \, obj 190 -60 s 1_thb \, obj
+459 -68 s dist.1 \, obj 406 -68 s azi.1 \, obj 612 -68 env~ \, obj
+612 -49 - 100 \, obj 612 -29 s string1.vu \, obj 522 -68 env~ \, obj
+522 -49 - 100 \, obj 568 -68 env~ \, obj 568 -49 - 100 \, obj 522 -28
+s vu.l \, obj 568 -29 s vu.r \, obj 250 -4 dac~ 1 2 3 4 5 6 7 8 \,
+obj 231 -165 r 1_t.c \, obj 472 147 s 1_sit \, obj 472 103 r 1_i \,
+obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -2.62144e+06
+\, obj 472 125 rg.note.offset \, obj 151 128 r mt.1 \,;
+#X connect 0 0 11 0;
+#X connect 0 0 18 0;
+#X connect 4 0 0 0;
+#X connect 6 0 25 0;
+#X connect 7 0 25 0;
+#X connect 14 0 18 0;
+#X connect 15 0 18 0;
+#X connect 16 0 25 0;
+#X connect 19 0 22 0;
+#X connect 22 0 7 0;
+#X connect 22 1 6 0;
+#X connect 22 2 16 0;
+#X connect 25 0 23 0;
+#X connect 25 1 15 0;
+#X connect 25 2 4 0;
+#X connect 25 3 28 0;
+#X connect 25 4 14 0;
+#X connect 25 5 24 0;
+#X connect 25 6 27 0;
+#X connect 27 0 26 0;
+#X connect 28 0 18 0;
+#X restore 45 103 pd dyn.s1;
+#X obj 45 125 s pd-s1;
+#X obj 45 67 r s1.scene;
+#X text 42 84 (dsp chains 1 - 3);
+#X obj 23 -6 cnv 15 800 30 empty empty string_audio_connections 20
+12 0 9 -1 -262144 0;
+#X text 45 185 String 7;
+#X text 171 83 (dsp chains 1 - 3);
+#X text 308 82 (dsp chains 1 - 3);
+#X text 442 82 (dsp chains 1 - 3);
+#X text 577 80 (dsp chains 1 - 3);
+#X text 706 79 (dsp chains 1 - 3);
+#X obj 174 66 r s2.scene;
+#X obj 311 65 r s3.scene;
+#X obj 445 65 r s4.scene;
+#X obj 580 63 r s5.scene;
+#X obj 709 62 r s6.scene;
+#X obj 174 124 s pd-s2;
+#X obj 311 123 s pd-s3;
+#X obj 445 123 s pd-s4;
+#X obj 580 121 s pd-s5;
+#X obj 709 120 s pd-s6;
+#X obj 27 241 cnv 15 800 40 empty empty empty 20 12 0 9 -1 -262144
+0;
+#X obj 47 267 hradio 10 1 0 3 s1.scene empty chain_scene_sel_s1 0 -8
+0 9 -191407 -258113 -262144 0;
+#X obj 173 266 hradio 10 1 0 3 s2.scene empty chain_scene_sel_s2 0
+-8 0 9 -191407 -258113 -262144 0;
+#X obj 312 265 hradio 10 1 0 3 s3.scene empty chain_scene_sel_s3 0
+-8 0 9 -191407 -258113 -262144 0;
+#X obj 440 266 hradio 10 1 0 3 s4.scene empty chain_scene_sel_s4 0
+-8 0 9 -191407 -258113 -262144 0;
+#X obj 579 266 hradio 10 1 0 3 s5.scene empty chain_scene_sel_s5 0
+-8 0 9 -191407 -258113 -262144 0;
+#X obj 708 264 hradio 10 1 0 3 s6.scene empty chain_scene_sel_s6 0
+-8 0 9 -191407 -258113 -262144 0;
+#X obj 103 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 0 48 1280 752 dyn.s2 0;
+#X obj -1110 276 list trim;
+#X text -1111 226 Where DSP chain is to be (re)placed;
+#X text -644 226 switch off dsp before chain change;
+#X text -894 247 dsp on;
+#X obj -1110 246 list prepend obj 68 -85;
+#X text -788 98 Chain Select (per string);
+#X msg -784 159 chain_2 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X msg -784 130 chain_1 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X text -1158 325 obj 68 -85 d_chain - - - - - - - - - - - - - - -
+- - - - - - - - -;
+#N canvas 139 50 528 724 code 0;
+#X text 22 14 #N canvas 0 22 450 300 10 \; #X obj 371 -109 r ad.1 \;
+#X obj 348 -135 r az.1 \; #X obj 68 -109 adc~ 1 \; #X obj 138 -111
+r 2_amp \; #X obj 91 -152 r 1_th \; #X obj 114 -130 r 1_xt \; #X obj
+161 -154 r 1_d.ms \; #X obj 184 -126 r 1_d.cf \; #X obj 208 -109 r
+1_g.ms \; #X obj 254 -107 r 1_p.ms \; #X obj 278 -150 r 1_f.ms \; #X
+obj 301 -127 r 1_f.f \; #X obj 324 -108 r 1_f.r \; #X obj 95 170 rg.contour
+\; #X obj 109 94 r 1_pc \; #X obj 152 94 r 1_ic \; #X obj 66 94 r 1_cs
+\; #X obj 237 124 r 1_cc \; #X obj 152 187 s 1_ccv \; #X text 94 234
+ins: on/off \, pc \, ic \, contour choice (pc/ic/rand) \; #X text 94
+248 outs: interpolated contour \, current contour value (for tables)
+\; #X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0 \; #X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12
+0 9 -1 -262144 0 \; #X obj 95 215 s 1_icr \; #X obj 462 -102 r 1_euc
+\; #X obj 352 -56 r s1.v \; #X obj 88 -63 s 1_i \; #X obj 108 -41 s
+1_pc \; #X obj 68 -18 s 1_mp \; #X obj 129 -62 s 1_ic \; #X obj 149
+-15 s 1_amp \; #X obj 170 -36 s 1_b \; #X obj 190 -60 s 1_thb \; #X
+obj 459 -68 s dist.1 \; #X obj 406 -68 s azi.1 \; #X obj 612 -68 env~
+\; #X obj 612 -49 - 100 \; #X obj 612 -29 s string1.vu \; #X obj 522
+-68 env~ \; #X obj 522 -49 - 100 \; #X obj 568 -68 env~ \; #X obj 568
+-49 - 100 \; #X obj 522 -28 s vu.l \; #X obj 568 -29 s vu.r \; #X obj
+250 -4 dac~ 1 2 3 4 5 6 7 8 \; #X obj 231 -165 r 1_t.c \; #X obj 472
+147 s 1_sit \; #X obj 472 103 r 1_i \; #X obj 472 37 cnv 15 200 20
+empty empty note.offset 20 12 0 9 -1 -262144 0 \; #X obj 472 125 rg.note.offset
+\; #X obj 151 128 r mt.1 \; #X obj 68 -85 d_chain - - - - - - - - -
+- - - - - - - - - - - - - - - \; #X obj 253 -33 volume - - - - \; #X
+connect 0 0 51 13 \; #X connect 1 0 51 12 \; #X connect 2 0 51 0 \;
+#X connect 3 0 51 3 \; #X connect 4 0 51 1 \; #X connect 5 0 51 2 \;
+#X connect 6 0 51 4 \; #X connect 7 0 51 5 \; #X connect 8 0 51 6 \;
+#X connect 9 0 51 8 \; #X connect 10 0 51 9 \; #X connect 11 0 51 10
+\; #X connect 12 0 51 11 \; #X connect 13 0 23 0 \; #X connect 13 1
+18 0 \; #X connect 14 0 13 1 \; #X connect 15 0 13 2 \; #X connect
+16 0 13 0 \; #X connect 17 0 13 4 \; #X connect 24 0 51 14 \; #X connect
+25 0 52 8 \; #X connect 35 0 36 0 \; #X connect 36 0 37 0 \; #X connect
+38 0 39 0 \; #X connect 39 0 42 0 \; #X connect 40 0 41 0 \; #X connect
+41 0 43 0 \; #X connect 45 0 51 7 \; #X connect 47 0 49 0 \; #X connect
+49 0 46 0 \; #X connect 50 0 13 3 \; #X connect 51 0 28 0 \; #X connect
+51 1 26 0 \; #X connect 51 2 27 0 \; #X connect 51 3 29 0 \; #X connect
+51 4 30 0 \; #X connect 51 5 31 0 \; #X connect 51 6 32 0 \; #X connect
+51 7 38 0 \; #X connect 51 7 35 0 \; #X connect 51 7 52 0 \; #X connect
+51 8 40 0 \; #X connect 51 8 35 0 \; #X connect 51 8 52 1 \; #X connect
+51 9 52 2 \; #X connect 51 10 52 3 \; #X connect 51 11 52 4 \; #X connect
+51 12 52 5 \; #X connect 51 13 52 6 \; #X connect 51 14 52 7 \; #X
+connect 51 15 34 0 \; #X connect 51 16 33 0 \; #X connect 52 0 44 0
+\; #X connect 52 1 44 1 \; #X connect 52 2 44 2 \; #X connect 52 3
+44 3 \; #X connect 52 4 44 4 \; #X connect 52 5 44 5 \; #X connect
+52 6 44 6 \; #X connect 52 7 44 7 \;;
+#X restore -1108 74 pd code;
+#X text -1111 52 Code Guide (should look like this);
+#X obj -952 293 print check;
+#X text -1046 275 list to msg \, create chain first;
+#X text -1061 520 clear first;
+#X msg -1110 522 clear;
+#X msg -290 246 obj 253 -33 volume - - - - \, connect 0 0 51 13 \,
+connect 1 0 51 12 \, connect 2 0 51 0 \, connect 3 0 51 3 \, connect
+4 0 51 1 \, connect 5 0 51 2 \, connect 6 0 51 4 \, connect 7 0 51
+5 \, connect 8 0 51 6 \, connect 9 0 51 8 \, connect 10 0 51 9 \, connect
+11 0 51 10 \, connect 12 0 51 11 \, connect 13 0 23 0 \, connect 13
+1 18 0 \, connect 14 0 13 1 \, connect 15 0 13 2 \, connect 16 0 13
+0 \, connect 17 0 13 4 \, connect 24 0 51 14 \, connect 25 0 52 8 \,
+connect 35 0 36 0 \, connect 36 0 37 0 \, connect 38 0 39 0 \, connect
+39 0 42 0 \, connect 40 0 41 0 \, connect 41 0 43 0 \, connect 45 0
+51 7 \, connect 47 0 49 0 \, connect 49 0 46 0 \, connect 50 0 13 3
+\, connect 51 0 28 0 \, connect 51 1 26 0 \, connect 51 2 27 0 \, connect
+51 3 29 0 \, connect 51 4 30 0 \, connect 51 5 31 0 \, connect 51 6
+32 0 \, connect 51 7 38 0 \, connect 51 7 35 0 \, connect 51 7 52 0
+\, connect 51 8 40 0 \, connect 51 8 35 0 \, connect 51 8 52 1 \, connect
+51 9 52 2 \, connect 51 10 52 3 \, connect 51 11 52 4 \, connect 51
+12 52 5 \, connect 51 13 52 6 \, connect 51 14 52 7 \, connect 51 15
+34 0 \, connect 51 16 33 0 \, connect 52 0 44 0 \, connect 52 1 44
+1 \, connect 52 2 44 2 \, connect 52 3 44 3 \, connect 52 4 44 4 \,
+connect 52 5 44 5 \, connect 52 6 44 6 \, connect 52 7 44 7;
+#X msg -784 188 chain_3 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X obj -1110 666 outlet;
+#X obj -784 34 inlet;
+#X text -945 440 put objects \, then dsp chain;
+#X text -390 360 Connections last;
+#X obj -784 67 sel 0 1 2;
+#X obj -825 84 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -673 246 \; pd dsp 0;
+#X msg -850 246 \; pd dsp 1;
+#X msg -769 306 obj 371 -109 r ad.2 \, obj 348 -135 r az.2 \, obj 68
+-109 adc~ 2 \, obj 138 -111 r 3_amp \, obj 91 -152 r 2_th \, obj 114
+-130 r 2_xt \, obj 161 -154 r 2_d.ms \, obj 184 -126 r 2_icr \, obj
+208 -109 r 2_g.ms \, obj 254 -107 r 2_p.ms \, obj 278 -150 r 2_f.ms
+\, obj 301 -127 r 2_f.f \, obj 324 -108 r 2_f.r \, obj 95 170 rg.contour
+\, obj 109 94 r 2_pc \, obj 152 94 r 2_ic \, obj 66 94 r 2_cs \, obj
+237 124 r 2_cc \, obj 152 187 s 2_ccv \, text 94 234 ins: on/off pc
+ic contour choice (pc/ic/rand) \, text 94 248 outs: interpolated contour
+current contour value (for tables) \, obj 67 39 cnv 15 200 20 empty
+empty contour 20 12 0 9 -1 -262144 0 \, obj 68 -200 cnv 15 200 20 empty
+empty signal.processes 20 12 0 9 -1 -262144 0 \, obj 95 215 s 2_icr
+\, obj 462 -102 r 2_euc \, obj 352 -56 r s2.v \, obj 88 -63 s 2_i \,
+obj 108 -41 s 2_pc \, obj 68 -18 s 2_mp \, obj 129 -62 s 2_ic \, obj
+149 -15 s 2_amp \, obj 170 -36 s 2_b \, obj 190 -60 s 2_thb \, obj
+459 -68 s dist.2 \, obj 406 -68 s azi.2 \, obj 612 -68 env~ \, obj
+612 -49 - 100 \, obj 612 -29 s string2.vu \, obj 522 -68 env~ \, obj
+522 -49 - 100 \, obj 568 -68 env~ \, obj 568 -49 - 100 \, obj 522 -28
+s vu.l \, obj 568 -29 s vu.r \, obj 250 -4 dac~ 1 2 3 4 5 6 7 8 \,
+obj 231 -165 r 2_t.c \, obj 472 147 s 2_sit \, obj 472 103 r 2_i \,
+obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -2.62144e+06
+\, obj 472 125 rg.note.offset \, obj 151 128 r mt.2 \,;
+#X obj -784 229 t b b a b b b b;
+#X msg -363 246 0;
+#X obj -363 266 s s2.v;
+#X text -1109 31 DYNAMIC CHAIN PATCHING (STRING 2);
+#X connect 0 0 11 0;
+#X connect 0 0 17 0;
+#X connect 4 0 0 0;
+#X connect 6 0 26 0;
+#X connect 7 0 26 0;
+#X connect 14 0 17 0;
+#X connect 15 0 17 0;
+#X connect 16 0 26 0;
+#X connect 18 0 21 0;
+#X connect 21 0 7 0;
+#X connect 21 0 22 0;
+#X connect 21 1 6 0;
+#X connect 21 2 16 0;
+#X connect 25 0 17 0;
+#X connect 26 0 24 0;
+#X connect 26 1 15 0;
+#X connect 26 2 4 0;
+#X connect 26 3 25 0;
+#X connect 26 4 14 0;
+#X connect 26 5 23 0;
+#X connect 26 6 27 0;
+#X connect 27 0 28 0;
+#X restore 174 102 pd dyn.s2;
+#N canvas 0 22 1280 752 dyn.s3 0;
+#X obj -1110 276 list trim;
+#X text -1111 226 Where DSP chain is to be (re)placed;
+#X msg -850 246 pd dsp 1;
+#X msg -673 246 pd dsp 0;
+#X text -644 226 switch off dsp before chain change;
+#X text -894 247 dsp on;
+#X obj -1110 246 list prepend obj 68 -85;
+#X text -788 98 Chain Select (per string);
+#X msg -784 159 chain_2 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X msg -784 130 chain_1 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X text -1158 325 obj 68 -85 d_chain - - - - - - - - - - - - - - -
+- - - - - - - - -;
+#N canvas 139 50 528 724 code 0;
+#X text 22 14 #N canvas 0 22 450 300 10 \; #X obj 371 -109 r ad.1 \;
+#X obj 348 -135 r az.1 \; #X obj 68 -109 adc~ 1 \; #X obj 138 -111
+r 2_amp \; #X obj 91 -152 r 1_th \; #X obj 114 -130 r 1_xt \; #X obj
+161 -154 r 1_d.ms \; #X obj 184 -126 r 1_d.cf \; #X obj 208 -109 r
+1_g.ms \; #X obj 254 -107 r 1_p.ms \; #X obj 278 -150 r 1_f.ms \; #X
+obj 301 -127 r 1_f.f \; #X obj 324 -108 r 1_f.r \; #X obj 95 170 rg.contour
+\; #X obj 109 94 r 1_pc \; #X obj 152 94 r 1_ic \; #X obj 66 94 r 1_cs
+\; #X obj 237 124 r 1_cc \; #X obj 152 187 s 1_ccv \; #X text 94 234
+ins: on/off \, pc \, ic \, contour choice (pc/ic/rand) \; #X text 94
+248 outs: interpolated contour \, current contour value (for tables)
+\; #X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0 \; #X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12
+0 9 -1 -262144 0 \; #X obj 95 215 s 1_icr \; #X obj 462 -102 r 1_euc
+\; #X obj 352 -56 r s1.v \; #X obj 88 -63 s 1_i \; #X obj 108 -41 s
+1_pc \; #X obj 68 -18 s 1_mp \; #X obj 129 -62 s 1_ic \; #X obj 149
+-15 s 1_amp \; #X obj 170 -36 s 1_b \; #X obj 190 -60 s 1_thb \; #X
+obj 459 -68 s dist.1 \; #X obj 406 -68 s azi.1 \; #X obj 612 -68 env~
+\; #X obj 612 -49 - 100 \; #X obj 612 -29 s string1.vu \; #X obj 522
+-68 env~ \; #X obj 522 -49 - 100 \; #X obj 568 -68 env~ \; #X obj 568
+-49 - 100 \; #X obj 522 -28 s vu.l \; #X obj 568 -29 s vu.r \; #X obj
+250 -4 dac~ 1 2 3 4 5 6 7 8 \; #X obj 231 -165 r 1_t.c \; #X obj 472
+147 s 1_sit \; #X obj 472 103 r 1_i \; #X obj 472 37 cnv 15 200 20
+empty empty note.offset 20 12 0 9 -1 -262144 0 \; #X obj 472 125 rg.note.offset
+\; #X obj 151 128 r mt.1 \; #X obj 68 -85 d_chain - - - - - - - - -
+- - - - - - - - - - - - - - - \; #X obj 253 -33 volume - - - - \; #X
+connect 0 0 51 13 \; #X connect 1 0 51 12 \; #X connect 2 0 51 0 \;
+#X connect 3 0 51 3 \; #X connect 4 0 51 1 \; #X connect 5 0 51 2 \;
+#X connect 6 0 51 4 \; #X connect 7 0 51 5 \; #X connect 8 0 51 6 \;
+#X connect 9 0 51 8 \; #X connect 10 0 51 9 \; #X connect 11 0 51 10
+\; #X connect 12 0 51 11 \; #X connect 13 0 23 0 \; #X connect 13 1
+18 0 \; #X connect 14 0 13 1 \; #X connect 15 0 13 2 \; #X connect
+16 0 13 0 \; #X connect 17 0 13 4 \; #X connect 24 0 51 14 \; #X connect
+25 0 52 8 \; #X connect 35 0 36 0 \; #X connect 36 0 37 0 \; #X connect
+38 0 39 0 \; #X connect 39 0 42 0 \; #X connect 40 0 41 0 \; #X connect
+41 0 43 0 \; #X connect 45 0 51 7 \; #X connect 47 0 49 0 \; #X connect
+49 0 46 0 \; #X connect 50 0 13 3 \; #X connect 51 0 28 0 \; #X connect
+51 1 26 0 \; #X connect 51 2 27 0 \; #X connect 51 3 29 0 \; #X connect
+51 4 30 0 \; #X connect 51 5 31 0 \; #X connect 51 6 32 0 \; #X connect
+51 7 38 0 \; #X connect 51 7 35 0 \; #X connect 51 7 52 0 \; #X connect
+51 8 40 0 \; #X connect 51 8 35 0 \; #X connect 51 8 52 1 \; #X connect
+51 9 52 2 \; #X connect 51 10 52 3 \; #X connect 51 11 52 4 \; #X connect
+51 12 52 5 \; #X connect 51 13 52 6 \; #X connect 51 14 52 7 \; #X
+connect 51 15 34 0 \; #X connect 51 16 33 0 \; #X connect 52 0 44 0
+\; #X connect 52 1 44 1 \; #X connect 52 2 44 2 \; #X connect 52 3
+44 3 \; #X connect 52 4 44 4 \; #X connect 52 5 44 5 \; #X connect
+52 6 44 6 \; #X connect 52 7 44 7 \;;
+#X restore -1108 74 pd code;
+#X text -1111 52 Code Guide (should look like this);
+#X obj -952 293 print check;
+#X text -1046 275 list to msg \, create chain first;
+#X text -1061 520 clear first;
+#X msg -1110 522 clear;
+#X msg -290 246 obj 253 -33 volume - - - - \, connect 0 0 51 13 \,
+connect 1 0 51 12 \, connect 2 0 51 0 \, connect 3 0 51 3 \, connect
+4 0 51 1 \, connect 5 0 51 2 \, connect 6 0 51 4 \, connect 7 0 51
+5 \, connect 8 0 51 6 \, connect 9 0 51 8 \, connect 10 0 51 9 \, connect
+11 0 51 10 \, connect 12 0 51 11 \, connect 13 0 23 0 \, connect 13
+1 18 0 \, connect 14 0 13 1 \, connect 15 0 13 2 \, connect 16 0 13
+0 \, connect 17 0 13 4 \, connect 24 0 51 14 \, connect 25 0 52 8 \,
+connect 35 0 36 0 \, connect 36 0 37 0 \, connect 38 0 39 0 \, connect
+39 0 42 0 \, connect 40 0 41 0 \, connect 41 0 43 0 \, connect 45 0
+51 7 \, connect 47 0 49 0 \, connect 49 0 46 0 \, connect 50 0 13 3
+\, connect 51 0 28 0 \, connect 51 1 26 0 \, connect 51 2 27 0 \, connect
+51 3 29 0 \, connect 51 4 30 0 \, connect 51 5 31 0 \, connect 51 6
+32 0 \, connect 51 7 38 0 \, connect 51 7 35 0 \, connect 51 7 52 0
+\, connect 51 8 40 0 \, connect 51 8 35 0 \, connect 51 8 52 1 \, connect
+51 9 52 2 \, connect 51 10 52 3 \, connect 51 11 52 4 \, connect 51
+12 52 5 \, connect 51 13 52 6 \, connect 51 14 52 7 \, connect 51 15
+34 0 \, connect 51 16 33 0 \, connect 52 0 44 0 \, connect 52 1 44
+1 \, connect 52 2 44 2 \, connect 52 3 44 3 \, connect 52 4 44 4 \,
+connect 52 5 44 5 \, connect 52 6 44 6 \, connect 52 7 44 7;
+#X msg -744 186 chain_3 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X obj -1110 666 outlet;
+#X obj -784 34 inlet;
+#X text -945 440 put objects \, then dsp chain;
+#X text -328 537 Connections last;
+#X obj -784 67 sel 0 1 2;
+#X msg -739 267 obj 371 -109 r ad.3 \, obj 348 -135 r az.3 \, obj 68
+-109 adc~ 3 \, obj 138 -111 r 4_amp \, obj 91 -152 r 3_th \, obj 114
+-130 r 3_xt \, obj 161 -154 r 3_d.ms \, obj 184 -126 r 3_icr \, obj
+208 -109 r 3_g.ms \, obj 254 -107 r 3_p.ms \, obj 278 -150 r 3_f.ms
+\, obj 301 -127 r 3_f.f \, obj 324 -108 r 3_f.r \, obj 95 170 rg.contour
+\, obj 109 94 r 3_pc \, obj 152 94 r 3_ic \, obj 66 94 r 3_cs \, obj
+237 124 r 3_cc \, obj 152 187 s 3_ccv \, text 94 234 ins: on/off pc
+ic contour choice (pc/ic/rand) \, text 94 248 outs: interpolated contour
+current contour value (for tables) \, obj 67 39 cnv 15 200 20 empty
+empty contour 20 12 0 9 -1 -262144 0 \, obj 68 -200 cnv 15 200 20 empty
+empty signal.processes 20 12 0 9 -1 -262144 0 \, obj 95 215 s 3_icr
+\, obj 462 -102 r 3_euc \, obj 352 -56 r s3.v \, obj 88 -63 s 3_i \,
+obj 108 -41 s 3_pc \, obj 68 -18 s 3_mp \, obj 129 -62 s 3_ic \, obj
+149 -15 s 3_amp \, obj 170 -36 s 3_b \, obj 190 -60 s 3_thb \, obj
+459 -68 s dist.3 \, obj 406 -68 s azi.3 \, obj 612 -68 env~ \, obj
+612 -49 - 100 \, obj 612 -29 s string3.vu \, obj 522 -68 env~ \, obj
+522 -49 - 100 \, obj 568 -68 env~ \, obj 568 -49 - 100 \, obj 522 -28
+s vu.l \, obj 568 -29 s vu.r \, obj 250 -4 dac~ 1 2 3 4 5 6 7 8 \,
+obj 231 -165 r 3_t.c \, obj 472 147 s 3_sit \, obj 472 103 r 3_i \,
+obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -2.62144e+06
+\, obj 472 125 rg.note.offset \, obj 151 128 r mt.3 \,;
+#X msg -343 246 0;
+#X obj -784 229 t b b a b b b b;
+#X obj -343 266 s s3.v;
+#X text -1109 31 DYNAMIC CHAIN PATCHING (STRING 3);
+#X connect 0 0 13 0;
+#X connect 0 0 19 0;
+#X connect 6 0 0 0;
+#X connect 8 0 26 0;
+#X connect 9 0 26 0;
+#X connect 16 0 19 0;
+#X connect 17 0 19 0;
+#X connect 18 0 26 0;
+#X connect 20 0 23 0;
+#X connect 23 0 9 0;
+#X connect 23 1 8 0;
+#X connect 23 2 18 0;
+#X connect 24 0 19 0;
+#X connect 25 0 27 0;
+#X connect 26 0 2 0;
+#X connect 26 1 17 0;
+#X connect 26 2 6 0;
+#X connect 26 3 24 0;
+#X connect 26 4 16 0;
+#X connect 26 5 3 0;
+#X connect 26 6 25 0;
+#X restore 311 101 pd dyn.s3;
+#N canvas 0 22 1280 752 dyn.s4 0;
+#X obj -1086 278 list trim;
+#X text -1087 228 Where DSP chain is to be (re)placed;
+#X text -651 228 switch off dsp before chain change;
+#X text -870 249 dsp on;
+#X obj -1086 248 list prepend obj 68 -85;
+#X text -764 100 Chain Select (per string);
+#X msg -760 161 chain_2 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X msg -760 132 chain_1 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X text -1073 352 obj 68 -85 d_chain - - - - - - - - - - - - - - -
+- - - - - - - - -;
+#N canvas 139 50 528 724 code 0;
+#X text 22 14 #N canvas 0 22 450 300 10 \; #X obj 371 -109 r ad.1 \;
+#X obj 348 -135 r az.1 \; #X obj 68 -109 adc~ 1 \; #X obj 138 -111
+r 2_amp \; #X obj 91 -152 r 1_th \; #X obj 114 -130 r 1_xt \; #X obj
+161 -154 r 1_d.ms \; #X obj 184 -126 r 1_d.cf \; #X obj 208 -109 r
+1_g.ms \; #X obj 254 -107 r 1_p.ms \; #X obj 278 -150 r 1_f.ms \; #X
+obj 301 -127 r 1_f.f \; #X obj 324 -108 r 1_f.r \; #X obj 95 170 rg.contour
+\; #X obj 109 94 r 1_pc \; #X obj 152 94 r 1_ic \; #X obj 66 94 r 1_cs
+\; #X obj 237 124 r 1_cc \; #X obj 152 187 s 1_ccv \; #X text 94 234
+ins: on/off \, pc \, ic \, contour choice (pc/ic/rand) \; #X text 94
+248 outs: interpolated contour \, current contour value (for tables)
+\; #X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0 \; #X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12
+0 9 -1 -262144 0 \; #X obj 95 215 s 1_icr \; #X obj 462 -102 r 1_euc
+\; #X obj 352 -56 r s1.v \; #X obj 88 -63 s 1_i \; #X obj 108 -41 s
+1_pc \; #X obj 68 -18 s 1_mp \; #X obj 129 -62 s 1_ic \; #X obj 149
+-15 s 1_amp \; #X obj 170 -36 s 1_b \; #X obj 190 -60 s 1_thb \; #X
+obj 459 -68 s dist.1 \; #X obj 406 -68 s azi.1 \; #X obj 612 -68 env~
+\; #X obj 612 -49 - 100 \; #X obj 612 -29 s string1.vu \; #X obj 522
+-68 env~ \; #X obj 522 -49 - 100 \; #X obj 568 -68 env~ \; #X obj 568
+-49 - 100 \; #X obj 522 -28 s vu.l \; #X obj 568 -29 s vu.r \; #X obj
+250 -4 dac~ 1 2 3 4 5 6 7 8 \; #X obj 231 -165 r 1_t.c \; #X obj 472
+147 s 1_sit \; #X obj 472 103 r 1_i \; #X obj 472 37 cnv 15 200 20
+empty empty note.offset 20 12 0 9 -1 -262144 0 \; #X obj 472 125 rg.note.offset
+\; #X obj 151 128 r mt.1 \; #X obj 68 -85 d_chain - - - - - - - - -
+- - - - - - - - - - - - - - - \; #X obj 253 -33 volume - - - - \; #X
+connect 0 0 51 13 \; #X connect 1 0 51 12 \; #X connect 2 0 51 0 \;
+#X connect 3 0 51 3 \; #X connect 4 0 51 1 \; #X connect 5 0 51 2 \;
+#X connect 6 0 51 4 \; #X connect 7 0 51 5 \; #X connect 8 0 51 6 \;
+#X connect 9 0 51 8 \; #X connect 10 0 51 9 \; #X connect 11 0 51 10
+\; #X connect 12 0 51 11 \; #X connect 13 0 23 0 \; #X connect 13 1
+18 0 \; #X connect 14 0 13 1 \; #X connect 15 0 13 2 \; #X connect
+16 0 13 0 \; #X connect 17 0 13 4 \; #X connect 24 0 51 14 \; #X connect
+25 0 52 8 \; #X connect 35 0 36 0 \; #X connect 36 0 37 0 \; #X connect
+38 0 39 0 \; #X connect 39 0 42 0 \; #X connect 40 0 41 0 \; #X connect
+41 0 43 0 \; #X connect 45 0 51 7 \; #X connect 47 0 49 0 \; #X connect
+49 0 46 0 \; #X connect 50 0 13 3 \; #X connect 51 0 28 0 \; #X connect
+51 1 26 0 \; #X connect 51 2 27 0 \; #X connect 51 3 29 0 \; #X connect
+51 4 30 0 \; #X connect 51 5 31 0 \; #X connect 51 6 32 0 \; #X connect
+51 7 38 0 \; #X connect 51 7 35 0 \; #X connect 51 7 52 0 \; #X connect
+51 8 40 0 \; #X connect 51 8 35 0 \; #X connect 51 8 52 1 \; #X connect
+51 9 52 2 \; #X connect 51 10 52 3 \; #X connect 51 11 52 4 \; #X connect
+51 12 52 5 \; #X connect 51 13 52 6 \; #X connect 51 14 52 7 \; #X
+connect 51 15 34 0 \; #X connect 51 16 33 0 \; #X connect 52 0 44 0
+\; #X connect 52 1 44 1 \; #X connect 52 2 44 2 \; #X connect 52 3
+44 3 \; #X connect 52 4 44 4 \; #X connect 52 5 44 5 \; #X connect
+52 6 44 6 \; #X connect 52 7 44 7 \;;
+#X restore -1084 76 pd code;
+#X text -1087 54 Code Guide (should look like this);
+#X obj -928 295 print check;
+#X text -1022 277 list to msg \, create chain first;
+#X text -1037 522 clear first;
+#X msg -1086 524 clear;
+#X msg -266 248 obj 253 -33 volume - - - - \, connect 0 0 51 13 \,
+connect 1 0 51 12 \, connect 2 0 51 0 \, connect 3 0 51 3 \, connect
+4 0 51 1 \, connect 5 0 51 2 \, connect 6 0 51 4 \, connect 7 0 51
+5 \, connect 8 0 51 6 \, connect 9 0 51 8 \, connect 10 0 51 9 \, connect
+11 0 51 10 \, connect 12 0 51 11 \, connect 13 0 23 0 \, connect 13
+1 18 0 \, connect 14 0 13 1 \, connect 15 0 13 2 \, connect 16 0 13
+0 \, connect 17 0 13 4 \, connect 24 0 51 14 \, connect 25 0 52 8 \,
+connect 35 0 36 0 \, connect 36 0 37 0 \, connect 38 0 39 0 \, connect
+39 0 42 0 \, connect 40 0 41 0 \, connect 41 0 43 0 \, connect 45 0
+51 7 \, connect 47 0 49 0 \, connect 49 0 46 0 \, connect 50 0 13 3
+\, connect 51 0 28 0 \, connect 51 1 26 0 \, connect 51 2 27 0 \, connect
+51 3 29 0 \, connect 51 4 30 0 \, connect 51 5 31 0 \, connect 51 6
+32 0 \, connect 51 7 38 0 \, connect 51 7 35 0 \, connect 51 7 52 0
+\, connect 51 8 40 0 \, connect 51 8 35 0 \, connect 51 8 52 1 \, connect
+51 9 52 2 \, connect 51 10 52 3 \, connect 51 11 52 4 \, connect 51
+12 52 5 \, connect 51 13 52 6 \, connect 51 14 52 7 \, connect 51 15
+34 0 \, connect 51 16 33 0 \, connect 52 0 44 0 \, connect 52 1 44
+1 \, connect 52 2 44 2 \, connect 52 3 44 3 \, connect 52 4 44 4 \,
+connect 52 5 44 5 \, connect 52 6 44 6 \, connect 52 7 44 7;
+#X msg -760 190 chain_3 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X obj -1086 581 outlet;
+#X obj -760 36 inlet;
+#X text -889 442 put objects \, then dsp chain;
+#X text -268 226 connections last;
+#X obj -760 69 sel 0 1 2;
+#X msg -715 278 obj 371 -109 r ad.4 \, obj 348 -135 r az.4 \, obj 68
+-109 adc~ 4 \, obj 138 -111 r 5_amp \, obj 91 -152 r 4_th \, obj 114
+-130 r 4_xt \, obj 161 -154 r 4_d.ms \, obj 184 -126 r 4_d.cf \, obj
+208 -109 r 4_g.ms \, obj 254 -107 r 4_p.ms \, obj 278 -150 r 4_f.ms
+\, obj 301 -127 r 4_f.f \, obj 324 -108 r 4_f.r \, obj 95 170 rg.contour
+\, obj 109 94 r 4_pc \, obj 152 94 r 4_ic \, obj 66 94 r 4_cs \, obj
+237 124 r 4_cc \, obj 152 187 s 4_ccv \, text 94 234 ins: on/off pc
+ic contour choice (pc/ic/rand) \, text 94 248 outs: interpolated contour
+current contour value (for tables) \, obj 67 39 cnv 15 200 20 empty
+empty contour 20 12 0 9 -1 -262144 0 \, obj 68 -200 cnv 15 200 20 empty
+empty signal.processes 20 12 0 9 -1 -262144 0 \, obj 95 215 s 4_icr
+\, obj 462 -102 r 4_euc \, obj 352 -56 r s4.v \, obj 88 -63 s 4_i \,
+obj 108 -41 s 4_pc \, obj 68 -18 s 4_mp \, obj 129 -62 s 4_ic \, obj
+149 -15 s 4_amp \, obj 170 -36 s 4_b \, obj 190 -60 s 4_thb \, obj
+459 -68 s dist.4 \, obj 406 -68 s azi.4 \, obj 612 -68 env~ \, obj
+612 -49 - 100 \, obj 612 -29 s string4.vu \, obj 522 -68 env~ \, obj
+522 -49 - 100 \, obj 568 -68 env~ \, obj 568 -49 - 100 \, obj 522 -28
+s vu.l \, obj 568 -29 s vu.r \, obj 250 -4 dac~ 1 2 3 4 5 6 7 8 \,
+obj 231 -165 r 4_t.c \, obj 472 147 s 4_sit \, obj 472 103 r 4_i \,
+obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -2.62144e+06
+\, obj 472 125 rg.note.offset \, obj 151 128 r mt.4 \,;
+#X msg -826 248 \; pd dsp 1;
+#X msg -649 248 \; pd dsp 0;
+#X obj -760 231 t b b a b b b b;
+#X msg -327 248 0;
+#X obj -327 268 s s4.v;
+#X text -1085 33 DYNAMIC CHAIN PATCHING (STRING 4);
+#X connect 0 0 11 0;
+#X connect 0 0 17 0;
+#X connect 4 0 0 0;
+#X connect 6 0 25 0;
+#X connect 7 0 25 0;
+#X connect 14 0 17 0;
+#X connect 15 0 17 0;
+#X connect 16 0 25 0;
+#X connect 18 0 21 0;
+#X connect 21 0 7 0;
+#X connect 21 1 6 0;
+#X connect 21 2 16 0;
+#X connect 22 0 17 0;
+#X connect 25 0 23 0;
+#X connect 25 1 15 0;
+#X connect 25 2 4 0;
+#X connect 25 3 22 0;
+#X connect 25 4 14 0;
+#X connect 25 5 24 0;
+#X connect 25 6 26 0;
+#X connect 26 0 27 0;
+#X restore 445 101 pd dyn.s4;
+#N canvas 0 22 1280 752 dyn.s5 0;
+#X obj -1110 276 list trim;
+#X text -1111 226 Where DSP chain is to be (re)placed;
+#X text -644 226 switch off dsp before chain change;
+#X text -894 247 dsp on;
+#X obj -1110 246 list prepend obj 68 -85;
+#X text -788 98 Chain Select (per string);
+#X msg -784 159 chain_2 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X msg -784 130 chain_1 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X text -1158 325 obj 68 -85 d_chain - - - - - - - - - - - - - - -
+- - - - - - - - -;
+#N canvas 139 50 528 724 code 0;
+#X text 22 14 #N canvas 0 22 450 300 10 \; #X obj 371 -109 r ad.1 \;
+#X obj 348 -135 r az.1 \; #X obj 68 -109 adc~ 1 \; #X obj 138 -111
+r 2_amp \; #X obj 91 -152 r 1_th \; #X obj 114 -130 r 1_xt \; #X obj
+161 -154 r 1_d.ms \; #X obj 184 -126 r 1_d.cf \; #X obj 208 -109 r
+1_g.ms \; #X obj 254 -107 r 1_p.ms \; #X obj 278 -150 r 1_f.ms \; #X
+obj 301 -127 r 1_f.f \; #X obj 324 -108 r 1_f.r \; #X obj 95 170 rg.contour
+\; #X obj 109 94 r 1_pc \; #X obj 152 94 r 1_ic \; #X obj 66 94 r 1_cs
+\; #X obj 237 124 r 1_cc \; #X obj 152 187 s 1_ccv \; #X text 94 234
+ins: on/off \, pc \, ic \, contour choice (pc/ic/rand) \; #X text 94
+248 outs: interpolated contour \, current contour value (for tables)
+\; #X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0 \; #X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12
+0 9 -1 -262144 0 \; #X obj 95 215 s 1_icr \; #X obj 462 -102 r 1_euc
+\; #X obj 352 -56 r s1.v \; #X obj 88 -63 s 1_i \; #X obj 108 -41 s
+1_pc \; #X obj 68 -18 s 1_mp \; #X obj 129 -62 s 1_ic \; #X obj 149
+-15 s 1_amp \; #X obj 170 -36 s 1_b \; #X obj 190 -60 s 1_thb \; #X
+obj 459 -68 s dist.1 \; #X obj 406 -68 s azi.1 \; #X obj 612 -68 env~
+\; #X obj 612 -49 - 100 \; #X obj 612 -29 s string1.vu \; #X obj 522
+-68 env~ \; #X obj 522 -49 - 100 \; #X obj 568 -68 env~ \; #X obj 568
+-49 - 100 \; #X obj 522 -28 s vu.l \; #X obj 568 -29 s vu.r \; #X obj
+250 -4 dac~ 1 2 3 4 5 6 7 8 \; #X obj 231 -165 r 1_t.c \; #X obj 472
+147 s 1_sit \; #X obj 472 103 r 1_i \; #X obj 472 37 cnv 15 200 20
+empty empty note.offset 20 12 0 9 -1 -262144 0 \; #X obj 472 125 rg.note.offset
+\; #X obj 151 128 r mt.1 \; #X obj 68 -85 d_chain - - - - - - - - -
+- - - - - - - - - - - - - - - \; #X obj 253 -33 volume - - - - \; #X
+connect 0 0 51 13 \; #X connect 1 0 51 12 \; #X connect 2 0 51 0 \;
+#X connect 3 0 51 3 \; #X connect 4 0 51 1 \; #X connect 5 0 51 2 \;
+#X connect 6 0 51 4 \; #X connect 7 0 51 5 \; #X connect 8 0 51 6 \;
+#X connect 9 0 51 8 \; #X connect 10 0 51 9 \; #X connect 11 0 51 10
+\; #X connect 12 0 51 11 \; #X connect 13 0 23 0 \; #X connect 13 1
+18 0 \; #X connect 14 0 13 1 \; #X connect 15 0 13 2 \; #X connect
+16 0 13 0 \; #X connect 17 0 13 4 \; #X connect 24 0 51 14 \; #X connect
+25 0 52 8 \; #X connect 35 0 36 0 \; #X connect 36 0 37 0 \; #X connect
+38 0 39 0 \; #X connect 39 0 42 0 \; #X connect 40 0 41 0 \; #X connect
+41 0 43 0 \; #X connect 45 0 51 7 \; #X connect 47 0 49 0 \; #X connect
+49 0 46 0 \; #X connect 50 0 13 3 \; #X connect 51 0 28 0 \; #X connect
+51 1 26 0 \; #X connect 51 2 27 0 \; #X connect 51 3 29 0 \; #X connect
+51 4 30 0 \; #X connect 51 5 31 0 \; #X connect 51 6 32 0 \; #X connect
+51 7 38 0 \; #X connect 51 7 35 0 \; #X connect 51 7 52 0 \; #X connect
+51 8 40 0 \; #X connect 51 8 35 0 \; #X connect 51 8 52 1 \; #X connect
+51 9 52 2 \; #X connect 51 10 52 3 \; #X connect 51 11 52 4 \; #X connect
+51 12 52 5 \; #X connect 51 13 52 6 \; #X connect 51 14 52 7 \; #X
+connect 51 15 34 0 \; #X connect 51 16 33 0 \; #X connect 52 0 44 0
+\; #X connect 52 1 44 1 \; #X connect 52 2 44 2 \; #X connect 52 3
+44 3 \; #X connect 52 4 44 4 \; #X connect 52 5 44 5 \; #X connect
+52 6 44 6 \; #X connect 52 7 44 7 \;;
+#X restore -1108 74 pd code;
+#X text -1111 52 Code Guide (should look like this);
+#X obj -952 293 print check;
+#X text -1046 275 list to msg \, create chain first;
+#X text -1061 520 clear first;
+#X msg -1110 522 clear;
+#X msg -290 246 obj 253 -33 volume - - - - \, connect 0 0 51 13 \,
+connect 1 0 51 12 \, connect 2 0 51 0 \, connect 3 0 51 3 \, connect
+4 0 51 1 \, connect 5 0 51 2 \, connect 6 0 51 4 \, connect 7 0 51
+5 \, connect 8 0 51 6 \, connect 9 0 51 8 \, connect 10 0 51 9 \, connect
+11 0 51 10 \, connect 12 0 51 11 \, connect 13 0 23 0 \, connect 13
+1 18 0 \, connect 14 0 13 1 \, connect 15 0 13 2 \, connect 16 0 13
+0 \, connect 17 0 13 4 \, connect 24 0 51 14 \, connect 25 0 52 8 \,
+connect 35 0 36 0 \, connect 36 0 37 0 \, connect 38 0 39 0 \, connect
+39 0 42 0 \, connect 40 0 41 0 \, connect 41 0 43 0 \, connect 45 0
+51 7 \, connect 47 0 49 0 \, connect 49 0 46 0 \, connect 50 0 13 3
+\, connect 51 0 28 0 \, connect 51 1 26 0 \, connect 51 2 27 0 \, connect
+51 3 29 0 \, connect 51 4 30 0 \, connect 51 5 31 0 \, connect 51 6
+32 0 \, connect 51 7 38 0 \, connect 51 7 35 0 \, connect 51 7 52 0
+\, connect 51 8 40 0 \, connect 51 8 35 0 \, connect 51 8 52 1 \, connect
+51 9 52 2 \, connect 51 10 52 3 \, connect 51 11 52 4 \, connect 51
+12 52 5 \, connect 51 13 52 6 \, connect 51 14 52 7 \, connect 51 15
+34 0 \, connect 51 16 33 0 \, connect 52 0 44 0 \, connect 52 1 44
+1 \, connect 52 2 44 2 \, connect 52 3 44 3 \, connect 52 4 44 4 \,
+connect 52 5 44 5 \, connect 52 6 44 6 \, connect 52 7 44 7;
+#X msg -784 188 chain_3 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X obj -1110 666 outlet;
+#X obj -784 34 inlet;
+#X text -945 440 put objects \, then dsp chain;
+#X text -289 221 Connections last;
+#X obj -784 67 sel 0 1 2;
+#X msg -850 246 \; pd dsp 1;
+#X msg -673 246 \; pd dsp 0;
+#X msg -739 261 obj 371 -109 r ad.5 \, obj 348 -135 r az.5 \, obj 68
+-109 adc~ 5 \, obj 138 -111 r 6_amp \, obj 91 -152 r 5_th \, obj 114
+-130 r 5_xt \, obj 161 -154 r 5_d.ms \, obj 184 -126 r 5_icr \, obj
+208 -109 r 5_g.ms \, obj 254 -107 r 5_p.ms \, obj 278 -150 r 5_f.ms
+\, obj 301 -127 r 5_f.f \, obj 324 -108 r 5_f.r \, obj 95 170 rg.contour
+\, obj 109 94 r 5_pc \, obj 152 94 r 5_ic \, obj 66 94 r 5_cs \, obj
+237 124 r 5_cc \, obj 152 187 s 5_ccv \, text 94 234 ins: on/off pc
+ic contour choice (pc/ic/rand) \, text 94 248 outs: interpolated contour
+current contour value (for tables) \, obj 67 39 cnv 15 200 20 empty
+empty contour 20 12 0 9 -1 -262144 0 \, obj 68 -200 cnv 15 200 20 empty
+empty signal.processes 20 12 0 9 -1 -262144 0 \, obj 95 215 s 5_icr
+\, obj 462 -102 r 5_euc \, obj 352 -56 r s5.v \, obj 88 -63 s 5_i \,
+obj 108 -41 s 5_pc \, obj 68 -18 s 5_mp \, obj 129 -62 s 5_ic \, obj
+149 -15 s 5_amp \, obj 170 -36 s 5_b \, obj 190 -60 s 5_thb \, obj
+459 -68 s dist.5 \, obj 406 -68 s azi.5 \, obj 612 -68 env~ \, obj
+612 -49 - 100 \, obj 612 -29 s string5.vu \, obj 522 -68 env~ \, obj
+522 -49 - 100 \, obj 568 -68 env~ \, obj 568 -49 - 100 \, obj 522 -28
+s vu.l \, obj 568 -29 s vu.r \, obj 250 -4 dac~ 1 2 3 4 5 6 7 8 \,
+obj 231 -165 r 5_t.c \, obj 472 147 s 5_sit \, obj 472 103 r 5_i \,
+obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -2.62144e+06
+\, obj 472 125 rg.note.offset \, obj 151 128 r mt.5 \,;
+#X obj -784 229 t b b a b b b b;
+#X msg -349 246 0;
+#X obj -349 266 s s5.v;
+#X text -1109 31 DYNAMIC CHAIN PATCHING (STRING 5);
+#X connect 0 0 11 0;
+#X connect 0 0 17 0;
+#X connect 4 0 0 0;
+#X connect 6 0 25 0;
+#X connect 7 0 25 0;
+#X connect 14 0 17 0;
+#X connect 15 0 17 0;
+#X connect 16 0 25 0;
+#X connect 18 0 21 0;
+#X connect 21 0 7 0;
+#X connect 21 1 6 0;
+#X connect 21 2 16 0;
+#X connect 24 0 17 0;
+#X connect 25 0 22 0;
+#X connect 25 1 15 0;
+#X connect 25 2 4 0;
+#X connect 25 3 24 0;
+#X connect 25 4 14 0;
+#X connect 25 5 23 0;
+#X connect 25 6 26 0;
+#X connect 26 0 27 0;
+#X restore 580 99 pd dyn.s5;
+#N canvas 0 22 1280 752 dyn.s6 0;
+#X obj -1110 276 list trim;
+#X text -1111 226 Where DSP chain is to be (re)placed;
+#X text -644 226 switch off dsp before chain change;
+#X text -894 247 dsp on;
+#X obj -1110 246 list prepend obj 68 -85;
+#X text -788 98 Chain Select (per string);
+#X msg -784 159 chain_2 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X msg -784 130 chain_1 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X text -1158 325 obj 68 -85 d_chain - - - - - - - - - - - - - - -
+- - - - - - - - -;
+#N canvas 139 50 528 724 code 0;
+#X text 22 14 #N canvas 0 22 450 300 10 \; #X obj 371 -109 r ad.1 \;
+#X obj 348 -135 r az.1 \; #X obj 68 -109 adc~ 1 \; #X obj 138 -111
+r 2_amp \; #X obj 91 -152 r 1_th \; #X obj 114 -130 r 1_xt \; #X obj
+161 -154 r 1_d.ms \; #X obj 184 -126 r 1_d.cf \; #X obj 208 -109 r
+1_g.ms \; #X obj 254 -107 r 1_p.ms \; #X obj 278 -150 r 1_f.ms \; #X
+obj 301 -127 r 1_f.f \; #X obj 324 -108 r 1_f.r \; #X obj 95 170 rg.contour
+\; #X obj 109 94 r 1_pc \; #X obj 152 94 r 1_ic \; #X obj 66 94 r 1_cs
+\; #X obj 237 124 r 1_cc \; #X obj 152 187 s 1_ccv \; #X text 94 234
+ins: on/off \, pc \, ic \, contour choice (pc/ic/rand) \; #X text 94
+248 outs: interpolated contour \, current contour value (for tables)
+\; #X obj 67 39 cnv 15 200 20 empty empty contour 20 12 0 9 -1 -262144
+0 \; #X obj 68 -200 cnv 15 200 20 empty empty signal.processes 20 12
+0 9 -1 -262144 0 \; #X obj 95 215 s 1_icr \; #X obj 462 -102 r 1_euc
+\; #X obj 352 -56 r s1.v \; #X obj 88 -63 s 1_i \; #X obj 108 -41 s
+1_pc \; #X obj 68 -18 s 1_mp \; #X obj 129 -62 s 1_ic \; #X obj 149
+-15 s 1_amp \; #X obj 170 -36 s 1_b \; #X obj 190 -60 s 1_thb \; #X
+obj 459 -68 s dist.1 \; #X obj 406 -68 s azi.1 \; #X obj 612 -68 env~
+\; #X obj 612 -49 - 100 \; #X obj 612 -29 s string1.vu \; #X obj 522
+-68 env~ \; #X obj 522 -49 - 100 \; #X obj 568 -68 env~ \; #X obj 568
+-49 - 100 \; #X obj 522 -28 s vu.l \; #X obj 568 -29 s vu.r \; #X obj
+250 -4 dac~ 1 2 3 4 5 6 7 8 \; #X obj 231 -165 r 1_t.c \; #X obj 472
+147 s 1_sit \; #X obj 472 103 r 1_i \; #X obj 472 37 cnv 15 200 20
+empty empty note.offset 20 12 0 9 -1 -262144 0 \; #X obj 472 125 rg.note.offset
+\; #X obj 151 128 r mt.1 \; #X obj 68 -85 d_chain - - - - - - - - -
+- - - - - - - - - - - - - - - \; #X obj 253 -33 volume - - - - \; #X
+connect 0 0 51 13 \; #X connect 1 0 51 12 \; #X connect 2 0 51 0 \;
+#X connect 3 0 51 3 \; #X connect 4 0 51 1 \; #X connect 5 0 51 2 \;
+#X connect 6 0 51 4 \; #X connect 7 0 51 5 \; #X connect 8 0 51 6 \;
+#X connect 9 0 51 8 \; #X connect 10 0 51 9 \; #X connect 11 0 51 10
+\; #X connect 12 0 51 11 \; #X connect 13 0 23 0 \; #X connect 13 1
+18 0 \; #X connect 14 0 13 1 \; #X connect 15 0 13 2 \; #X connect
+16 0 13 0 \; #X connect 17 0 13 4 \; #X connect 24 0 51 14 \; #X connect
+25 0 52 8 \; #X connect 35 0 36 0 \; #X connect 36 0 37 0 \; #X connect
+38 0 39 0 \; #X connect 39 0 42 0 \; #X connect 40 0 41 0 \; #X connect
+41 0 43 0 \; #X connect 45 0 51 7 \; #X connect 47 0 49 0 \; #X connect
+49 0 46 0 \; #X connect 50 0 13 3 \; #X connect 51 0 28 0 \; #X connect
+51 1 26 0 \; #X connect 51 2 27 0 \; #X connect 51 3 29 0 \; #X connect
+51 4 30 0 \; #X connect 51 5 31 0 \; #X connect 51 6 32 0 \; #X connect
+51 7 38 0 \; #X connect 51 7 35 0 \; #X connect 51 7 52 0 \; #X connect
+51 8 40 0 \; #X connect 51 8 35 0 \; #X connect 51 8 52 1 \; #X connect
+51 9 52 2 \; #X connect 51 10 52 3 \; #X connect 51 11 52 4 \; #X connect
+51 12 52 5 \; #X connect 51 13 52 6 \; #X connect 51 14 52 7 \; #X
+connect 51 15 34 0 \; #X connect 51 16 33 0 \; #X connect 52 0 44 0
+\; #X connect 52 1 44 1 \; #X connect 52 2 44 2 \; #X connect 52 3
+44 3 \; #X connect 52 4 44 4 \; #X connect 52 5 44 5 \; #X connect
+52 6 44 6 \; #X connect 52 7 44 7 \;;
+#X restore -1108 74 pd code;
+#X text -1111 52 Code Guide (should look like this);
+#X obj -952 293 print check;
+#X text -1046 275 list to msg \, create chain first;
+#X text -1061 520 clear first;
+#X msg -1110 522 clear;
+#X msg -290 246 obj 253 -33 volume - - - - \, connect 0 0 51 13 \,
+connect 1 0 51 12 \, connect 2 0 51 0 \, connect 3 0 51 3 \, connect
+4 0 51 1 \, connect 5 0 51 2 \, connect 6 0 51 4 \, connect 7 0 51
+5 \, connect 8 0 51 6 \, connect 9 0 51 8 \, connect 10 0 51 9 \, connect
+11 0 51 10 \, connect 12 0 51 11 \, connect 13 0 23 0 \, connect 13
+1 18 0 \, connect 14 0 13 1 \, connect 15 0 13 2 \, connect 16 0 13
+0 \, connect 17 0 13 4 \, connect 24 0 51 14 \, connect 25 0 52 8 \,
+connect 35 0 36 0 \, connect 36 0 37 0 \, connect 38 0 39 0 \, connect
+39 0 42 0 \, connect 40 0 41 0 \, connect 41 0 43 0 \, connect 45 0
+51 7 \, connect 47 0 49 0 \, connect 49 0 46 0 \, connect 50 0 13 3
+\, connect 51 0 28 0 \, connect 51 1 26 0 \, connect 51 2 27 0 \, connect
+51 3 29 0 \, connect 51 4 30 0 \, connect 51 5 31 0 \, connect 51 6
+32 0 \, connect 51 7 38 0 \, connect 51 7 35 0 \, connect 51 7 52 0
+\, connect 51 8 40 0 \, connect 51 8 35 0 \, connect 51 8 52 1 \, connect
+51 9 52 2 \, connect 51 10 52 3 \, connect 51 11 52 4 \, connect 51
+12 52 5 \, connect 51 13 52 6 \, connect 51 14 52 7 \, connect 51 15
+34 0 \, connect 51 16 33 0 \, connect 52 0 44 0 \, connect 52 1 44
+1 \, connect 52 2 44 2 \, connect 52 3 44 3 \, connect 52 4 44 4 \,
+connect 52 5 44 5 \, connect 52 6 44 6 \, connect 52 7 44 7;
+#X msg -784 188 chain_3 - - - - - - - - - - - - - - - - - - - - - -
+- -;
+#X obj -1110 666 outlet;
+#X obj -784 34 inlet;
+#X text -945 440 put objects \, then dsp chain;
+#X text -277 210 Connections last;
+#X obj -784 67 sel 0 1 2;
+#X msg -850 246 \; pd dsp 1;
+#X msg -673 246 \; pd dsp 0;
+#X msg -739 272 obj 371 -109 r ad.6 \, obj 348 -135 r az.6 \, obj 68
+-109 adc~ 6 \, obj 138 -111 r 1_amp \, obj 91 -152 r 6_th \, obj 114
+-130 r 6_xt \, obj 161 -154 r 6_d.ms \, obj 184 -126 r 6_icr \, obj
+208 -109 r 6_g.ms \, obj 254 -107 r 6_p.ms \, obj 278 -150 r 6_f.ms
+\, obj 301 -127 r 6_f.f \, obj 324 -108 r 6_f.r \, obj 95 170 rg.contour
+\, obj 109 94 r 6_pc \, obj 152 94 r 6_ic \, obj 66 94 r 6_cs \, obj
+237 124 r 6_cc \, obj 152 187 s 6_ccv \, text 94 234 ins: on/off pc
+ic contour choice (pc/ic/rand) \, text 94 248 outs: interpolated contour
+current contour value (for tables) \, obj 67 39 cnv 15 200 20 empty
+empty contour 20 12 0 9 -1 -262144 0 \, obj 68 -200 cnv 15 200 20 empty
+empty signal.processes 20 12 0 9 -1 -262144 0 \, obj 95 215 s 6_icr
+\, obj 462 -102 r 6_euc \, obj 352 -56 r s6.v \, obj 88 -63 s 6_i \,
+obj 108 -41 s 6_pc \, obj 68 -18 s 6_mp \, obj 129 -62 s 6_ic \, obj
+149 -15 s 6_amp \, obj 170 -36 s 6_b \, obj 190 -60 s 6_thb \, obj
+459 -68 s dist.6 \, obj 406 -68 s azi.6 \, obj 612 -68 env~ \, obj
+612 -49 - 100 \, obj 612 -29 s string6.vu \, obj 522 -68 env~ \, obj
+522 -49 - 100 \, obj 568 -68 env~ \, obj 568 -49 - 100 \, obj 522 -28
+s vu.l \, obj 568 -29 s vu.r \, obj 250 -4 dac~ 1 2 3 4 5 6 7 8 \,
+obj 231 -165 r 6_t.c \, obj 472 147 s 6_sit \, obj 472 103 r 6_i \,
+obj 472 37 cnv 15 200 20 empty empty note.offset 20 12 0 9 -1 -2.62144e+06
+\, obj 472 125 rg.note.offset \, obj 151 128 r mt.6 \,;
+#X obj -784 229 t b b a b b b b;
+#X msg -358 246 0;
+#X obj -358 266 s s6.v;
+#X text -1109 31 DYNAMIC CHAIN PATCHING (STRING 6);
+#X connect 0 0 11 0;
+#X connect 0 0 17 0;
+#X connect 4 0 0 0;
+#X connect 6 0 25 0;
+#X connect 7 0 25 0;
+#X connect 14 0 17 0;
+#X connect 15 0 17 0;
+#X connect 16 0 25 0;
+#X connect 18 0 21 0;
+#X connect 21 0 7 0;
+#X connect 21 1 6 0;
+#X connect 21 2 16 0;
+#X connect 24 0 17 0;
+#X connect 25 0 22 0;
+#X connect 25 1 15 0;
+#X connect 25 2 4 0;
+#X connect 25 3 24 0;
+#X connect 25 4 14 0;
+#X connect 25 5 23 0;
+#X connect 25 6 26 0;
+#X connect 26 0 27 0;
+#X restore 709 98 pd dyn.s6;
+#X obj 103 139 s ri.s1;
+#X obj 236 119 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 377 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 236 138 s ri.s2;
+#X obj 377 137 s ri.s3;
+#X obj 519 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 519 137 s ri.s4;
+#X obj 647 116 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 647 135 s ri.s5;
+#X obj 786 115 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 786 134 s ri.s6;
+#N canvas 0 22 666 345 mono 0;
+#X obj 91 61 adc~ 8;
+#X text 136 59 mono;
+#X obj 91 142 e_platereverb;
+#X obj 166 116 r \$0-CTL;
+#N canvas 0 22 622 572 Parameter 0;
+#X obj 201 466 s \$0-CTL;
+#X obj 201 105 g_hsl predelay 0 250;
+#X obj 201 145 g_hsl bandwidth 220.05 22050;
+#X obj 201 185 g_hsl damping 220.5 22050;
+#X obj 201 225 g_hsl decay 0 1;
+#X obj 201 428 g_hsl excursion 0 5;
+#X msg 369 432 excursion \$1;
+#X msg 369 110 predelay \$1;
+#X msg 369 149 bandwidth \$1;
+#X msg 369 190 damping \$1;
+#X msg 369 229 decay \$1;
+#X msg 369 272 input_diffusion1 \$1;
+#X msg 369 302 input_diffusion2 \$1;
+#X msg 369 352 decay_diffusion1 \$1;
+#X msg 369 381 decay_diffusion2 \$1;
+#X obj 201 268 g_hsl input_diffusion1 0 1;
+#X obj 201 298 g_hsl input_diffusion2 0 1;
+#X obj 201 348 g_hsl decay_diffusion1 0 1;
+#X obj 201 378 g_hsl decay_diffusion2 0 1;
+#X text 81 288 Input Diffusion;
+#X text 151 230 Decay;
+#X text 137 191 Damping;
+#X text 47 150 Bandwidth (frequency);
+#X text 134 109 Predelay;
+#X text 81 367 Decay Diffusion;
+#X text 123 433 Excursion;
+#X obj 201 29 r \$0-GUI;
+#X obj 201 61 g_hsl dry 0 1;
+#X text 111 66 Wet/Dry Mix;
+#X text 12 3 Reverb mix controlled by note-event density;
+#X msg 369 66 dry \$1;
+#X msg 280 -21 predelay 0 \, bandwidth 22050 \, damping 22050 \, decay
+0.5 \, input_diffusion1 0.75 \, input_diffusion2 0.625 \, decay_diffusion1
+0.7 \, decay_diffusion2 0.5 \, excursion 0.53761 \;;
+#X obj 280 38 s \$0-GUI;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 15 0;
+#X connect 5 0 0 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 5 0;
+#X connect 26 0 27 0;
+#X connect 27 0 1 0;
+#X connect 31 0 32 0;
+#X restore 90 294 pd Parameter Controls;
+#X msg 336 125 dry \$1;
+#X obj 336 101 r rfa;
+#X floatatom 396 118 5 0 0 0 - - -;
+#X obj 91 270 dac~ 1 2;
+#X obj 91 221 *~ 1;
+#X obj 139 204 * 4;
+#X obj 139 183 r mono.vol;
+#X connect 0 0 2 0;
+#X connect 2 0 9 0;
+#X connect 3 0 2 2;
+#X connect 5 0 2 2;
+#X connect 6 0 5 0;
+#X connect 6 0 7 0;
+#X connect 9 0 8 0;
+#X connect 9 0 8 1;
+#X connect 10 0 9 1;
+#X connect 11 0 10 0;
+#X restore 365 203 pd mono;
+#N canvas 88 22 1081 717 s7 0;
+#X obj 155 128 image img/guitar.gif;
+#X obj 30 -108 cnv 15 900 50 empty empty 7th.string 5 12 0 9 -1 -262144
+0;
+#X obj 731 259 r s7.v;
+#X obj 823 293 env~;
+#X obj 823 312 - 100;
+#X obj 735 293 env~;
+#X obj 735 312 - 100;
+#X obj 781 293 env~;
+#X obj 781 312 - 100;
+#X obj 735 333 s vu.l;
+#X obj 781 332 s vu.r;
+#X obj 823 332 s string7.vu;
+#X obj 646 111 adc~ 7;
+#N canvas 0 22 450 300 dist 0;
+#X obj 110 70 inlet~;
+#X text 262 132 clip range;
+#X obj 110 132 clip~ 0 1;
+#X obj 194 132 clip~ -1 0;
+#X obj 194 161 *~ -1;
+#X obj 110 179 *~ 1;
+#X obj 110 203 outlet~;
+#X connect 0 0 2 0;
+#X connect 0 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X restore 733 173 pd dist;
+#X obj 329 -23 r modal.ramp;
+#X obj 214 -23 r tetra.ramp;
+#X obj 444 -23 r 1_icr;
+#X obj 540 -23 r g.c;
+#X floatatom 329 -2 5 0 0 0 - - -;
+#X floatatom 214 -1 5 0 0 0 - - -;
+#X obj 646 316 dac~ 1 2;
+#X obj 646 156 svf~ 220 0.5;
+#X obj 646 229 +pitchdelay~;
+#X obj 561 212 r pitchdel;
+#X floatatom 35 376 5 1 5000 0 - - -;
+#X floatatom 203 515 5 0 200 0 - - -;
+#X floatatom 35 504 5 0 100 0 - - -;
+#X obj 35 415 s pitchdel;
+#X obj 35 543 s pitchdel;
+#X obj 203 554 s pitchdel;
+#X obj 385 553 s pitchdel;
+#X msg 35 394 time \$1;
+#X msg 203 533 feedback \$1;
+#X msg 385 532 octave \$1;
+#X msg 35 522 loopDepth \$1;
+#X obj 203 439 s pitchdel;
+#X msg 203 418 pitchFactor \$1;
+#X obj 206 359 hsl 128 15 0 34 0 0 empty pit_pitfact empty -2 -8 0
+10 -228856 -1 -1 0 1;
+#X obj 38 360 hsl 128 15 1 5000 1 0 empty pit_time empty -2 -8 0 10
+-228856 -1 -1 2243 1;
+#X obj 388 359 hsl 128 15 0 100 0 0 empty pit_dryvol empty -2 -8 0
+10 -228856 -1 -1 12700 1;
+#X obj 388 419 hsl 128 15 0 100 0 0 empty pit_delvol empty -2 -8 0
+10 -228856 -1 -1 12700 1;
+#X text 385 337 Dry Volume (dB);
+#X text 388 399 Delay Volume (dB);
+#X floatatom 385 375 5 0 0 0 - - pitch_dryvolume;
+#X floatatom 385 435 5 0 0 0 - - pitch_delvolume;
+#X obj 206 499 hsl 128 15 0 200 0 0 empty pit_fb empty -2 -8 0 10 -228856
+-1 -1 5080 1;
+#X obj 38 488 hsl 128 15 10 100 0 0 empty pit_lpdepth empty -2 -8 0
+10 -228856 -1 -1 12700 1;
+#X text 201 481 0 - 200%;
+#X text 33 342 0 - 5000 ms (log);
+#X obj 203 375 int;
+#X symbolatom 203 338 12 0 0 0 - label -;
+#N canvas 624 151 656 333 label 0;
+#X obj 117 188 list;
+#X obj 117 209 list split 1;
+#X obj 77 83 t b f f b;
+#X obj 117 238 list split 1;
+#X obj 77 63 + 1;
+#X obj 238 220 - 1;
+#X obj 77 35 inlet;
+#X obj 163 264 s label;
+#X msg 146 106 Unison Minor_2nd 16/15 10/9 Major_2nd 9/8 8/7 7/6 Minor_3rd
+6/5 5/4 Major_3rd 9/7 4/3 Perfect_4th 7/5 Tritone 10/7 Perfect_5th
+3/2 14/9 11/7 Minor_6th 8/5 5/3 Major_6th 12/7 7/4 16/9 Minor_7th 9/5
+13/7 15/8 Major_7th Octave;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 2 1 1 1;
+#X connect 2 2 5 0;
+#X connect 2 3 8 0;
+#X connect 3 1 7 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 1;
+#X connect 6 0 4 0;
+#X connect 8 0 0 1;
+#X restore 215 396 pd label;
+#X text 33 470 10 - 100%;
+#X obj 385 488 hradio 15 1 0 7 empty octave-set empty 0 -8 0 10 -262144
+-1 -1 2;
+#X obj 385 508 - 3;
+#X floatatom 444 0 5 0 0 0 - - -;
+#X floatatom 540 0 5 0 0 0 - - -;
+#X obj 214 22 s \$0-tr;
+#X obj 329 18 s \$0-mr;
+#X obj 444 19 s \$0-s1;
+#X obj 540 20 s \$0-gc;
+#X msg 35 314 4.5;
+#X msg 203 314 0;
+#X msg 385 313 100;
+#X msg 35 453 100;
+#X msg 203 462 80;
+#X obj 203 297 loadbang;
+#X obj 646 276 *~ 5;
+#X msg 385 465 2;
+#X obj 690 265 * 2;
+#X connect 2 0 69 0;
+#X connect 3 0 4 0;
+#X connect 4 0 11 0;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 12 0 21 0;
+#X connect 13 0 67 0;
+#X connect 14 0 18 0;
+#X connect 15 0 19 0;
+#X connect 16 0 55 0;
+#X connect 17 0 56 0;
+#X connect 18 0 58 0;
+#X connect 19 0 57 0;
+#X connect 21 0 13 0;
+#X connect 21 0 22 0;
+#X connect 21 2 13 0;
+#X connect 21 2 22 0;
+#X connect 22 0 67 0;
+#X connect 23 0 22 0;
+#X connect 24 0 31 0;
+#X connect 25 0 32 0;
+#X connect 26 0 34 0;
+#X connect 31 0 27 0;
+#X connect 32 0 29 0;
+#X connect 33 0 30 0;
+#X connect 34 0 28 0;
+#X connect 36 0 35 0;
+#X connect 37 0 49 0;
+#X connect 38 0 24 0;
+#X connect 39 0 43 0;
+#X connect 40 0 44 0;
+#X connect 45 0 25 0;
+#X connect 46 0 26 0;
+#X connect 49 0 36 0;
+#X connect 49 0 51 0;
+#X connect 53 0 54 0;
+#X connect 54 0 33 0;
+#X connect 55 0 59 0;
+#X connect 56 0 60 0;
+#X connect 61 0 38 0;
+#X connect 62 0 37 0;
+#X connect 63 0 40 0;
+#X connect 63 0 39 0;
+#X connect 64 0 46 0;
+#X connect 65 0 45 0;
+#X connect 66 0 61 0;
+#X connect 66 0 62 0;
+#X connect 66 0 63 0;
+#X connect 66 0 64 0;
+#X connect 66 0 65 0;
+#X connect 66 0 68 0;
+#X connect 67 0 5 0;
+#X connect 67 0 7 0;
+#X connect 67 0 3 0;
+#X connect 67 0 20 0;
+#X connect 67 0 20 1;
+#X connect 68 0 53 0;
+#X connect 69 0 67 1;
+#X restore 47 204 pd s7;
+#X connect 8 0 9 0;
+#X connect 8 0 36 0;
+#X connect 10 0 8 0;
+#X connect 19 0 37 0;
+#X connect 20 0 38 0;
+#X connect 21 0 39 0;
+#X connect 22 0 40 0;
+#X connect 23 0 41 0;
+#X connect 36 0 42 0;
+#X connect 37 0 24 0;
+#X connect 37 0 43 0;
+#X connect 38 0 25 0;
+#X connect 38 0 44 0;
+#X connect 39 0 26 0;
+#X connect 39 0 47 0;
+#X connect 40 0 27 0;
+#X connect 40 0 49 0;
+#X connect 41 0 28 0;
+#X connect 41 0 51 0;
+#X connect 43 0 45 0;
+#X connect 44 0 46 0;
+#X connect 47 0 48 0;
+#X connect 49 0 50 0;
+#X connect 51 0 52 0;

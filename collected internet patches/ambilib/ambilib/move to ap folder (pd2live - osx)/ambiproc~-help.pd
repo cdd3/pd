@@ -1,0 +1,30 @@
+#N canvas 305 113 1263 737 10;
+#X obj 16 80 ambiproc~ 0;
+#X obj 15 121 ambiproc~ 1;
+#X obj 18 162 ambiproc~ 2;
+#X obj 17 204 ambiproc~ 3;
+#X obj 18 245 ambiproc~ 4;
+#X obj 17 284 ambiproc~ 5;
+#X text 15 17 Ambiproc~ Ambisonic B-format processor based on the b_proc
+VST plugin by Dave Malham. Ported to pd by Matthew Paradis;
+#X text 121 46 Input 1 = W \, Input 2 = X \, Input 3 = Y \, Input 4
+= Z.;
+#X text 119 57 Output 1 = W \, Output 2 = X \, Output 3 = Y \, Output
+4 = Z.;
+#X text 93 81 Rotate-Tilt-Tumble;
+#X text 94 119 Rotate-Tumble-Tilt;
+#X text 96 163 Tilt-Rotate-Tumble;
+#X text 96 201 Tilt-Tumble-Rotate;
+#X text 97 243 Tumble-Rotate-Tilt;
+#X obj 16 52 aprocctrl;
+#X text 233 79 Parameters;
+#X text 233 142 rotate = rotate \, tilt = tilt \, tumble = tumble.
+;
+#X text 14 328 For more informataion see: http://www.york.ac.uk/inst/mustech/3d_audio/vst/bproc_help.html
+;
+#X text 233 101 Parameters can be altered using the aprocctrl abstraction
+or by passing messages directly into the ambiproc~ objects 1st input.
+Parameters are:;
+#X text 96 283 Tumble-Tilt-Rotate;
+#X text 232 160 All parameters are scaled between 0.0-1.0;
+#X connect 14 0 0 0;

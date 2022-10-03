@@ -1,0 +1,16 @@
+ambipanner~ abstractions
+dino~ abstractions
+grain~ abstractions
+partch~ abstractions
+freeze~ abstractions
+mclachlan algorithms
+markov algorithms
+lerdahl algorithms
+euclidean algorithms
+time algorithms
+pduino monitor
+cntr monitor
+dsp monitor
+global monitor
+space monitor
+vu monitor

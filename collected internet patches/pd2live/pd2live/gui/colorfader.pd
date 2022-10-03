@@ -1,0 +1,34 @@
+#N canvas 317 117 814 683 10;
+#X obj 199 287 outlet;
+#X obj 100 328 change -1;
+#X obj 100 466 s \$0-fader;
+#X obj 100 56 inlet;
+#X msg 100 379 vis_size 18 \$1;
+#X obj 100 102 vsl 20 182 0 1 0 0 \$0s \$0label empty 0 -9 0 10 -253822
+-1 -1 18100 1;
+#X obj 101 104 cnv 1 18 182 empty \$0-fader empty 20 12 0 14 -233017
+-262144 0;
+#X msg 302 449 pos 101 \$1;
+#X obj 100 349 * 181.04;
+#X obj 302 345 * 181;
+#X obj 302 395 expr 286.904 - $f1;
+#X obj 100 305 + 0.008;
+#X obj 36 267 loadbang;
+#X msg 36 288 0.001;
+#X msg 210 366 color 190;
+#X connect 1 0 8 0;
+#X connect 1 0 9 0;
+#X connect 3 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 0 0;
+#X connect 5 0 11 0;
+#X connect 7 0 2 0;
+#X connect 8 0 14 0;
+#X connect 8 0 4 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
+#X connect 11 0 1 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 14 0 2 0;
+#X coords 0 -1 1 1 20 187 2 100 100;

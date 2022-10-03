@@ -1,0 +1,197 @@
+#N canvas 1 76 872 762 10;
+#X obj 18 15 cnv 15 834 728 empty empty empty 20 16 0 14 -1 -66577
+0;
+#X obj 19 16 cnv 15 445 362 empty empty (MIDI) 8 14 0 14 -262144 -1
+0;
+#X obj 37 58 cnv 12 12 12 empty empty play -2 4 0 12 -262144 -1 0;
+#X obj 247 58 cnv 12 12 12 empty empty play -2 4 0 12 -262144 -1 0
+;
+#X obj 37 78 cnv 12 12 12 empty empty stop -2 4 0 12 -262144 -1 0;
+#X obj 247 78 cnv 12 12 12 empty empty stop -2 4 0 12 -262144 -1 0
+;
+#X obj 37 98 cnv 12 12 12 empty empty recording -2 4 0 12 -262144 -1
+0;
+#X obj 247 98 cnv 12 12 12 empty empty rec_&_play -2 4 0 12 -262144
+-1 0;
+#X obj 37 118 cnv 12 12 12 empty empty slow_rewind -2 4 0 12 -262144
+-1 0;
+#X obj 247 118 cnv 12 12 12 empty empty rew -2 4 0 12 -262144 -1 0
+;
+#X obj 37 138 cnv 12 12 12 empty empty slow_forward -2 4 0 12 -262144
+-1 0;
+#X obj 247 138 cnv 12 12 12 empty empty ff -2 4 0 12 -262144 -1 0;
+#X obj 37 158 cnv 12 12 12 empty empty fast_rewind -2 4 0 12 -262144
+-1 0;
+#X obj 247 158 cnv 12 12 12 empty empty stop_&_rew -2 4 0 12 -262144
+-1 0;
+#X obj 37 178 cnv 12 12 12 empty empty fast_forward -2 4 0 12 -262144
+-1 0;
+#X obj 247 178 cnv 12 12 12 empty empty stop_&_ff -2 4 0 12 -262144
+-1 0;
+#X obj 37 198 cnv 12 12 12 empty empty go_to_zero -2 4 0 12 -262144
+-1 0;
+#X obj 247 198 cnv 12 12 12 empty empty set_&_stop -2 4 0 12 -262144
+-1 0;
+#X obj 37 218 cnv 12 12 12 empty empty activate/deactivet_loop -2 4
+0 12 -262144 -1 0;
+#X obj 247 218 cnv 12 12 12 empty empty cycle -2 4 0 12 -262144 -1
+0;
+#X obj 37 238 cnv 12 12 12 empty empty change_loop-mode -2 4 0 12 -262144
+-1 0;
+#X obj 247 238 cnv 12 12 12 empty empty set -2 4 0 12 -262144 -1 0
+;
+#X obj 37 258 cnv 12 12 12 empty empty set_range-points -2 4 0 12 -262144
+-1 0;
+#X obj 247 258 cnv 12 12 12 empty empty set_&_trackL/trackR -2 4 0
+12 -262144 -1 0;
+#X obj 37 278 cnv 12 12 12 empty empty set_punch-points -2 4 0 12 -262144
+-1 0;
+#X obj 247 278 cnv 12 12 12 empty empty set_&_markerL/markerR -2 4
+0 12 -262144 -1 0;
+#X obj 37 298 cnv 12 12 12 empty empty go_to_range-points -2 4 0 12
+-262144 -1 0;
+#X obj 247 298 cnv 12 12 12 empty empty trackL/trackR -2 4 0 12 -262144
+-1 0;
+#X obj 37 318 cnv 12 12 12 empty empty go_to_punch-points -2 4 0 12
+-262144 -1 0;
+#X obj 247 318 cnv 12 12 12 empty empty markerL/markerR -2 4 0 12 -262144
+-1 0;
+#X obj 37 338 cnv 12 12 12 empty empty activate/deactivate_punch -2
+4 0 12 -262144 -1 0;
+#X obj 247 338 cnv 12 12 12 empty empty rec_&_markerL/markerR -2 4
+0 12 -262144 -1 0;
+#X obj 37 358 cnv 12 12 12 empty empty write_out_audio_(rough-mix)
+-2 4 0 12 -262144 -1 0;
+#X obj 247 358 cnv 12 12 12 empty empty set_&_play -2 4 0 12 -262144
+-1 0;
+#X obj 19 380 cnv 15 445 362 empty empty (KEYS) 8 14 0 14 -262144 -1
+0;
+#X obj 37 422 cnv 12 12 12 empty empty play -2 4 0 12 -262144 -1 0
+;
+#X obj 247 422 cnv 12 12 12 empty empty Space -2 4 0 12 -262144 -1
+0;
+#X obj 37 442 cnv 12 12 12 empty empty stop -2 4 0 12 -262144 -1 0
+;
+#X obj 247 442 cnv 12 12 12 empty empty Space -2 4 0 12 -262144 -1
+0;
+#X obj 37 462 cnv 12 12 12 empty empty recording -2 4 0 12 -262144
+-1 0;
+#X obj 247 462 cnv 12 12 12 empty empty Shift_&_Space -2 4 0 12 -262144
+-1 0;
+#X obj 37 482 cnv 12 12 12 empty empty slow_rewind -2 4 0 12 -262144
+-1 0;
+#X obj 247 482 cnv 12 12 12 empty empty Comma -2 4 0 12 -262144 -1
+0;
+#X obj 37 502 cnv 12 12 12 empty empty slow_forward -2 4 0 12 -262144
+-1 0;
+#X obj 247 502 cnv 12 12 12 empty empty Full-Stop -2 4 0 12 -262144
+-1 0;
+#X obj 37 522 cnv 12 12 12 empty empty fast_rewind -2 4 0 12 -262144
+-1 0;
+#X obj 247 522 cnv 12 12 12 empty empty Shift_&_Comma -2 4 0 12 -262144
+-1 0;
+#X obj 37 542 cnv 12 12 12 empty empty fast_forward -2 4 0 12 -262144
+-1 0;
+#X obj 247 542 cnv 12 12 12 empty empty Shift_&_Full-Stop -2 4 0 12
+-262144 -1 0;
+#X obj 37 562 cnv 12 12 12 empty empty go_to_zero -2 4 0 12 -262144
+-1 0;
+#X obj 247 562 cnv 12 12 12 empty empty 0 -2 4 0 12 -262144 -1 0;
+#X obj 37 582 cnv 12 12 12 empty empty activate/deactivet_loop -2 4
+0 12 -262144 -1 0;
+#X obj 247 582 cnv 12 12 12 empty empty L -2 4 0 12 -262144 -1 0;
+#X obj 37 602 cnv 12 12 12 empty empty change_loop-mode -2 4 0 12 -262144
+-1 0;
+#X obj 247 602 cnv 12 12 12 empty empty Shift_&_L -2 4 0 12 -262144
+-1 0;
+#X obj 37 622 cnv 12 12 12 empty empty set_range-points -2 4 0 12 -262144
+-1 0;
+#X obj 247 622 cnv 12 12 12 empty empty Shift_&_Z/U -2 4 0 12 -262144
+-1 0;
+#X obj 37 642 cnv 12 12 12 empty empty set_punch-points -2 4 0 12 -262144
+-1 0;
+#X obj 247 642 cnv 12 12 12 empty empty Shift_&_H/J -2 4 0 12 -262144
+-1 0;
+#X obj 37 662 cnv 12 12 12 empty empty go_to_range-points -2 4 0 12
+-262144 -1 0;
+#X obj 247 662 cnv 12 12 12 empty empty Z_(range_start)_U_(range_end)
+-2 4 0 12 -262144 -1 0;
+#X obj 37 682 cnv 12 12 12 empty empty go_to_punch-points -2 4 0 12
+-262144 -1 0;
+#X obj 247 682 cnv 12 12 12 empty empty H_(punch-in)_J_(punch-out)
+-2 4 0 12 -262144 -1 0;
+#X obj 37 702 cnv 12 12 12 empty empty activate/deactivate_punch -2
+4 0 12 -262144 -1 0;
+#X obj 247 702 cnv 12 12 12 empty empty I_(in)_O_(out) -2 4 0 12 -262144
+-1 0;
+#X obj 37 722 cnv 12 12 12 empty empty write_out_audio_(rough-mix)
+-2 4 0 12 -262144 -1 0;
+#X obj 247 722 cnv 12 12 12 empty empty W -2 4 0 12 -262144 -1 0;
+#X obj 466 16 cnv 15 385 362 empty empty empty 8 14 0 14 -262144 -1
+0;
+#X obj 466 380 cnv 15 385 362 empty empty empty 8 14 0 14 -262144 -1
+0;
+#X obj 482 58 cnv 12 12 12 empty empty change_input -2 4 0 12 -262144
+-1 0;
+#X obj 642 58 cnv 12 12 12 empty empty set_&_pan_(of_desired_track)
+-2 4 0 12 -262144 -1 0;
+#X obj 478 28 cnv 12 12 12 empty empty (individual_tracks) -2 4 0 14
+-262144 -1 0;
+#X obj 482 78 cnv 12 12 12 empty empty arm_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 78 cnv 12 12 12 empty empty rec_(track) -2 4 0 12 -262144
+-1 0;
+#X obj 482 98 cnv 12 12 12 empty empty mute_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 98 cnv 12 12 12 empty empty mute_(track) -2 4 0 12 -262144
+-1 0;
+#X obj 482 118 cnv 12 12 12 empty empty solo_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 118 cnv 12 12 12 empty empty solo_(track) -2 4 0 12 -262144
+-1 0;
+#X obj 482 138 cnv 12 12 12 empty empty pan_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 138 cnv 12 12 12 empty empty pan_(track) -2 4 0 12 -262144
+-1 0;
+#X obj 482 158 cnv 12 12 12 empty empty volume_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 158 cnv 12 12 12 empty empty vol_(track) -2 4 0 12 -262144
+-1 0;
+#X obj 482 452 cnv 12 12 12 empty empty change_input -2 4 0 12 -262144
+-1 0;
+#X obj 642 452 cnv 12 12 12 empty empty Shift_&_Up/Down_(track) -2
+4 0 12 -262144 -1 0;
+#X obj 478 392 cnv 12 12 12 empty empty (individual_tracks) -2 4 0
+14 -262144 -1 0;
+#X obj 482 472 cnv 12 12 12 empty empty arm_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 472 cnv 12 12 12 empty empty R_(track) -2 4 0 12 -262144
+-1 0;
+#X obj 482 492 cnv 12 12 12 empty empty mute_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 492 cnv 12 12 12 empty empty M_(track) -2 4 0 12 -262144
+-1 0;
+#X obj 482 512 cnv 12 12 12 empty empty solo_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 512 cnv 12 12 12 empty empty S_(track) -2 4 0 12 -262144
+-1 0;
+#X obj 482 532 cnv 12 12 12 empty empty pan_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 532 cnv 12 12 12 empty empty Left/Right_(track) -2 4 0 12
+-262144 -1 0;
+#X obj 482 552 cnv 12 12 12 empty empty volume_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 552 cnv 12 12 12 empty empty Up/Down_(track) -2 4 0 12 -262144
+-1 0;
+#X obj 482 422 cnv 12 12 12 empty empty choose_track -2 4 0 12 -262144
+-1 0;
+#X obj 642 422 cnv 12 12 12 empty empty Nr_1-8_or_Shift_&_Left/Right
+-2 4 0 12 -262144 -1 0;
+#X obj 459 727 cnv 15 15 15 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 457 16 cnv 15 15 15 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 458 363 cnv 15 15 15 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 456 380 cnv 15 15 15 empty empty empty 20 12 0 14 -262144 -66577
+0;

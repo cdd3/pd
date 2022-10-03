@@ -1,0 +1,7 @@
+/mnt/sda1/patches/01_Sample_Player/01/04.String_Quartet_N2_(1915-1917)_Op.17\,_Sz.67_-_III._Lento.wav
+;
+/mnt/sda1/patches/01_Sample_Player/01/04_Fleurette_Africaine.wav;
+/mnt/sda1/patches/01_Sample_Player/01/07_Switchblade.wav;
+/mnt/sda1/patches/01_Sample_Player/01/2sec.wav;
+/mnt/sda1/patches/01_Sample_Player/01/chord_test.wav;
+/mnt/sda1/patches/01_Sample_Player/01/rec_2019-02-02_18-27-15.wav;

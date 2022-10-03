@@ -1,0 +1,20 @@
+#N canvas 93 7 462 236 10;
+#X text 81 58 Input 1 = W \, Input 2 = X \, Input 3 = Y \, Input 4
+= Z.;
+#X text 79 69 Output 1 = W \, Output 2 = X \, Output 3 = Y \, Output
+4 = Z.;
+#X text 81 82 Parameters;
+#X obj 16 90 ambiplane~;
+#X text 81 97 Parameters can be altered using the aplanectrl abstraction
+or by passing messages directly into the ambiplen~ objects 1st input.
+Parameters are:;
+#X text 79 166 For more informataion see: http://www.york.ac.uk/inst/mustech/3d_audio/vst/bplen_help.html
+;
+#X text 79 140 azimuth = azimuth \, elevation = elevation \, mirror
+= mirror.;
+#X obj 16 62 aplanectrl;
+#X text 78 153 All parameters are scaled between 0 - 1;
+#X text 15 11 Ambiplane~ Ambisonic B-format processor based on the
+b_plane VST plugin by Dave Malham. Ported to pd by Matthew Paradis
+;
+#X connect 7 0 3 0;

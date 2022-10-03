@@ -1,0 +1,1864 @@
+#N canvas 553 153 642 575 10;
+#X declare -path data/;
+#X declare -path dsp/;
+#X declare -path dsp/rj/;
+#X declare -path dsp/rj/;
+#X declare -path dsp/rj/;
+#X declare -path dsp/rj/;
+#X declare -path dsp/rj/;
+#X declare -path dsp/rj/;
+#X obj 100 100 cnv 15 196 200 empty empty [TIMBRE] 9 12 0 9 -1 -262144
+0;
+#X obj 112 203 hsl 56 10 3 8 0 0 gwv \$0-8721 empty -2 -8 0 10 -262144
+-228856 -1 0 1;
+#X obj 109 140 cnv 15 60 60 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array gw 1024 float 1;
+#A 0 1.49012e-08 0.000127821 0.000132381 0.000137094 0.000141966 0.000147
+0.000152203 0.000157578 0.000163133 0.000168871 0.0001748 0.000180924
+0.000187249 0.000193783 0.000200531 0.0002075 0.000214696 0.000222126
+0.000229798 0.000237718 0.000245895 0.000254335 0.000263047 0.000272038
+0.000281318 0.000290894 0.000300776 0.000310971 0.000321491 0.000332343
+0.000343538 0.000355086 0.000366997 0.000379282 0.00039195 0.000405014
+0.000418485 0.000432374 0.000446693 0.000461455 0.000476672 0.000492357
+0.000508523 0.000525184 0.000542354 0.000560046 0.000578276 0.000597058
+0.000616408 0.000636341 0.000656874 0.000678023 0.000699805 0.000722236
+0.000745336 0.000769122 0.000793612 0.000818826 0.000844783 0.000871502
+0.000899006 0.000927313 0.000956446 0.000986427 0.00101728 0.00104902
+0.00108168 0.00111528 0.00114985 0.0011854 0.00122197 0.00125958 0.00129826
+0.00133804 0.00137894 0.00142099 0.00146423 0.00150867 0.00155436 0.00160132
+0.00164959 0.0016992 0.00175018 0.00180256 0.00185639 0.00191169 0.0019685
+0.00202686 0.00208681 0.00214838 0.00221162 0.00227657 0.00234326 0.00241174
+0.00248204 0.00255423 0.00262833 0.0027044 0.00278247 0.00286261 0.00294485
+0.00302924 0.00311584 0.0032047 0.00329586 0.00338938 0.00348532 0.00358373
+0.00368466 0.00378818 0.00389433 0.00400319 0.0041148 0.00422924 0.00434656
+0.00446683 0.00459012 0.00471648 0.00484598 0.0049787 0.00511471 0.00525407
+0.00539685 0.00554314 0.005693 0.00584651 0.00600375 0.00616479 0.00632972
+0.00649861 0.00667155 0.00684862 0.00702992 0.00721551 0.0074055 0.00759996
+0.007799 0.0080027 0.00821116 0.00842447 0.00864272 0.00886603 0.00909447
+0.00932817 0.00956721 0.0098117 0.0100617 0.0103175 0.0105789 0.0108463
+0.0111197 0.0113991 0.0116848 0.0119769 0.0122754 0.0125804 0.0128922
+0.0132107 0.0135363 0.0138688 0.0142086 0.0145557 0.0149103 0.0152724
+0.0156423 0.01602 0.0164058 0.0167996 0.0172017 0.0176123 0.0180314
+0.0184592 0.0188959 0.0193416 0.0197964 0.0202605 0.0207341 0.0212173
+0.0217102 0.0222131 0.0227261 0.0232493 0.023783 0.0243272 0.0248822
+0.0254481 0.026025 0.0266132 0.0272129 0.0278241 0.0284471 0.0290821
+0.0297292 0.0303886 0.0310605 0.0317451 0.0324426 0.0331531 0.0338768
+0.0346139 0.0353647 0.0361293 0.0369078 0.0377006 0.0385077 0.0393294
+0.0401659 0.0410174 0.041884 0.042766 0.0436636 0.0445769 0.0455063
+0.0464518 0.0474137 0.0483922 0.0493876 0.0503999 0.0514294 0.0524764
+0.053541 0.0546235 0.055724 0.0568428 0.0579801 0.059136 0.0603109
+0.0615049 0.0627182 0.063951 0.0652036 0.0664762 0.067769 0.0690822
+0.0704159 0.0717705 0.0731462 0.0745431 0.0759614 0.0774014 0.0788633
+0.0803473 0.0818536 0.0833824 0.084934 0.0865084 0.088106 0.089727
+0.0913714 0.0930397 0.0947319 0.0964482 0.0981889 0.0999542 0.101744
+0.103559 0.105399 0.107265 0.109156 0.111072 0.113015 0.114983 0.116978
+0.119 0.121047 0.123122 0.125224 0.127353 0.129509 0.131692 0.133904
+0.136143 0.138409 0.140704 0.143028 0.145379 0.147759 0.150168 0.152606
+0.155072 0.157568 0.160092 0.162646 0.16523 0.167843 0.170485 0.173157
+0.175859 0.178591 0.181353 0.184145 0.186967 0.189819 0.192702 0.195615
+0.198558 0.201532 0.204536 0.207571 0.210637 0.213733 0.216859 0.220016
+0.223204 0.226423 0.229672 0.232952 0.236262 0.239603 0.242975 0.246377
+0.249809 0.253272 0.256765 0.260289 0.263843 0.267427 0.271041 0.274685
+0.278359 0.282063 0.285796 0.289559 0.293352 0.297173 0.301024 0.304904
+0.308812 0.312749 0.316715 0.320709 0.32473 0.32878 0.332858 0.336962
+0.341094 0.345253 0.349439 0.353651 0.35789 0.362154 0.366444 0.370759
+0.375099 0.379465 0.383854 0.388268 0.392705 0.397166 0.40165 0.406157
+0.410686 0.415237 0.419809 0.424403 0.429018 0.433653 0.438308 0.442983
+0.447677 0.452389 0.45712 0.461868 0.466634 0.471416 0.476215 0.481029
+0.485859 0.490704 0.495563 0.500436 0.505322 0.51022 0.515131 0.520053
+0.524987 0.52993 0.534884 0.539847 0.544818 0.549797 0.554784 0.559778
+0.564777 0.569783 0.574793 0.579807 0.584825 0.589846 0.59487 0.599894
+0.60492 0.609946 0.614972 0.619996 0.625018 0.630038 0.635055 0.640067
+0.645075 0.650077 0.655073 0.660063 0.665044 0.670017 0.674981 0.679935
+0.684879 0.689811 0.694731 0.699637 0.704531 0.709409 0.714273 0.71912
+0.72395 0.728763 0.733558 0.738333 0.743089 0.747823 0.752537 0.757228
+0.761895 0.766539 0.771159 0.775753 0.78032 0.784861 0.789374 0.793858
+0.798313 0.802738 0.807132 0.811495 0.815824 0.820121 0.824384 0.828612
+0.832804 0.83696 0.84108 0.845161 0.849204 0.853208 0.857171 0.861094
+0.864976 0.868815 0.872612 0.876364 0.880073 0.883737 0.887355 0.890926
+0.894451 0.897927 0.901356 0.904735 0.908065 0.911344 0.914573 0.91775
+0.920874 0.923946 0.926965 0.929929 0.932839 0.935694 0.938493 0.941235
+0.943921 0.94655 0.949121 0.951633 0.954087 0.956481 0.958815 0.961089
+0.963302 0.965455 0.967545 0.969573 0.971539 0.973442 0.975282 0.977059
+0.978771 0.980419 0.982002 0.98352 0.984973 0.986361 0.987683 0.988938
+0.990127 0.991249 0.992305 0.993293 0.994215 0.995068 0.995854 0.996573
+0.997223 0.997805 0.998319 0.998765 0.999142 0.999451 0.999691 0.999863
+0.999966 1 0.999966 0.999863 0.999691 0.999451 0.999142 0.998765 0.998319
+0.997805 0.997223 0.996573 0.995854 0.995068 0.994215 0.993293 0.992305
+0.991249 0.990127 0.988938 0.987683 0.986361 0.984973 0.98352 0.982002
+0.980419 0.978771 0.977059 0.975282 0.973442 0.971539 0.969573 0.967545
+0.965455 0.963302 0.961089 0.958815 0.956481 0.954087 0.951633 0.949121
+0.94655 0.943921 0.941235 0.938493 0.935694 0.932839 0.929929 0.926965
+0.923946 0.920874 0.91775 0.914573 0.911344 0.908065 0.904735 0.901356
+0.897927 0.894451 0.890926 0.887355 0.883737 0.880073 0.876364 0.872612
+0.868815 0.864976 0.861094 0.857171 0.853208 0.849204 0.845161 0.84108
+0.83696 0.832804 0.828612 0.824384 0.820121 0.815824 0.811495 0.807132
+0.802738 0.798313 0.793858 0.789374 0.784861 0.78032 0.775753 0.771159
+0.766539 0.761895 0.757228 0.752537 0.747823 0.743089 0.738333 0.733558
+0.728763 0.72395 0.71912 0.714273 0.709409 0.704531 0.699637 0.694731
+0.689811 0.684879 0.679935 0.674981 0.670017 0.665044 0.660063 0.655073
+0.650077 0.645075 0.640067 0.635055 0.630038 0.625018 0.619996 0.614972
+0.609946 0.60492 0.599894 0.59487 0.589846 0.584825 0.579807 0.574793
+0.569783 0.564777 0.559778 0.554784 0.549797 0.544818 0.539847 0.534884
+0.52993 0.524987 0.520053 0.515131 0.51022 0.505322 0.500436 0.495563
+0.490704 0.485859 0.481029 0.476215 0.471416 0.466634 0.461868 0.45712
+0.452389 0.447677 0.442983 0.438308 0.433653 0.429018 0.424403 0.419809
+0.415237 0.410686 0.406157 0.40165 0.397166 0.392705 0.388268 0.383854
+0.379465 0.375099 0.370759 0.366444 0.362154 0.35789 0.353651 0.349439
+0.345253 0.341094 0.336962 0.332858 0.32878 0.32473 0.320709 0.316715
+0.312749 0.308812 0.304904 0.301024 0.297173 0.293352 0.289559 0.285796
+0.282063 0.278359 0.274685 0.271041 0.267427 0.263843 0.260289 0.256765
+0.253272 0.249809 0.246377 0.242975 0.239603 0.236262 0.232952 0.229672
+0.226423 0.223204 0.220016 0.216859 0.213733 0.210637 0.207571 0.204536
+0.201532 0.198558 0.195615 0.192702 0.189819 0.186967 0.184145 0.181353
+0.178591 0.175859 0.173157 0.170485 0.167843 0.16523 0.162646 0.160092
+0.157568 0.155072 0.152606 0.150168 0.147759 0.145379 0.143028 0.140704
+0.138409 0.136143 0.133904 0.131692 0.129509 0.127353 0.125224 0.123122
+0.121047 0.119 0.116978 0.114983 0.113015 0.111072 0.109156 0.107265
+0.105399 0.103559 0.101744 0.0999542 0.0981889 0.0964482 0.0947319
+0.0930397 0.0913714 0.089727 0.088106 0.0865084 0.084934 0.0833824
+0.0818536 0.0803473 0.0788633 0.0774014 0.0759614 0.0745431 0.0731462
+0.0717705 0.0704159 0.0690822 0.067769 0.0664762 0.0652036 0.063951
+0.0627182 0.0615049 0.0603109 0.059136 0.0579801 0.0568428 0.055724
+0.0546235 0.053541 0.0524764 0.0514294 0.0503999 0.0493876 0.0483922
+0.0474137 0.0464518 0.0455063 0.0445769 0.0436636 0.042766 0.041884
+0.0410174 0.0401659 0.0393294 0.0385077 0.0377006 0.0369078 0.0361293
+0.0353647 0.0346139 0.0338768 0.0331531 0.0324426 0.0317451 0.0310605
+0.0303886 0.0297292 0.0290821 0.0284471 0.0278241 0.0272129 0.0266132
+0.026025 0.0254481 0.0248822 0.0243272 0.023783 0.0232493 0.0227261
+0.0222131 0.0217102 0.0212173 0.0207341 0.0202605 0.0197964 0.0193416
+0.0188959 0.0184592 0.0180314 0.0176123 0.0172017 0.0167996 0.0164058
+0.01602 0.0156423 0.0152724 0.0149103 0.0145557 0.0142086 0.0138688
+0.0135363 0.0132107 0.0128922 0.0125804 0.0122754 0.0119769 0.0116848
+0.0113991 0.0111197 0.0108463 0.0105789 0.0103175 0.0100617 0.0098117
+0.00956721 0.00932817 0.00909447 0.00886603 0.00864272 0.00842447 0.00821116
+0.0080027 0.007799 0.00759996 0.0074055 0.00721551 0.00702992 0.00684862
+0.00667155 0.00649861 0.00632972 0.00616479 0.00600375 0.00584651 0.005693
+0.00554314 0.00539685 0.00525407 0.00511471 0.0049787 0.00484598 0.00471648
+0.00459012 0.00446683 0.00434656 0.00422924 0.0041148 0.00400319 0.00389433
+0.00378818 0.00368466 0.00358373 0.00348532 0.00338938 0.00329586 0.0032047
+0.00311584 0.00302924 0.00294485 0.00286261 0.00278247 0.0027044 0.00262833
+0.00255423 0.00248204 0.00241174 0.00234326 0.00227657 0.00221162 0.00214838
+0.00208681 0.00202686 0.0019685 0.00191169 0.00185639 0.00180256 0.00175018
+0.0016992 0.00164959 0.00160132 0.00155436 0.00150867 0.00146423 0.00142099
+0.00137894 0.00133804 0.00129826 0.00125958 0.00122197 0.0011854 0.00114985
+0.00111528 0.00108168 0.00104902 0.00101728 0.000986427 0.000956446
+0.000927313 0.000899006 0.000871502 0.000844783 0.000818826 0.000793612
+0.000769122 0.000745336 0.000722236 0.000699805 0.000678023 0.000656874
+0.000636341 0.000616408 0.000597058 0.000578276 0.000560046 0.000542354
+0.000525184 0.000508523 0.000492357 0.000476672 0.000461455 0.000446693
+0.000432374 0.000418485 0.000405014 0.00039195 0.000379282 0.000366997
+0.000355086 0.000343538 0.000332343 0.000321491 0.000310971 0.000300776
+0.000290894;
+#A 1000 0.000281318 0.000272038 0.000263047 0.000254335 0.000245895
+0.000237718 0.000229798 0.000222126 0.000214696 0.0002075 0.000200531
+0.000193783 0.000187249 0.000180924 0.0001748 0.000168871 0.000163133
+0.000157578 0.000152203 0.000147 0.000141966 0.000137094 0.000132381
+0.00012341;
+#X coords 0 1 1023 0 60 60 1;
+#X restore 109 140 graph;
+#X obj 346 209 tgl 10 0 deni.dec sssad deni.dec 17 4 0 9 -191407 -262144
+-262144 0 1;
+#X obj 100 263 g_browser;
+#N canvas 262 54 192 105 denied.decimation 0;
+#N canvas 574 112 687 459 deni.dec1 0;
+#X obj 110 228 s di.rp.1;
+#X obj 110 71 spigot;
+#X obj 143 49 != 0;
+#X obj 110 39 abs;
+#X obj 110 144 line;
+#X obj 110 -10 r deni.1;
+#X floatatom 110 15 5 0 0 0 - - -;
+#X floatatom 110 166 5 0 0 0 - - -;
+#X obj 110 205 spigot;
+#X obj 218 149 tgl 15 0 empty deni.dec empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 215 129 algorithm on/off (located under timbre menu);
+#X msg 110 124 \$1 5000;
+#X obj 110 100 / 4;
+#X text 181 -15 If potential attraction value not utilised (i.e. produce
+implicative denial value that is not zero) then take absolute value
+\, scale it and ramp through [dino~] abstraction.;
+#X connect 1 0 12 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 6 0 2 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 9 0 8 1;
+#X connect 11 0 4 0;
+#X connect 12 0 11 0;
+#X restore 13 4 pd deni.dec1;
+#N canvas 0 22 687 459 deni.dec2 0;
+#X obj 110 229 s di.rp.2;
+#X obj 110 71 spigot;
+#X obj 143 49 != 0;
+#X obj 110 39 abs;
+#X obj 110 144 line;
+#X floatatom 110 15 5 0 0 0 - - -;
+#X text 181 -15 If potential attraction value not utilised (i.e. produce
+mplicative denial value that is not zero) then take absolute value
+\, scale it and ramp through [dino~] abstraction.;
+#X floatatom 110 166 5 0 0 0 - - -;
+#X msg 110 124 \$1 1000;
+#X obj 110 205 spigot;
+#X obj 218 149 tgl 15 0 empty deni.dec empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 215 129 algorithm on/off (located under timbre menu);
+#X obj 110 -10 r deni.2;
+#X obj 110 100 / 4;
+#X connect 1 0 13 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 5 0 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 4 0;
+#X connect 9 0 0 0;
+#X connect 10 0 9 1;
+#X connect 12 0 5 0;
+#X connect 13 0 8 0;
+#X restore 13 28 pd deni.dec2;
+#N canvas 0 22 687 459 deni.dec3 0;
+#X obj 110 228 s di.rp.3;
+#X obj 110 71 spigot;
+#X obj 143 49 != 0;
+#X obj 110 39 abs;
+#X obj 110 144 line;
+#X floatatom 110 15 5 0 0 0 - - -;
+#X text 181 -15 If potential attraction value not utilised (i.e. produce
+mplicative denial value that is not zero) then take absolute value
+\, scale it and ramp through [dino~] abstraction.;
+#X floatatom 110 166 5 0 0 0 - - -;
+#X msg 110 124 \$1 1000;
+#X obj 110 205 spigot;
+#X obj 218 149 tgl 15 0 empty deni.dec empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 215 129 algorithm on/off (located under timbre menu);
+#X obj 110 -10 r deni.3;
+#X obj 110 100 / 4;
+#X connect 1 0 13 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 5 0 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 4 0;
+#X connect 9 0 0 0;
+#X connect 10 0 9 1;
+#X connect 12 0 5 0;
+#X connect 13 0 8 0;
+#X restore 12 52 pd deni.dec3;
+#N canvas 0 22 687 459 deni.dec4 0;
+#X obj 110 227 s di.rp.4;
+#X obj 110 71 spigot;
+#X obj 143 49 != 0;
+#X obj 110 39 abs;
+#X obj 110 144 line;
+#X floatatom 110 15 5 0 0 0 - - -;
+#X text 181 -15 If potential attraction value not utilised (i.e. produce
+mplicative denial value that is not zero) then take absolute value
+\, scale it and ramp through [dino~] abstraction.;
+#X floatatom 110 166 5 0 0 0 - - -;
+#X msg 110 124 \$1 1000;
+#X obj 110 205 spigot;
+#X obj 218 149 tgl 15 0 empty deni.dec empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 215 129 algorithm on/off (located under timbre menu);
+#X obj 110 -10 r deni.4;
+#X obj 110 100 / 4;
+#X connect 1 0 13 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 5 0 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 4 0;
+#X connect 9 0 0 0;
+#X connect 10 0 9 1;
+#X connect 12 0 5 0;
+#X connect 13 0 8 0;
+#X restore 12 78 pd deni.dec4;
+#N canvas 0 22 687 459 deni.dec5 0;
+#X obj 110 230 s di.rp.5;
+#X obj 110 71 spigot;
+#X obj 143 49 != 0;
+#X obj 110 39 abs;
+#X obj 110 144 line;
+#X floatatom 110 15 5 0 0 0 - - -;
+#X text 181 -15 If potential attraction value not utilised (i.e. produce
+mplicative denial value that is not zero) then take absolute value
+\, scale it and ramp through [dino~] abstraction.;
+#X floatatom 110 166 5 0 0 0 - - -;
+#X msg 110 124 \$1 1000;
+#X obj 110 205 spigot;
+#X obj 218 149 tgl 15 0 empty deni.dec empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 215 129 algorithm on/off (located under timbre menu);
+#X obj 110 -10 r deni.5;
+#X obj 110 100 / 4;
+#X connect 1 0 13 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 5 0 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 4 0;
+#X connect 9 0 0 0;
+#X connect 10 0 9 1;
+#X connect 12 0 5 0;
+#X connect 13 0 8 0;
+#X restore 98 4 pd deni.dec5;
+#N canvas 0 22 687 459 deni.dec6 0;
+#X obj 110 229 s di.rp.6;
+#X obj 110 71 spigot;
+#X obj 143 49 != 0;
+#X obj 110 39 abs;
+#X obj 110 144 line;
+#X floatatom 110 15 5 0 0 0 - - -;
+#X text 181 -15 If potential attraction value not utilised (i.e. produce
+mplicative denial value that is not zero) then take absolute value
+\, scale it and ramp through [dino~] abstraction.;
+#X floatatom 110 166 5 0 0 0 - - -;
+#X msg 110 124 \$1 1000;
+#X obj 110 205 spigot;
+#X obj 218 149 tgl 15 0 empty deni.dec empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 215 129 algorithm on/off (located under timbre menu);
+#X obj 110 -10 r deni.6;
+#X obj 110 100 / 4;
+#X connect 1 0 13 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 5 0 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 4 0;
+#X connect 9 0 0 0;
+#X connect 10 0 9 1;
+#X connect 12 0 5 0;
+#X connect 13 0 8 0;
+#X restore 98 28 pd deni.dec6;
+#N canvas 0 22 687 459 deni.dec7 0;
+#X obj 110 71 spigot;
+#X obj 143 49 != 0;
+#X obj 110 39 abs;
+#X obj 110 144 line;
+#X floatatom 110 15 5 0 0 0 - - -;
+#X text 181 -15 If potential attraction value not utilised (i.e. produce
+mplicative denial value that is not zero) then take absolute value
+\, scale it and ramp through [dino~] abstraction.;
+#X floatatom 110 166 5 0 0 0 - - -;
+#X msg 110 124 \$1 1000;
+#X obj 110 205 spigot;
+#X obj 218 149 tgl 15 0 empty deni.dec empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 215 129 algorithm on/off (located under timbre menu);
+#X obj 110 -10 r deni.7;
+#X obj 110 100 / 4;
+#X obj 110 228 s di.rp.7;
+#X connect 0 0 12 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 3 0 6 0;
+#X connect 4 0 2 0;
+#X connect 4 0 1 0;
+#X connect 6 0 8 0;
+#X connect 7 0 3 0;
+#X connect 8 0 13 0;
+#X connect 9 0 8 1;
+#X connect 11 0 4 0;
+#X connect 12 0 7 0;
+#X restore 98 54 pd deni.dec7;
+#X restore 101 450 pd denied.decimation;
+#X text 242 438 Denied potential melodic attraction results in temporal
+decimation of sound on relevant string;
+#X obj 184 203 hradio 10 1 0 3 t.c.sw sssad off/glbl/int 35 4 0 9 -99865
+-262144 -262144 2;
+#X text 98 25 Application of contours to timbral processes;
+#X text 100 420 Other Timbral based processes;
+#X text 101 496 If consecutive 8ves are played \, change time of playback
+of grains if mygrain~ is used - cause smearing to reflect integration
+or the inverse (i.e. segregation to contour integration of octave).
+;
+#X text 306 304 <- menu (open to see algorithms);
+#X obj 191 275 sssad \$1/tcs;
+#X obj 346 184 sssad \$1/dds;
+#X obj 176 178 cnv 15 10 10 empty empty timbral.contour 7 12 0 9 -1
+-262144 0;
+#X obj 110 236 tgl 10 0 play sssad play(rg.mygrain~) 15 4 0 9 -191407
+-262144 -262144 0 1;
+#X obj -11 219 sssad \$1/pswmyg;
+#N canvas 596 90 540 433 tc.s1 0;
+#X text 123 -138 Initial 0 to 1;
+#X obj 75 -117 r g.c;
+#X text 76 -137 Global;
+#X text 88 53 send to various parameters in dsp chain;
+#X obj 91 -23 mux _ _ _;
+#X obj 167 -40 r t.c.sw;
+#X text 178 -118 either stnd/cone/random;
+#X text 137 4 cf. +bubbler~ presets;
+#N canvas 44 22 1174 653 +bp 0;
+#X obj 759 575 outlet;
+#X obj 189 -123 inlet;
+#X floatatom 304 558 10 1 10000 0 - - -;
+#X msg 304 576 time \$1;
+#X floatatom 504 558 5 0 100 0 - - -;
+#X msg 504 579 timeVariation \$1;
+#X obj 307 539 hsl 128 15 1 10000 1 1 empty bub_inittime empty -2 -8
+0 10 -228856 -1 -1 12548 1;
+#X obj 507 539 hsl 128 15 0 100 0 1 empty bub_inittimevar empty -2
+-8 0 10 -228856 -1 -1 0 1;
+#X text 511 537 0 - 100%;
+#X text 308 537 1 - 10000 ms (log);
+#X floatatom 187 26 10 20 20000 0 - - -;
+#X floatatom 577 25 5 0 100 0 - - -;
+#X msg 577 46 resonance \$1;
+#X floatatom 186 188 5 0 200 0 - - -;
+#X floatatom 575 190 5 0 100 0 - - -;
+#X floatatom 384 189 5 0 50 0 - - -;
+#X msg 186 206 density \$1;
+#X floatatom 585 369 5 0 100 0 - - -;
+#X msg 194 386 octave \$1;
+#X msg 384 206 grainSize \$1;
+#X msg 575 206 grainStartVariation \$1;
+#X msg 585 388 grainReversal \$1;
+#X msg 392 388 octaveVariation \$1;
+#X floatatom 384 27 5 0 200 0 - - -;
+#X obj 387 8 hsl 128 15 0 200 0 1 empty bub_initfb empty -2 -8 0 10
+-228856 -1 -1 6350 1;
+#X obj 190 7 hsl 128 15 20 20000 1 1 empty bub_initfilterFreq empty
+-2 -8 0 10 -228856 -1 -1 11581 1;
+#X obj 580 6 hsl 128 15 1 100 0 1 empty bub_initres empty -2 -8 0 10
+-228856 -1 -1 5003 1;
+#X obj 387 173 hsl 128 15 0 50 0 1 empty bub_initgrainsize empty -2
+-8 0 10 -228856 -1 -1 12700 1;
+#X obj 189 173 hsl 128 15 0 200 0 1 empty bub_initdensity empty -2
+-8 0 10 -228856 -1 -1 1905 1;
+#X obj 578 173 hsl 128 15 0 100 0 1 empty bub_initgvar empty -2 -8
+0 10 -228856 -1 -1 12700 1;
+#X obj 588 350 hsl 128 15 0 100 0 1 empty bub_initgrev empty -2 -8
+0 10 -228856 -1 -1 8890 1;
+#X msg 187 46 filterFreq \$1;
+#X msg 384 46 feedback \$1;
+#X text 433 7 0 - 200%;
+#X text 187 89 0 - 200%;
+#X text 609 173 0 - 100%;
+#X text 619 348 0 - 100%;
+#X text 189 5 20 - 20kHz (log);
+#X obj 194 347 hradio 15 1 1 9 empty bub_initoct empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 194 365 - 4;
+#X obj 392 369 hradio 15 1 1 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X text 358 579 832;
+#X text 609 579 70;
+#X text 260 184 108;
+#X text 234 363 6;
+#X text 425 187 30;
+#X text 626 188 37;
+#X text 626 369 23;
+#X text 615 27 48;
+#X text 424 26 70;
+#X text 392 350 3;
+#X text 191 328 4 is good for sub octave;
+#X obj 187 -11 line;
+#X obj 732 333 + 50;
+#X obj 732 313 * 20;
+#X obj 384 -69 * 10000;
+#X msg 187 -32 \$1 150;
+#X obj 504 484 * 50;
+#X obj 504 514 + 20;
+#X floatatom 849 12 5 0 0 0 - - -;
+#X obj 837 156 line;
+#X obj 849 77 expr 5 - $f1;
+#X floatatom 924 94 5 0 0 0 - - -;
+#X msg 837 134 \$1 1000;
+#X obj 924 153 line;
+#X msg 924 132 \$1 1000;
+#X text 318 451 time delay/note offset;
+#X floatatom 343 -76 5 0 0 0 - - -;
+#X obj 304 517 split 1 10000;
+#X text 561 -34 DOE - Chromatic == Highest melodic tension;
+#X obj 837 51 * 30;
+#X obj 187 -52 + 880;
+#X obj 384 -9 + 40;
+#X obj 384 -26 * 60;
+#X obj 924 112 * 10;
+#X obj 924 172 + 10;
+#X obj 384 152 * 50;
+#N canvas 0 22 450 300 repeating.notes 0;
+#X text 138 19 unison equivalence ---- if ma == 0 then;
+#X text 247 142 repeating notes;
+#X text 143 44 (r) = current/next note;
+#X obj 113 132 mux 0 1 2 3 4 5 6;
+#X obj 250 71 r counter;
+#X obj 250 115 - 1;
+#X obj 78 115 r ma.c1;
+#X obj 127 115 r ma.c2;
+#X obj 141 97 r ma.c3;
+#X obj 155 81 r ma.c4;
+#X obj 169 64 r ma.c5;
+#X obj 183 115 r ma.c6;
+#X obj 197 98 r ma.c7;
+#X obj 113 154 sel 0;
+#X obj 113 175 outlet;
+#X connect 3 0 13 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 7;
+#X connect 6 0 3 0;
+#X connect 7 0 3 1;
+#X connect 8 0 3 2;
+#X connect 9 0 3 3;
+#X connect 10 0 3 4;
+#X connect 11 0 3 5;
+#X connect 12 0 3 6;
+#X connect 13 0 14 0;
+#X restore 194 274 pd repeating.notes;
+#X text 309 272 Repeated notes in sequence produce "0" MA value;
+#X obj 361 473 r t.c.sw;
+#X obj 304 490 mux - - -;
+#X obj 191 454 r glbl.it;
+#X floatatom 191 474 10 0 0 0 - - -;
+#X floatatom 262 474 5 0 0 0 - - -;
+#X obj 194 297 random 6;
+#X obj 310 291 random 3;
+#X text 381 228 Perceived roughness/noise relative to depth of embedding/melodic
+tension;
+#X text 561 -18 Increase resonance accordingly;
+#X text 922 193 inversion of scaled amp available;
+#X text 134 152 Greater density with amplitude;
+#X obj 189 -101 s \$1-cntr;
+#X obj 187 63 s \$1-bub;
+#X obj 384 -93 r \$1-cntr;
+#X obj 504 460 r \$1-cntr;
+#X obj 759 552 r \$1-bub;
+#X obj 732 293 r \$1-cntr;
+#X obj 575 116 r \$1-cntr;
+#X obj 262 453 r 2_sit;
+#X obj 304 596 s \$1-bub;
+#X obj 186 223 s \$1-bub;
+#X obj 194 405 s \$1-bub;
+#X obj 577 -76 * 40;
+#X obj 575 136 * 100;
+#X obj 849 -10 spigot;
+#X obj 904 -27 r mto.sw;
+#X obj 849 -43 r 1_amp;
+#X connect 1 0 90 0;
+#X connect 2 0 3 0;
+#X connect 3 0 98 0;
+#X connect 4 0 5 0;
+#X connect 5 0 98 0;
+#X connect 6 0 2 0;
+#X connect 7 0 4 0;
+#X connect 10 0 31 0;
+#X connect 11 0 12 0;
+#X connect 12 0 91 0;
+#X connect 13 0 16 0;
+#X connect 14 0 20 0;
+#X connect 15 0 19 0;
+#X connect 16 0 99 0;
+#X connect 17 0 21 0;
+#X connect 18 0 100 0;
+#X connect 19 0 99 0;
+#X connect 20 0 99 0;
+#X connect 21 0 100 0;
+#X connect 22 0 100 0;
+#X connect 23 0 32 0;
+#X connect 24 0 23 0;
+#X connect 25 0 10 0;
+#X connect 26 0 11 0;
+#X connect 27 0 15 0;
+#X connect 28 0 13 0;
+#X connect 29 0 14 0;
+#X connect 30 0 17 0;
+#X connect 31 0 91 0;
+#X connect 32 0 91 0;
+#X connect 38 0 39 0;
+#X connect 39 0 18 0;
+#X connect 40 0 22 0;
+#X connect 52 0 25 0;
+#X connect 53 0 30 0;
+#X connect 54 0 53 0;
+#X connect 55 0 71 0;
+#X connect 56 0 52 0;
+#X connect 57 0 58 0;
+#X connect 59 0 61 0;
+#X connect 59 0 70 0;
+#X connect 60 0 28 0;
+#X connect 61 0 62 0;
+#X connect 62 0 74 0;
+#X connect 63 0 60 0;
+#X connect 64 0 75 0;
+#X connect 65 0 64 0;
+#X connect 68 0 6 0;
+#X connect 70 0 63 0;
+#X connect 71 0 56 0;
+#X connect 72 0 24 0;
+#X connect 73 0 72 0;
+#X connect 74 0 65 0;
+#X connect 76 0 27 0;
+#X connect 77 0 84 0;
+#X connect 77 0 85 0;
+#X connect 79 0 80 3;
+#X connect 80 0 68 0;
+#X connect 81 0 82 0;
+#X connect 82 0 80 1;
+#X connect 83 0 80 2;
+#X connect 84 0 38 0;
+#X connect 85 0 40 0;
+#X connect 92 0 55 0;
+#X connect 92 0 67 0;
+#X connect 92 0 73 0;
+#X connect 92 0 76 0;
+#X connect 92 0 101 0;
+#X connect 93 0 57 0;
+#X connect 94 0 0 0;
+#X connect 95 0 54 0;
+#X connect 96 0 102 0;
+#X connect 97 0 83 0;
+#X connect 101 0 26 0;
+#X connect 102 0 29 0;
+#X connect 103 0 59 0;
+#X connect 104 0 103 1;
+#X connect 105 0 103 0;
+#X restore 91 5 pd +bp;
+#X obj 125 -116 r 1_icr;
+#X obj 91 27 s 1_t.c;
+#X connect 1 0 4 1;
+#X connect 4 0 8 0;
+#X connect 5 0 4 3;
+#X connect 8 0 10 0;
+#X connect 9 0 4 2;
+#X restore 101 52 pd tc.s1;
+#N canvas 596 90 317 249 tc.s4 0;
+#X text 75 20 Initial 0 to 1;
+#X obj 27 41 r g.c;
+#X text 28 21 Global;
+#X text 40 211 send to various parameters in dsp chain;
+#X obj 43 135 mux _ _ _;
+#X obj 119 118 r t.c.sw;
+#X text 130 40 either stnd/cone/random;
+#X text 89 162 cf. +bubbler~ presets;
+#N canvas 0 22 1280 752 +bp 0;
+#X obj 779 595 outlet;
+#X obj 209 -103 inlet;
+#X floatatom 324 578 10 1 10000 0 - - -;
+#X msg 324 596 time \$1;
+#X floatatom 524 578 5 0 100 0 - - -;
+#X msg 524 599 timeVariation \$1;
+#X obj 327 559 hsl 128 15 1 10000 1 1 empty bub_inittime empty -2 -8
+0 10 -228856 -1 -1 12552 1;
+#X obj 527 559 hsl 128 15 0 100 0 1 empty bub_inittimevar empty -2
+-8 0 10 -228856 -1 -1 0 1;
+#X text 531 557 0 - 100%;
+#X text 328 557 1 - 10000 ms (log);
+#X floatatom 207 46 10 20 20000 0 - - -;
+#X floatatom 597 45 5 0 100 0 - - -;
+#X msg 597 66 resonance \$1;
+#X floatatom 206 208 5 0 200 0 - - -;
+#X floatatom 595 210 5 0 100 0 - - -;
+#X floatatom 404 209 5 0 50 0 - - -;
+#X msg 206 226 density \$1;
+#X floatatom 605 389 5 0 100 0 - - -;
+#X msg 214 406 octave \$1;
+#X msg 404 226 grainSize \$1;
+#X msg 595 226 grainStartVariation \$1;
+#X msg 605 408 grainReversal \$1;
+#X msg 412 408 octaveVariation \$1;
+#X floatatom 404 47 5 0 200 0 - - -;
+#X obj 407 28 hsl 128 15 0 200 0 1 empty bub_initfb empty -2 -8 0 10
+-228856 -1 -1 3810 1;
+#X obj 210 27 hsl 128 15 20 20000 1 1 empty bub_initfilterFreq empty
+-2 -8 0 10 -228856 -1 -1 9837 1;
+#X obj 600 26 hsl 128 15 1 100 0 1 empty bub_initres empty -2 -8 0
+10 -228856 -1 -1 1582 1;
+#X obj 407 193 hsl 128 15 0 50 0 1 empty bub_initgrainsize empty -2
+-8 0 10 -228856 -1 -1 4233 1;
+#X obj 209 193 hsl 128 15 0 200 0 1 empty bub_initdensity empty -2
+-8 0 10 -228856 -1 -1 1905 1;
+#X obj 598 193 hsl 128 15 0 100 0 1 empty bub_initgvar empty -2 -8
+0 10 -228856 -1 -1 4233 1;
+#X obj 608 370 hsl 128 15 0 100 0 1 empty bub_initgrev empty -2 -8
+0 10 -228856 -1 -1 7197 1;
+#X msg 207 66 filterFreq \$1;
+#X msg 404 66 feedback \$1;
+#X text 453 27 0 - 200%;
+#X text 207 109 0 - 200%;
+#X text 629 193 0 - 100%;
+#X text 639 368 0 - 100%;
+#X text 209 25 20 - 20kHz (log);
+#X obj 214 367 hradio 15 1 1 9 empty bub_initoct empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 214 385 - 4;
+#X obj 412 389 hradio 15 1 1 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X text 378 599 832;
+#X text 629 599 70;
+#X text 280 204 108;
+#X text 254 383 6;
+#X text 445 207 30;
+#X text 646 208 37;
+#X text 646 389 23;
+#X text 635 47 48;
+#X text 444 46 70;
+#X text 412 370 3;
+#X text 211 348 4 is good for sub octave;
+#X obj 207 9 line;
+#X obj 752 353 + 50;
+#X obj 752 333 * 20;
+#X obj 404 -49 * 10000;
+#X msg 207 -12 \$1 150;
+#X obj 524 504 * 50;
+#X obj 524 534 + 20;
+#X floatatom 869 32 5 0 0 0 - - -;
+#X obj 857 176 line;
+#X obj 869 97 expr 5 - $f1;
+#X floatatom 944 114 5 0 0 0 - - -;
+#X msg 857 154 \$1 1000;
+#X obj 944 173 line;
+#X msg 944 152 \$1 1000;
+#X text 338 471 time delay/note offset;
+#X floatatom 363 -56 5 0 0 0 - - -;
+#X obj 324 537 split 1 10000;
+#X text 581 -14 DOE - Chromatic == Highest melodic tension;
+#X obj 857 71 * 30;
+#X obj 207 -32 + 880;
+#X obj 404 11 + 40;
+#X obj 404 -6 * 60;
+#X obj 944 132 * 10;
+#X obj 944 192 + 10;
+#X obj 404 172 * 50;
+#N canvas 0 22 450 300 repeating.notes 0;
+#X text 138 19 unison equivalence ---- if ma == 0 then;
+#X text 247 142 repeating notes;
+#X text 143 44 (r) = current/next note;
+#X obj 113 132 mux 0 1 2 3 4 5 6;
+#X obj 250 71 r counter;
+#X obj 250 115 - 1;
+#X obj 78 115 r ma.c1;
+#X obj 127 115 r ma.c2;
+#X obj 141 97 r ma.c3;
+#X obj 155 81 r ma.c4;
+#X obj 169 64 r ma.c5;
+#X obj 183 115 r ma.c6;
+#X obj 197 98 r ma.c7;
+#X obj 113 154 sel 0;
+#X obj 113 175 outlet;
+#X connect 3 0 13 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 7;
+#X connect 6 0 3 0;
+#X connect 7 0 3 1;
+#X connect 8 0 3 2;
+#X connect 9 0 3 3;
+#X connect 10 0 3 4;
+#X connect 11 0 3 5;
+#X connect 12 0 3 6;
+#X connect 13 0 14 0;
+#X restore 214 294 pd repeating.notes;
+#X text 329 292 Repeated notes in sequence produce "0" MA value;
+#X obj 381 493 r t.c.sw;
+#X obj 324 510 mux - - -;
+#X obj 211 474 r glbl.it;
+#X floatatom 211 494 10 0 0 0 - - -;
+#X floatatom 282 494 5 0 0 0 - - -;
+#X obj 214 317 random 6;
+#X obj 330 311 random 3;
+#X text 401 248 Perceived roughness/noise relative to depth of embedding/melodic
+tension;
+#X text 581 2 Increase resonance accordingly;
+#X text 942 213 inversion of scaled amp available;
+#X text 154 172 Greater density with amplitude;
+#X obj 209 -81 s \$3-cntr;
+#X obj 404 -73 r \$3-cntr;
+#X obj 869 -16 r 4_amp;
+#X obj 207 83 s \$3-bub;
+#X obj 206 243 s \$3-bub;
+#X obj 595 136 r \$3-cntr;
+#X obj 214 425 s \$3-bub;
+#X obj 752 313 r \$3-cntr;
+#X obj 282 473 r 4_sit;
+#X obj 779 572 r \$3-bub;
+#X obj 324 616 s \$3-bub;
+#X obj 524 480 r \$3-cntr;
+#X obj 597 -56 * 40;
+#X obj 595 156 * 100;
+#X obj 869 10 spigot;
+#X obj 924 -7 r mto.sw;
+#X connect 1 0 90 0;
+#X connect 2 0 3 0;
+#X connect 3 0 100 0;
+#X connect 4 0 5 0;
+#X connect 5 0 100 0;
+#X connect 6 0 2 0;
+#X connect 7 0 4 0;
+#X connect 10 0 31 0;
+#X connect 11 0 12 0;
+#X connect 12 0 93 0;
+#X connect 13 0 16 0;
+#X connect 14 0 20 0;
+#X connect 15 0 19 0;
+#X connect 16 0 94 0;
+#X connect 17 0 21 0;
+#X connect 18 0 96 0;
+#X connect 19 0 94 0;
+#X connect 20 0 94 0;
+#X connect 21 0 96 0;
+#X connect 22 0 96 0;
+#X connect 23 0 32 0;
+#X connect 24 0 23 0;
+#X connect 25 0 10 0;
+#X connect 26 0 11 0;
+#X connect 27 0 15 0;
+#X connect 28 0 13 0;
+#X connect 29 0 14 0;
+#X connect 30 0 17 0;
+#X connect 31 0 93 0;
+#X connect 32 0 93 0;
+#X connect 38 0 39 0;
+#X connect 39 0 18 0;
+#X connect 40 0 22 0;
+#X connect 52 0 25 0;
+#X connect 53 0 30 0;
+#X connect 54 0 53 0;
+#X connect 55 0 71 0;
+#X connect 56 0 52 0;
+#X connect 57 0 58 0;
+#X connect 59 0 61 0;
+#X connect 59 0 70 0;
+#X connect 60 0 28 0;
+#X connect 61 0 62 0;
+#X connect 62 0 74 0;
+#X connect 63 0 60 0;
+#X connect 64 0 75 0;
+#X connect 65 0 64 0;
+#X connect 68 0 6 0;
+#X connect 70 0 63 0;
+#X connect 71 0 56 0;
+#X connect 72 0 24 0;
+#X connect 73 0 72 0;
+#X connect 74 0 65 0;
+#X connect 76 0 27 0;
+#X connect 77 0 84 0;
+#X connect 77 0 85 0;
+#X connect 79 0 80 3;
+#X connect 80 0 68 0;
+#X connect 81 0 82 0;
+#X connect 82 0 80 1;
+#X connect 83 0 80 2;
+#X connect 84 0 38 0;
+#X connect 85 0 40 0;
+#X connect 91 0 55 0;
+#X connect 91 0 67 0;
+#X connect 91 0 73 0;
+#X connect 91 0 76 0;
+#X connect 91 0 102 0;
+#X connect 92 0 104 0;
+#X connect 95 0 103 0;
+#X connect 97 0 54 0;
+#X connect 98 0 83 0;
+#X connect 99 0 0 0;
+#X connect 101 0 57 0;
+#X connect 102 0 26 0;
+#X connect 103 0 29 0;
+#X connect 104 0 59 0;
+#X connect 105 0 104 1;
+#X restore 43 163 pd +bp;
+#X obj 77 42 r 4_icr;
+#X obj 43 185 s 4_t.c;
+#X connect 1 0 4 1;
+#X connect 4 0 8 0;
+#X connect 5 0 4 3;
+#X connect 8 0 10 0;
+#X connect 9 0 4 2;
+#X restore 101 71 pd tc.s4;
+#N canvas 836 189 317 249 tc.s2 0;
+#X text 75 20 Initial 0 to 1;
+#X obj 27 41 r g.c;
+#X text 28 21 Global;
+#X text 40 211 send to various parameters in dsp chain;
+#X obj 43 135 mux _ _ _;
+#X obj 119 118 r t.c.sw;
+#X text 130 40 either stnd/cone/random;
+#X text 89 162 cf. +bubbler~ presets;
+#N canvas 44 22 1174 653 +bp 0;
+#X obj 759 575 outlet;
+#X obj 189 -123 inlet;
+#X floatatom 304 558 10 1 10000 0 - - -;
+#X msg 304 576 time \$1;
+#X floatatom 504 558 5 0 100 0 - - -;
+#X msg 504 579 timeVariation \$1;
+#X obj 307 539 hsl 128 15 1 10000 1 1 empty bub_inittime empty -2 -8
+0 10 -228856 -1 -1 12548 1;
+#X obj 507 539 hsl 128 15 0 100 0 1 empty bub_inittimevar empty -2
+-8 0 10 -228856 -1 -1 0 1;
+#X text 511 537 0 - 100%;
+#X text 308 537 1 - 10000 ms (log);
+#X floatatom 187 26 10 20 20000 0 - - -;
+#X floatatom 577 25 5 0 100 0 - - -;
+#X msg 577 46 resonance \$1;
+#X floatatom 186 188 5 0 200 0 - - -;
+#X floatatom 575 190 5 0 100 0 - - -;
+#X floatatom 384 189 5 0 50 0 - - -;
+#X msg 186 206 density \$1;
+#X floatatom 585 369 5 0 100 0 - - -;
+#X msg 194 386 octave \$1;
+#X msg 384 206 grainSize \$1;
+#X msg 575 206 grainStartVariation \$1;
+#X msg 585 388 grainReversal \$1;
+#X msg 392 388 octaveVariation \$1;
+#X floatatom 384 27 5 0 200 0 - - -;
+#X obj 387 8 hsl 128 15 0 200 0 1 empty bub_initfb empty -2 -8 0 10
+-228856 -1 -1 6350 1;
+#X obj 190 7 hsl 128 15 20 20000 1 1 empty bub_initfilterFreq empty
+-2 -8 0 10 -228856 -1 -1 11581 1;
+#X obj 580 6 hsl 128 15 1 100 0 1 empty bub_initres empty -2 -8 0 10
+-228856 -1 -1 5003 1;
+#X obj 387 173 hsl 128 15 0 50 0 1 empty bub_initgrainsize empty -2
+-8 0 10 -228856 -1 -1 12700 1;
+#X obj 189 173 hsl 128 15 0 200 0 1 empty bub_initdensity empty -2
+-8 0 10 -228856 -1 -1 1905 1;
+#X obj 578 173 hsl 128 15 0 100 0 1 empty bub_initgvar empty -2 -8
+0 10 -228856 -1 -1 12700 1;
+#X obj 588 350 hsl 128 15 0 100 0 1 empty bub_initgrev empty -2 -8
+0 10 -228856 -1 -1 8890 1;
+#X msg 187 46 filterFreq \$1;
+#X msg 384 46 feedback \$1;
+#X text 433 7 0 - 200%;
+#X text 187 89 0 - 200%;
+#X text 609 173 0 - 100%;
+#X text 619 348 0 - 100%;
+#X text 189 5 20 - 20kHz (log);
+#X obj 194 347 hradio 15 1 1 9 empty bub_initoct empty 0 -8 0 10 -262144
+-1 -1 5;
+#X obj 194 365 - 4;
+#X obj 392 369 hradio 15 1 1 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 2;
+#X text 358 579 832;
+#X text 609 579 70;
+#X text 260 184 108;
+#X text 234 363 6;
+#X text 425 187 30;
+#X text 626 188 37;
+#X text 626 369 23;
+#X text 615 27 48;
+#X text 424 26 70;
+#X text 392 350 3;
+#X text 191 328 4 is good for sub octave;
+#X obj 187 -11 line;
+#X obj 732 333 + 50;
+#X obj 732 313 * 20;
+#X obj 384 -69 * 10000;
+#X msg 187 -32 \$1 150;
+#X obj 504 484 * 50;
+#X obj 504 514 + 20;
+#X floatatom 849 12 5 0 0 0 - - -;
+#X obj 837 156 line;
+#X obj 849 77 expr 5 - $f1;
+#X floatatom 924 94 5 0 0 0 - - -;
+#X msg 837 134 \$1 1000;
+#X obj 924 153 line;
+#X msg 924 132 \$1 1000;
+#X text 318 451 time delay/note offset;
+#X floatatom 343 -76 5 0 0 0 - - -;
+#X obj 304 517 split 1 10000;
+#X text 561 -34 DOE - Chromatic == Highest melodic tension;
+#X obj 837 51 * 30;
+#X obj 187 -52 + 880;
+#X obj 384 -9 + 40;
+#X obj 384 -26 * 60;
+#X obj 924 112 * 10;
+#X obj 924 172 + 10;
+#X obj 384 152 * 50;
+#N canvas 0 22 450 300 repeating.notes 0;
+#X text 138 19 unison equivalence ---- if ma == 0 then;
+#X text 247 142 repeating notes;
+#X text 143 44 (r) = current/next note;
+#X obj 113 132 mux 0 1 2 3 4 5 6;
+#X obj 250 71 r counter;
+#X obj 250 115 - 1;
+#X obj 78 115 r ma.c1;
+#X obj 127 115 r ma.c2;
+#X obj 141 97 r ma.c3;
+#X obj 155 81 r ma.c4;
+#X obj 169 64 r ma.c5;
+#X obj 183 115 r ma.c6;
+#X obj 197 98 r ma.c7;
+#X obj 113 154 sel 0;
+#X obj 113 175 outlet;
+#X connect 3 0 13 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 7;
+#X connect 6 0 3 0;
+#X connect 7 0 3 1;
+#X connect 8 0 3 2;
+#X connect 9 0 3 3;
+#X connect 10 0 3 4;
+#X connect 11 0 3 5;
+#X connect 12 0 3 6;
+#X connect 13 0 14 0;
+#X restore 194 274 pd repeating.notes;
+#X text 309 272 Repeated notes in sequence produce "0" MA value;
+#X obj 361 473 r t.c.sw;
+#X obj 304 490 mux - - -;
+#X obj 191 454 r glbl.it;
+#X floatatom 191 474 10 0 0 0 - - -;
+#X floatatom 262 474 5 0 0 0 - - -;
+#X obj 194 297 random 6;
+#X obj 310 291 random 3;
+#X text 381 228 Perceived roughness/noise relative to depth of embedding/melodic
+tension;
+#X text 561 -18 Increase resonance accordingly;
+#X text 922 193 inversion of scaled amp available;
+#X text 134 152 Greater density with amplitude;
+#X obj 189 -101 s \$1-cntr;
+#X obj 187 63 s \$1-bub;
+#X obj 384 -93 r \$1-cntr;
+#X obj 504 460 r \$1-cntr;
+#X obj 759 552 r \$1-bub;
+#X obj 732 293 r \$1-cntr;
+#X obj 849 -44 r 2_amp;
+#X obj 575 116 r \$1-cntr;
+#X obj 262 453 r 2_sit;
+#X obj 304 596 s \$1-bub;
+#X obj 186 223 s \$1-bub;
+#X obj 194 405 s \$1-bub;
+#X obj 577 -76 * 40;
+#X obj 575 136 * 100;
+#X obj 849 -11 spigot;
+#X obj 903 -28 r mto.sw;
+#X connect 1 0 90 0;
+#X connect 2 0 3 0;
+#X connect 3 0 99 0;
+#X connect 4 0 5 0;
+#X connect 5 0 99 0;
+#X connect 6 0 2 0;
+#X connect 7 0 4 0;
+#X connect 10 0 31 0;
+#X connect 11 0 12 0;
+#X connect 12 0 91 0;
+#X connect 13 0 16 0;
+#X connect 14 0 20 0;
+#X connect 15 0 19 0;
+#X connect 16 0 100 0;
+#X connect 17 0 21 0;
+#X connect 18 0 101 0;
+#X connect 19 0 100 0;
+#X connect 20 0 100 0;
+#X connect 21 0 101 0;
+#X connect 22 0 101 0;
+#X connect 23 0 32 0;
+#X connect 24 0 23 0;
+#X connect 25 0 10 0;
+#X connect 26 0 11 0;
+#X connect 27 0 15 0;
+#X connect 28 0 13 0;
+#X connect 29 0 14 0;
+#X connect 30 0 17 0;
+#X connect 31 0 91 0;
+#X connect 32 0 91 0;
+#X connect 38 0 39 0;
+#X connect 39 0 18 0;
+#X connect 40 0 22 0;
+#X connect 52 0 25 0;
+#X connect 53 0 30 0;
+#X connect 54 0 53 0;
+#X connect 55 0 71 0;
+#X connect 56 0 52 0;
+#X connect 57 0 58 0;
+#X connect 59 0 61 0;
+#X connect 59 0 70 0;
+#X connect 60 0 28 0;
+#X connect 61 0 62 0;
+#X connect 62 0 74 0;
+#X connect 63 0 60 0;
+#X connect 64 0 75 0;
+#X connect 65 0 64 0;
+#X connect 68 0 6 0;
+#X connect 70 0 63 0;
+#X connect 71 0 56 0;
+#X connect 72 0 24 0;
+#X connect 73 0 72 0;
+#X connect 74 0 65 0;
+#X connect 76 0 27 0;
+#X connect 77 0 84 0;
+#X connect 77 0 85 0;
+#X connect 79 0 80 3;
+#X connect 80 0 68 0;
+#X connect 81 0 82 0;
+#X connect 82 0 80 1;
+#X connect 83 0 80 2;
+#X connect 84 0 38 0;
+#X connect 85 0 40 0;
+#X connect 92 0 55 0;
+#X connect 92 0 67 0;
+#X connect 92 0 73 0;
+#X connect 92 0 76 0;
+#X connect 92 0 102 0;
+#X connect 93 0 57 0;
+#X connect 94 0 0 0;
+#X connect 95 0 54 0;
+#X connect 96 0 104 0;
+#X connect 97 0 103 0;
+#X connect 98 0 83 0;
+#X connect 102 0 26 0;
+#X connect 103 0 29 0;
+#X connect 104 0 59 0;
+#X connect 105 0 104 1;
+#X restore 43 163 pd +bp;
+#X obj 77 42 r 2_icr;
+#X obj 43 185 s 2_t.c;
+#X connect 1 0 4 1;
+#X connect 4 0 8 0;
+#X connect 5 0 4 3;
+#X connect 8 0 10 0;
+#X connect 9 0 4 2;
+#X restore 168 52 pd tc.s2;
+#N canvas 596 90 317 249 tc.s5 0;
+#X text 75 20 Initial 0 to 1;
+#X obj 27 41 r g.c;
+#X text 28 21 Global;
+#X text 40 211 send to various parameters in dsp chain;
+#X obj 43 135 mux _ _ _;
+#X obj 119 118 r t.c.sw;
+#X text 130 40 either stnd/cone/random;
+#X text 89 162 cf. +bubbler~ presets;
+#N canvas 0 22 1280 752 +bp 0;
+#X obj 790 601 outlet;
+#X obj 219 -93 inlet;
+#X floatatom 334 588 10 1 10000 0 - - -;
+#X msg 334 606 time \$1;
+#X floatatom 534 588 5 0 100 0 - - -;
+#X msg 534 609 timeVariation \$1;
+#X obj 337 569 hsl 128 15 1 10000 1 1 empty bub_inittime empty -2 -8
+0 10 -228856 -1 -1 12667 1;
+#X obj 537 569 hsl 128 15 0 100 0 1 empty bub_inittimevar empty -2
+-8 0 10 -228856 -1 -1 0 1;
+#X text 541 567 0 - 100%;
+#X text 338 567 1 - 10000 ms (log);
+#X floatatom 217 56 10 20 20000 0 - - -;
+#X floatatom 607 55 5 0 100 0 - - -;
+#X msg 607 76 resonance \$1;
+#X floatatom 216 218 5 0 200 0 - - -;
+#X floatatom 605 220 5 0 100 0 - - -;
+#X floatatom 414 219 5 0 50 0 - - -;
+#X msg 216 236 density \$1;
+#X floatatom 615 399 5 0 100 0 - - -;
+#X msg 224 416 octave \$1;
+#X msg 414 236 grainSize \$1;
+#X msg 605 236 grainStartVariation \$1;
+#X msg 615 418 grainReversal \$1;
+#X msg 422 418 octaveVariation \$1;
+#X floatatom 414 57 5 0 200 0 - - -;
+#X obj 417 38 hsl 128 15 0 200 0 1 empty bub_initfb empty -2 -8 0 10
+-228856 -1 -1 5080 1;
+#X obj 220 37 hsl 128 15 20 20000 1 1 empty bub_initfilterFreq empty
+-2 -8 0 10 -228856 -1 -1 10908 1;
+#X obj 610 36 hsl 128 15 1 100 0 1 empty bub_initres empty -2 -8 0
+10 -228856 -1 -1 3293 1;
+#X obj 417 203 hsl 128 15 0 50 0 1 empty bub_initgrainsize empty -2
+-8 0 10 -228856 -1 -1 8467 1;
+#X obj 219 203 hsl 128 15 0 200 0 1 empty bub_initdensity empty -2
+-8 0 10 -228856 -1 -1 1933 1;
+#X obj 608 203 hsl 128 15 0 100 0 1 empty bub_initgvar empty -2 -8
+0 10 -228856 -1 -1 8467 1;
+#X obj 618 380 hsl 128 15 0 100 0 1 empty bub_initgrev empty -2 -8
+0 10 -228856 -1 -1 8043 1;
+#X msg 217 76 filterFreq \$1;
+#X msg 414 76 feedback \$1;
+#X text 463 37 0 - 200%;
+#X text 217 119 0 - 200%;
+#X text 639 203 0 - 100%;
+#X text 649 378 0 - 100%;
+#X text 219 35 20 - 20kHz (log);
+#X obj 224 377 hradio 15 1 1 9 empty bub_initoct empty 0 -8 0 10 -262144
+-1 -1 2;
+#X obj 224 395 - 4;
+#X obj 422 399 hradio 15 1 1 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 388 609 832;
+#X text 639 609 70;
+#X text 290 214 108;
+#X text 264 393 6;
+#X text 455 217 30;
+#X text 656 218 37;
+#X text 656 399 23;
+#X text 645 57 48;
+#X text 454 56 70;
+#X text 422 380 3;
+#X text 221 358 4 is good for sub octave;
+#X obj 224 435 s \$0-bub;
+#X obj 217 19 line;
+#X obj 762 363 + 50;
+#X obj 762 343 * 20;
+#X obj 414 -39 * 10000;
+#X msg 217 -2 \$1 150;
+#X obj 534 514 * 50;
+#X obj 534 544 + 20;
+#X floatatom 879 42 5 0 0 0 - - -;
+#X obj 867 186 line;
+#X obj 879 107 expr 5 - $f1;
+#X floatatom 954 124 5 0 0 0 - - -;
+#X msg 867 164 \$1 1000;
+#X obj 954 183 line;
+#X msg 954 162 \$1 1000;
+#X text 348 481 time delay/note offset;
+#X floatatom 373 -46 5 0 0 0 - - -;
+#X obj 334 547 split 1 10000;
+#X text 591 -4 DOE - Chromatic == Highest melodic tension;
+#X obj 867 81 * 30;
+#X obj 217 -22 + 880;
+#X obj 414 21 + 40;
+#X obj 414 4 * 60;
+#X obj 954 142 * 10;
+#X obj 954 202 + 10;
+#X obj 414 182 * 50;
+#N canvas 0 22 450 300 repeating.notes 0;
+#X text 138 19 unison equivalence ---- if ma == 0 then;
+#X text 247 142 repeating notes;
+#X text 143 44 (r) = current/next note;
+#X obj 113 132 mux 0 1 2 3 4 5 6;
+#X obj 250 71 r counter;
+#X obj 250 115 - 1;
+#X obj 78 115 r ma.c1;
+#X obj 127 115 r ma.c2;
+#X obj 141 97 r ma.c3;
+#X obj 155 81 r ma.c4;
+#X obj 169 64 r ma.c5;
+#X obj 183 115 r ma.c6;
+#X obj 197 98 r ma.c7;
+#X obj 113 154 sel 0;
+#X obj 113 175 outlet;
+#X connect 3 0 13 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 7;
+#X connect 6 0 3 0;
+#X connect 7 0 3 1;
+#X connect 8 0 3 2;
+#X connect 9 0 3 3;
+#X connect 10 0 3 4;
+#X connect 11 0 3 5;
+#X connect 12 0 3 6;
+#X connect 13 0 14 0;
+#X restore 224 304 pd repeating.notes;
+#X text 339 302 Repeated notes in sequence produce "0" MA value;
+#X obj 391 503 r t.c.sw;
+#X obj 334 520 mux - - -;
+#X obj 221 484 r glbl.it;
+#X floatatom 221 504 10 0 0 0 - - -;
+#X floatatom 292 504 5 0 0 0 - - -;
+#X obj 224 327 random 6;
+#X obj 340 321 random 3;
+#X text 411 258 Perceived roughness/noise relative to depth of embedding/melodic
+tension;
+#X text 591 12 Increase resonance accordingly;
+#X text 952 223 inversion of scaled amp available;
+#X text 164 182 Greater density with amplitude;
+#X obj 219 -71 s \$4-cntr;
+#X obj 414 -63 r \$4-cntr;
+#X obj 217 93 s \$4-bub;
+#X obj 879 -2 r 5_amp;
+#X obj 605 146 r \$4-cntr;
+#X obj 216 253 s \$4-bub;
+#X obj 292 483 r 5_sit;
+#X obj 762 323 r \$4-cntr;
+#X obj 534 490 r \$4-cntr;
+#X obj 790 582 r \$4-bub;
+#X obj 334 626 s \$4-bub;
+#X obj 607 -46 * 40;
+#X obj 605 166 * 100;
+#X obj 879 20 spigot;
+#X obj 934 3 r mto.sw;
+#X connect 1 0 91 0;
+#X connect 2 0 3 0;
+#X connect 3 0 101 0;
+#X connect 4 0 5 0;
+#X connect 5 0 101 0;
+#X connect 6 0 2 0;
+#X connect 7 0 4 0;
+#X connect 10 0 31 0;
+#X connect 11 0 12 0;
+#X connect 12 0 93 0;
+#X connect 13 0 16 0;
+#X connect 14 0 20 0;
+#X connect 15 0 19 0;
+#X connect 16 0 96 0;
+#X connect 17 0 21 0;
+#X connect 18 0 52 0;
+#X connect 19 0 96 0;
+#X connect 20 0 96 0;
+#X connect 21 0 52 0;
+#X connect 22 0 52 0;
+#X connect 23 0 32 0;
+#X connect 24 0 23 0;
+#X connect 25 0 10 0;
+#X connect 26 0 11 0;
+#X connect 27 0 15 0;
+#X connect 28 0 13 0;
+#X connect 29 0 14 0;
+#X connect 30 0 17 0;
+#X connect 31 0 93 0;
+#X connect 32 0 93 0;
+#X connect 38 0 39 0;
+#X connect 39 0 18 0;
+#X connect 40 0 22 0;
+#X connect 53 0 25 0;
+#X connect 54 0 30 0;
+#X connect 55 0 54 0;
+#X connect 56 0 72 0;
+#X connect 57 0 53 0;
+#X connect 58 0 59 0;
+#X connect 60 0 62 0;
+#X connect 60 0 71 0;
+#X connect 61 0 28 0;
+#X connect 62 0 63 0;
+#X connect 63 0 75 0;
+#X connect 64 0 61 0;
+#X connect 65 0 76 0;
+#X connect 66 0 65 0;
+#X connect 69 0 6 0;
+#X connect 71 0 64 0;
+#X connect 72 0 57 0;
+#X connect 73 0 24 0;
+#X connect 74 0 73 0;
+#X connect 75 0 66 0;
+#X connect 77 0 27 0;
+#X connect 78 0 85 0;
+#X connect 78 0 86 0;
+#X connect 80 0 81 3;
+#X connect 81 0 69 0;
+#X connect 82 0 83 0;
+#X connect 83 0 81 1;
+#X connect 84 0 81 2;
+#X connect 85 0 38 0;
+#X connect 86 0 40 0;
+#X connect 92 0 56 0;
+#X connect 92 0 68 0;
+#X connect 92 0 74 0;
+#X connect 92 0 77 0;
+#X connect 92 0 102 0;
+#X connect 94 0 104 0;
+#X connect 95 0 103 0;
+#X connect 97 0 84 0;
+#X connect 98 0 55 0;
+#X connect 99 0 58 0;
+#X connect 100 0 0 0;
+#X connect 102 0 26 0;
+#X connect 103 0 29 0;
+#X connect 104 0 60 0;
+#X connect 105 0 104 1;
+#X restore 43 163 pd +bp;
+#X obj 77 42 r 5_icr;
+#X obj 43 185 s 5_t.c;
+#X connect 1 0 4 1;
+#X connect 4 0 8 0;
+#X connect 5 0 4 3;
+#X connect 8 0 10 0;
+#X connect 9 0 4 2;
+#X restore 168 71 pd tc.s5;
+#N canvas 596 90 317 249 tc.s3 0;
+#X text 75 20 Initial 0 to 1;
+#X obj 27 41 r g.c;
+#X text 28 21 Global;
+#X text 40 211 send to various parameters in dsp chain;
+#X obj 43 135 mux _ _ _;
+#X obj 119 118 r t.c.sw;
+#X text 130 40 either stnd/cone/random;
+#X text 89 162 cf. +bubbler~ presets;
+#N canvas 32 22 1174 653 +bp 0;
+#X obj 769 585 outlet;
+#X obj 199 -113 inlet;
+#X floatatom 314 568 10 1 10000 0 - - -;
+#X msg 314 586 time \$1;
+#X floatatom 514 568 5 0 100 0 - - -;
+#X msg 514 589 timeVariation \$1;
+#X obj 317 549 hsl 128 15 1 10000 1 1 empty bub_inittime empty -2 -8
+0 10 -228856 -1 -1 8173 1;
+#X obj 517 549 hsl 128 15 0 100 0 1 empty bub_inittimevar empty -2
+-8 0 10 -228856 -1 -1 0 1;
+#X text 521 547 0 - 100%;
+#X text 318 547 1 - 10000 ms (log);
+#X floatatom 197 36 10 20 20000 0 - - -;
+#X floatatom 587 35 5 0 100 0 - - -;
+#X msg 587 56 resonance \$1;
+#X floatatom 196 198 5 0 200 0 - - -;
+#X floatatom 585 200 5 0 100 0 - - -;
+#X floatatom 394 199 5 0 50 0 - - -;
+#X msg 196 216 density \$1;
+#X floatatom 595 379 5 0 100 0 - - -;
+#X msg 204 396 octave \$1;
+#X msg 394 216 grainSize \$1;
+#X msg 585 216 grainStartVariation \$1;
+#X msg 595 398 grainReversal \$1;
+#X msg 402 398 octaveVariation \$1;
+#X floatatom 394 37 5 0 200 0 - - -;
+#X obj 397 18 hsl 128 15 0 200 0 1 empty bub_initfb empty -2 -8 0 10
+-228856 -1 -1 6350 1;
+#X obj 200 17 hsl 128 15 20 20000 1 1 empty bub_initfilterFreq empty
+-2 -8 0 10 -228856 -1 -1 11581 1;
+#X obj 590 16 hsl 128 15 1 100 0 1 empty bub_initres empty -2 -8 0
+10 -228856 -1 -1 5003 1;
+#X obj 397 183 hsl 128 15 0 50 0 1 empty bub_initgrainsize empty -2
+-8 0 10 -228856 -1 -1 12700 1;
+#X obj 199 183 hsl 128 15 0 200 0 1 empty bub_initdensity empty -2
+-8 0 10 -228856 -1 -1 1338 1;
+#X obj 588 183 hsl 128 15 0 100 0 1 empty bub_initgvar empty -2 -8
+0 10 -228856 -1 -1 12700 1;
+#X obj 598 360 hsl 128 15 0 100 0 1 empty bub_initgrev empty -2 -8
+0 10 -228856 -1 -1 8890 1;
+#X msg 197 56 filterFreq \$1;
+#X msg 394 56 feedback \$1;
+#X text 443 17 0 - 200%;
+#X text 197 99 0 - 200%;
+#X text 619 183 0 - 100%;
+#X text 629 358 0 - 100%;
+#X text 199 15 20 - 20kHz (log);
+#X obj 204 357 hradio 15 1 1 9 empty bub_initoct empty 0 -8 0 10 -262144
+-1 -1 2;
+#X obj 204 375 - 4;
+#X obj 402 379 hradio 15 1 1 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X text 368 589 832;
+#X text 619 589 70;
+#X text 270 194 108;
+#X text 244 373 6;
+#X text 435 197 30;
+#X text 636 198 37;
+#X text 636 379 23;
+#X text 625 37 48;
+#X text 434 36 70;
+#X text 402 360 3;
+#X text 201 338 4 is good for sub octave;
+#X obj 197 -1 line;
+#X obj 742 343 + 50;
+#X obj 742 323 * 20;
+#X obj 394 -59 * 10000;
+#X msg 197 -22 \$1 150;
+#X obj 514 494 * 50;
+#X obj 514 524 + 20;
+#X floatatom 859 22 5 0 0 0 - - -;
+#X obj 847 166 line;
+#X obj 859 87 expr 5 - $f1;
+#X floatatom 934 104 5 0 0 0 - - -;
+#X msg 847 144 \$1 1000;
+#X obj 934 163 line;
+#X msg 934 142 \$1 1000;
+#X text 328 461 time delay/note offset;
+#X floatatom 353 -66 5 0 0 0 - - -;
+#X obj 314 527 split 1 10000;
+#X text 571 -24 DOE - Chromatic == Highest melodic tension;
+#X obj 847 61 * 30;
+#X obj 197 -42 + 880;
+#X obj 394 1 + 40;
+#X obj 394 -16 * 60;
+#X obj 934 122 * 10;
+#X obj 934 182 + 10;
+#X obj 394 162 * 50;
+#N canvas 0 22 450 300 repeating.notes 0;
+#X text 138 19 unison equivalence ---- if ma == 0 then;
+#X text 247 142 repeating notes;
+#X text 143 44 (r) = current/next note;
+#X obj 113 132 mux 0 1 2 3 4 5 6;
+#X obj 250 71 r counter;
+#X obj 250 115 - 1;
+#X obj 78 115 r ma.c1;
+#X obj 127 115 r ma.c2;
+#X obj 141 97 r ma.c3;
+#X obj 155 81 r ma.c4;
+#X obj 169 64 r ma.c5;
+#X obj 183 115 r ma.c6;
+#X obj 197 98 r ma.c7;
+#X obj 113 154 sel 0;
+#X obj 113 175 outlet;
+#X connect 3 0 13 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 7;
+#X connect 6 0 3 0;
+#X connect 7 0 3 1;
+#X connect 8 0 3 2;
+#X connect 9 0 3 3;
+#X connect 10 0 3 4;
+#X connect 11 0 3 5;
+#X connect 12 0 3 6;
+#X connect 13 0 14 0;
+#X restore 204 284 pd repeating.notes;
+#X text 319 282 Repeated notes in sequence produce "0" MA value;
+#X obj 371 483 r t.c.sw;
+#X obj 314 500 mux - - -;
+#X obj 201 464 r glbl.it;
+#X floatatom 201 484 10 0 0 0 - - -;
+#X floatatom 272 484 5 0 0 0 - - -;
+#X obj 204 307 random 6;
+#X obj 320 301 random 3;
+#X text 391 238 Perceived roughness/noise relative to depth of embedding/melodic
+tension;
+#X text 571 -8 Increase resonance accordingly;
+#X text 932 203 inversion of scaled amp available;
+#X text 144 162 Greater density with amplitude;
+#X obj 199 -91 s \$2-cntr;
+#X obj 197 73 s \$2-bub;
+#X obj 394 -83 r \$2-cntr;
+#X obj 859 -20 r 3_amp;
+#X obj 196 233 s \$2-bub;
+#X obj 585 126 r \$2-cntr;
+#X obj 514 470 r \$2-cntr;
+#X obj 742 303 r \$2-cntr;
+#X obj 204 415 s \$2-bub;
+#X obj 272 463 r 3_sit;
+#X obj 769 563 r \$2-bub;
+#X obj 314 606 s \$2-bub;
+#X obj 587 -66 * 40;
+#X obj 585 146 * 100;
+#X obj 859 1 spigot;
+#X obj 970 -16 r mto.sw;
+#X connect 1 0 90 0;
+#X connect 2 0 3 0;
+#X connect 3 0 101 0;
+#X connect 4 0 5 0;
+#X connect 5 0 101 0;
+#X connect 6 0 2 0;
+#X connect 7 0 4 0;
+#X connect 10 0 31 0;
+#X connect 11 0 12 0;
+#X connect 12 0 91 0;
+#X connect 13 0 16 0;
+#X connect 14 0 20 0;
+#X connect 15 0 19 0;
+#X connect 16 0 94 0;
+#X connect 17 0 21 0;
+#X connect 18 0 98 0;
+#X connect 19 0 94 0;
+#X connect 20 0 94 0;
+#X connect 21 0 98 0;
+#X connect 22 0 98 0;
+#X connect 23 0 32 0;
+#X connect 24 0 23 0;
+#X connect 25 0 10 0;
+#X connect 26 0 11 0;
+#X connect 27 0 15 0;
+#X connect 28 0 13 0;
+#X connect 29 0 14 0;
+#X connect 30 0 17 0;
+#X connect 31 0 91 0;
+#X connect 32 0 91 0;
+#X connect 38 0 39 0;
+#X connect 39 0 18 0;
+#X connect 40 0 22 0;
+#X connect 52 0 25 0;
+#X connect 53 0 30 0;
+#X connect 54 0 53 0;
+#X connect 55 0 71 0;
+#X connect 56 0 52 0;
+#X connect 57 0 58 0;
+#X connect 59 0 61 0;
+#X connect 59 0 70 0;
+#X connect 60 0 28 0;
+#X connect 61 0 62 0;
+#X connect 62 0 74 0;
+#X connect 63 0 60 0;
+#X connect 64 0 75 0;
+#X connect 65 0 64 0;
+#X connect 68 0 6 0;
+#X connect 70 0 63 0;
+#X connect 71 0 56 0;
+#X connect 72 0 24 0;
+#X connect 73 0 72 0;
+#X connect 74 0 65 0;
+#X connect 76 0 27 0;
+#X connect 77 0 84 0;
+#X connect 77 0 85 0;
+#X connect 79 0 80 3;
+#X connect 80 0 68 0;
+#X connect 81 0 82 0;
+#X connect 82 0 80 1;
+#X connect 83 0 80 2;
+#X connect 84 0 38 0;
+#X connect 85 0 40 0;
+#X connect 92 0 55 0;
+#X connect 92 0 67 0;
+#X connect 92 0 73 0;
+#X connect 92 0 76 0;
+#X connect 92 0 102 0;
+#X connect 93 0 104 0;
+#X connect 95 0 103 0;
+#X connect 96 0 57 0;
+#X connect 97 0 54 0;
+#X connect 99 0 83 0;
+#X connect 100 0 0 0;
+#X connect 102 0 26 0;
+#X connect 103 0 29 0;
+#X connect 104 0 59 0;
+#X connect 105 0 104 1;
+#X restore 43 163 pd +bp;
+#X obj 77 42 r 3_icr;
+#X obj 43 185 s 3_t.c;
+#X connect 1 0 4 1;
+#X connect 4 0 8 0;
+#X connect 5 0 4 3;
+#X connect 8 0 10 0;
+#X connect 9 0 4 2;
+#X restore 238 52 pd tc.s3;
+#N canvas 596 90 317 249 tc.s6 0;
+#X text 75 20 Initial 0 to 1;
+#X obj 27 41 r g.c;
+#X text 28 21 Global;
+#X text 40 211 send to various parameters in dsp chain;
+#X obj 43 135 mux _ _ _;
+#X obj 119 118 r t.c.sw;
+#X text 130 40 either stnd/cone/random;
+#X text 89 162 cf. +bubbler~ presets;
+#N canvas 0 22 1280 752 +bp 0;
+#X obj 799 615 outlet;
+#X obj 229 -83 inlet;
+#X floatatom 344 598 10 1 10000 0 - - -;
+#X msg 344 616 time \$1;
+#X floatatom 544 598 5 0 100 0 - - -;
+#X msg 544 619 timeVariation \$1;
+#X obj 347 579 hsl 128 15 1 10000 1 1 empty bub_inittime empty -2 -8
+0 10 -228856 -1 -1 12281 1;
+#X obj 547 579 hsl 128 15 0 100 0 1 empty bub_inittimevar empty -2
+-8 0 10 -228856 -1 -1 0 1;
+#X text 551 577 0 - 100%;
+#X text 348 577 1 - 10000 ms (log);
+#X floatatom 227 66 10 20 20000 0 - - -;
+#X floatatom 617 65 5 0 100 0 - - -;
+#X msg 617 86 resonance \$1;
+#X floatatom 226 228 5 0 200 0 - - -;
+#X floatatom 615 230 5 0 100 0 - - -;
+#X floatatom 424 229 5 0 50 0 - - -;
+#X msg 226 246 density \$1;
+#X floatatom 625 409 5 0 100 0 - - -;
+#X msg 234 426 octave \$1;
+#X msg 424 246 grainSize \$1;
+#X msg 615 246 grainStartVariation \$1;
+#X msg 625 428 grainReversal \$1;
+#X msg 432 428 octaveVariation \$1;
+#X floatatom 424 67 5 0 200 0 - - -;
+#X obj 427 48 hsl 128 15 0 200 0 1 empty bub_initfb empty -2 -8 0 10
+-228856 -1 -1 2540 1;
+#X obj 230 47 hsl 128 15 20 20000 1 1 empty bub_initfilterFreq empty
+-2 -8 0 10 -228856 -1 -1 6957 1;
+#X obj 620 46 hsl 128 15 1 100 0 1 empty bub_initres empty -2 -8 0
+10 -228856 -1 -1 0 1;
+#X obj 427 213 hsl 128 15 0 50 0 1 empty bub_initgrainsize empty -2
+-8 0 10 -228856 -1 -1 0 1;
+#X obj 229 213 hsl 128 15 0 200 0 1 empty bub_initdensity empty -2
+-8 0 10 -228856 -1 -1 3810 1;
+#X obj 618 213 hsl 128 15 0 100 0 1 empty bub_initgvar empty -2 -8
+0 10 -228856 -1 -1 0 1;
+#X obj 628 390 hsl 128 15 0 100 0 1 empty bub_initgrev empty -2 -8
+0 10 -228856 -1 -1 6350 1;
+#X msg 227 86 filterFreq \$1;
+#X msg 424 86 feedback \$1;
+#X text 473 47 0 - 200%;
+#X text 227 129 0 - 200%;
+#X text 649 213 0 - 100%;
+#X text 659 388 0 - 100%;
+#X text 229 45 20 - 20kHz (log);
+#X obj 234 387 hradio 15 1 1 9 empty bub_initoct empty 0 -8 0 10 -262144
+-1 -1 4;
+#X obj 234 405 - 4;
+#X obj 432 409 hradio 15 1 1 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 398 619 832;
+#X text 649 619 70;
+#X text 300 224 108;
+#X text 274 403 6;
+#X text 465 227 30;
+#X text 666 228 37;
+#X text 666 409 23;
+#X text 655 67 48;
+#X text 464 66 70;
+#X text 432 390 3;
+#X text 231 368 4 is good for sub octave;
+#X obj 227 29 line;
+#X obj 772 373 + 50;
+#X obj 772 353 * 20;
+#X obj 424 -29 * 10000;
+#X msg 227 8 \$1 150;
+#X obj 544 524 * 50;
+#X obj 544 554 + 20;
+#X floatatom 889 52 5 0 0 0 - - -;
+#X obj 877 196 line;
+#X obj 889 117 expr 5 - $f1;
+#X floatatom 964 134 5 0 0 0 - - -;
+#X msg 877 174 \$1 1000;
+#X obj 964 193 line;
+#X msg 964 172 \$1 1000;
+#X text 358 491 time delay/note offset;
+#X floatatom 383 -36 5 0 0 0 - - -;
+#X obj 344 557 split 1 10000;
+#X text 601 6 DOE - Chromatic == Highest melodic tension;
+#X obj 877 91 * 30;
+#X obj 227 -12 + 880;
+#X obj 424 31 + 40;
+#X obj 424 14 * 60;
+#X obj 964 152 * 10;
+#X obj 964 212 + 10;
+#X obj 424 192 * 50;
+#N canvas 0 22 450 300 repeating.notes 0;
+#X text 138 19 unison equivalence ---- if ma == 0 then;
+#X text 247 142 repeating notes;
+#X text 143 44 (r) = current/next note;
+#X obj 113 132 mux 0 1 2 3 4 5 6;
+#X obj 250 71 r counter;
+#X obj 250 115 - 1;
+#X obj 78 115 r ma.c1;
+#X obj 127 115 r ma.c2;
+#X obj 141 97 r ma.c3;
+#X obj 155 81 r ma.c4;
+#X obj 169 64 r ma.c5;
+#X obj 183 115 r ma.c6;
+#X obj 197 98 r ma.c7;
+#X obj 113 154 sel 0;
+#X obj 113 175 outlet;
+#X connect 3 0 13 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 7;
+#X connect 6 0 3 0;
+#X connect 7 0 3 1;
+#X connect 8 0 3 2;
+#X connect 9 0 3 3;
+#X connect 10 0 3 4;
+#X connect 11 0 3 5;
+#X connect 12 0 3 6;
+#X connect 13 0 14 0;
+#X restore 234 314 pd repeating.notes;
+#X text 349 312 Repeated notes in sequence produce "0" MA value;
+#X obj 401 513 r t.c.sw;
+#X obj 344 530 mux - - -;
+#X obj 231 494 r glbl.it;
+#X floatatom 231 514 10 0 0 0 - - -;
+#X floatatom 302 514 5 0 0 0 - - -;
+#X obj 234 337 random 6;
+#X obj 350 331 random 3;
+#X text 601 22 Increase resonance accordingly;
+#X text 962 233 inversion of scaled amp available;
+#X text 174 192 Greater density with amplitude;
+#X obj 889 9 r 6_amp;
+#X obj 229 -61 s \$5-cntr;
+#X obj 424 -53 r \$5-cntr;
+#X obj 615 156 r \$5-cntr;
+#X obj 226 263 s \$5-bub;
+#X obj 234 445 s \$5-bub;
+#X obj 772 333 r \$5-cntr;
+#X obj 344 636 s \$5-bub;
+#X obj 544 500 r \$5-cntr;
+#X obj 799 592 r \$5-bub;
+#X obj 302 493 r 6_sit;
+#X obj 227 103 s \$5-bub;
+#X obj 617 -36 * 40;
+#X text 421 268 Perceived roughness/noise/dissonance relative to depth
+of embedding/melodic tension;
+#X obj 615 176 * 100;
+#X obj 889 30 spigot;
+#X obj 944 13 r mto.sw;
+#X connect 1 0 90 0;
+#X connect 2 0 3 0;
+#X connect 3 0 96 0;
+#X connect 4 0 5 0;
+#X connect 5 0 96 0;
+#X connect 6 0 2 0;
+#X connect 7 0 4 0;
+#X connect 10 0 31 0;
+#X connect 11 0 12 0;
+#X connect 12 0 100 0;
+#X connect 13 0 16 0;
+#X connect 14 0 20 0;
+#X connect 15 0 19 0;
+#X connect 16 0 93 0;
+#X connect 17 0 21 0;
+#X connect 18 0 94 0;
+#X connect 19 0 93 0;
+#X connect 20 0 93 0;
+#X connect 21 0 94 0;
+#X connect 22 0 94 0;
+#X connect 23 0 32 0;
+#X connect 24 0 23 0;
+#X connect 25 0 10 0;
+#X connect 26 0 11 0;
+#X connect 27 0 15 0;
+#X connect 28 0 13 0;
+#X connect 29 0 14 0;
+#X connect 30 0 17 0;
+#X connect 31 0 100 0;
+#X connect 32 0 100 0;
+#X connect 38 0 39 0;
+#X connect 39 0 18 0;
+#X connect 40 0 22 0;
+#X connect 52 0 25 0;
+#X connect 53 0 30 0;
+#X connect 54 0 53 0;
+#X connect 55 0 71 0;
+#X connect 56 0 52 0;
+#X connect 57 0 58 0;
+#X connect 59 0 61 0;
+#X connect 59 0 70 0;
+#X connect 60 0 28 0;
+#X connect 61 0 62 0;
+#X connect 62 0 74 0;
+#X connect 63 0 60 0;
+#X connect 64 0 75 0;
+#X connect 65 0 64 0;
+#X connect 68 0 6 0;
+#X connect 70 0 63 0;
+#X connect 71 0 56 0;
+#X connect 72 0 24 0;
+#X connect 73 0 72 0;
+#X connect 74 0 65 0;
+#X connect 76 0 27 0;
+#X connect 77 0 84 0;
+#X connect 77 0 85 0;
+#X connect 79 0 80 3;
+#X connect 80 0 68 0;
+#X connect 81 0 82 0;
+#X connect 82 0 80 1;
+#X connect 83 0 80 2;
+#X connect 84 0 38 0;
+#X connect 85 0 40 0;
+#X connect 89 0 104 0;
+#X connect 91 0 55 0;
+#X connect 91 0 67 0;
+#X connect 91 0 73 0;
+#X connect 91 0 76 0;
+#X connect 91 0 101 0;
+#X connect 92 0 103 0;
+#X connect 95 0 54 0;
+#X connect 97 0 57 0;
+#X connect 98 0 0 0;
+#X connect 99 0 83 0;
+#X connect 101 0 26 0;
+#X connect 103 0 29 0;
+#X connect 104 0 59 0;
+#X connect 105 0 104 1;
+#X restore 43 163 pd +bp;
+#X obj 77 42 r 6_icr;
+#X obj 43 185 s 6_t.c;
+#X connect 1 0 4 1;
+#X connect 4 0 8 0;
+#X connect 5 0 4 3;
+#X connect 8 0 10 0;
+#X connect 9 0 4 2;
+#X restore 238 71 pd tc.s6;
+#X obj 305 152 init.string;
+#X obj 102 124 cnv 15 10 10 empty empty grain.w.var 7 12 0 9 -1 -262144
+0;
+#X connect 4 0 14 1;
+#X connect 8 0 13 1;
+#X connect 13 0 8 0;
+#X connect 14 0 4 0;
+#X connect 16 0 17 1;
+#X connect 17 0 16 0;
+#X connect 24 0 8 0;
+#X coords 0 -1 1 1 197 300 2 100 100;

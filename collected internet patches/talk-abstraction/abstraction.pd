@@ -1,0 +1,13 @@
+#N canvas 502 144 311 417 10;
+#X obj 525 1009 outlet~;
+#X obj 215 57 f \$1;
+#X floatatom 215 88 5 0 0 0 - - -;
+#X obj 64 91 r message_\$1;
+#X obj 35 241 outlet;
+#X obj 35 28 inlet;
+#X obj 113 217 print message on \$1;
+#X obj 215 27 loadbang;
+#X connect 1 0 2 0;
+#X connect 3 0 6 0;
+#X connect 5 0 4 0;
+#X connect 7 0 1 0;

@@ -1,0 +1,3 @@
+/mnt/usb/patches/01_Sample_Player/00/rec.wav;
+/mnt/usb/patches/01_Sample_Player/00/test.wav;
+/mnt/usb/patches/01_Sample_Player/00/write_test.wav;

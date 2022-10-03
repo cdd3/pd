@@ -1,0 +1,7 @@
+#N canvas 603 335 450 300 10;
+#X msg 92 14 woof;
+#X obj 92 48 s message_1;
+#X obj 92 118 s message_2;
+#X msg 92 84 Yes! its a message for abstraction 2;
+#X connect 0 0 1 0;
+#X connect 3 0 2 0;

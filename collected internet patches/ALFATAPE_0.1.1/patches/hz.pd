@@ -1,0 +1,8 @@
+#N canvas 1 76 450 300 10;
+#X obj 103 140 f;
+#X obj 103 167 outlet;
+#X obj 103 86 inlet;
+#X obj 118 113 r \$1-hz;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 1;

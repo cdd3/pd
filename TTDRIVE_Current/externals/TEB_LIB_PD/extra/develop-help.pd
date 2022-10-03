@@ -1,0 +1,38 @@
+#N canvas 479 441 555 368 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array develop-help-input 67 float 3;
+#A 0 -0.0855096 -0.166298 -0.172091 -0.088756 -0.0208572 0.142747 0.0901982
+0.252291 0.363703 0.18406 0.144211 0.401041 0.496966 0.490746 0.239677
+0.332299 0.568897 0.295007 0.471299 0.387099 0.450076 0.424747 0.265468
+0.194242 0.307412 0.20816 0.199004 0.272792 0.145505 0.0400437 0.126649
+0.021645 -0.0626901 -0.197496 -0.184502 -0.167143 -0.106537 -0.294934
+-0.238991 -0.427578 -0.235389 -0.368146 -0.464398 -0.446228 -0.400054
+-0.560432 -0.597164 -0.729888 -0.454787 -0.669394 -0.641887 -0.342688
+-0.616166 -0.640235 -0.498756 -0.72423 -0.359401 -0.506249 -0.459592
+-0.429181 -0.217895 -0.374238 -0.194439 -0.107347 -0.322908 -0.105803
+-0.131395;
+#X coords 0 1 67 -1 200 140 1 0 0;
+#X restore 249 181 graph;
+#X obj 46 223 array get develop-help-input;
+#X obj 46 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 66 148 bang here to develop a list to an unkown outcome by
+n each bang, f 64;
+#X obj 46 57 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X text 132 128 (like random walk for lists);
+#X obj 45 27 loadbang;
+#X obj 46 288 array set develop-help-input;
+#X obj 125 77 s develop-help-input;
+#X msg 125 49 sinesum 100 0.5;
+#X obj 46 252 develop 0.01;
+#X obj 46 96 metro 4;
+#X text 237 321 try changing the array while it is moving;
+#X connect 1 0 10 0;
+#X connect 2 0 1 0;
+#X connect 4 0 11 0;
+#X connect 6 0 4 0;
+#X connect 6 0 9 0;
+#X connect 9 0 8 0;
+#X connect 10 0 7 0;
+#X connect 11 0 2 0;

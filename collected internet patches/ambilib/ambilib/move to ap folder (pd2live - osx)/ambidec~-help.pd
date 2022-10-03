@@ -1,0 +1,43 @@
+#N canvas 0 0 756 435 10;
+#X obj 15 126 ambidec~ 1 -------------;
+#X obj 15 93 ambidec~ 0 -------------;
+#X obj 15 159 ambidec~ 2 -------------;
+#X obj 14 195 ambidec~ 3 -------------;
+#X obj 14 228 ambidec~ 4 -------------;
+#X obj 14 261 ambidec~ 5 -------------;
+#X obj 14 294 ambidec~ 6 -------------;
+#X obj 14 329 ambidec~ 7 -------------;
+#X text 15 367 For more information see http://www.dmalham.freeserve.co.uk/vst_ambisonics.html
+;
+#X text 14 74 Cube with height;
+#X text 14 109 Square - horizontal;
+#X text 14 142 Rectangle;
+#X text 13 177 Hexagon with speakers at stereo locations;
+#X text 12 212 Octagon with speakers at stereo locations;
+#X text 12 244 Octagon with speakers at compass points;
+#X text 14 278 Decode to stereo;
+#X text 13 312 Decode to mono;
+#X text 15 54 Input 1 = W \, Input 2 = X \, Input 3 = Y \, Input 4
+= Z.;
+#X text 372 91 Outputs;
+#X text 371 114 ambidec~ 0 1 = LFD \, 2 = RFD \, 3 = RBD \, 4= LBD
+\, 5 = LFU \, 6 = RFU \, 7 = RBU \, 8 = LBU.;
+#X text 370 143 ambidec~ 1 1 = LF \, 2 = RF \, 3 = RB \, 4 = LB.;
+#X text 370 162 ambidec~ 2 1 = LF \, 2 = RF \, 3 = RB \, 4 = LB.;
+#X text 370 181 ambidec~ 3 1 = LF \, 2 = L \, 3 = LB \, 4 = RB \, 5
+= R \, 6 = RF.;
+#X text 370 202 ambidec~ 4 1 = LF1 \, 2 = LF2 \, 3 = LB1 \, 4 = LB2
+\, 5 = RB1 \, 6 = RB2 \, 7 = RF1 \, 8 = RF2.;
+#X text 370 233 ambidec~ 5 1 = F \, 2 = LF \, 3 = L \, 4 = LB \, 5
+= B \, 6 = RB \, 7 = R \, 8 = RF.;
+#X text 369 264 ambidec~ 6 1 = LF \, 2 = RF.;
+#X text 369 283 ambidec~ 7 1 = F \, 2 = F.;
+#X text 372 310 key;
+#X text 372 325 r = right;
+#X text 372 341 l = left;
+#X text 372 371 b = back or rear speakers;
+#X text 371 356 f = front speakers;
+#X text 372 386 u = upper speakers in with height decodes;
+#X text 372 400 d = lower speakers in with height decodes;
+#X text 14 16 Ambidec~ Ambisonic decoder based on the b_dec VST plugin
+by Ambrose Field and Dave Malham. Ported to pd by Matthew Paradis;

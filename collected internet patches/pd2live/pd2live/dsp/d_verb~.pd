@@ -1,0 +1,62 @@
+#N canvas 0 46 1280 752 10;
+#X obj 85 410 outlet~;
+#X obj 85 322 inlet~;
+#X obj 85 375 freeverb~;
+#X msg 305 244 wet \$1;
+#X msg 395 243 dry \$1;
+#X msg 529 244 roomsize \$1;
+#X text 83 461 Abstraction used to speed up editing of multiple instances
+of the object;
+#X obj 103 113 hsl 70 10 0 1 0 1 empty empty dry -2 -8 0 10 -262144
+-1 -1 6900 1;
+#X obj 103 135 hsl 70 10 0 1 0 0 empty empty wet -2 -8 0 10 -262144
+-1 -1 4140 1;
+#X obj 103 158 hsl 70 10 0 1 0 0 empty empty size -2 -8 0 10 -262144
+-1 -1 4140 1;
+#X obj 182 135 bng 15 250 50 0 empty empty empty 17 7 0 12 -262144
+-1 -1;
+#X text 199 131 Freeze;
+#X msg 311 358 freeze \$1;
+#X msg 395 204 \$1 50;
+#X obj 395 224 line;
+#X msg 166 293 bypass \$1;
+#X obj 182 112 bng 15 250 50 0 empty empty empty 17 7 0 12 -262144
+-1 -1;
+#X text 200 108 On/Off;
+#X obj 270 96 inlet;
+#X obj 45 38 loadbang;
+#X msg 45 58 0.6;
+#X obj 166 239 cup;
+#X floatatom 202 265 5 0 0 0 - - -;
+#X obj 166 265 % 2;
+#X msg 84 59 0;
+#X obj 312 303 cup;
+#X obj 312 329 % 2;
+#X floatatom 345 324 5 0 0 0 - - -;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 0;
+#X connect 7 0 13 0;
+#X connect 8 0 3 0;
+#X connect 9 0 5 0;
+#X connect 10 0 25 0;
+#X connect 12 0 2 0;
+#X connect 13 0 14 0;
+#X connect 14 0 4 0;
+#X connect 15 0 2 0;
+#X connect 16 0 21 0;
+#X connect 18 0 10 0;
+#X connect 19 0 20 0;
+#X connect 19 0 24 0;
+#X connect 20 0 8 0;
+#X connect 20 0 9 0;
+#X connect 21 0 23 0;
+#X connect 23 0 15 0;
+#X connect 23 0 22 0;
+#X connect 24 0 15 0;
+#X connect 25 0 26 0;
+#X connect 26 0 12 0;
+#X connect 26 0 27 0;
+#X coords 0 -1 1 1 100 70 2 100 100;

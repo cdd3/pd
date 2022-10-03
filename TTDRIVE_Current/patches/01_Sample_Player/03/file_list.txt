@@ -1,0 +1,6 @@
+/mnt/sda1/patches/01_Sample_Player/03/08_Junky_VIII.wav;
+/mnt/sda1/patches/01_Sample_Player/03/25_Junky_XXV.wav;
+/mnt/sda1/patches/01_Sample_Player/03/Naked_Lunch_2_of_4.wav;
+/mnt/sda1/patches/01_Sample_Player/03/Naked_Lunch_3_of_4.wav;
+/mnt/sda1/patches/01_Sample_Player/03/Naked_Lunch_4_of_4.wav;
+/mnt/sda1/patches/01_Sample_Player/03/vr_reading.wav;

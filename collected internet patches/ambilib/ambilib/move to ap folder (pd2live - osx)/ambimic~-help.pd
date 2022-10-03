@@ -1,0 +1,19 @@
+#N canvas 566 185 514 263 10;
+#X obj 20 90 ambimic~;
+#X text 129 200 For more informataion see: http://www.york.ac.uk/inst/mustech/3d_audio/vst/bfmic_help.html
+;
+#X text 132 50 Input 1 = W \, Input 2 = X \, Input 3 = Y \, Input 4
+= Z.;
+#X text 16 7 Ambimic~ Ambisonic B-Format to stereo pair utility based
+on the b_mic VST plugin by Dave Malham. Ported to pd by Matthew Paradis
+;
+#X obj 20 61 amicctrl;
+#X text 132 66 Output 1 = L \, Output 2 = R.;
+#X text 132 83 Parameters;
+#X text 132 105 Parameters can be altered using the amicctrl abstraction
+or by passing messages directly into the ambimic~ objects 1st input.
+Parameters are:;
+#X text 131 146 azimuth = azimuth \, elevation = elevation \, angle
+= angle \, pattern = pattern.;
+#X text 131 180 All parameters are scaled between 0.0-1.0;
+#X connect 4 0 0 0;

@@ -1,0 +1,132 @@
+#N canvas 109 128 918 717 10;
+#X obj 589 61 r TT1;
+#X obj 589 289 s TTi;
+#X msg 589 139 adc 1 \$1;
+#X msg 602 163 adc 2 \$1;
+#X msg 616 186 adc 3 \$1;
+#X msg 630 208 adc 4 \$1;
+#X msg 644 232 adc 5 \$1;
+#X msg 658 255 adc 6 \$1;
+#X obj 637 61 r TT2;
+#X obj 689 61 r TT3;
+#X obj 737 61 r TT4;
+#X obj 791 61 r TT5;
+#X obj 849 61 r TT6;
+#X obj 511 114 r TTd1;
+#X obj 440 154 r TTd2;
+#X obj 402 212 r TTd3;
+#X obj 400 264 r TTd4;
+#X obj 413 327 r TTt1;
+#X obj 492 380 r TTt2;
+#X obj 589 397 r TTt3;
+#X msg 511 138 digital 1;
+#X msg 440 178 digital 2;
+#X msg 402 236 digital 3;
+#X msg 400 289 digital 4;
+#X msg 413 352 tact 1;
+#X msg 492 405 tact 2;
+#X msg 589 422 tact 3;
+#X obj 298 394 send;
+#X obj 298 317 r TTo;
+#X msg 298 343 \$2 TTo\$1;
+#X obj 298 368 unpack f s;
+#X obj 589 86 / 100;
+#X obj 637 86 / 100;
+#X obj 689 86 / 100;
+#X obj 737 86 / 100;
+#X obj 791 86 / 100;
+#X obj 849 86 / 100;
+#X obj 34 463 r TTi;
+#X obj 34 491 route adc tact digital;
+#X obj 34 567 print ADC:;
+#X obj 77 543 print TACT:;
+#X obj 120 517 print DIGITAL:;
+#X obj 94 395 s TTo;
+#X msg 149 362 3 0;
+#X msg 181 362 3 1;
+#X text 34 444 connect here to see how routing works;
+#X obj 10 10 cnv 15 300 150 empty empty empty 20 12 0 14 -33289 -66577
+0;
+#X obj 15 15 cnv 15 290 140 empty empty empty 10 10 0 14 -237178 -66577
+0;
+#X floatatom 26 47 5 0 100 2 TT1 - TT1;
+#X floatatom 93 47 5 0 100 2 TT2 - TT2;
+#X floatatom 163 47 5 0 100 2 TT3 - TT3;
+#X floatatom 26 80 5 0 100 2 TT4 - TT4;
+#X floatatom 95 80 5 0 100 2 TT5 - TT5;
+#X floatatom 163 80 5 0 100 2 TT6 - TT6;
+#X obj 26 105 bng 15 250 50 0 TTd1 empty TTd1 17 7 0 10 -262144 -1
+-1;
+#X obj 95 105 bng 15 250 50 0 TTd2 empty TTd2 17 7 0 10 -262144 -1
+-1;
+#X obj 26 130 bng 15 250 50 0 TTd3 empty TTd3 17 7 0 10 -262144 -1
+-1;
+#X obj 95 130 bng 15 250 50 0 TTd4 empty TTd4 17 7 0 10 -262144 -1
+-1;
+#X obj 242 80 bng 15 250 50 0 TTt2 empty TTt2 17 7 0 10 -162280 -1
+-1;
+#X obj 241 105 bng 15 250 50 0 TTt3 empty TTt3 17 7 0 10 -257985 -1
+-1;
+#X obj 243 47 bng 15 250 50 0 TTt1 empty TTt1 17 7 0 10 -162280 -1
+-1;
+#X obj 267 61 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 162 105 tgl 15 0 empty TTo1 TTo1 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 241 130 tgl 15 0 empty TTo3 TTo3 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 161 130 tgl 15 0 empty TTo2 TTo2 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 76 362 2 0;
+#X msg 108 362 2 1;
+#X msg 10 362 1 0;
+#X msg 42 362 1 1;
+#X text 30 342 test msg to LED outputs;
+#X connect 0 0 31 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 32 0;
+#X connect 9 0 33 0;
+#X connect 10 0 34 0;
+#X connect 11 0 35 0;
+#X connect 12 0 36 0;
+#X connect 13 0 20 0;
+#X connect 14 0 21 0;
+#X connect 15 0 22 0;
+#X connect 16 0 23 0;
+#X connect 17 0 24 0;
+#X connect 18 0 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 1 0;
+#X connect 21 0 1 0;
+#X connect 22 0 1 0;
+#X connect 23 0 1 0;
+#X connect 24 0 1 0;
+#X connect 25 0 1 0;
+#X connect 26 0 1 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 27 0;
+#X connect 30 1 27 1;
+#X connect 31 0 2 0;
+#X connect 32 0 3 0;
+#X connect 33 0 4 0;
+#X connect 34 0 5 0;
+#X connect 35 0 6 0;
+#X connect 36 0 7 0;
+#X connect 38 0 39 0;
+#X connect 38 1 40 0;
+#X connect 38 2 41 0;
+#X connect 43 0 42 0;
+#X connect 44 0 42 0;
+#X connect 61 0 58 0;
+#X connect 61 0 60 0;
+#X connect 65 0 42 0;
+#X connect 66 0 42 0;
+#X connect 67 0 42 0;
+#X connect 68 0 42 0;
+#X coords 0 -1 1 1 300 150 1 10 10;
